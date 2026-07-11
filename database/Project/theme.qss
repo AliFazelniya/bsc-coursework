@@ -1,0 +1,74 @@
+/* General Main Window */
+QMainWindow {
+    background-color: #0f111a;
+    color: #00ffe0;
+}
+
+/* Labels */
+QLabel {
+    color: #00d3ff;
+    font-size: 14px;
+}
+
+/* Buttons */
+QPushButton {
+    background-color: #1a1f2e;
+    color: #00ffe0;
+    border: 1px solid #00ffe0;
+    border-radius: 6px;
+    padding: 6px;
+}
+QPushButton:hover {
+    background-color: #00ffe0;
+    color: black;
+}
+
+/* Table Header */
+QHeaderView::section {
+    background-color: #1a1f2e;
+    color: #00ffe0;
+    padding: 4px;
+    border: 1px solid #00ffe0;
+    font-weight: bold;
+}
+
+/* Table (Widget or View) */
+QTableWidget, QTableView {
+    background-color: #12141c;
+    gridline-color: #00ffe0;
+    color: #d0fefe;
+    border: 1px solid #00ffe0;
+    selection-background-color: rgba(0, 255, 224, 0.15);  /* translucent glow */
+    selection-color: white;
+}
+
+/* Make logos look clean */
+QTableWidget::item, QTableView::item {
+    border: none;
+    padding: 4px;
+}
+
+/* Prevent selection border around images */
+QTableWidget::item:selected, QTableView::item:selected {
+    outline: none;
+}
+
+/* Corner */
+QTableCornerButton::section {
+    background-color: #1a1f2e;
+    border: 1px solid #00ffe0;
+}
+
+/* Scrollbars */
+QScrollBar:vertical, QScrollBar:horizontal {
+    background: #1a1f2e;
+    width: 12px;
+    height: 12px;
+}
+QScrollBar::handle {
+    background: #00ffe0;
+    border-radius: 4px;
+}
+QScrollBar::add-line, QScrollBar::sub-line {
+    background: none;
+}
