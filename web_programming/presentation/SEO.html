@@ -1,0 +1,1321 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>SEO</title>
+  <style>
+    :root{
+      --bg0:#0b1020;
+      --bg1:#0f1733;
+      --card:#121a35cc;
+      --stroke:#ffffff1f;
+      --text:#eef2ff;
+      --muted:#b8c0ff;
+      --accent:#7c4dff;
+      --accent2:#22d3ee;
+      --good:#34d399;
+      --warn:#fbbf24;
+      --bad:#fb7185;
+      --shadow: 0 18px 45px rgba(0,0,0,.45);
+      --radius: 22px;
+      --max: 1120px;
+      --gap: 18px;
+      --font: "Vazirmatn", "IRANSans", "Segoe UI", Tahoma, Arial, sans-serif;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:var(--font);
+      color:var(--text);
+      background:
+        radial-gradient(1200px 600px at 15% 10%, rgba(124,77,255,.30), transparent 60%),
+        radial-gradient(900px 500px at 85% 25%, rgba(34,211,238,.22), transparent 55%),
+        linear-gradient(180deg, var(--bg0), var(--bg1));
+      overflow:hidden;
+    }
+
+    .app{
+      height:100%;
+      display:grid;
+      grid-template-columns: 290px 1fr;
+    }
+
+    .toc{
+      border-left:1px solid var(--stroke);
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+      padding:18px 14px;
+      overflow:auto;
+    }
+    .brand{
+      display:flex; gap:12px; align-items:center;
+      padding:10px 10px 14px;
+      border-bottom:1px solid var(--stroke);
+      margin-bottom:12px;
+    }
+    .logo{
+      width:44px;height:44px;border-radius:14px;
+      background:
+        radial-gradient(12px 12px at 30% 30%, rgba(255,255,255,.9), transparent 60%),
+        linear-gradient(135deg, var(--accent), var(--accent2));
+      box-shadow: var(--shadow);
+      border:1px solid rgba(255,255,255,.18);
+    }
+    .brand h1{
+      font-size:14px; margin:0;
+      line-height:1.35;
+    }
+    .brand p{
+      margin:2px 0 0;
+      font-size:12px;
+      color:var(--muted);
+    }
+
+    .toc .hint{
+      font-size:12px; color:var(--muted);
+      padding:10px 10px 0;
+      line-height:1.7;
+    }
+
+    .toc a{
+      display:flex;
+      gap:10px;
+      align-items:flex-start;
+      text-decoration:none;
+      color:var(--text);
+      padding:10px 10px;
+      border-radius:14px;
+      border:1px solid transparent;
+      transition:.15s ease;
+      margin:6px 0;
+    }
+    .toc a:hover{
+      background: rgba(255,255,255,.06);
+      border-color: rgba(255,255,255,.10);
+    }
+    .toc .n{
+      width:28px; height:28px;
+      display:grid; place-items:center;
+      border-radius:10px;
+      background: rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.12);
+      color:var(--muted);
+      font-size:12px;
+      flex:0 0 auto;
+    }
+    .toc .t{
+      font-size:13px; line-height:1.55;
+    }
+    .toc .t small{
+      display:block;
+      color:var(--muted);
+      font-size:11px;
+      margin-top:2px;
+      line-height:1.5;
+    }
+
+    /* Deck */
+    .deck{
+      height:100%;
+      overflow:auto;
+      scroll-snap-type:y mandatory;
+      scroll-behavior:smooth;
+    }
+
+    .slide{
+      min-height:100vh;
+      scroll-snap-align:start;
+      padding:42px 38px;
+      display:grid;
+      place-items:center;
+      counter-increment: slide;
+    }
+
+    .frame{
+      width:min(var(--max), 100%);
+      background: rgba(255,255,255,.04);
+      border:1px solid rgba(255,255,255,.10);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+      position:relative;
+    }
+
+    .topbar{
+      padding:14px 18px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+      border-bottom:1px solid rgba(255,255,255,.10);
+      background: linear-gradient(90deg, rgba(124,77,255,.18), rgba(34,211,238,.10));
+    }
+    .kicker{
+      display:flex; align-items:center; gap:10px;
+      color:var(--muted);
+      font-size:12px;
+    }
+    .pill{
+      font-size:12px;
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(0,0,0,.18);
+      color: var(--text);
+    }
+    .pill.accent{ border-color: rgba(124,77,255,.45); }
+    .pill.cyan{ border-color: rgba(34,211,238,.45); }
+
+    .content{
+      padding:26px 26px 18px;
+    }
+
+    h2{
+      margin:0 0 10px;
+      font-size:30px;
+      letter-spacing:-.2px;
+      line-height:1.25;
+    }
+    .subtitle{
+      margin:0 0 18px;
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.9;
+      max-width: 90ch;
+    }
+
+    .grid{
+      display:grid;
+      gap: var(--gap);
+    }
+    .g2{ grid-template-columns: 1.05fr .95fr; }
+    .g3{ grid-template-columns: repeat(3, 1fr); }
+    @media (max-width: 980px){
+      .app{grid-template-columns: 1fr;}
+      .toc{display:none}
+      .slide{padding:20px 14px}
+      h2{font-size:26px}
+      .g2,.g3{grid-template-columns:1fr}
+    }
+
+    .card{
+      background: var(--card);
+      border:1px solid rgba(255,255,255,.10);
+      border-radius: 18px;
+      padding:16px 16px;
+    }
+    .card h3{
+      margin:0 0 8px;
+      font-size:16px;
+    }
+    .card p{
+      margin:0;
+      color: var(--muted);
+      line-height:1.9;
+      font-size:13px;
+    }
+
+    ul{
+      margin:10px 0 0;
+      padding:0 18px 0 0;
+      color: var(--text);
+    }
+    li{ line-height:1.9; margin:6px 0; }
+    .muted{ color: var(--muted); }
+
+    .callout{
+      border-radius:16px;
+      padding:14px 14px;
+      border:1px solid rgba(255,255,255,.12);
+      background: linear-gradient(135deg, rgba(124,77,255,.18), rgba(34,211,238,.10));
+    }
+    .callout strong{ color:#fff; }
+
+    .tagrow{ display:flex; flex-wrap:wrap; gap:8px; margin-top:10px;}
+    .tag{
+      padding:6px 10px;
+      border-radius:999px;
+      font-size:12px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+      color: var(--muted);
+    }
+    .tag.good{ border-color: rgba(52,211,153,.35); color:#d1fae5; }
+    .tag.warn{ border-color: rgba(251,191,36,.35); color:#fef3c7; }
+    .tag.bad{ border-color: rgba(251,113,133,.35); color:#ffe4e6; }
+
+    .example{
+      margin-top:12px;
+      border-radius:16px;
+      border:1px dashed rgba(255,255,255,.18);
+      background: rgba(0,0,0,.16);
+      padding:12px 12px;
+      color: var(--muted);
+      font-size:13px;
+      line-height:1.9;
+    }
+    .example b{ color: var(--text); }
+
+    .mini{
+      display:grid;
+      gap:10px;
+    }
+    .kv{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:12px;
+      padding:10px 12px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.05);
+      font-size:13px;
+      color: var(--muted);
+    }
+    .kv span{ color: var(--text); }
+
+    .footer{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      padding:12px 18px;
+      border-top:1px solid rgba(255,255,255,.10);
+      background: rgba(0,0,0,.18);
+      color: var(--muted);
+      font-size:12px;
+    }
+    .slide-no::before{ content:"اسلاید "; }
+    .slide-no::after{ content: counter(slide); }
+    .ref{
+      color: #c7d2fe;
+      font-weight:600;
+    }
+
+    .cover .content{
+      padding:44px 28px 24px;
+      text-align:right;
+    }
+    .cover h2{
+      font-size:40px;
+      margin-bottom:10px;
+    }
+    .cover .subtitle{ font-size:15px; }
+    .cover .hero{
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: var(--gap);
+      margin-top:14px;
+      align-items:stretch;
+    }
+    .cover .badge{
+      display:inline-flex;
+      gap:10px;
+      align-items:center;
+      margin-top:12px;
+    }
+    .dot{
+      width:10px;height:10px;border-radius:50%;
+      background: var(--accent2);
+      box-shadow: 0 0 0 6px rgba(34,211,238,.12);
+    }
+
+    @media print{
+      body{ overflow:visible; background:#fff; color:#111; }
+      .app{ grid-template-columns:1fr; }
+      .toc{ display:none; }
+      .deck{ overflow:visible; }
+      .slide{ min-height:auto; page-break-after:always; padding:0; }
+      .frame{ box-shadow:none; border:1px solid #ddd; }
+      .topbar,.footer{ background:#f7f7f7; color:#333; }
+      .card,.callout,.example,.kv{ background:#fff; color:#222; border-color:#ddd; }
+      .subtitle,.muted{ color:#444; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="app">
+    <aside class="toc" aria-label="فهرست اسلایدها">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <div>
+          <h1>سئو (SEO)</h1>
+        </div>
+      </div>
+
+      <a href="#s1"><div class="n">1</div><div class="t">کاور <small>موضوع، هدف و ساختار</small></div></a>
+      <a href="#s2"><div class="n">2</div><div class="t">SEO چیست؟ <small>تعریف، ارزش و خروجی</small></div></a>
+      <a href="#s3"><div class="n">3</div><div class="t">گوگل چگونه کار می‌کند؟ <small>Crawl → Index → Rank</small></div></a>
+      <a href="#s4"><div class="n">4</div><div class="t">خواسته جستجو (Intent) <small>۴ نوع + مثال</small></div></a>
+      <a href="#s5"><div class="n">5</div><div class="t">تحقیق کلمات کلیدی <small>فرآیند + اولویت‌بندی</small></div></a>
+      <a href="#s6"><div class="n">6</div><div class="t">آن‌پیج (On-page) <small>عنوان، هدینگ، لینک داخلی…</small></div></a>
+      <a href="#s7"><div class="n">7</div><div class="t">کیفیت محتوا و E-E-A-T <small>اعتماد، تجربه، تخصص</small></div></a>
+      <a href="#s8"><div class="n">8</div><div class="t">تکنیکال (Technical) <small>robots, canonical, index</small></div></a>
+      <a href="#s9"><div class="n">9</div><div class="t">معماری سایت <small>Sitemap + لینک‌سازی داخلی</small></div></a>
+      <a href="#s10"><div class="n">10</div><div class="t">Page Experience <small>Core Web Vitals</small></div></a>
+      <a href="#s11"><div class="n">11</div><div class="t">موبایل‌فرست <small>طراحی و محتوا برای موبایل</small></div></a>
+      <a href="#s12"><div class="n">12</div><div class="t">Structured Data <small>Rich Results و قوانین</small></div></a>
+      <a href="#s13"><div class="n">13</div><div class="t">آف‌پیج و لینک‌سازی <small>کیفیت لینک + ریسک‌ها</small></div></a>
+      <a href="#s14"><div class="n">14</div><div class="t">سئوی محلی (Local) <small>برای کسب‌وکارهای لوکال</small></div></a>
+      <a href="#s15"><div class="n">15</div><div class="t">اندازه‌گیری و KPI <small>GSC/GA4 و شاخص‌ها</small></div></a>
+      <a href="#s16"><div class="n">16</div><div class="t">نقشه‌راه اجرا <small>۳۰/۶۰/۹۰ روز</small></div></a>
+      <a href="#s17"><div class="n">17</div><div class="t">اشتباهات رایج <small>مایت‌ها و ضدالگوها</small></div></a>
+      <a href="#s18"><div class="n">18</div><div class="t">مینی کیس‌ <small>از مسئله تا نتیجه</small></div></a>
+      <a href="#s19"><div class="n">19</div><div class="t">جمع‌بندی <small>چک‌لیست ذهنی</small></div></a>
+      <a href="#s20"><div class="n">20</div><div class="t">منابع <small>ارجاع‌های معتبر</small></div></a>
+    </aside>
+
+    <main class="deck" aria-label="اسلایدها">
+
+      <section class="slide" id="s1">
+        <article class="frame cover">
+          <div class="topbar">
+            <div class="kicker">
+            </div>
+          </div>
+
+          <div class="content">
+            <h2>سئو (SEO): از مفاهیم تا اجرا</h2>
+            <p class="subtitle">
+              هدف: درک دقیق و کاربردیِ سئو به‌عنوان یک «سیستم» — نه مجموعه‌ای از ترفندها.
+              هر بخش با مثال کوتاه همراه است تا برای کلاس دانشگاهی قابل ارائه باشد.
+            </p>
+
+            <div class="cover hero">
+              <div class="card">
+                <h3>این ارائه چه چیزی می‌دهد؟</h3>
+                <ul>
+                  <li>مدل ذهنی گوگل: <b>Crawl → Index → Rank</b></li>
+                  <li>۴ ستون عملی: <b>Intent</b>، <b>Content</b>، <b>Technical</b>، <b>Authority</b></li>
+                  <li>نقشه‌راه ۳۰/۶۰/۹۰ روزه برای اجرای پروژه سئو</li>
+                </ul>
+              </div>
+
+              <div class="callout">
+                <div class="badge"><span class="dot"></span><strong>پیام کلیدی:</strong></div>
+                <p style="margin:10px 0 0; line-height:1.95; color:var(--muted);">
+                  سئو یعنی «بهترین پاسخ» را برای «خواسته درست» بسازی و مطمئن شوی گوگل و کاربر
+                  به‌راحتی آن را پیدا و انتخاب می‌کنند.
+                </p>
+                <div class="example">
+                  <b>مثال:</b> اگر کاربر «راهنمای خرید لپ‌تاپ برای برنامه‌نویسی» سرچ می‌کند،
+                  یک صفحه فروش صرفاً لیست محصول نیست؛ باید معیار انتخاب، مقایسه، FAQ، و پیشنهادهای واضح داشته باشد.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="footer">
+            <span class="slide-no"></span>
+          </div>
+        </article>
+      </section>
+
+      <section class="slide" id="s2">
+        <article class="frame">
+          <div class="topbar">
+            <div class="kicker"><span class="pill accent">مفهوم</span><span class="pill">پایه‌ها</span></div>
+            <div class="kicker">SEO چیست؟ <span class="ref"> </span></div>
+          </div>
+
+          <div class="content">
+            <h2>SEO چیست و چرا اهمیت دارد؟</h2>
+            <p class="subtitle">
+              SEO یا «بهینه‌سازی برای موتور جستجو» یعنی کمک کنیم موتور جستجو محتوای ما را
+              <b>درست بفهمد</b> و به کاربران <b>مناسب</b> نشان بدهد. خروجی خوب سئو معمولاً
+              ترافیک هدفمند، اعتماد، و رشد پایدار است. <span class="ref"> </span>
+            </p>
+
+            <div class="grid g2">
+              <div class="card">
+                <h3>سه خروجی اصلی سئو</h3>
+                <ul>
+                  <li><b>Discoverability</b>: گوگل بتواند صفحه را پیدا و بخزد.</li>
+                  <li><b>Relevance</b>: صفحه به خواسته جستجو واقعاً پاسخ بدهد.</li>
+                  <li><b>Preference</b>: کاربر در SERP شما را انتخاب کند (CTR) و رضایت بگیرد.</li>
+                </ul>
+                <div class="example">
+                  <b>مثال:</b> دو سایت هر دو «آموزش پایتون» دارند. سایتی که ساختار بهتر، مثال‌های واقعی،
+                  سرعت مناسب و عنوان واضح‌تر دارد معمولاً کلیک و ماندگاری بیشتری می‌گیرد.
+                </div>
+              </div>
+
+              <div class="card">
+                <h3>SEO در یک جمله مدیریتی</h3>
+                <p>
+                  تبلیغات = «خرید ترافیک» (سریع، وابسته به بودجه)<br/>
+                  سئو = «ساخت دارایی» (کندتر، پایدارتر)
+                </p>
+                <div class="mini" style="margin-top:12px">
+                  <div class="kv"><span>زمان اثرگذاری</span><b class="muted">هفته‌ها تا ماه‌ها</b></div>
+                  <div class="kv"><span>ریسک کلیدی</span><b class="muted">کیفیت/فنی/رقابت</b></div>
+                  <div class="kv"><span>مزیت کلیدی</span><b class="muted">پایداری و اعتماد</b></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="footer">
+            <span>کلیدواژه‌ها: Crawl, Index, Rank, SERP</span>
+            <span class="slide-no"></span>
+          </div>
+        </article>
+      </section>
+      <section class="slide" id="s3">
+        <article class="frame">
+          <div class="topbar">
+            <div class="kicker"><span class="pill accent">موتور جستجو</span><span class="pill">مدل</span></div>
+            <div class="kicker">How Search Works <span class="ref"> </span></div>
+          </div>
+
+          <div class="content">
+            <h2>گوگل چگونه یک صفحه را به نتیجه تبدیل می‌کند؟</h2>
+            <p class="subtitle">
+              یک مدل ساده و کاربردی: <b>Crawl → Index → Rank</b>.
+              اگر یکی از این سه مرحله مشکل داشته باشد، رتبه‌گیری سخت یا غیرممکن می‌شود. <span class="ref"> </span>
+            </p>
+
+            <div class="grid g3">
+              <div class="card">
+                <h3>1) Crawl (خزیدن)</h3>
+                <p>ربات‌ها لینک‌ها را دنبال می‌کنند و صفحات را می‌خوانند.</p>
+                <div class="example">
+                  <b>مثال:</b> اگر صفحه فقط پشت یک فرم/لاگین باشد یا لینک داخلی ندارد، ممکن است اصلاً خوب خزیده نشود.
+                </div>
+              </div>
+              <div class="card">
+                <h3>2) Index (ایندکس)</h3>
+                <p>گوگل تصمیم می‌گیرد صفحه را در پایگاه داده‌اش نگه دارد یا نه.</p>
+                <div class="example">
+                  <b>مثال:</b> صفحات تکراری یا کم‌کیفیت ممکن است ایندکس نشوند یا نسخه کاننیکال دیگری انتخاب شود. <span class="ref"> </span>
+                </div>
+              </div>
+              <div class="card">
+                <h3>3) Rank (رتبه‌بندی)</h3>
+                <p>برای هر Query، بهترین پاسخ‌ها انتخاب و مرتب می‌شوند.</p>
+                <div class="example">
+                  <b>مثال:</b> برای «خرید …» معمولاً صفحات محصول/دسته می‌آیند؛ برای «چگونه …» راهنما و آموزش.
+                </div>
+              </div>
+            </div>
+
+            <div class="callout" style="margin-top:16px">
+              <strong>نکته امتحانی:</strong>
+              «سئو فقط رتبه نیست.» اول باید مطمئن شوی صفحات <b>قابل خزیدن و قابل ایندکس</b> هستند، بعد سراغ بهبود رتبه بروی.
+            </div>
+          </div>
+
+          <div class="footer">
+            <span>نکته: مشکلات Crawl/Index اغلب با Search Console قابل مشاهده‌اند.</span>
+            <span class="slide-no"></span>
+          </div>
+        </article>
+      </section>
+      <section class="slide" id="s4">
+        <article class="frame">
+          <div class="topbar">
+            <div class="kicker"><span class="pill accent">Intent</span><span class="pill">اصلی‌ترین فیلتر</span></div>
+            <div class="kicker">Search Intent <span class="ref"> </span></div>
+          </div>
+
+          <div class="content">
+            <h2>خواسته جستجو (Search Intent): قبل از هر چیز</h2>
+            <p class="subtitle">
+              گوگل تلاش می‌کند نتیجه‌ای نشان دهد که با «خواسته کاربر» سازگار باشد.
+              اگر صفحه مقصد با خواسته جور نباشد، حتی با لینک و تکنیکال هم سقف رشد دارد.
+            </p>
+
+            <div class="grid g2">
+              <div class="card">
+                <h3>۴ نوع رایج خواسته</h3>
+                <ul>
+                  <li><b>Informational</b>: یادگیری/پاسخ (راهنما، مقاله)</li>
+                  <li><b>Navigational</b>: رسیدن به یک سایت/برند (صفحه رسمی)</li>
+                  <li><b>Commercial Investigation</b>: مقایسه/انتخاب (بهترین‌ها، بررسی)</li>
+                  <li><b>Transactional</b>: اقدام/خرید (محصول/خدمت/ثبت‌نام)</li>
+                </ul>
+              </div>
+
+              <div class="card">
+                <h3>مثال سریع (هم‌خوانی Intent و Page Type)</h3>
+                <div class="example">
+                  <b>Query:</b> «بهترین گوشی تا ۱۵ میلیون» → <b>صفحه مناسب:</b> مقایسه + معیارها + پیشنهادها<br/>
+                  <b>Query:</b> «خرید گوشی سامسونگ A54» → <b>صفحه مناسب:</b> محصول/دسته + قیمت + موجودی<br/>
+                  <b>Query:</b> «چطور باتری گوشی را سالم نگه داریم» → <b>صفحه مناسب:</b> آموزش + مراحل + FAQ
+                </div>
+                <div class="tagrow">
+                  <span class="tag good">Intent درست = رضایت بیشتر</span>
+                  <span class="tag warn">Intent غلط = پرش بالا</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="footer">
+            <span>تمرین کلاسی: برای ۱۰ Query، نوع Intent و صفحه مقصد را تعیین کنید.</span>
+            <span class="slide-no"></span>
+          </div>
+        </article>
+      </section>
+
+      <section class="slide" id="s5">
+        <article class="frame">
+          <div class="topbar">
+            <div class="kicker"><span class="pill accent">Keyword Research</span><span class="pill">فرآیند</span></div>
+            <div class="kicker">از «کلمه» تا «موضوع» <span class="ref"> </span></div>
+          </div>
+
+          <div class="content">
+            <h2>تحقیق کلمات کلیدی: از Seed تا خوشه موضوعی</h2>
+            <p class="subtitle">
+              هدف تحقیق کلمات کلیدی، ساختن یک <b>نقشه موضوعی</b> است: چه چیزهایی را باید پوشش دهیم، با چه اولویتی،
+              و هر موضوع به چه صفحه‌ای ختم می‌شود.
+            </p>
+
+            <div class="grid g2">
+              <div class="card">
+                <h3>فرآیند پیشنهادی (قابل ارائه در دانشگاه)</h3>
+                <ol style="margin:10px 0 0; padding:0 18px 0 0; line-height:1.9;">
+                  <li><b>Seed</b>: از محصول/مسئله شروع کن (۳–۱۰ کلمه)</li>
+                  <li><b>SERP Check</b>: ببین گوگل چه نوع صفحاتی نشان می‌دهد (Intent)</li>
+                  <li><b>Expand</b>: سوال‌ها، لانگ‌تیل‌ها، مترادف‌ها</li>
+                  <li><b>Cluster</b>: گروه‌بندی بر اساس موضوع (Topic Cluster)</li>
+                  <li><b>Prioritize</b>: ارزش تجاری + سختی رقابت + توان پاسخ‌دهی</li>
+                </ol>
+
+                <div class="example">
+                  <b>مثال:</b> Seed = «سئو فروشگاه اینترنتی» →
+                  خوشه‌ها: «سئو محصول»، «سئو دسته‌بندی»، «اسکیما محصول»، «سرعت فروشگاه»، «لینک‌سازی برای ای‌کامرس».
+                </div>
+              </div>
+
+              <div class="card">
+                <h3>قانون طلایی اولویت‌بندی</h3>
+                <div class="mini">
+                  <div class="kv"><span>۱) Intent واضح</span><span>→</span><span>صفحه مقصد مشخص</span></div>
+                  <div class="kv"><span>۲) توان پاسخ‌دهی</span><span>→</span><span>محتوای کامل‌تر از رقبا</span></div>
+                  <div class="kv"><span>۳) ارزش کسب‌وکار</span><span>→</span><span>نزدیکی به تبدیل</span></div>
+                </div>
+                <div class="callout" style="margin-top:12px">
+                  <strong>نکته:</strong> به جای «بیشترین حجم»، دنبال «بهترین تناسب با هدف» باش.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="footer">
+            <span>کلمه کلیدی = ورودی تصمیم محتوا، نه فقط یک عدد.</span>
+            <span class="slide-no"></span>
+          </div>
+        </article>
+      </section>
+
+      <section class="slide" id="s6">
+        <article class="frame">
+          <div class="topbar">
+            <div class="kicker"><span class="pill accent">On-page</span><span class="pill">قابل کنترل‌ترین بخش</span></div>
+            <div class="kicker">Title / Snippet <span class="ref">  </span></div>
+          </div>
+
+          <div class="content">
+            <h2>آن‌پیج: صفحه باید «قابل فهم» و «قابل انتخاب» باشد</h2>
+            <p class="subtitle">
+              آن‌پیج یعنی بهینه‌سازی عناصر داخل صفحه: عنوان، توضیحات، ساختار هدینگ‌ها، متن، تصاویر، لینک داخلی، و…
+              این بخش هم به فهم گوگل کمک می‌کند، هم به انتخاب کاربر در SERP. <span class="ref">  </span>
+            </p>
+
+            <div class="grid g2">
+              <div class="card">
+                <h3>چک‌لیست کوتاهِ استاندارد</h3>
+                <ul>
+                  <li><b>Title</b> دقیق، یکتا، هم‌راستا با خواسته (و قابل نمایش) <span class="ref"> </span></li>
+                  <li><b>Meta Description</b> خلاصه و قانع‌کننده (برای کمک به اسنیپت) <span class="ref"> </span></li>
+                  <li><b>H1/H2</b> برای ساختاردهی و پوشش زیرموضوع‌ها</li>
+                  <li><b>پاراگراف اول</b>: پاسخ سریع + وعده‌ی ادامه</li>
+                  <li><b>لینک داخلی</b>: هدایت کاربر و پخش اعتبار به صفحات مهم</li>
+                  <li><b>تصویر</b>: ALT توصیفی + حجم بهینه</li>
+                </ul>
+              </div>
+
+              <div class="card">
+                <h3>مثال: قبل/بعد عنوان و توضیحات</h3>
+                <div class="example">
+                  <b>قبل:</b> «صفحه ۱۲۳» — «به سایت ما خوش آمدید…»<br/>
+                  <b>بعد:</b> «راهنمای خرید لپ‌تاپ برای برنامه‌نویسی (۱۴۰۵) + ۷ معیار انتخاب»<br/>
+                  <span class="muted">توضیحات:</span> «CPU/رم/باتری/نمایشگر را با مثال واقعی بررسی کردیم؛ ۵ مدل پیشنهادی در بازه‌های قیمت مختلف.»
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="footer">
+            <span>هدف آن‌پیج: فهم بهتر + CTR بهتر + تجربه بهتر.</span>
+            <span class="slide-no"></span>
+          </div>
+        </article>
+      </section>
+
+      <section class="slide" id="s7">
+        <article class="frame">
+          <div class="topbar">
+            <div class="kicker"><span class="pill accent">Quality</span><span class="pill">اعتماد</span></div>
+            <div class="kicker">E-E-A-T <span class="ref"> </span></div>
+          </div>
+
+          <div class="content">
+            <h2>کیفیت محتوا و E-E-A-T: چرا «اعتماد» مهم است؟</h2>
+            <p class="subtitle">
+              در ارزیابی کیفیت نتایج، معیارهایی مثل Experience/Expertise/Authoritativeness/Trust مطرح می‌شوند،
+              مخصوصاً برای موضوعات حساس (پول، سلامت، حقوق…). <span class="ref"> </span>
+            </p>
+
+            <div class="grid g2">
+              <div class="card">
+                <h3>E-E-A-T را عملی کنیم</h3>
+                <ul>
+                  <li><b>Experience</b>: تجربه واقعی، عکس/اسکرین/نمونه‌کار</li>
+                  <li><b>Expertise</b>: تخصص و دقت علمی، تعریف‌ها و محدودیت‌ها</li>
+                  <li><b>Authoritativeness</b>: اشاره/ارجاع دیگران، برند منشن</li>
+                  <li><b>Trust</b>: شفافیت، منبع‌دهی، تماس، سیاست‌ها، امخواسته</li>
+                </ul>
+                <div class="example">
+                  <b>مثال:</b> مقاله «رژیم…» بدون نویسنده/منبع → اعتماد پایین.
+                  همان مقاله با نویسنده متخصص، منابع علمی، تاریخ به‌روزرسانی و هشدارها → اعتماد بالاتر.
+                </div>
+              </div>
+
+              <div class="card">
+                <h3>یک ضدالگو (برای نمره منفی!)</h3>
+                <div class="callout">
+                  <strong>“محتوای حجیم ولی بی‌ارزش”</strong>
+                  <p style="margin:8px 0 0; color:var(--muted); line-height:1.9;">
+                    اگر فقط کلمه اضافه کنیم، بدون اینکه سوال‌های واقعی کاربر را جواب دهیم، نتیجه معمولاً:
+                    پرش بالا، لینک نگرفتن، و رشد سخت‌تر است.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="footer">
+            <span>کیفیت = پاسخ درست + اعتماد + شفافیت</span>
+            <span class="slide-no"></span>
+          </div>
+        </article>
+      </section>
+
+      <section class="slide" id="s8">
+        <article class="frame">
+          <div class="topbar">
+            <div class="kicker"><span class="pill accent">Technical SEO</span><span class="pill">زیرساخت</span></div>
+            <div class="kicker">robots / canonical <span class="ref">  </span></div>
+          </div>
+
+          <div class="content">
+            <h2>تکنیکال سئو: Crawl/Index را سالم نگه داریم</h2>
+            <p class="subtitle">
+              تکنیکال یعنی کاری کنیم گوگل (و کاربر) بدون اصطکاک به محتوا برسند:
+              کنترل خزیدن، جلوگیری از تکرار، مدیریت ایندکس، و رفع خطاهای مهم. <span class="ref">  </span>
+            </p>
+
+            <div class="grid g2">
+              <div class="card">
+                <h3>سه ابزار/مفهوم حیاتی</h3>
+                <ul>
+                  <li><b>robots.txt</b>: مدیریت خزیدن (نه ابزار حذف از نتایج!) <span class="ref"> </span></li>
+                  <li><b>Canonicalization</b>: انتخاب نسخه نماینده در صفحات مشابه <span class="ref"> </span></li>
+                  <li><b>Noindex</b>: اعلام اینکه صفحه ایندکس نشود (برای صفحات کم‌ارزش)</li>
+                </ul>
+                <div class="example">
+                  <b>مثال:</b> فروشگاه با فیلترهای متعدد → URLهای زیاد و مشابه.
+                  راه‌حل: canonical + مدیریت پارامترها + جلوگیری از ایندکس صفحات کم‌ارزش.
+                </div>
+              </div>
+
+              <div class="card">
+                <h3>اشتباه کلاسیک (خیلی رایج)</h3>
+                <div class="callout">
+                  <strong>Disallow کردن صفحه مهم در robots.txt</strong>
+                  <p style="margin:8px 0 0; color:var(--muted); line-height:1.9;">
+                    اگر صفحه‌ای را Disallow کنی، گوگل ممکن است محتوا را نبیند و درک/رتبه‌گیری سخت شود.
+                    robots بیشتر برای مدیریت خزیدن است. <span class="ref"> </span>
+                  </p>
+                </div>
+                <div class="example">
+                  <b>قاعده امن:</b> اگر «نمی‌خواهی در نتایج باشد»، معمولاً Noindex/کاننیکال/حذف درست‌تر است (بسته به سناریو).
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="footer">
+            <span>تکنیکال خوب = سرعت حل مشکل + سقف بالاتر برای رشد محتوا</span>
+            <span class="slide-no"></span>
+          </div>
+        </article>
+      </section>
+
+      <section class="slide" id="s9">
+        <article class="frame">
+          <div class="topbar">
+            <div class="kicker"><span class="pill accent">Architecture</span><span class="pill">ساختار</span></div>
+            <div class="kicker">Sitemaps <span class="ref"> </span></div>
+          </div>
+
+          <div class="content">
+            <h2>معماری سایت: لینک داخلی + Sitemap</h2>
+            <p class="subtitle">
+              معماری خوب کمک می‌کند هم کاربر گم نشود، هم گوگل مسیرهای اصلی را بهتر بخزد.
+              <b>Sitemap</b> فقط یک «راهنما» است (تضمین ایندکس نیست)، ولی برای کشف بهتر مفید است. <span class="ref"> </span>
+            </p>
+
+            <div class="grid g2">
+              <div class="card">
+                <h3>قواعد ساده معماری</h3>
+                <ul>
+                  <li><b>Depth کم</b>: صفحات مهم با چند کلیک قابل دسترسی باشند.</li>
+                  <li><b>Topic Cluster</b>: یک صفحه ستون + چند صفحه پشتیبان</li>
+                  <li><b>لینک داخلی هدفمند</b>: از صفحات قوی به صفحات هدف</li>
+                </ul>
+                <div class="example">
+                  <b>مثال خوشه:</b> «سئو فروشگاه» (ستون) ← «سئو محصول»، «سئو دسته»، «اسکیما محصول»، «سرعت فروشگاه».
+                </div>
+              </div>
+
+              <div class="card">
+                <h3>Sitemap در عمل</h3>
+                <ul>
+                  <li>URLهای مهم و قابل ایندکس را معرفی کن (نه صفحات تکراری/کم‌ارزش)</li>
+                  <li>در Search Console ارسال و خطاها بررسی شود <span class="ref"> </span></li>
+                  <li>برای سایت‌های بزرگ: sitemap index</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="footer">
+            <span>Sitemap = «راهنما»؛ کیفیت محتوا/ساختار = «تصمیم نهایی»</span>
+            <span class="slide-no"></span>
+          </div>
+        </article>
+      </section>
+      <section class="slide" id="s10">
+        <article class="frame">
+          <div class="topbar">
+            <div class="kicker"><span class="pill accent">Page Experience</span><span class="pill">عملکرد</span></div>
+            <div class="kicker">Core Web Vitals <span class="ref"> </span></div>
+          </div>
+
+          <div class="content">
+            <h2>Core Web Vitals: تجربه واقعی کاربر</h2>
+            <p class="subtitle">
+              Core Web Vitals مجموعه‌ای از معیارهای تجربه کاربر در دنیای واقعی است: بارگذاری، تعامل، و پایداری بصری.
+              گوگل توصیه می‌کند این معیارها در وضعیت خوب باشند. <span class="ref"> </span>
+            </p>
+
+            <div class="grid g3">
+              <div class="card">
+                <h3>LCP (بارگذاری)</h3>
+                <p>هدف: محتوای اصلی سریع دیده شود.</p>
+                <div class="example"><b>بهینه‌سازی:</b> بهبود تصاویر قهرمان، کاهش بلاکینگ CSS/JS، کش مناسب.</div>
+              </div>
+              <div class="card">
+                <h3>INP (تعامل)</h3>
+                <p>هدف: واکنش سریع به کلیک/تاچ.</p>
+                <div class="example"><b>بهینه‌سازی:</b> کاهش JS سنگین، تقسیم وظایف، حذف اسکریپت‌های اضافی.</div>
+              </div>
+              <div class="card">
+                <h3>CLS (پایداری)</h3>
+                <p>هدف: صفحه «نپرد».</p>
+                <div class="example"><b>بهینه‌سازی:</b> تعیین اندازه تصاویر/بنرها، جلوگیری از تزریق ناگهانی محتوا.</div>
+              </div>
+            </div>
+
+            <div class="callout" style="margin-top:16px">
+              <strong>آستانه‌های رایج پیشنهادی:</strong>
+              برای تجربه خوب، گوگل توصیه می‌کند LCP حدوداً زیر ۲.۵ ثانیه، INP زیر ۲۰۰ms و CLS زیر ۰.۱ باشد. <span class="ref"> </span>
+            </div>
+          </div>
+
+          <div class="footer">
+            <span>ابزارها: Search Console (CWV report) + PageSpeed + داده‌های واقعی کاربر</span>
+            <span class="slide-no"></span>
+          </div>
+        </article>
+      </section>
+
+      <section class="slide" id="s11">
+        <article class="frame">
+          <div class="topbar">
+            <div class="kicker"><span class="pill accent">Mobile-first</span><span class="pill">UX</span></div>
+            <div class="kicker">موبایل <span class="ref"> </span></div>
+          </div>
+
+          <div class="content">
+            <h2>موبایل‌فرست: محتوا و طراحی برای صفحه کوچک</h2>
+            <p class="subtitle">
+              خیلی از کاربران (و بسیاری از جستجوها) موبایلی‌اند. بنابراین طراحی و محتوا باید در موبایل:
+              <b>قابل اسکن</b>، <b>سریع</b> و <b>قابل اقدام</b> باشد.
+            </p>
+
+            <div class="grid g2">
+              <div class="card">
+                <h3>۳ اصل عملی برای موبایل</h3>
+                <ul>
+                  <li><b>اسکن‌پذیری</b>: پاراگراف کوتاه، تیترهای واضح، لیست‌ها</li>
+                  <li><b>کلیک‌پذیری</b>: دکمه‌های بزرگ، فاصله مناسب</li>
+                  <li><b>سرعت</b>: تصاویر سبک، اسکریپت کمتر، فونت مناسب</li>
+                </ul>
+              </div>
+
+              <div class="card">
+                <h3>مثال اصلاح صفحه</h3>
+                <div class="example">
+                  <b>قبل:</b> متن‌های طولانی بدون تیتر + CTA در پایین صفحه<br/>
+                  <b>بعد:</b> خلاصه در بالا، تیترهای H2، یک CTA واضح بعد از بخش مقایسه، FAQ در انتها.
+                </div>
+                <div class="tagrow">
+                  <span class="tag good">موبایل = تصمیم سریع</span>
+                  <span class="tag warn">تاخیر = خروج</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="footer">
+            <span>موبایل‌فرست یعنی: حتی اگر دسکتاپ عالی باشد، موبایل ضعیف می‌تواند نتیجه را خراب کند.</span>
+            <span class="slide-no"></span>
+          </div>
+        </article>
+      </section>
+      <section class="slide" id="s12">
+        <article class="frame">
+          <div class="topbar">
+            <div class="kicker"><span class="pill accent">Structured Data</span><span class="pill">Rich Results</span></div>
+            <div class="kicker">Schema / Policies <span class="ref">  </span></div>
+          </div>
+
+          <div class="content">
+            <h2>Structured Data: وقتی می‌خواهیم «معنی» را دقیق‌تر منتقل کنیم</h2>
+            <p class="subtitle">
+              داده ساخت‌یافته (Structured Data) به گوگل کمک می‌کند موجودیت‌ها و ویژگی‌های مهم صفحه را بهتر بفهمد
+              و در برخی موارد، نتیجه‌های غنی (Rich Results) نمایش دهد. باید مطابق راهنمای گوگل پیاده‌سازی شود. <span class="ref">  </span>
+            </p>
+
+            <div class="grid g2">
+              <div class="card">
+                <h3>کجاها مفید است؟</h3>
+                <ul>
+                  <li>محصول: قیمت، موجودی، امتیاز</li>
+                  <li>مقاله/خبر: نویسنده، تاریخ</li>
+                  <li>FAQ / HowTo: سوال و جواب‌های ساخت‌یافته</li>
+                  <li>Local Business: آدرس، ساعات کاری</li>
+                </ul>
+                <div class="example">
+                  <b>مثال:</b> صفحه محصول با structured data درست → احتمال نمایش قیمت/امتیاز در SERP بیشتر می‌شود.
+                </div>
+              </div>
+
+              <div class="card">
+                <h3>قانون مهم: تقلب نکن</h3>
+                <div class="callout">
+                  <strong>Structured Data باید با محتوای واقعی صفحه هم‌خوان باشد</strong>
+                  <p style="margin:8px 0 0; color:var(--muted); line-height:1.9;">
+                    اگر FAQ می‌گذاری ولی در صفحه FAQ واقعی نیست، یا امتیاز جعلی می‌دهی، ریسک جریمه/حذف Rich Results بالا می‌رود. <span class="ref"> </span>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="footer">
+            <span>Structured Data کمک‌کننده است؛ جایگزین کیفیت محتوا و تکنیکال نیست.</span>
+            <span class="slide-no"></span>
+          </div>
+        </article>
+      </section>
+      <section class="slide" id="s13">
+        <article class="frame">
+          <div class="topbar">
+            <div class="kicker"><span class="pill accent">Off-page</span><span class="pill">Authority</span></div>
+            <div class="kicker">لینک‌سازی سالم</div>
+          </div>
+
+          <div class="content">
+            <h2>آف‌پیج: اعتبار از بیرون صفحه می‌آید (اما با ریسک)</h2>
+            <p class="subtitle">
+              آف‌پیج یعنی سیگنال‌هایی که بیرون از سایت رخ می‌دهند: لینک‌ها، منشن برند، PR، همکاری‌ها…
+              مهم‌ترین اصل: <b>کیفیت و ارتباط</b>، نه تعداد.
+            </p>
+
+            <div class="grid g2">
+              <div class="card">
+                <h3>لینک خوب چه ویژگی دارد؟</h3>
+                <ul>
+                  <li>دامنه مرتبط با موضوع</li>
+                  <li>جایگاه طبیعی (در متن، نه فوتر انبوه)</li>
+                  <li>انکرتکست متنوع و طبیعی</li>
+                  <li>به صفحه‌ای لینک می‌دهد که واقعاً ارزش دارد</li>
+                </ul>
+                <div class="example">
+                  <b>مثال:</b> یک مقاله آموزشی قوی در حوزه شما که توسط یک سایت معتبر引用 شده، ارزشمندتر از ۱۰۰ لینک بی‌ربط است.
+                </div>
+              </div>
+
+              <div class="card">
+                <h3>ریسک‌ها (برای بحث کلاسی)</h3>
+                <div class="tagrow">
+                  <span class="tag bad">خرید لینک انبوه</span>
+                  <span class="tag bad">شبکه PBN</span>
+                  <span class="tag warn">انکرتکست تکراری/اسپمی</span>
+                  <span class="tag warn">رپورتاژهای بی‌کیفیت</span>
+                </div>
+                <div class="example">
+                  <b>راه سالم:</b> «دارایی قابل لینک» بساز (راهنما، ابزار، داده، پژوهش کوچک) + Outreach هدفمند.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="footer">
+            <span>Authority نتیجه‌ی ارزش واقعی + توزیع هوشمند است.</span>
+            <span class="slide-no"></span>
+          </div>
+        </article>
+      </section>
+
+      <section class="slide" id="s14">
+        <article class="frame">
+          <div class="topbar">
+            <div class="kicker"><span class="pill accent">Local SEO</span><span class="pill">کسب‌وکار محلی</span></div>
+            <div class="kicker">نقشه/لوکیشن</div>
+          </div>
+
+          <div class="content">
+            <h2>Local SEO: وقتی مکان مهم است</h2>
+            <p class="subtitle">
+              اگر کاربر دنبال «نزدیک من / در شهر من» است، سئوی محلی اهمیت زیادی پیدا می‌کند:
+              اطلاعات دقیق مکان، ساعات کاری، و یکپارچگی داده‌ها در وب.
+            </p>
+
+            <div class="grid g2">
+              <div class="card">
+                <h3>چه چیزهایی مهم می‌شود؟</h3>
+                <ul>
+                  <li>یکسان بودن نام/آدرس/تلفن (NAP) در منابع مختلف</li>
+                  <li>صفحات اختصاصی شهر/شعبه با محتوای واقعی</li>
+                  <li>Reviewهای واقعی + پاسخ‌دهی حرفه‌ای</li>
+                  <li>Structured data نوع LocalBusiness (در صورت نیاز) <span class="ref"> </span></li>
+                </ul>
+              </div>
+
+              <div class="card">
+                <h3>مثال</h3>
+                <div class="example">
+                  <b>Query:</b> «کلینیک دندانپزشکی غرب تهران»<br/>
+                  <b>صفحه مناسب:</b> صفحه شعبه غرب با آدرس دقیق، مسیر، ساعات کاری، خدمات همان شعبه، و FAQ محلی.
+                </div>
+                <div class="callout" style="margin-top:12px">
+                  <strong>نکته:</strong> Local SEO فقط «نقشه» نیست؛ تجربه محلی و اعتماد محلی است.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="footer">
+            <span>Local = خواسته نزدیک + اعتماد + اطلاعات دقیق</span>
+            <span class="slide-no"></span>
+          </div>
+        </article>
+      </section>
+
+
+      <section class="slide" id="s15">
+        <article class="frame">
+          <div class="topbar">
+            <div class="kicker"><span class="pill accent">Measurement</span><span class="pill">KPI</span></div>
+            <div class="kicker">Search Console <span class="ref"> </span></div>
+          </div>
+
+          <div class="content">
+            <h2>اندازه‌گیری: سئو بدون KPI یعنی حدس‌زدن</h2>
+            <p class="subtitle">
+              اندازه‌گیری باید دو لایه داشته باشد: (۱) شاخص‌های جستجو (Impressions/Clicks/CTR/Position)
+              و (۲) شاخص‌های کسب‌وکار (Conversion, Revenue, Leads).
+              Search Console یکی از ابزارهای اصلی برای پایش عملکرد در جستجو است. <span class="ref"> </span>
+            </p>
+
+            <div class="grid g2">
+              <div class="card">
+                <h3>KPIهای پایه (برای کلاس)</h3>
+                <ul>
+                  <li><b>Impressions</b>: چند بار در نتایج دیده شدیم</li>
+                  <li><b>Clicks</b>: چند بار کلیک گرفتیم</li>
+                  <li><b>CTR</b>: نسبت کلیک به نمایش (کیفیت عنوان/اسنیپت)</li>
+                  <li><b>Avg Position</b>: جایگاه میانگین (با احتیاط در تفسیر)</li>
+                </ul>
+                <div class="example">
+                  <b>مثال:</b> اگر Impressions بالا ولی CTR پایین است → عنوان/اسنیپت یا Intent/رقابت مشکل دارد. <span class="ref">  </span>
+                </div>
+              </div>
+
+              <div class="card">
+                <h3>شاخص‌های کسب‌وکار</h3>
+                <ul>
+                  <li>Conversion rate (ثبت‌نام/خرید/تماس)</li>
+                  <li>Lead quality (کیفیت سرنخ‌ها)</li>
+                  <li>Revenue attributed (اگر قابل ردیابی باشد)</li>
+                </ul>
+                <div class="callout" style="margin-top:12px">
+                  <strong>قاعده:</strong> «ترافیک زیاد» اگر به «اقدام» ختم نشود، موفقیت نیست.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="footer">
+            <span>داشبورد خوب: KPI سئو + KPI کسب‌وکار کنار هم.</span>
+            <span class="slide-no"></span>
+          </div>
+        </article>
+      </section>
+      <section class="slide" id="s16">
+        <article class="frame">
+          <div class="topbar">
+            <div class="kicker"><span class="pill accent">Roadmap</span><span class="pill">اجرا</span></div>
+            <div class="kicker">۳۰/۶۰/۹۰ روز</div>
+          </div>
+
+          <div class="content">
+            <h2>نقشه‌راه اجرای پروژه سئو (۳۰/۶۰/۹۰ روز)</h2>
+
+            <div class="grid g3">
+              <div class="card">
+                <h3>روز 1–30: Audit + Quick Wins</h3>
+                <ul>
+                  <li>بررسی Crawl/Index، خطاهای مهم</li>
+                  <li>اصلاح عنوان‌های ضعیف، لینک داخلی پایه</li>
+                  <li>لیست صفحات اولویت‌دار (Top pages)</li>
+                </ul>
+                <div class="example">
+                  <b>خروجی:</b> گزارش وضعیت + لیست اقدام‌های فوری + baseline KPI
+                </div>
+              </div>
+
+              <div class="card">
+                <h3>روز 31–60: Content System</h3>
+                <ul>
+                  <li>تحقیق کلمات + خوشه‌ها</li>
+                  <li>صفحات ستون (Pillar) + تولید/به‌روزرسانی</li>
+                  <li>بهبود Intent-fit و کیفیت محتوا (E-E-A-T)</li>
+                </ul>
+                <div class="example">
+                  <b>خروجی:</b> نقشه محتوا + ۶–۱۲ صفحه کلیدی منتشر/بهینه
+                </div>
+              </div>
+
+              <div class="card">
+                <h3>روز 61–90: Authority + Optimization</h3>
+                <ul>
+                  <li>Digital PR / Outreach هدفمند</li>
+                  <li>بهبود Core Web Vitals در صفحات مهم</li>
+                  <li>بهینه‌سازی CTR بر اساس داده</li>
+                </ul>
+                <div class="example">
+                  <b>خروجی:</b> چند لینک/منشن باکیفیت + بهبود KPIهای کلیدی
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="footer">
+            <span>چرخه تکراری: Measure → Learn → Improve → Scale</span>
+            <span class="slide-no"></span>
+          </div>
+        </article>
+      </section>
+      <section class="slide" id="s17">
+        <article class="frame">
+          <div class="topbar">
+            <div class="kicker"><span class="pill accent">Myths</span><span class="pill">ضدالگو</span></div>
+            <div class="kicker">اشتباهات رایج</div>
+          </div>
+
+          <div class="content">
+            <h2>اشتباهات رایج (و چرا اشتباه‌اند)</h2>
+            <p class="subtitle">
+              این‌ها چیزهایی هستند که در پروژه‌های واقعی زیاد می‌بینیم و باعث اتلاف وقت می‌شوند.
+            </p>
+
+            <div class="grid g2">
+              <div class="card">
+                <h3>۵ اشتباه پرتکرار</h3>
+                <ul>
+                  <li>تمرکز روی رتبه، بدون حل Crawl/Index</li>
+                  <li>تولید محتوا بدون Intent و خوشه‌بندی</li>
+                  <li>تکرار کلمه کلیدی به‌جای پوشش کامل موضوع</li>
+                  <li>لینک‌سازی انبوه بدون کیفیت و ارتباط</li>
+                  <li>گزارش‌دادن ترافیک، بدون سنجش تبدیل</li>
+                </ul>
+              </div>
+
+              <div class="card">
+                <h3>ضدالگوهای تکنیکال</h3>
+                <div class="tagrow">
+                  <span class="tag bad">Disallow اشتباه صفحات مهم</span>
+                  <span class="tag warn">Canonical نامنظم</span>
+                  <span class="tag warn">صفحات تکراری زیاد</span>
+                  <span class="tag bad">سرعت بسیار ضعیف</span>
+                </div>
+                <div class="example">
+                  <b>قاعده:</b> قبل از هر چیز، «ایندکس درست» و «تجربه کاربر قابل قبول» را تثبیت کن. <span class="ref">  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="footer">
+            <span>سئو = اولویت‌بندی. کار زیاد بدون ترتیب → نتیجه کم.</span>
+            <span class="slide-no"></span>
+          </div>
+        </article>
+      </section>
+
+      <section class="slide" id="s18">
+        <article class="frame">
+          <div class="topbar">
+            <div class="kicker"><span class="pill accent">Case</span><span class="pill">مثال</span></div>
+            <div class="kicker">سناریوی آموزشی</div>
+          </div>
+
+          <div class="content">
+            <h2>مینی کیس‌</h2>
+            <p class="subtitle">
+              سناریو: یک وبلاگ آموزشی «برنامه‌نویسی» داریم. ترافیک کم است، اما مقالات خوب نوشته می‌شوند.
+              هدف: ۳ ماهه کلیک ارگانیک و ثبت‌نام دوره را افزایش دهیم.
+            </p>
+
+            <div class="grid g2">
+              <div class="card">
+                <h3>تشخیص مسئله</h3>
+                <ul>
+                  <li>Intent-fit ضعیف در برخی مقالات</li>
+                  <li>لینک داخلی کم → خوشه‌ها شکل نگرفته</li>
+                  <li>عنوان‌ها عمومی → CTR پایین</li>
+                  <li>صفحات مشابه/تکراری → مشکل کاننیکال</li>
+                </ul>
+              </div>
+
+              <div class="card">
+                <h3>راه‌حل ۳ مرحله‌ای</h3>
+                <ol style="margin:10px 0 0; padding:0 18px 0 0; line-height:1.9;">
+                  <li><b>Quick Wins:</b> بازنویسی Title/Description + لینک داخلی به صفحات ستون <span class="ref">  </span></li>
+                  <li><b>Content Clusters:</b> ساخت ۲ Pillar (مثلاً «آموزش پایتون»، «گیت») + ۸ مقاله پشتیبان</li>
+                  <li><b>Technical Cleanup:</b> canonical + sitemap تمیز + بهبود CWV روی صفحات مهم <span class="ref">   </span></li>
+                </ol>
+                <div class="example">
+                  <b>نتیجه قابل سنجش:</b> افزایش CTR + افزایش صفحات ایندکس سالم + رشد کلیک در Queryهای لانگ‌تیل.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="footer">
+            <span>تمرین: برای همین سناریو ۱۰ کلمه کلیدی و ۲ خوشه پیشنهاد دهید.</span>
+            <span class="slide-no"></span>
+          </div>
+        </article>
+      </section>
+      <section class="slide" id="s19">
+        <article class="frame">
+          <div class="topbar">
+            <div class="kicker"><span class="pill accent">Summary</span><span class="pill">جمع‌بندی</span></div>
+            <div class="kicker">چک‌لیست ذهنی</div>
+          </div>
+
+          <div class="content">
+            <h2>جمع‌بندی: چک‌لیست ذهنی یک سئوکار</h2>
+            <p class="subtitle">
+              اگر قرار باشد فقط یک «نقشه ذهنی» از این ارائه باقی بماند، این است:
+            </p>
+
+            <div class="grid g2">
+              <div class="card">
+                <h3>۵ سوال طلایی</h3>
+                <ul>
+                  <li>کاربر دقیقاً چه می‌خواهد؟ (Intent)</li>
+                  <li>صفحه ما بهترین پاسخ است؟ (Quality & Coverage)</li>
+                  <li>گوگل می‌تواند بخزد و ایندکس کند؟ (Technical)</li>
+                  <li>چرا باید به ما اعتماد کند؟ (E-E-A-T / Trust)</li>
+                  <li>چطور می‌فهمیم بهتر شدیم؟ (KPI)</li>
+                </ul>
+              </div>
+
+              <div class="card">
+                <h3>فرمول ساده اجرا</h3>
+                <div class="mini">
+                  <div class="kv"><span>Intent + Content</span><span>→</span><span>Relevance</span></div>
+                  <div class="kv"><span>Technical + UX</span><span>→</span><span>Indexability & Experience</span></div>
+                  <div class="kv"><span>Links + Brand</span><span>→</span><span>Authority</span></div>
+                  <div class="kv"><span>Measurement</span><span>→</span><span>Iteration</span></div>
+                </div>
+                <div class="callout" style="margin-top:12px">
+                  <strong>نتیجه:</strong> سئو یک چرخه است، نه یک کار یک‌باره.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="footer">
+            <span>پایان ارائه • سوال و جواب</span>
+            <span class="slide-no"></span>
+          </div>
+        </article>
+      </section>
+      <section class="slide" id="s20">
+        <article class="frame">
+          <div class="topbar">
+            <div class="kicker"><span class="pill accent">References</span><span class="pill">منابع</span></div>
+            <div class="kicker">Google Search Central + SQRG</div>
+          </div>
+
+          <div class="content">
+            <h2>منابع معتبر (برای مطالعه بیشتر)</h2>
+            <p class="subtitle">
+              در اسلایدها از شماره‌های   تا   استفاده شد. در متن پیام این چت، لینک و ارجاع دقیق هرکدام آمده است.
+            </p>
+
+            <div class="grid g2">
+              <div class="card">
+                <h3>Google Search Central</h3>
+                <ul>
+                  <li>  SEO Starter Guide / Fundamentals</li>
+                  <li>  robots.txt guide</li>
+                  <li>  Sitemaps (build & submit)</li>
+                  <li>  Title links best practices</li>
+                  <li>  Snippets / meta descriptions</li>
+                  <li>  Canonicalization</li>
+                  <li>  Core Web Vitals (Search Central)</li>
+                  <li>  Structured data intro</li>
+                  <li>  Structured data policies</li>
+                </ul>
+              </div>
+
+              <div class="card">
+                <h3>کیفیت و اعتماد</h3>
+                <ul>
+                  <li>  Search Quality Rater Guidelines (E-E-A-T)</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+        </article>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

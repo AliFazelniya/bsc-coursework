@@ -1,0 +1,252 @@
+header{
+    background-color: #0179b6;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+header .container {
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    color: #ecfff8;
+    padding-bottom: 3px;
+    padding-top: 3px;
+}
+
+footer .container {
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    color: black;
+    padding-bottom: 3px;
+    padding-top: 3px;
+}
+
+footer {
+    background-color: #f1f1f1;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+    border-top: 2px solid #5fb4ad;
+}
+
+main {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+main.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.item-first{
+    background-color:#e8ecef;
+    border-radius: 10px;
+    flex: 1;
+    position: relative;
+    transition:
+        transform 0.8s cubic-bezier(0.25, 1, 0.5, 1),
+        box-shadow 0.8s ease,
+        mask-image 0.8s ease;
+}
+
+.item-first img{
+    margin-top: 15px;
+    margin-left: 15px; 
+    border-radius: 6px;
+    border: 3px solid #334b92;
+    transition:
+        transform 0.8s cubic-bezier(0.25, 1, 0.5, 1),
+        box-shadow 0.8s ease,
+        mask-image 0.8s ease;
+}
+
+
+.item-first img:hover{
+    mask-image: radial-gradient(circle at center, black 65%, transparent 100%);
+    -webkit-mask-image: radial-gradient(circle at center, black 20%, transparent 100%);
+    background-color: white;
+    transition: 0.8s ease;
+    margin-top: 120px;
+    margin-left: 120px;
+    transform: scale(4);
+    border: 1px solid #f4f4f5;
+    border-radius: 100px;
+
+}
+
+.item-third{
+    background-color:#e8ecef;
+    border-radius: 10px;
+    flex: 1;
+    transition:
+        transform 0.8s cubic-bezier(0.25, 1, 0.5, 1),
+        box-shadow 0.8s ease,
+        mask-image 0.8s ease;
+}
+
+
+.item-second{
+    flex: 2;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+.table th{
+    background-color: #00cee6; 
+    color: white;
+    border: 1px solid white;
+}
+
+.table td {
+    border: 1.75px solid gray;   
+}
+
+.table{
+    border: 10px solid gray;
+    border-radius: 20px;
+    text-align: left;
+    margin-left: 18px;
+    margin-top: -13px;
+    border-collapse: collapse;
+    border-spacing: 0;
+    border: 1px solid #ccc;
+    border-radius: 7px;
+    overflow: hidden;
+    font-size: 15px;
+}
+
+.list{
+    padding: 0;
+    list-style-position: inside;
+    margin-top: -13px;
+}
+
+.item-third strong{
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+.item-third p{
+    margin-left: 10px;
+    margin-top: -1px;
+}
+
+.item-first li{
+    font-size: 15px;
+}
+
+.item-first ul{
+    margin-top: -15px;
+}
+
+ul > li {
+    color: black;
+}
+
+.item-first h3{
+    margin-left: 7px;
+}
+
+.item-first p{
+    font-size: 15px;
+    margin-left: 20px;
+    margin-top: -10px;
+}
+
+
+.item-second h3:first-of-type{
+    margin-top: -13px
+}
+
+.item-second h3 , .item-second h2{
+    margin-left: 20px;
+}
+
+.item-second p{
+    margin-left: 20px;
+    margin-top: -13px;
+}
+
+.item-third ul{
+    margin-top: 3px;
+}
+
+
+
+#emillink{
+  color: black;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: all 0.3s ease;
+}
+
+#emillink:hover {
+  color: #8b397f;
+  border-bottom-color: blue;
+  cursor: pointer;
+}
+
+.item-second #emillink{
+    margin-left: 19px;
+}
+
+.item-second .projects , .item-second .certificates{
+    margin-top: -16px;
+}
+
+.item-third:hover {
+    background-color: #3ecfdf;
+    margin-top: 20px;
+    margin-right: 60px;
+    transition: 0.8s ease;
+    transform: scale(1.4);
+    z-index: 10;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4); 
+}
+
+
+.item-first:hover {
+    background-color: #3ecfdf;
+    margin-top: 20px;
+    margin-left: 60px;
+    transition: 0.8s ease;
+    transform: scale(1.4);
+    z-index: 10;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4); 
+}
+
+.hover-gif-left {
+  position: absolute;
+  top: 60%;
+  left: 45%;
+  transform: translate(-50%, -38%);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;   
+}
+
+.item-first:hover .hover-gif-left {
+    transition: 1s;
+    opacity: 1;
+}
+
+.hover-gif-right {
+  position: absolute;
+  top: 40%;
+  right: 0%;
+  transform: translate(-20%, -38%);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;   
+}
+
+.item-third:hover .hover-gif-right {
+  opacity: 1;
+}
+
+footer p::before {
+    content: "© ";  
+}
+
