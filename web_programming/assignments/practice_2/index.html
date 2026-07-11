@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+
+<header>
+  <img id= "icon-image" src="icon.png" alt="icon" width="100">
+  <h1>مدنی کالا</h1>
+  <div id="cart-summary">سبد خرید: ۰ کالا</div>
+</header>
+
+<div id="discount-banner"></div>
+
+<main>
+
+
+  <section class="products-container" id="products-container">
+    <!-- کارت محصولات این‌جا رندر می‌شود -->
+  </section>
+
+  <section class="pagination">
+    <button id="btn-prev" class="btn-page">صفحه قبل</button>
+    <span id="page-info"></span>
+    <button id="btn-next" class="btn-page">صفحه بعد</button>
+  </section>
+
+  <section class="cart-panel">
+    <h3>سبد خرید</h3>
+    <ul id="cart-list"></ul>
+  </section>
+
+  <section class="stats-panel">
+    <h3>آمار کلیک‌ها</h3>
+    <p>کلیک روی "افزودن به سبد": <span id="stat-add">0</span></p>
+    <p>کلیک روی "مشاهده جزئیات": <span id="stat-details">0</span></p>
+    <p>کلیک روی دکمه‌های صفحه‌بندی : <span id="stat-pageClicks">0</span></p>
+  </section>
+  
+</main>
+<script src="app.js"></script>
+</body>
+</html>
