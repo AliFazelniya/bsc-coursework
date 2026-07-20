@@ -1,0 +1,1922 @@
+\documentclass[12pt,oneside,openany]{book}
+
+\usepackage{xepersian}
+\settextfont[Scale=1.0]{Vazirmatn}
+\setlatintextfont[Scale=1.0]{Times New Roman}
+\setdigitfont{Vazirmatn}
+
+\usepackage[a4paper, margin=2.5cm]{geometry}
+\usepackage{graphicx}
+\usepackage{amsmath}
+
+\usepackage{listings}
+\usepackage{xcolor}
+\lstset{
+  basicstyle=\ttfamily\small,
+  keywordstyle=\color{blue},
+  stringstyle=\color{red},
+  commentstyle=\color{gray},
+  numbers=left,
+  numberstyle=\tiny\color{gray},
+  stepnumber=1,
+  numbersep=10pt,
+  tabsize=2,
+  showspaces=false,
+  showstringspaces=false,
+  breaklines=true,
+  frame=single,
+  rulecolor=\color{black},
+  backgroundcolor=\color{white},
+  columns=fullflexible
+}
+
+\usepackage{hyperref}
+\hypersetup{
+  unicode=true,
+  pdfstartview=FitH
+}
+
+\hypersetup{
+	hidelinks
+}
+
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usepackage{eso-pic}
+
+\usepackage{tocloft}
+
+\lstset{
+  basicstyle=\ttfamily\small,
+  columns=fixed,
+  keepspaces=true,
+  showstringspaces=false,
+  breaklines=true
+}
+
+
+\setcounter{tocdepth}{1}
+
+\setlength{\cftbeforechapskip}{8pt}
+\setlength{\cftbeforesecskip}{2pt}
+
+\setlength{\cftchapindent}{0pt}
+\setlength{\cftchapnumwidth}{3.2em}
+
+\setlength{\cftsecindent}{1.0em}
+\setlength{\cftsecnumwidth}{3.0em}
+
+\renewcommand{\cftchapfont}{\bfseries}
+\renewcommand{\cftchappagefont}{\bfseries}
+
+\renewcommand{\cftchapleader}{\hfill}
+
+\renewcommand{\cftdotsep}{1}
+\begin{document}
+
+\AddToShipoutPictureBG{%
+  \begin{tikzpicture}[remember picture,overlay]
+    \draw[line width=1pt]
+      ($(current page.north west) + (1.2cm,-1.2cm)$)
+        rectangle
+      ($(current page.south east) + (-1.2cm,1.2cm)$);
+  \end{tikzpicture}
+}
+
+\frontmatter
+\begin{titlepage}
+\centering
+
+\vspace*{2cm}
+
+{\Huge\bfseries
+جزوه‌ی دوره‌ی آموزشی برنامه \LR{Mathematica}
+\par}
+
+\vspace{1.5cm}
+
+{\Large
+تهیه شده توسط علی فاضل نیا
+\par}
+
+\vspace{1cm}
+
+{\large
+دانشجوی علوم کامپیوتر
+\par}
+
+\vspace{1.5cm}
+
+\rule{0.6\textwidth}{0.5pt}
+
+\vspace{1cm}
+
+{\large
+راه‌های ارتباط:
+\par}
+
+\vspace{0.5cm}
+
+\begin{LTR}
+\texttt{Email: alifazelniya.1384@gmail.com} \\ 
+\texttt{Telegram: @Norbert\_desu}\\ 
+\texttt{GitHub: github.com/AliFazelniya}\\ 
+\end{LTR}
+
+\vfill
+
+{\large
+آذر ماه ۱۴۰۴
+\par}
+
+\end{titlepage}
+\tableofcontents
+
+
+
+\chapter*{مقدمه}
+\addcontentsline{toc}{chapter}{مقدمه}
+
+برنامه‌ی \LR{Mathematica} یکی از قدرتمندترین ابزارهای محاسبات نمادین و عددی است که در بسیاری از شاخه‌های ریاضیات، مهندسی و علوم پایه به‌طور گسترده مورد استفاده قرار می‌گیرد. توانایی این نرم‌افزار در ترکیب محاسبات، ترسیم نمودار، برنامه‌نویسی و مستندسازی، آن را به محیطی یکپارچه برای حل مسائل علمی تبدیل کرده است.
+
+این جزوه حاصل یک دوره‌ی آموزشی متمتیکا است و با هدف ارائه‌ی مسیری منظم و گام‌به‌گام برای آشنایی با قابلیت‌های اصلی این نرم‌افزار تهیه شده است. مطالب به‌گونه‌ای تنظیم شده‌اند که خواننده، حتی بدون پیش‌زمینه‌ی جدی در کار با متمتیکا، بتواند مفاهیم را به‌صورت تدریجی دنبال کند و در عمل به‌کار بگیرد.
+
+ساختار جزوه بر اساس جلسات آموزشی تنظیم شده و هر فصل به یک جلسه اختصاص دارد. در هر فصل، مفاهیم کلیدی همراه با مثال‌های کاربردی و توضیح نکات رایج مطرح شده‌اند تا از ابهام‌های متداول در مراحل اولیه‌ی یادگیری جلوگیری شود. تمرکز اصلی بر درک منطق دستورات، شیوه‌ی کار با محیط نرم‌افزار و استفاده‌ی صحیح از قابلیت‌های محاسباتی و ترسیمی متمتیکا است.
+
+مطالعه‌ی این جزوه می‌تواند برای دانشجویان، پژوهشگران و علاقه‌مندانی که قصد دارند از متمتیکا به‌عنوان ابزاری عملی در حل مسائل علمی استفاده کنند، نقطه‌ی شروع مناسبی باشد. توصیه می‌شود خواننده هم‌زمان با مطالعه‌ی مطالب، دستورات ارائه‌شده را در محیط نرم‌افزار اجرا کند تا یادگیری به‌صورت فعال و ماندگار انجام شود.
+
+
+\section*{راهنمای خواندن}
+\addcontentsline{toc}{section}{راهنمای خواندن}
+
+\begin{itemize}
+\item کدها و مثال‌های دستوری در قالب قلم تک‌عرض (\LR{Monospace}) و داخل کادرهای مشخص ارائه شده‌اند تا از متن توضیحی متمایز باشند.
+\item خروجی دستورات و مثال‌ها، در صورت لزوم، با برچسب \LR{Out} نمایش داده شده‌اند تا ارتباط میان دستور و نتیجه‌ی آن به‌وضوح مشخص شود.
+\item در بعضی از کدها از تگ // به عنوان کامنت و توضیحات بیشتر مربوط به کد استفاده شده. دقت کنید که با علامت // مخصوص خود برنامه اشتباه نگیرید.
+\item در پوشه Mathematica Files درون ریپازیتوری گیتهاب می‌توانید نوت‌بوک کد‌های قرار داده شده در این جزوه را به صورت جدا و کامل مطالعه فرمایید.
+\end{itemize}
+
+\section*{پیش‌نیازهای پیشنهادی}
+\addcontentsline{toc}{section}{پیش‌نیازهای پیشنهادی}
+برای استفاده‌ی بهتر از این جزوه، آشنایی مقدماتی با مفهوم «متغیر»، «تابع»، و نمادهای پایه‌ی جبر کافی است. اگر با مشتق و انتگرال آشنا باشید، فصل چهارم روان‌تر خواهد بود؛ اگر هم نباشید، مثال‌ها کمک می‌کنند کم‌کم دست‌تان راه بیفتد.
+
+\mainmatter
+
+\chapter{جلسه اول}
+\begin{quote}
+در این فصل با مفاهیم پایه (پاک‌سازی متغیرها، انجام محاسبات ساده، و چند نکته‌ی کاربردی در محیط نرم‌افزار) شروع می‌کنیم.
+\end{quote}
+
+
+
+حذف متغیر در برنامه (هر متغیری قبل از این دستور پاک می‌شود.)
+
+\begin{LTR}
+\begin{lstlisting}
+Clear["Global`*"]
+\end{lstlisting}
+\end{LTR}
+
+تنها متغیر a حذف می‌شود.
+\begin{LTR}
+\begin{lstlisting}
+Clear[a]
+\end{lstlisting}
+\end{LTR}
+
+غیرفعال کردن یک دستور:
+
+\LR{ \LR{Edit} منوی} $\leftarrow$ Section  Comment  /  Un 
+
+کلید میانبر: \LR{Alt + /}
+\vspace{1\baselineskip} 
+دستور زیر تمام نمادهای تعریف‌شده در Context سراسری (`Global``) را کامل حذف می‌کند.
+\begin{LTR}
+\begin{lstlisting}
+Remove["Global`*"]
+\end{lstlisting}
+\end{LTR}
+
+\vspace{1\baselineskip} 
+دستور زیر برای پاک‌کردن تمام متغیرها و توابع تعریف‌شده در یک فضای نام (Context) مشخص استفاده می‌شود و معمولاً در ابتدای کدها به‌منظور جلوگیری از تداخل تعریف‌های قبلی به‌کار می‌رود.
+
+\begin{LTR}
+\begin{lstlisting}
+Clear["Name`*"]
+\end{lstlisting}
+\end{LTR}
+
+* همیشه باید در اول هر برنامه از دو کد Remove  و Clear استفاده کنیم تا در محاسبات مشکلی پیش نیاید.
+
+* در متمتیکا حرف اول همه دستورها باید بزرگ شود.
+
+* روش اجرا دستورهای در یک سل :‌ Enter + Shift
+
+اجرای دستورهای همه سل‌ها به صورت یکجا:
+$Evaluation \rightarrow Evaluate Notebook$
+
+دستور برای مقداردهی یک متغیر:
+
+\begin{LTR}
+\begin{lstlisting}
+Variable_name = Value
+\end{lstlisting}
+\end{LTR}
+
+برای مثال در کد زیر مقدار 2 را درون متغیری با نام a قرار می‌دهیم:
+\begin{LTR}
+\begin{lstlisting}
+a = 2
+\end{lstlisting}
+\end{LTR}
+
+مشکلی که این نوع مقداردهی دارد این است که بعد از اجرا سلولی که این کد درون آن است، این مقدار درخروجی چاپ می‌شود. برای اینکه هم مقدار موردنظر در متغیر موردنظر ذخیره شود و هم اینکه در خروحی نمایش داده نشود. دو روش وجود دارد.
+\vspace{1\baselineskip} 
+\vspace{1\baselineskip} 
+
+روش اول:
+
+\begin{LTR}
+\begin{lstlisting}
+a = 2;
+\end{lstlisting}
+\end{LTR}
+
+روش دیگری که موجود است:
+\begin{LTR}
+\begin{lstlisting}
+a := 2
+\end{lstlisting}
+\end{LTR}
+
+تقاوت این دو دستور باهم این است که در روش اول مقدار حساب و ذخیره می‌شوند . ولی در روش دوم مقدار حساب نمی‌شود تا زمانی که از آن در جایی استفاده شود
+
+روش متوقف کردن برنامه در حال اجرا:
+\begin{LTR}
+\LR{Evaluation $\Rightarrow$ Quit Kernel $\Rightarrow$ Local}
+\end{LTR}
+
+جواب سوال پرسیده شده: Quit
+\vspace{1\baselineskip} 
+
+دستور زیر لیست تمام نام‌های (متغیرها و توابع) تعریف‌شده در Context Global را نشان می‌دهد.
+\begin{LTR}
+\begin{lstlisting}
+Names["Global`*"]
+\end{lstlisting}
+\end{LTR}
+* هر دستور در متمتیکا باید در براکت ([ ]) نوشته شود:
+
+\begin{LTR}
+\begin{lstlisting}
+Sin[x] , Clear[c]
+\end{lstlisting}
+\end{LTR}
+
+دستورهای پایه ریاضی
+
+برای این بخش دو متغیر از قبل تعریف می‌کنیم:
+
+\begin{LTR}
+\begin{lstlisting}
+a = 5
+b = 8
+\end{lstlisting}
+\end{LTR}
+
+دستور جمع:
+
+\begin{LTR}
+\begin{lstlisting}
+a + b        Out : 13
+\end{lstlisting}
+\end{LTR}
+
+دستور تفریق:
+
+\begin{LTR}
+\begin{lstlisting}
+a - b        Out : -3
+\end{lstlisting}
+\end{LTR}
+
+دستور ضرب:
+
+\begin{LTR}
+\begin{lstlisting}
+a * b        Out : 40
+\end{lstlisting}
+\end{LTR}
+
+دستور تقسیم (روش اول):
+
+\begin{LTR}
+\begin{lstlisting}
+a / b        Out : 5 / 8
+\end{lstlisting}
+\end{LTR}
+
+دستور تقسیم (روش دوم): برای نوشتن این روش پس از نوشتن صورت تقسیم (در این مثال a )  / + Ctrl را می‌زنیم.
+
+\begin{center}
+\includegraphics[width=1\textwidth]{pics/Part 1/division.png}
+\end{center}
+
+روش تایپ کردن فرمول‌های خاص:
+\begin{LTR}
+$Palettes \rightarrow Basic Math Assistant$
+\end{LTR}
+
+استفاده از حروف یونانی و اسمبل‌ها در این قسمت نیر موجود است.
+
+هر گزینه کلید میانبر مخصوص خود را دارد. برای آشنایی با کلید میانبر هر گزینه، روی گزینه کمی نگه دارید.
+\vspace{1\baselineskip} 
+
+* خطای 1042 : ایجاد اشکال در دستور وارد شده، مثال:
+
+\begin{LTR}
+\begin{lstlisting}
+W = W + 1   ,  W = W1 + 1
+\end{lstlisting}
+\end{LTR}
+
+جایگزینی متغیر‌ها:
+روش اول:
+\begin{LTR}
+\begin{lstlisting}
+F = x^2 + 1
+x = y + 1
+f           Out: 2 + y + (1+y)^2
+\end{lstlisting}
+\end{LTR}
+از اینجا به بعد هر جایی f استفاده شود عبارت خروجی کد بالا نشان داده می‌شود.
+\vspace{1\baselineskip} 
+
+روش دوم:
+\begin{LTR}
+\begin{lstlisting}
+g = z^2 + z + 1
+g /. z -> (v + 1)             out: 2 + v + (1 + v)^2
+\end{lstlisting}
+\end{LTR}
+* نکته 1: عبارت ./ برای جایگذاری یک عبارت به جای یک عبارت دیگر است.
+\vspace{1\baselineskip} 
+
+* نکته 2: برعکس روش اول، در این روش فقط در این قسمت جایگذاری انجام می‌شود و مانند روش اول هرجایی که g صدا شود جایگذاری انجام نمی‌شود.
+\vspace{1\baselineskip} 
+
+نحوه خروجی گرفتن با دقت موردنظر:
+\begin{LTR}
+\begin{lstlisting}
+N[expression]                         e.g: N[1/3]        Out: 333.0
+N[expression , accuracy]       e.g: N[1/3 , 10]        Out: 3333333333.0
+\end{lstlisting}
+\end{LTR}
+روش دیگر برای نوشتن این عبارت: در این حالت کنترلی در تعداد اعشار نداریم.
+
+\begin{LTR}
+\begin{lstlisting}
+1 / 3 // N
+\end{lstlisting}
+\end{LTR}
+
+\cleardoublepage
+
+\chapter{جلسه دوم: معرفی توابع}
+\begin{quote}
+در این فصل تعریف و استفاده از توابع پرکاربرد و نحوه‌ی کار با آن‌ها را مرور می‌کنیم.
+\end{quote}
+
+
+
+تابع رادیکال:
+
+\begin{LTR}
+\begin{lstlisting}
+Sqrt[4]                Out: 2
+Sqrt[x^2]             Out: √(x^2)
+\end{lstlisting}
+\end{LTR}
+
+تابع ساده سازی (Simplify) :
+
+\begin{LTR}
+\begin{lstlisting}
+Simplify[%, x > 0]                         Out: +x
+Simplify[%, x < 0]                         Out: -x
+\end{lstlisting}
+\end{LTR}
+
+در این مثال نماینده آخرین خروجی است.
+
+تابع نمایی:
+
+\begin{LTR}
+\begin{lstlisting}
+Exp[x]                            Out: e^x                                      //e = 2.7
+Exp[2]                            Out: e^2
+Exp[2] // N                    Out: 7.38906
+\end{lstlisting}
+\end{LTR}
+
+تابع جزء صحیح:
+
+\begin{LTR}
+\begin{lstlisting}
+Floor[2.3]             Out: 2
+\end{lstlisting}
+\end{LTR}
+
+تابع قدرمطلق:
+
+\begin{LTR}
+\begin{lstlisting}
+Abs[-2]                         Out: 2
+Abs[-x]                         Out: Abs[x]
+\end{lstlisting}
+\end{LTR}
+
+* در مثال دوم این کد، خروجی از تابع بیرون در نمی‌آید چون x می‌تواند منفی و چیزهای دیگر باشد.
+
+تابع علامت:
+
+\begin{LTR}
+\begin{lstlisting}
+Sign[{-2, 0, 3}]                         Out: {-1, 0, 1}
+\end{lstlisting}
+\end{LTR}
+
+تابع فاکتوریل (روش اول) :
+
+\begin{LTR}
+\begin{lstlisting}
+x = 5
+Facorial[x]                       Out: 120
+\end{lstlisting}
+\end{LTR}
+
+تابع فاکتوریل (روش دوم) :
+
+\begin{LTR}
+\begin{lstlisting}
+x!                Out: 120
+\end{lstlisting}
+\end{LTR}
+\vspace{3\baselineskip} 
+تابع لگاریتم:
+
+\begin{LTR}
+\begin{lstlisting}
+Log[x]                Out: Log[x]
+\end{lstlisting}
+\end{LTR}
+
+زمانی که برای لگاریتم پایه تغریف نکنیم، نرم افزار به صورت خودکار پایه را عدد نپر ( x ln  یا E ) قرار می‌دهد.
+
+\begin{LTR}
+\begin{lstlisting}
+Log[E]               Out: 1
+\end{lstlisting}
+\end{LTR}
+
+تغریف پایه لگاریتم:
+
+\begin{LTR}
+\begin{lstlisting}
+Log[a , x]                  // a is The base of the logarithm
+Log[10 , 1000]                Out: 3
+\end{lstlisting}
+\end{LTR}
+
+توابع مثلثاتی:
+
+\begin{LTR}
+\begin{lstlisting}
+Sin[x]                e,g: Sin[Pi/3]                Out: sqrt[3] / 2
+Cos[x]
+Tan[x]
+Cot[x]
+ArcSin[x]
+ArcTan[x]
+\end{lstlisting}
+\end{LTR}
+
+به صورت دیفالت مقدار محاسبه این توابع به صورت رادیان است، اگر بخواهیم نرم افزار حاص درجه موردنظر را حساب کند، این گونه عمل می‌کنیم:
+
+\begin{LTR}
+\begin{lstlisting}
+Sin[30 Degree]                Out: sqrt[3] / 2
+Sin[30 Degree] // N           Out: 0.5
+\end{lstlisting}
+\end{LTR}
+
+توابع هیپربولیک
+
+\begin{LTR}
+\begin{lstlisting}
+Sinh[x]
+Cosh[x]
+Coth[x]
+\end{lstlisting}
+\end{LTR}
+
+تابع تولید اعداد تصادفی
+
+برای اعداد حقیقی:
+
+\begin{LTR}
+\begin{lstlisting}
+RandomReal[{-2, 2}, 5]     Out: {1.31496, 0.0146972, -1.486, -1.93584, 0.638742}
+RandomReal[{-2, 2}, {2, 5}] Out:{{1.86401, -1.47587, 0.0531725, 1.73636, 0.243321}, 
+{1.50354, 0.924516, 1.60522, 0.870081, -1.22427}}
+\end{lstlisting}
+\end{LTR}
+
+در مثال اول پنج عدد تصادفی در بازه {2 ,  2-} انتخاب می‌شوند.
+
+در مثال دوم دو دسته پنج تایی عدد تصادفی در بازه {2 ,  2-} انتخاب می‌شوند.
+
+برای اعداد صحیح:
+
+\begin{LTR}
+\begin{lstlisting}
+RandomInteger[{-2, 2}, 5]      Out: {-2, 0, 1, 2, -2}
+\end{lstlisting}
+\end{LTR}
+
+پنج عدد صحیح تصادفی در بازه {2 ,  2-} انتخاب می‌شوند.
+
+تبدیل عدد به عامل های اول:
+
+\begin{LTR}
+\begin{lstlisting}
+FactorInteger[10]     Out: {{2, 1}, {5, 1}}      10 = 2^1 * 5^1
+\end{lstlisting}
+\end{LTR}
+
+به توان رساندن:
+
+\begin{LTR}
+\begin{lstlisting}
+Superscript[2, 3]        Out: Superscript[2,3]
+Superscript @@ {2, 3}     Out: Superscript[2,3]
+Superscript @@@ {{2, 3}, {6, 5}}        Out: {Superscript[2,3], Superscript[6,5]}
+Superscript @@ {{2, 3}, {4, 5}}         Out: Superscript[{2, 3},{4, 5}]
+\end{lstlisting}
+\end{LTR}
+
+\begin{LTR}
+\begin{lstlisting}
+CenterDot[x, y]           Out: x\[CenterDot]y
+CenterDot @@ (Superscript @@@ (FactorInteger[15]))  Out: Superscript[3,1]\[CenterDot]Superscript[5,1]
+\end{lstlisting}
+\end{LTR}
+
+کوچک‌ترین مضرب مشترک
+
+\begin{LTR}
+\begin{lstlisting}
+LCM[5, 6]
+\end{lstlisting}
+\end{LTR}
+
+بزرگترین تقسیم الیه مشترک
+
+\begin{LTR}
+\begin{lstlisting}
+GCD[15, 9]
+\end{lstlisting}
+\end{LTR}
+
+باقی‌مانده
+
+\begin{LTR}
+\begin{lstlisting}
+Mod[15 , 2]
+\end{lstlisting}
+\end{LTR}
+
+خارج قسمت
+
+\begin{LTR}
+\begin{lstlisting}
+Quotient[15, 3]
+\end{lstlisting}
+\end{LTR}
+
+ترکیب
+
+\begin{LTR}
+\begin{lstlisting}
+Binomial[15, 3]
+\end{lstlisting}
+\end{LTR}
+
+دلتا دیراک
+
+\begin{LTR}
+\begin{lstlisting}
+DiracDelta[x]
+DiracDelta[x] // TraditionalForm   Out: \[Delta](x)
+\end{lstlisting}
+\end{LTR}
+
+دلتا کراینیکر
+
+\begin{LTR}
+\begin{lstlisting}
+DiracDelta[m, n] // TraditionalForm
+\end{lstlisting}
+\end{LTR}
+
+اعداد مختلط:
+
+\begin{LTR}
+\begin{lstlisting}
+z = x + I y    Out: x + I y
+Re[z]          Out: -Im[y] + Re[x]
+\end{lstlisting}
+\end{LTR}
+
+برای تعریف کردن قسمت موهومی و واقعی اعداد مختلط:
+
+\begin{LTR}
+\begin{lstlisting}
+Refine[Re[z], Element[{x, y}, Reals]]    Out: x   // Real Part
+Refine[Im[z], Element[{x, y}, Reals]]    Out: y  // Imaginary Part
+\end{lstlisting}
+\end{LTR}
+
+مزدوج گیری (مختلط) :
+
+\begin{LTR}
+\begin{lstlisting}
+Conjugate[z]        Out: Conjugate[x] - I Conjugate[y]
+\end{lstlisting}
+\end{LTR}
+
+ریفاین کردن
+
+\begin{LTR}
+\begin{lstlisting}
+Refine[Conjugate[z], Element[{x, y}, Reals]]        Out: x - I y
+\end{lstlisting}
+\end{LTR}
+
+تعریف تابع دلخواه:
+
+\begin{LTR}
+\begin{lstlisting}
+F[x_] = x^2 + 1   Out: 1 + x^2
+F[3]              Out: 10
+Map[F, {2, 3}]    Out: {5, 10}
+F /@ {2, 3}       Out: {5, 10}
+\end{lstlisting}
+\end{LTR}
+
+برای تعریف توابع چند متغیره:
+
+\begin{LTR}
+\begin{lstlisting}
+G[x_, y_] = x + y + 2     Out: 2 + x + y
+G[{2, 3}, {5, 6}]         Out: {9, 11}
+\end{lstlisting}
+\end{LTR}
+
+\cleardoublepage
+
+\chapter{جلسه سوم: محاسبات جبری و مثلثاتی، سری‌ها}
+\begin{quote}
+این فصل روی ابزارهای جبری و مثلثاتی و همچنین سری‌ها تمرکز دارد؛ جایی که محاسبات نمادین قدرت اصلی متمتیکا را نشان می‌دهد.
+\end{quote}
+
+بسط یک عبارت
+
+\begin{LTR}
+\begin{lstlisting}
+(x + 1)^3              Out: (1 + x)^3
+Expand[(x + 1)^3]      Out: 1 + 3 x + 3 x^2 + x^3
+(x + 1)^3 // Expand    Out: 1 + 3 x + 3 x^2 + x^3
+Expand[(a + b)^2*(x + 1)^2]    Out: a^2 + 2 a b + b^2 + 2 a^2 x + 4 a b x + 2 b^2 x 
++ a^2 x^2 +  2 a b x^2 + b^2 x^2
+\end{lstlisting}
+\end{LTR}
+
+همانطور که مشاهده می‌شود در مثال آخر کدهای بالا هر دو جمله بسط داده می‌شوند. گاهی نیاز است که تنها یکی از این جملات بسط داده شود. برای این کار:
+
+\begin{LTR}
+\begin{lstlisting}
+Expand[(a + b)^2*(x + 1)^2, x]       Out: (a + b)^2 + 2 (a + b)^2 x + (a + b)^2 x^2
+\end{lstlisting}
+\end{LTR}
+
+همانطور که مشاهده می‌شوند فقط جمله‌ای که در آن x وجود دارد، بسط داده خواهد شد.
+
+فاکتورگیری
+
+\begin{LTR}
+\begin{lstlisting}
+Factor[x^4 + x^2 + x]     Out: x (1 + x + x^3)
+Factor[x^4 + x^2]         Out: x^2 (1 + x^2)
+\end{lstlisting}
+\end{LTR}
+
+به مثال زیر توجه کنید:
+
+\begin{LTR}
+\begin{lstlisting}
+y = x^4 + x^2 + x
+x = a + b
+Factor[y]      Out: (a + b) (1 + a + a^3 + b + 3 a^2 b + 3 a b^2 + b^3)
+\end{lstlisting}
+\end{LTR}
+
+همان‌طور که مشاهده می‌شود، در این کد از $\left(a+b\right)$ فاکتور گرفته می‌شود.
+
+
+ساده کردن یک عبارت کسری
+
+\begin{LTR}
+\begin{lstlisting}
+Cancel[(x^2 - 1)/(x - 1)]     Out: 1 + x
+\end{lstlisting}
+\end{LTR}
+
+تجزیه کسر به کسرهای جزئی
+
+\begin{LTR}
+\begin{lstlisting}
+Apart[1/((1 + x)*(5 + x))]    Out: 1/(4 (1 + x)) - 1/(4 (5 + x))
+Expand[(1 + x)*(5 + x)]       Out: 5 + 6 x + x^2
+Apart[1/%]                    Out: 1/(4 (1 + x)) - 1/(4 (5 + x))
+\end{lstlisting}
+\end{LTR}
+
+بسط عبارات مثلثاتی و تبدیل آن‌ها به عبارت نهایی
+
+\begin{LTR}
+\begin{lstlisting}
+Cancel[Sin[2*x]/Sin[x]]                     Out: Csc[x] Sin[2 x]
+Cancel[Sin[2*x]/Sin[x], Trig  -> True]      Out: 2 Cos[x]
+\end{lstlisting}
+\end{LTR}
+
+ساده سازی عبارت‌های مثلثاتی
+
+\begin{LTR}
+\begin{lstlisting}
+TrigFactor[Cos[x + y] + Sin[x]*Sin[y]]               Out: Cos[x] Cos[y]
+\end{lstlisting}
+\end{LTR}
+
+بسط عبارت‌های مثلثاتی
+
+\begin{LTR}
+\begin{lstlisting}
+TrigExpand[Cos[x + y]]             Out: Cos[x] Cos[y] - Sin[x] Sin[y]
+TrigExpand[Sin[2*x]]               Out: 2 Cos[x] Sin[x]
+\end{lstlisting}
+\end{LTR}
+
+تبدیل عبارت‌های مثلثاتی درجه‌های بالاتر به عبارت خطی
+
+\begin{LTR}
+\begin{lstlisting}
+TrigReduce[2*(Cos[x])^2]           Out: 1 + Cos[2 x]
+TrigReduce[(Cos[x])^3]             Out: 1/4 (3 Cos[x] + Cos[3 x])
+\end{lstlisting}
+\end{LTR}
+
+تبدیل عبارت‌های مثلثاتی به نمایی و برعکس
+
+\begin{LTR}
+\begin{lstlisting}
+TrigToExp[Cos[x]]             Out: E^(-I x)/2 + E^(I x)/2
+ExpToTrig[Exp[Ix]]            Out: Cosh[Ix] + Sinh[Ix]
+\end{lstlisting}
+\end{LTR}
+
+ساده سازی عبارت‌ها
+
+نکته: در نرم افزار متمتیکا در دو حالت زیر ضرب تعریف می‌شود:
+
+1) بین دو عبارت علامت ضرب " * " قرار گیرد.
+
+2) بین دو عبارت اسپیس گذاشته شود.
+
+\begin{LTR}
+\begin{lstlisting}
+Simplify[(x - 1) (x + 1) (x^2 + 1) + 1]            Out: x^4
+Simplify[(Sin[x])^2 + (Cos[x])^2]               Out: 1
+FullSimplify[Cosh[x] - Sinh[x]]               Out: E^-x
+\end{lstlisting}
+\end{LTR}
+
+نکته 1: FullSimplify از Simplify قوی‌تر است. کارایی هر دو یکی است.
+
+نکته 2: گاهی باید برای ساده سازی یک عبارت، ابتدا باید آن Expand شود یا در کسرها از Cancel استفاده شود.
+
+سری (مجموعه‌ها)
+
+\begin{LTR}
+\begin{lstlisting}
+Sum[Sin[i x], {i, 1, 5}]     Out: Sin[x] + Sin[2 x] + Sin[3 x] + Sin[4 x] + Sin[5 x]
+Sum[i, {i, 1, n}]            Out: 1/2 n (1 + n)
+Sum[i^2, {i, 1, n}]          Out: 1/6 n (1 + n) (1 + 2 n)
+Sum[Sin[i x], {i, 1, 10, 2}] Out: Sin[x] + Sin[3 x] + Sin[5 x] + Sin[7 x] + Sin[9 x]
+\end{lstlisting}
+\end{LTR}
+
+روش دیگر: با استفاده از کلید میان ESC + Sum + ESC می‌توان این نماد را رسم کرد.
+\begin{center}
+\includegraphics[width=1\textwidth]{pics/Part 3/Sum.png}
+\end{center}
+
+خروجی کدهای تصویر بالا:
+
+\begin{LTR}
+\begin{lstlisting}
+Out1: 1/2 n (1 + n)
+Out2: 55
+\end{lstlisting}
+\end{LTR}
+
+حاصل ضرب:
+
+\begin{LTR}
+\begin{lstlisting}
+Product[Sin[i x], {i, 1, 10}]    Out: Sin[x] Sin[2 x] Sin[3 x] Sin[4 x] Sin[5 x] 
+	Sin[6 x] Sin[7 x] Sin[8 x] Sin[9 x] Sin[10 x]
+
+Product[Sin[i x], {i, 1 , 10, 2}] Out: Sin[x] Sin[3 x] Sin[5 x] Sin[7 x] Sin[9 x]
+\end{lstlisting}
+\end{LTR}
+
+روش دیگر: با استفاده از کلید میان ESC + Prod + ESC می‌توان این نماد را رسم کرد.
+\begin{center}
+\includegraphics[width=1\textwidth]{pics/Part 3/Dot.png}
+\end{center}
+
+خروجی کد تصویر بالا:
+
+\begin{LTR}
+\begin{lstlisting}
+Out: 120
+\end{lstlisting}
+\end{LTR}
+
+\cleardoublepage
+
+\chapter{جلسه چهارم: حد، مشتق و انتگرال}
+\begin{quote}
+در این فصل با محاسبه‌ی حد، مشتق و انتگرال (نمادین و عددی) آشنا می‌شویم و چند مثال استاندارد حل می‌کنیم.
+\end{quote}
+
+
+\section{محاسبه حد}
+
+\begin{LTR}
+\begin{lstlisting}
+Limit[f[x], x -> x0]
+Limit[f[x], x -> x0] // TraditionalForm
+\end{lstlisting}
+\end{LTR}
+
+خروجی کد بالا به شکل زیر می‌باشد:
+\begin{center}
+\includegraphics[width=1\textwidth]{pics/Part 4/limit1.png}
+\end{center}
+
+مثالی دیگر:
+
+\begin{LTR}
+\begin{lstlisting}
+Limit[Sin[x]/x, x -> 0]    Out: 1
+\end{lstlisting}
+\end{LTR}
+
+نکته: اگر یک عبارت حد چپ و راست برابر نداشته باشد، حد ندارد و در نرم‌افزار پیامی طبق این مفهوم می‌آید.
+
+\begin{LTR}
+\begin{lstlisting}
+Limit[1/x, x -> 0]         Out: Indeterminate
+\end{lstlisting}
+\end{LTR}
+
+همچنین می‌توانیم حد چپ و راست را به صورت جداگانه برای یک عبارت حساب کنیم. به مثال زیر توجه کنید.
+
+حد چپ : از سمت مقادیر کمتر از صفر به سمت صفر
+
+\begin{LTR}
+\begin{lstlisting}
+Limit[1/x, x -> 0 , Direction -> 1]         Out: -Infinity
+\end{lstlisting}
+\end{LTR}
+
+حد چپ : از سمت مقادیر بیشتر از صفر به سمت صفر
+
+\begin{LTR}
+\begin{lstlisting}
+Limit[1/x, x -> 0, Direction -> -1]        Out: Infinity
+\end{lstlisting}
+\end{LTR}
+\section{مشتق}
+
+برای انجام عمل مشتق در برنامه می‌توان به دو صورت زیر اقدام کرد:
+
+\begin{LTR}
+\begin{lstlisting}
+Derivative[n][f][x + 1 ]
+D[f[x], {x, n}]
+\end{lstlisting}
+\end{LTR}
+
+که خروجی کد بالا به شکل زیر در ترمینال نمایش داده خواهد شد:
+
+\begin{center}
+\includegraphics[width=1\textwidth]{pics/Part 4/div.png}
+\end{center}
+
+نکته: در کد دوم پارامتر (x)f تابع موردنظر براش مشتق گرفتن، پارامتر x متغیری که می‌خواهیم طبق آن مشتق گیری انجام دهیم و پارامتر n تعداد مشتق است.
+
+به مثال زیر توجه کنید:
+
+\begin{LTR}
+\begin{lstlisting}
+D[(Sin[x])^10, x]                    Out: 10 Cos[x] Sin[x]^9
+\end{lstlisting}
+\end{LTR}
+
+در این مثال تابع (x)sin به عنوان تابع ما و x به عنوان پارامتر مشتق‌گیری قرار داده شده است. توجه شود که پارامتر n در این مثال مشخص نشده و به پیش‌فرض 1 در نظر گرفته می‌شود.
+
+مشتق جزئی:
+
+\begin{LTR}
+\begin{lstlisting}
+D[f[x, y], x, y]
+D[f[x, y], {x, 2}, {y, 3}]
+\end{lstlisting}
+\end{LTR}
+
+خروجی آن در ترمینال به شکل زیر است:
+
+\begin{center}
+\includegraphics[width=1\textwidth]{pics/Part 4/div1.png}
+\end{center}
+
+مثال کاربردی:
+
+\begin{LTR}
+\begin{lstlisting}
+D[x^3 + y^2, {x, 2}, {y, 1}]               Out: 0
+\end{lstlisting}
+\end{LTR}
+\section{انتگرال گیری}
+
+\begin{LTR}
+\begin{lstlisting}
+Integrate[f[x], x]
+\end{lstlisting}
+\end{LTR}
+
+که خروجی آن در ترمینال به صورت زیر نمایش داده می‌شود:
+
+\begin{center}
+\includegraphics[width=1\textwidth]{pics/Part 4/int.png}
+\end{center}
+
+یک مثال از انتگرال نامعین:
+
+\begin{LTR}
+\begin{lstlisting}
+Integrate[Sin[x], x]        Out: -Cos[x]
+\end{lstlisting}
+\end{LTR}
+
+انتگرال دوگانه نامعین:
+
+\begin{LTR}
+\begin{lstlisting}
+Integrate[f[x, y], x, y]
+\end{lstlisting}
+\end{LTR}
+
+که خروجی آن در ترمینال به صورت زیر نمایش داده می‌شود:
+
+\begin{center}
+\includegraphics[width=1\textwidth]{pics/Part 4/int1.png}
+\end{center}
+
+یک مثال از انتگرال دوگانه نامعین:
+
+\begin{LTR}
+\begin{lstlisting}
+Integrate[x*y + 1 , x, y]            Out: x y + (x^2 y^2)/4
+\end{lstlisting}
+\end{LTR}
+
+انتگرال معین:
+
+\begin{LTR}
+\begin{lstlisting}
+Integrate[1/(x^3 + 1), {x, 0, 1}]           Out: 1/18 (2 Sqrt[3] \[Pi] + Log[64])
+\end{lstlisting}
+\end{LTR}
+
+نکته: جواب انتگرال گیری‌های معین است.
+
+یک مثال از انتگرال دوگانه معین:
+
+\begin{LTR}
+\begin{lstlisting}
+Integrate[x*y + 1, {x, 0, t}, {y, -x, x}]          Out: t^2
+\end{lstlisting}
+\end{LTR}
+
+انتگرال‌های عددی:
+
+\begin{LTR}
+\begin{lstlisting}
+NIntegrate[Sin[Sin[x]], {x, 0, 4}]        Out: 1.45747
+\end{lstlisting}
+\end{LTR}
+
+اما چرا از این روش استفاده می‌شود. بیاید از روش قبل انتگرال بالا را حساب کنیم:
+
+\begin{LTR}
+\begin{lstlisting}
+Integrate[Sin[Sin[x]], {x, 0, 4}]
+\end{lstlisting}
+\end{LTR}
+
+خروجی به شکل زیر خواهد بود:
+
+\begin{center}
+\includegraphics[width=1\textwidth]{pics/Part 4/int2.png}
+\end{center}
+
+دلیل آن بر این است که این انتگرال به‌صورت بسته با توابع ابتدایی بیان‌شدنی نیست. همین است که Integrate در Mathematica معمولاً جواب نمادین برنمی‌گرداند.
+
+یک مثال دیگر:
+
+\begin{LTR}
+\begin{lstlisting}
+a = 2 ;
+NIntegrate[a*Sin[Sin[x]], {x, 0, 4}]                       Out: 2.91494
+\end{lstlisting}
+\end{LTR}
+
+\cleardoublepage
+
+\chapter{جلسه پنجم: رسم توابع}
+\begin{quote}
+در این فصل تعریف و استفاده از توابع پرکاربرد و نحوه‌ی کار با آن‌ها را مرور می‌کنیم.
+\end{quote}
+
+
+\section{رسم توابع در فضای دو بعد:}
+
+\begin{LTR}
+\begin{lstlisting}
+Plot[x*Sin[1/x], {x, -1/2, 1/2}]
+\end{lstlisting}
+\end{LTR}
+
+خروجی:
+
+\begin{center}
+\includegraphics[width=1\textwidth]{pics/Part 5/plot1.png}
+\end{center}
+
+رسم سه تابع در یک دستگاه مختصات:
+
+\begin{LTR}
+\begin{lstlisting}
+Plot[{x*Sin[1/x], Abs[x], -Abs[x]}, {x, -1/2, 1/2}]
+\end{lstlisting}
+\end{LTR}
+
+خروجی:
+
+\begin{center}
+\includegraphics[width=1\textwidth]{pics/Part 5/plot2.png}
+\end{center}
+
+همانطور که مشاهده می‌شود هر سه تابع در یک دستگاه مختصات با رنگ‌های متفاوت رسم می‌شود. برای تغییر رنگ  و استایل توابع، در ادامه دستور قبل کد زیر نوشته می‌شود:
+
+\begin{LTR}
+\begin{lstlisting}
+PlotStyle -> { Red, Directive[Dashed, Blue], Yellow}
+\end{lstlisting}
+\end{LTR}
+
+کد کامل با استایل اضافه شده:
+
+\begin{LTR}
+\begin{lstlisting}
+Plot[{x*Sin[1/x], Abs[x], -Abs[x]}, {x, -1/2, 1/2}, 
+ PlotStyle -> { Red, Directive[Dashed, Blue], Yellow}]
+\end{lstlisting}
+\end{LTR}
+
+خروجی:
+
+\begin{center}
+\includegraphics[width=1\textwidth]{pics/Part 5/plot3.png}
+\end{center}
+
+نکته 1 : دستور Directive برای اعمال چندین دستور برای یک نمودار استفاده می‌شود.
+
+نکته 2 : بعد از plotها نمی‌توانیم از ; استفاده کنیم، زیرا plot یک تابع است و ذخیره سازی آن ممکن نیست و صرفاً برای نمایش استفاده می‌شود.
+
+برای راهنما قرار دادن برای نمودار، بعد از تغییر رنگ در همان کروشه از دستور زیر استفاده می‌نماییم:
+
+\begin{LTR}
+\begin{lstlisting}
+PlotLegends -> "Expressions"
+\end{lstlisting}
+\end{LTR}
+
+*توضیحاتی درباره نمودار نمایش داده خواهد شد.
+
+کد کامل با بخش اضافه شده:
+
+\begin{LTR}
+\begin{lstlisting}
+Plot[{x*Sin[1/x], Abs[x], -Abs[x]}, {x, -1/2, 1/2}, 
+ PlotStyle -> { Red, Directive[Dashed, Blue], Yellow}, 
+ PlotLegends -> "Expressions"]
+\end{lstlisting}
+\end{LTR}
+
+خروجی:
+
+\begin{center}
+\includegraphics[width=1\textwidth]{pics/Part 5/plot4.png}
+\end{center}
+
+برای نمایش ندادن یکی از محور‌ها یا هر دوی آنها (محور‌های x و y) مانند زیر عمل می‌کنیم:
+
+\begin{LTR}
+\begin{lstlisting}
+Plot[{x*Sin[1/x], Abs[x], -Abs[x]}, {x, -1/2, 1/2}, 
+ Axes -> {True, False}]
+\end{lstlisting}
+\end{LTR}
+
+خروجی:
+
+\begin{center}
+\includegraphics[width=1\textwidth]{pics/Part 5/plot5.png}
+\end{center}
+
+نکته: مقدار True به این معنی است که محور نمایش داده شود و مقدار False به این معنی است که محور نمایش داده نشود. همانطور که مشاهده می‌شود در این مثال محور x نمایش داده شده و محور y حذف شده است. اگر مقدار x هم False قرار دهیم، محور x نیز نمایش داده نمی‌شود.
+
+برای نام گذاری برای محور‌ها از دستور زیر استفاده می‌کنیم:
+
+\begin{LTR}
+\begin{lstlisting}
+AxesLabel -> {x, F[x]}
+\end{lstlisting}
+\end{LTR}
+
+کد کامل با بخش اضافه شده:
+
+\begin{LTR}
+\begin{lstlisting}
+Plot[{x*Sin[1/x], Abs[x], -Abs[x]}, {x, -1/2, 1/2}, 
+ AxesLabel -> {x, F[x]}]
+\end{lstlisting}
+\end{LTR}
+
+خروجی:
+
+\begin{center}
+\includegraphics[width=1\textwidth]{pics/Part 5/plot6.png}
+\end{center}
+
+نکته: در این مثال، نام محور y به محور (x)F تغییر داده شده.
+
+برای جابه‌جایی نمودار از دستور زیر استفاده می‌کنیم:
+
+\begin{LTR}
+\begin{lstlisting}
+AxesOrigin -> {.5, .5}
+\end{lstlisting}
+\end{LTR}
+
+این کد به این معنی است که نمودار 0.5 واحد به سمت چپ و راست و 0.5 واحد به سمت پایین و بالا جابه‌جا شود.
+کد کامل با بخش اضافه شده:
+
+\begin{LTR}
+\begin{lstlisting}
+Plot[{x*Sin[1/x], Abs[x], -Abs[x]}, {x, -1/2, 1/2}, 
+ AxesOrigin -> {.5 , .5}]
+\end{lstlisting}
+\end{LTR}
+
+خروجی:
+
+\begin{center}
+\includegraphics[width=1\textwidth]{pics/Part 5/plot7.png}
+\end{center}
+
+اگر نمودار کامل نمایش داده نشود، می‌توانیم از دستور زیر برای نمایش کامل آن استفاده کنیم:
+
+\begin{LTR}
+\begin{lstlisting}
+PlotRange -> Full
+//or
+PlotRange -> All
+\end{lstlisting}
+\end{LTR}
+
+کد کامل با بخش اضافه شده:
+
+\begin{LTR}
+\begin{lstlisting}
+Plot[{x*Sin[1/x], Abs[x], -Abs[x]}, {x, -1/2, 1/2}, PlotRange -> Full]
+\end{lstlisting}
+\end{LTR}
+
+خروجی:
+
+\begin{center}
+\includegraphics[width=1\textwidth]{pics/Part 5/plot8.png}
+\end{center}
+
+و اگر بخواهیم تا حدی مشخص نمایش داده شود، به جای Full و All آن عدد مشخص را تایپ می‌کنیم:
+
+\begin{LTR}
+\begin{lstlisting}
+PlotRange -> 3
+\end{lstlisting}
+\end{LTR}
+
+کد کامل با بخش اضافه شده:
+
+\begin{LTR}
+\begin{lstlisting}
+Plot[{x*Sin[1/x], Abs[x], -Abs[x]}, {x, -1/2, 1/2}, PlotRange -> 3]
+\end{lstlisting}
+\end{LTR}
+
+خروجی:
+
+\begin{center}
+\includegraphics[width=1\textwidth]{pics/Part 5/plot9.png}
+\end{center}
+
+برای استفاده از رنگ رنگین کمانی در نمودار‌های از دستور زیر استفاده می‌کنیم:
+
+\begin{LTR}
+\begin{lstlisting}
+ColorFunction -> Function[{x, y}, Hue[y]
+\end{lstlisting}
+\end{LTR}
+
+نکته: [x] Hue به این معنی است که جهت تغییر رنگ به سمت محور x است. اگر به جای x مقدار y را قرار دهیم. جهت تغییر رنگ‌ها به سمت محور y خواهد بود.
+کد کامل با بخش اضافه شده:
+
+\begin{LTR}
+\begin{lstlisting}
+Plot[{x*Sin[1/x], Abs[x], -Abs[x]}, {x, -1/2, 1/2}, 
+ ColorFunction -> Function[{x, y}, Hue[x]]]
+
+Plot[{x*Sin[1/x], Abs[x], -Abs[x]}, {x, -1/2, 1/2}, 
+ ColorFunction -> Function[{x, y}, Hue[y]]]
+\end{lstlisting}
+\end{LTR}
+
+خروجی:
+
+\begin{center}
+\includegraphics[width=1\textwidth]{pics/Part 5/plot10.png}
+\end{center}
+
+نکته: اگر از ColorFunction استفاده کنیم، نمی‌توانیم در دستور از Plot Legends نیز استفاده کنیم.
+\section{رسم رویه‌ها}
+
+سه بعدی:
+
+\begin{LTR}
+\begin{lstlisting}
+Plot3D[Sin[x + y^2], {x, -3, 3}, {y, -2, 2}]
+\end{lstlisting}
+\end{LTR}
+
+خروجی:
+
+\begin{center}
+\includegraphics[width=1\textwidth]{pics/Part 5/plot11.png}
+\end{center}
+
+از ColorFinder می‌توانیم در رویه‌های سه بعدی هم استفاده کنیم و بهتر است از (z)Hue در این دستور‌ها استفاده کنیم.
+
+\begin{LTR}
+\begin{lstlisting}
+Plot3D[Sin[x + y^2], {x, -3, 3}, {y, -2, 2} , 
+ ColorFunction -> Function[{x, y, z}, Hue[z]]]
+\end{lstlisting}
+\end{LTR}
+
+خروجی:
+
+\begin{center}
+\includegraphics[width=1\textwidth]{pics/Part 5/plot12.png}
+\end{center}
+
+برای حذف چهارخانه‌های روی رویه از دستور زیر استفاده می‌کنیم:
+
+\begin{LTR}
+\begin{lstlisting}
+Mesh -> None
+\end{lstlisting}
+\end{LTR}
+
+کد کامل با بخش اضافه شده:
+
+\begin{LTR}
+\begin{lstlisting}
+Plot3D[Sin[x + y^2], {x, -3, 3}, {y, -2, 2}, Mesh -> None]
+\end{lstlisting}
+\end{LTR}
+
+خروجی:
+
+\begin{center}
+\includegraphics[width=1\textwidth]{pics/Part 5/plot13.png}
+\end{center}
+
+اگر به جای none از یک عدد استفاده کنیم، به تعداد آن عدد mesh در سمت x و y کشیده می‌شود:
+
+\begin{LTR}
+\begin{lstlisting}
+Plot3D[Sin[x + y^2], {x, -3, 3}, {y, -2, 2}, Mesh -> 4, 
+ MeshStyle -> Blue]
+\end{lstlisting}
+\end{LTR}
+
+نکته: Blue در این کد رنگ Mesh هستش.
+
+خروجی:
+
+\begin{center}
+\includegraphics[width=1\textwidth]{pics/Part 5/plot14.png}
+\end{center}
+\section{رسم توابع پارامتری}
+توابع دو بعدی:
+
+\begin{LTR}
+\begin{lstlisting}
+h = 1/(s - 1/2)^2 /. s -> Exp[I w]
+ParametricPlot[{Re[h], Im[h]}, {w, 0, 2*Pi}]
+\end{lstlisting}
+\end{LTR}
+
+خروجی:
+
+\begin{center}
+\includegraphics[width=1\textwidth]{pics/Part 5/plot15.png}
+\end{center}
+
+توابع سه بعدی:
+
+\begin{LTR}
+\begin{lstlisting}
+ParametricPlot3D[{Sin[x], Cos[x], x/10}, {x, 0, 20}]
+\end{lstlisting}
+\end{LTR}
+
+خروجی:
+
+\begin{center}
+\includegraphics[width=1\textwidth]{pics/Part 5/plot16.png}
+\end{center}
+\section{رسم توابع با پارامترهای نامعلوم}
+
+\begin{LTR}
+\begin{lstlisting}
+Manipulate[Plot[a*x^2 + b*x + c, {x, -10, 10}], {a, -10, 10}, {b, -10, 
+  10}, {c, -10, 10}]
+\end{lstlisting}
+\end{LTR}
+
+خروجی:
+
+\begin{center}
+\includegraphics[width=1\textwidth]{pics/Part 5/plot17.png}
+\end{center}
+
+از Manupulate نیز می‌توان برای فاکتورگیری و چندجمله‌ای ها نیز استفاده کرد:
+
+\begin{LTR}
+\begin{lstlisting}
+Manipulate[Factor[n^n + 1], {n, 10, 100, 13}]
+\end{lstlisting}
+\end{LTR}
+
+خروجی:
+
+\begin{center}
+\includegraphics[width=1\textwidth]{pics/Part 5/plot18.png}
+\end{center}
+\section{رسم توابع با استفاده از نقاط}
+
+\begin{LTR}
+\begin{lstlisting}
+ListPlot[Table[{Sin[x], Sin[2 x]}, {x, 50}]]
+\end{lstlisting}
+\end{LTR}
+
+خروجی:
+
+\begin{center}
+\includegraphics[width=1\textwidth]{pics/Part 5/plot19.png}
+\end{center}
+\section{رسم منحنی در مختصات‌های مختلف}
+مختصات کروی: مثال اول
+
+\begin{LTR}
+\begin{lstlisting}
+SphericalPlot3D[{1, 2, 3}, {\[Theta], 0, Pi/2}, {\[CapitalPhi], 0, 
+  3*Pi/2}]
+\end{lstlisting}
+\end{LTR}
+
+خروجی:
+
+\begin{center}
+\includegraphics[width=1\textwidth]{pics/Part 5/plot20.png}
+\end{center}
+
+مختصات کروی: مثال دوم
+
+\begin{LTR}
+\begin{lstlisting}
+PolarPlot[Sin[3*t], {t, 0, Pi}]
+\end{lstlisting}
+\end{LTR}
+
+خروجی:
+
+\begin{center}
+\includegraphics[width=1\textwidth]{pics/Part 5/plot21.png}
+\end{center}
+\section{رسم محدوده جواب نامعدلات جبری}
+
+\begin{LTR}
+\begin{lstlisting}
+ContourPlot[Cos[x] + Cos[y] == 1/2, {x, 0, 4*Pi}, {y, 0, 4*Pi}]
+ContourPlot[{Abs[Sin[x]* Sin[y]] == .5 , 
+  Abs[Cos[x]*Cos[y]] == .5}, {x, -3, 3}, {y, -3, 3}]
+\end{lstlisting}
+\end{LTR}
+
+خروجی:
+
+\begin{center}
+\includegraphics[width=1\textwidth]{pics/Part 5/plot22.png}
+\end{center}
+
+\cleardoublepage
+
+\chapter{جلسه ششم: حل معادلات}
+\begin{quote}
+در این فصل روش‌های حل معادلات (نمادین و عددی) را می‌بینیم و با توابعی که متمتیکا برای این کار می‌دهد کار می‌کنیم.
+\end{quote}
+
+6 - 1 حل معادلات جبری
+
+مثال 1 :
+
+\begin{LTR}
+\begin{lstlisting}
+Solve[a*x^2 + b*x + c == 0, x]         Out: {{x -> (-b - Sqrt[b^2 - 4 a c])/(2 a)}, {x -> (-b + Sqrt[b^2 - 4 a c])/(2 a)}}
+\end{lstlisting}
+\end{LTR}
+
+* ریشه‌های معادله درجه دو را بدست می‌آورد.
+
+مثال 2 :
+
+\begin{LTR}
+\begin{lstlisting}
+Solve[x^2 + y^2 == 2 && x - y == 1 , {x, y}]         
+Out: {{x -> 1/2 (1 - Sqrt[3]), 
+  y -> 1/2 (-1 - Sqrt[3])}, {x -> 1/2 (1 + Sqrt[3]), 
+  y -> 1/2 (-1 + Sqrt[3])}}
+\end{lstlisting}
+\end{LTR}
+
+* این معادله دو نقطه و دو جواب دارد که آن نقطه تقاطع این دو معادله است.
+
+برای اینکه جواب‌ها را جداگانه بدهد:
+
+\begin{LTR}
+\begin{lstlisting}
+sol = Solve[x^2 + y^2 == 2 && x - y == 1 , {x, y}] 
+x /. sol            Out: {1/2 (1 - Sqrt[3]), 1/2 (1 + Sqrt[3])} 
+\end{lstlisting}
+\end{LTR}
+
+* x های جواب معدله را نشان می‌دهد.
+
+مثال 3 :
+
+\begin{LTR}
+\begin{lstlisting}
+Solve[x == 1 && x == 2, x]          Out: {}
+\end{lstlisting}
+\end{LTR}
+
+* این دسته معادله‌ها جواب ندارند. علامت {} یعنی دستگاه جوابی ندارد.
+
+مثال 4 :
+
+\begin{LTR}
+\begin{lstlisting}
+Solve[x == x, x]         Out: {{}}
+\end{lstlisting}
+\end{LTR}
+
+* در این مثال مجمع حواب بی‌نهایت است. علامت {{}} یعنی دستگاه بی‌نهایت جواب دارد.
+
+مثال 5 :
+
+\begin{LTR}
+\begin{lstlisting}
+Solve[(x^4 - 1)*(x - 4) == 0, x, Reals]         Out: {{x -> -1}, {x -> 1}, {x -> 4}}
+\end{lstlisting}
+\end{LTR}
+
+* ریشه‌های که فقط Real هستند در خروجی نمایش داده خواهد شد.
+
+اگر یک معادله با دستور Solve حل نشود، ممکن است با استفاده از دستور NSolve حل بشود.
+
+\begin{LTR}
+\begin{lstlisting}
+NSolve[(x - 1)*(x^4 - 4) == 0, Reals]        Out: {{x -> -1.41421}, {x -> 1.}, {x -> 1.41421}}
+\end{lstlisting}
+\end{LTR}
+\section{یافتن ریشه معادلات غیرخطی به روش نیوتون و سکانت}
+
+روش نیوتون (یک نقطه ورودی دارد)
+
+\begin{LTR}
+\begin{lstlisting}
+FindRoot[Sin[x] + Exp[x], {x, 0}]       Out: {x -> -0.588533}
+\end{lstlisting}
+\end{LTR}
+
+روش سکانت (دو نقطه ورودی دارد)
+
+\begin{LTR}
+\begin{lstlisting}
+FindRoot[Sin[x] + Exp[x], {x, 0, 1}]       Out: {x -> -0.588533}
+\end{lstlisting}
+\end{LTR}
+
+اگر بخواهیم از یک نقطه شروع کنیم و در یک بازه خاص دنبا جواب بگردد از روش زیر استفاده می‌کنیم (روش نیوتون) :
+
+\begin{LTR}
+\begin{lstlisting}
+FindRoot[Sin[x] + Exp[x], {x, 0, -1, 1}]      Out: {x -> -0.588533}
+\end{lstlisting}
+\end{LTR}
+
+* در این مثال، پارامتر دوم که در اینجا 0 قرار داده شده نقطه شروع ، دو پارامتر بعدی بازه را مشخص می‌کند. در اینجا بازه -1 تا 1.
+
+برای بالا بردن دقت محاسبات می‌توانیم از WorkingPrecision استفاده کنیم. به مثال زیر دقت کنید:
+
+\begin{LTR}
+\begin{lstlisting}
+FindRoot[x^2 - 2, {x, 1}]          Out: {x -> 1.41421}
+FindRoot[x^2 - x, {x, 1}, WorkingPrecision -> 60]   Out: {x -> 1.00000000000000000000000000000000000000000000000000000000000}
+\end{lstlisting}
+\end{LTR}
+
+اگر بخواهیم دقت بسیار بسیار زیاد شود:
+
+\begin{LTR}
+\begin{lstlisting}
+Needs["FunctionApproximations`"]
+InterpolateRoot[Exp[x] == 2 , {x, 0, 1}]   Out: {x -> 0.693147180559945309417232}
+\end{lstlisting}
+\end{LTR}
+
+حل نامعادله:
+
+\begin{LTR}
+\begin{lstlisting}
+Reduce[x^2 + y^2 < 1, {x, y}]  Out: -1 < x < 1 && -Sqrt[1 - x^2] < y < Sqrt[1 - x^2]
+\end{lstlisting}
+\end{LTR}
+
+رسم دایره:
+
+\begin{LTR}
+\begin{lstlisting}
+ContourPlot[x^2 + y^2 == 1, {x, -2, 2}, {y, -2, 2}]
+\end{lstlisting}
+\end{LTR}
+
+خروجی:
+
+\begin{center}
+\includegraphics[width=1\textwidth]{pics/Part 6/Circle.png}
+\end{center}
+\section{معادلات دیفرانسیل معمولی و جزئی}
+\[
+\left.
+\begin{array}{l}
+\text{روش تحلیلی (دقیق)} \\
+\text{روش عددی (تقریبی)}
+\end{array}
+\right\}
+\text{ حل معادله دیفرانسیل}
+\]
+
+معادلاتی که می‌توان به روش تحلیلی حل کرد:
+
+\begin{LTR}
+\begin{lstlisting}
+DSolve[{y'[x] + y[x] == a Sin[x ]}, y, x]   Out: {{y -> Function[{x}, E^-x C[1] + 1/2 a (-Cos[x] + Sin[x])]}}
+\end{lstlisting}
+\end{LTR}
+
+اگر بخواهیم مقدار [1]C محاسبه شود، کد را اینگونه می‌نویسیم:
+
+\begin{LTR}
+\begin{lstlisting}
+DSolve[{y'[x] + y[x] == a Sin[x ], y[0] == 0}, y, x]  Out: {{y -> Function[{x}, -(1/2) a E^-x (-1 + E^x Cos[x] - E^x Sin[x])]}}
+\end{lstlisting}
+\end{LTR}
+
+* عبارت y[0] == 0 در کد بالا شرط اولیه است.
+
+معادلاتی که می‌توان به روش عددی (تقریبی) حل کرد:
+
+\begin{LTR}
+\begin{lstlisting}
+s = NDSolve[{y'[x] == y[x]*Cos[x + y[x]], y[0] == 1}, y, {x, 0, 30}]
+Plot[Evaluate[y[x] /. s], {x, 0, 30}, PlotRange -> All]
+\end{lstlisting}
+\end{LTR}
+
+خروجی:
+
+\begin{center}
+\includegraphics[width=1\textwidth]{pics/Part 6/NDSolve.png}
+\end{center}
+
+حل معادلات پارشال:
+
+\begin{LTR}
+\begin{lstlisting}
+eq = D[\[Psi][x, t], {x, 2}] == -1/\[Alpha]^2 D[\[Psi][x, t], {t, 2}]
+DSolve[eq, \[Psi][x, t], {x, t}]
+\end{lstlisting}
+\end{LTR}
+
+خروجی:
+
+\begin{center}
+\includegraphics[width=1\textwidth]{pics/Part 6/Psi.png}
+\end{center}
+
+\cleardoublepage
+
+\chapter{جلسه هفتم: بردار و ماتریس}
+\begin{quote}
+این فصل به ابزارهای خطی اختصاص دارد: تعریف بردار و ماتریس، اعمال پایه، و چند دستور مهم برای محاسبات ماتریسی.
+\end{quote}
+
+
+
+نحوه ساخت یک وکتور (بردار) در متمتیکا:
+
+\begin{LTR}
+\begin{lstlisting}
+v = {1, 2, 3}         Out: {1, 2, 3}
+\end{lstlisting}
+\end{LTR}
+
+نحوه ساخت یک ماتریس:
+
+\begin{LTR}
+\begin{lstlisting}
+y = {{1, 2}, {3, 4}}    Out: {{1, 2}, {3, 4}}      // 2×2 matrix
+\end{lstlisting}
+\end{LTR}
+
+اگر بخواهیم به شکل ماتریس نمایش داده شود:
+
+\begin{LTR}
+\begin{lstlisting}
+y = {{1, 2}, {3, 4}} // MatrixForm
+\end{lstlisting}
+\end{LTR}
+
+خروجی:
+
+\begin{center}
+\includegraphics[width=1\textwidth]{pics/Part 7/Matrix1.png}
+\end{center}
+
+روش ساخت یک بردار و ماتریش با دستور Table :
+
+\begin{LTR}
+\begin{lstlisting}
+Table[i^2, {i, 5}]    Out: {1, 4, 9, 16, 25}
+\end{lstlisting}
+\end{LTR}
+
+اگر ماتریش شما از قانون خاصی پیروی نمی‌کند( یک ماتریس خاص است) باید خود ماتریس در []Table نوشت.
+
+مثالی دیگر:
+
+\begin{LTR}
+\begin{lstlisting}
+Table[i^2, {i, 5, 10}]            Out: {25, 36, 49, 64, 81, 100}
+Table[i^2, {i, 5, 10, 2}]      Out: {25, 49, 81}
+\end{lstlisting}
+\end{LTR}
+
+\begin{LTR}
+\begin{lstlisting}
+Table[i^2, {i, 5}, {j, 5}] // MatrixForm
+Table[j^3, {i, 5}, {j, 5}] // MatrixForm
+\end{lstlisting}
+\end{LTR}
+
+خروجی:
+
+\begin{center}
+\includegraphics[width=1\textwidth]{pics/Part 7/Matrix2.png}
+\end{center}
+
+* نجوه و ترتیب قرارگیری i و j در Table بسیار مهم است.
+\section{اعمال اصلی و گرفتن درایه از ماتریس}
+
+\begin{LTR}
+\begin{lstlisting}
+M = Table[j^2, {i, 5}, {j, 5}] // MatrixForm
+M + M // MatrixForm;               // Summation
+M . M // MatrixForm;               // Multipication
+\end{lstlisting}
+\end{LTR}
+
+در مثال زیر درایه واقع در سطر و ستون اول ماتریس M را مقدار 6 قرار می‌دهیم:
+
+\begin{LTR}
+\begin{lstlisting}
+M[[1, 1]] = 6
+M[[1, 1]]               Out: 6
+\end{lstlisting}
+\end{LTR}
+\section{ضرب داخلی و خارجی و محاسبه نورم اول بردار}
+
+ضرب داخلی (یک عدد است):
+
+\begin{LTR}
+\begin{lstlisting}
+v = {1, 2, 3}             
+v . v            Out: 14
+Dot[v, v]     Out: 14
+\end{lstlisting}
+\end{LTR}
+
+ضرب خارجی (یک بردار است) :
+
+\begin{LTR}
+\begin{lstlisting}
+Cross[v, v]       Out: {0, 0, 0}
+v * v         Out: {0, 0, 0}
+\end{lstlisting}
+\end{LTR}
+
+بدست آوردن اندازه نورم اول بردار:
+
+\begin{LTR}
+\begin{lstlisting}
+Norm[v]       Out: Sqrt[14]
+\end{lstlisting}
+\end{LTR}
+\section{محاسبه دترمینان، جمغ درایه‌های قطر اصلی (تریس ماتریس)، معکوس ماتریس، تولید ماتریس‌های خاص}
+محاسبه دترمینان ماتریس - مثال 1 :
+
+\begin{LTR}
+\begin{lstlisting}
+M = Table[j^2, {i, 5}, {j, 5}] ;
+Det[M]    Out: 0        
+\end{lstlisting}
+\end{LTR}
+
+محاسبه دترمینان ماتریس - مثال 2 :
+
+\begin{LTR}
+\begin{lstlisting}
+m = {{1, 2}, {3, 4}}
+Det[m]         Out: -2
+\end{lstlisting}
+\end{LTR}
+
+محاسبه تریس ماتریس:
+
+\begin{LTR}
+\begin{lstlisting}
+Tr[m]       Out: 5
+\end{lstlisting}
+\end{LTR}
+
+معکوس ماتریس - مثال 1 :
+
+\begin{LTR}
+\begin{lstlisting}
+Inverse[m]       Out: {{-2, 1}, {3/2, -(1/2)}}
+\end{lstlisting}
+\end{LTR}
+
+معکوس ماتریس - مثال 2 ‌:
+
+\begin{LTR}
+\begin{lstlisting}
+Inverse[{{1, 2}, {1, 2}}]      Out: Inverse::sing: Matrix {{1,2},{1,2}} is singular.
+\end{lstlisting}
+\end{LTR}
+
+* در این مثال چون ماتریس singular هست، برنامه ارور می‌دهد. این ماتریس معکوس نیست زیرا که دترمینان آن مساوی با صفر است.
+
+محاسبه رنک یک ماتریس:
+
+\begin{LTR}
+\begin{lstlisting}
+MatrixRank[{{1, 2}, {1, 2}}]      Out: 1
+\end{lstlisting}
+\end{LTR}
+
+* اگر رنک یک ماتریکس n باشد کامل است و معکوس‌پذیر و در غیر این صورت معکوس‌ناپذیر است.
+
+تشکیل ماتریس‌های خاص
+
+ماتریس همانی
+
+\begin{LTR}
+\begin{lstlisting}
+IdentityMatrix[3] // MatrixForm
+\end{lstlisting}
+\end{LTR}
+
+خروجی:
+
+\begin{center}
+\includegraphics[width=1\textwidth]{pics/Part 7/Matrix3.png}
+\end{center}
+
+ماتریس قطری (همانی نباشد) :
+
+\begin{LTR}
+\begin{lstlisting}
+DiagonalMatrix[{1, 2, 3}] // MatrixForm
+\end{lstlisting}
+\end{LTR}
+
+خروجی:
+
+\begin{center}
+\includegraphics[width=1\textwidth]{pics/Part 7/Matrix4.png}
+\end{center}
+\section{حل دستگاه خطی همگن و ناهمگن}
+
+\begin{LTR}
+\begin{lstlisting}
+LinearSolve[{{1, 1}, {1, -1}}, {0, 0}]          Out: {0, 0}
+LinearSolve[{{1, 1}, {1, -1}}, {1, 0}]          Out: {1/2, 1/2}
+\end{lstlisting}
+\end{LTR}
+
+مقادیر و بردار‌های ویژه یک ماتریس:
+
+\begin{LTR}
+\begin{lstlisting}
+M = {{1, 2}, {3, 4}};
+Eigenvalues[M]         Out: {1/2 (5 + Sqrt[33]), 1/2 (5 - Sqrt[33])}
+Eigenvectors[M]          Out: {{1/6 (-3 + Sqrt[33]), 1}, {1/6 (-3 - Sqrt[33]), 1}}
+\end{lstlisting}
+\end{LTR}
+
+\end{document}
+
+\backmatter
+
+\chapter*{نتیجه‌گیری}
+\addcontentsline{toc}{chapter}{نتیجه‌گیری}
+
+\LR{Mathematica} در ظاهر یک نرم‌افزار «محاسباتی» است، اما در عمل یک محیط کامل برای فکرکردن با ریاضی است: از محاسبات نمادین و عددی تا رسم، حل معادلات، و کار با بردار و ماتریس. 
+در این جزوه دیدیم که چگونه با دستورهای ساده (پاک‌سازی متغیرها، تعریف توابع، بسط و ساده‌سازی، محاسبه‌ی حد و مشتق و انتگرال) می‌شود سریع به نتیجه رسید و در عین حال، کد را قابل‌خواندن و قابل‌بازاستفاده نگه داشت.
+
+پیشنهاد عملی برای قدم بعدی: از هر فصل، چند مثال را تغییر دهید (پارامترها را عوض کنید، ورودی‌های جدید بدهید، یا یک نمودار را شخصی‌سازی کنید) تا الگوهای ذهنی‌تان از «صرفاً دیدن» به «توانستن» تبدیل شود. 
+این‌جاست که \LR{Mathematica} واقعاً تبدیل به ابزار می‌شود، نه یک صفحه‌ی پر از دستور.
+
+\end{document}
