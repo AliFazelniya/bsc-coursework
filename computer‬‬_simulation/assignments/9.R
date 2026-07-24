@@ -72,6 +72,9 @@ results_b <- numeric(10)
 for (k in 1:10) {
   results_a[k] <- run_ga_part_a()
   results_b[k] <- run_ga_part_b()
+  cat("Step: ", k, "\n\n")
+  cat("Iteration (Part A): ", results_a[k], "\n\n")
+  cat("Iteration (Part B): ", results_b[k], "\n\n")
 }
 
 cat("Results Part A (Uniform Distribution):\n")
