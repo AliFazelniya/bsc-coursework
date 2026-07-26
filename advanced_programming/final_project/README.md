@@ -5,6 +5,7 @@ This project is a desktop financial management application built with Python and
 ## Project Overview
 
 The application provides a simple but functional personal finance dashboard. Users can:
+
 - create an account and log in securely,
 - add daily income and expense values from a calendar-based dialog,
 - save entries per month and year using serialized local files,

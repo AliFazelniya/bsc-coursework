@@ -5,6 +5,7 @@ This project is an assembly-language program that converts numbers between binar
 ## Project Overview
 
 The application provides a simple conversion tool for:
+
 - decimal to binary conversion
 - binary to decimal conversion
 
