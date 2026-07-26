@@ -1,12 +1,12 @@
-# Mathematica Course
+# Calculus II
 
-This folder contains the academic work completed for Mathematica Course during the B.Sc. program in Computer Science at Shahid Madani University.
+This folder contains the academic work completed for Calculus II during the B.Sc. program in Computer Science at Shahid Madani University.
 
 ## Course Information
 - Institution: Shahid Madani University
 - Degree: B.Sc. in Computer Science
-- Instructor: N/A
-- Focus Area: Symbolic computation, visualization, and mathematical modeling with Mathematica.
+- Instructor: Dr. Reza Mousavi Moghaddam
+- Focus Area: Integration, series, and advanced calculus techniques.
 
 ## Contents and Purpose
 This directory is intended to preserve and organize the main learning artifacts for this subject, including:

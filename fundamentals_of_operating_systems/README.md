@@ -1,12 +1,12 @@
-# Mathematica Course
+# Fundamentals of Operating Systems
 
-This folder contains the academic work completed for Mathematica Course during the B.Sc. program in Computer Science at Shahid Madani University.
+This folder contains the academic work completed for Fundamentals of Operating Systems during the B.Sc. program in Computer Science at Shahid Madani University.
 
 ## Course Information
 - Institution: Shahid Madani University
 - Degree: B.Sc. in Computer Science
-- Instructor: N/A
-- Focus Area: Symbolic computation, visualization, and mathematical modeling with Mathematica.
+- Instructor: Dr. Akram Sultani Halwai
+- Focus Area: Processes, memory, file systems, and operating system principles.
 
 ## Contents and Purpose
 This directory is intended to preserve and organize the main learning artifacts for this subject, including:

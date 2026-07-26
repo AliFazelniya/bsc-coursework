@@ -1,9 +1,9 @@
-# Matrix
+# Assignments
 
-This folder belongs to the Scientific Computing course and contains supporting materials for that subject.
+This folder belongs to the Web Programming course and contains supporting materials for that subject.
 
 ## Purpose
-Matrix-based computations and numerical experiments.
+Homework, problem sets, and exercise solutions completed during the course.
 
 ## What You Will Find Here
 - Organized academic resources related to the course topic

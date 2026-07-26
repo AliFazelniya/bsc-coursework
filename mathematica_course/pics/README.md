@@ -1,9 +1,9 @@
-# Matrix
+# Pics
 
-This folder belongs to the Scientific Computing course and contains supporting materials for that subject.
+This folder belongs to the Mathematica Course course and contains supporting materials for that subject.
 
 ## Purpose
-Matrix-based computations and numerical experiments.
+Visual assets, screenshots, diagrams, and supporting figures.
 
 ## What You Will Find Here
 - Organized academic resources related to the course topic

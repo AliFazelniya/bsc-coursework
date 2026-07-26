@@ -1,9 +1,9 @@
-# Matrix
+# Products
 
-This folder belongs to the Scientific Computing course and contains supporting materials for that subject.
+This folder belongs to the Web Programming course and contains supporting materials for that subject.
 
 ## Purpose
-Matrix-based computations and numerical experiments.
+Example product-related files and supporting content.
 
 ## What You Will Find Here
 - Organized academic resources related to the course topic

@@ -1,9 +1,9 @@
-# Matrix
+# Practice 2
 
-This folder belongs to the Scientific Computing course and contains supporting materials for that subject.
+This folder belongs to the Web Programming course and contains supporting materials for that subject.
 
 ## Purpose
-Matrix-based computations and numerical experiments.
+Practice exercises and implementation experiments for web development topics.
 
 ## What You Will Find Here
 - Organized academic resources related to the course topic

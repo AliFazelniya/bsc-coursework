@@ -1,9 +1,9 @@
-# Matrix
+# Arena
 
-This folder belongs to the Scientific Computing course and contains supporting materials for that subject.
+This folder belongs to the Computer Simulation course and contains supporting materials for that subject.
 
 ## Purpose
-Matrix-based computations and numerical experiments.
+Arena-based models and simulation-related files.
 
 ## What You Will Find Here
 - Organized academic resources related to the course topic

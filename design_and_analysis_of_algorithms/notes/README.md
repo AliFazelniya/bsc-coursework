@@ -1,9 +1,9 @@
-# Matrix
+# Notes
 
-This folder belongs to the Scientific Computing course and contains supporting materials for that subject.
+This folder belongs to the Design and Analysis of Algorithms course and contains supporting materials for that subject.
 
 ## Purpose
-Matrix-based computations and numerical experiments.
+Lecture notes, study summaries, and reference material for the course.
 
 ## What You Will Find Here
 - Organized academic resources related to the course topic

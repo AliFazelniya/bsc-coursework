@@ -1,12 +1,12 @@
-# Mathematica Course
+# Scientific Computing
 
-This folder contains the academic work completed for Mathematica Course during the B.Sc. program in Computer Science at Shahid Madani University.
+This folder contains the academic work completed for Scientific Computing during the B.Sc. program in Computer Science at Shahid Madani University.
 
 ## Course Information
 - Institution: Shahid Madani University
 - Degree: B.Sc. in Computer Science
-- Instructor: N/A
-- Focus Area: Symbolic computation, visualization, and mathematical modeling with Mathematica.
+- Instructor: Dr. Jafar Pourmahmoud Ghazi-Jahani
+- Focus Area: Numerical methods and scientific problem solving.
 
 ## Contents and Purpose
 This directory is intended to preserve and organize the main learning artifacts for this subject, including:

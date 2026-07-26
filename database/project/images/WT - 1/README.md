@@ -1,9 +1,9 @@
-# Matrix
+# Wt 1
 
-This folder belongs to the Scientific Computing course and contains supporting materials for that subject.
+This folder belongs to the Database course and contains supporting materials for that subject.
 
 ## Purpose
-Matrix-based computations and numerical experiments.
+Supporting academic materials, resources, and related content for this topic.
 
 ## What You Will Find Here
 - Organized academic resources related to the course topic

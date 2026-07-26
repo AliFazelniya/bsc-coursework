@@ -1,9 +1,9 @@
-# Matrix
+# Programs
 
-This folder belongs to the Scientific Computing course and contains supporting materials for that subject.
+This folder belongs to the Computer Simulation course and contains supporting materials for that subject.
 
 ## Purpose
-Matrix-based computations and numerical experiments.
+Simulation programs and computational experiments.
 
 ## What You Will Find Here
 - Organized academic resources related to the course topic

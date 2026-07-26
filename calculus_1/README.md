@@ -1,12 +1,12 @@
-# Mathematica Course
+# Calculus I
 
-This folder contains the academic work completed for Mathematica Course during the B.Sc. program in Computer Science at Shahid Madani University.
+This folder contains the academic work completed for Calculus I during the B.Sc. program in Computer Science at Shahid Madani University.
 
 ## Course Information
 - Institution: Shahid Madani University
 - Degree: B.Sc. in Computer Science
-- Instructor: N/A
-- Focus Area: Symbolic computation, visualization, and mathematical modeling with Mathematica.
+- Instructor: Dr. Munireh Sedqi
+- Focus Area: Limits, derivatives, and applications of differential calculus.
 
 ## Contents and Purpose
 This directory is intended to preserve and organize the main learning artifacts for this subject, including:
