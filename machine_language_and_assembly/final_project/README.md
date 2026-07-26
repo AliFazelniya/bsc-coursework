@@ -1,14 +1,26 @@
-# Final Project
+# Machine Language and Assembly Final Project
 
-This folder belongs to the Machine Language and Assembly course and contains supporting materials for that subject.
+This project is an assembly-language program that converts numbers between binary and decimal representations. It demonstrates the use of low-level instruction logic and arithmetic operations in assembly programming.
 
-## Purpose
-Final project work, source code, and presentation artifacts.
+## Project Overview
 
-## What You Will Find Here
-- Organized academic resources related to the course topic
-- Files intended for study, review, implementation, or documentation
-- A structured collection of practical and theoretical materials
+The application provides a simple conversion tool for:
+- decimal to binary conversion
+- binary to decimal conversion
 
-## Recommended Use
-Use this directory as a focused workspace for the corresponding topic area, whether for revision, code review, academic preparation, or reference.
+The implementation is intended to show how basic number systems and arithmetic can be handled at the machine level.
+
+## What the Project Demonstrates
+
+- Low-level programming in assembly language
+- Number-system conversion logic
+- Step-by-step manipulation of binary and decimal values
+- A practical educational example of machine-level computation
+
+## Requirements to Run
+
+This project is written in assembly language. To run or test it, you will need a suitable assembler/emulator environment for the target architecture.
+
+## Notes
+
+This project is valuable for understanding how computing systems represent and transform data at the most fundamental level.

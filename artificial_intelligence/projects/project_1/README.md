@@ -1,14 +1,25 @@
-# Project 1
+# Artificial Intelligence Project 1
 
-This folder belongs to the Artificial Intelligence course and contains supporting materials for that subject.
+This project is a Python implementation that demonstrates an AI-style problem-solving approach using a search-based or logic-based method. The code in this folder is a small educational project focused on applying algorithmic thinking to a practical AI problem.
 
-## Purpose
-Practical projects, implementations, and supporting documentation.
+## Project Overview
 
-## What You Will Find Here
-- Organized academic resources related to the course topic
-- Files intended for study, review, implementation, or documentation
-- A structured collection of practical and theoretical materials
+The purpose of this assignment is to show how a simple computational solution can be structured in Python and used to solve a defined task in a clear and modular way.
 
-## Recommended Use
-Use this directory as a focused workspace for the corresponding topic area, whether for revision, code review, academic preparation, or reference.
+## What the Project Contains
+
+- Python source code implementing the core logic
+- A lightweight project structure suitable for academic demonstration
+- A simple entry point that can be executed directly
+
+## Requirements to Run
+
+Make sure Python is installed on your system.
+
+```bash
+python main.py
+```
+
+## Notes
+
+This project is intended as an educational example of how AI-related tasks can be implemented in a straightforward Python program and organized in a neat repository structure.

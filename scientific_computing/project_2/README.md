@@ -1,14 +1,35 @@
-# Project 2
+# Scientific Computing Project 2
 
-This folder belongs to the Scientific Computing course and contains supporting materials for that subject.
+This project focuses on solving systems of linear equations using numerical methods and matrix-based techniques. It implements several classical algorithms commonly taught in scientific computing, such as Gaussian elimination, Gauss-Seidel, Jacobi, and matrix decomposition methods.
 
-## Purpose
-Practical projects, implementations, and supporting documentation.
+## Project Overview
 
-## What You Will Find Here
-- Organized academic resources related to the course topic
-- Files intended for study, review, implementation, or documentation
-- A structured collection of practical and theoretical materials
+The project is centered on numerical linear algebra. The goal is to solve linear systems efficiently and to explore different approaches for handling equations in a computational setting.
 
-## Recommended Use
-Use this directory as a focused workspace for the corresponding topic area, whether for revision, code review, academic preparation, or reference.
+## Implemented Methods
+
+- Gaussian elimination
+- Jacobi method
+- Gauss-Seidel method
+- Successive over-relaxation (SOR)
+- Cramer’s rule
+- Cholesky decomposition
+- Crout decomposition
+- Doolittle decomposition
+
+## Project Structure
+
+- method/: implementations of the numerical methods
+- matrix/: helper functions and matrix-related utilities
+
+## Requirements to Run
+
+The files are Python scripts. You can run them individually with:
+
+```bash
+python method/gaussianelimination.py
+```
+
+## Notes
+
+This project is a strong example of how scientific computing combines numerical mathematics with practical programming to solve systems that arise in engineering and applied science.

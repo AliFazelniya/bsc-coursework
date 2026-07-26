@@ -1,14 +1,27 @@
-# Practice 2
+# Web Programming Practice 2
 
-This folder belongs to the Web Programming course and contains supporting materials for that subject.
+This practice project is a small web application that displays a product list using HTML, CSS, JavaScript, and a JSON data file. It introduces the concept of dynamic content rendering in the browser using client-side script.
 
-## Purpose
-Practice exercises and implementation experiments for web development topics.
+## Project Overview
 
-## What You Will Find Here
-- Organized academic resources related to the course topic
-- Files intended for study, review, implementation, or documentation
-- A structured collection of practical and theoretical materials
+The project loads product information from a JSON file and displays it in a structured layout. This is a practical example of how front-end development can separate content, presentation, and behavior.
 
-## Recommended Use
-Use this directory as a focused workspace for the corresponding topic area, whether for revision, code review, academic preparation, or reference.
+## What the Project Contains
+
+- index.html: the page layout
+- styles.css: styling for the user interface
+- app.js: JavaScript logic for loading and rendering products
+- products.json: sample product data used by the page
+- Products/: supporting product-related assets or examples
+
+## Requirements to Run
+
+Open the page in a browser:
+
+```bash
+xdg-open index.html
+```
+
+## Notes
+
+This exercise is useful for understanding how JavaScript can manipulate the DOM and load data dynamically from a JSON source.
