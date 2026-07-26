@@ -2,6 +2,8 @@
 
 This repository is a carefully organized academic archive of the coursework completed during the B.Sc. program in Computer Science at Shahid Madani University. Each folder represents a subject, and the materials inside include notes, assignments, projects, presentations, and examinations prepared throughout the study period.
 
+![poster](poster.png)
+
 ## Repository Overview
 
 The collection spans foundational mathematics, programming, theoretical computer science, software engineering, systems, networking, artificial intelligence, databases, and web development. It is intended to serve as both a study reference and a personal academic portfolio.
