@@ -1,107 +1,52 @@
-import pickle
-import os
-# import Dialogs
-class Database():
-    def __init__(self, username, email, phone, password):
-        self.username = username
-        self.email = email
-        self.phone = phone
-        self.password = password
-    def return_dic(self):
-        dic = {"username": self.username,
-              "email": self.email,
-              "Phone number": self.phone,
-              "password": self.password}
-        return dic
+import bcrypt
+from models import SessionLocal, User, Transaction
 
-if not os.path.isfile('Database.bin'):
-    with open("Database.bin", "wb") as datn:
-        pickle.dump([], datn)
+def hash_password(password: str) -> str:
+ 
+    salt = bcrypt.gensalt()
+    return bcrypt.hashpw(password.encode('utf-8'), salt).decode('utf-8')
+
+def check_password(plain_password: str, hashed_password: str) -> bool:
+
+    return bcrypt.checkpw(plain_password.encode('utf-8'), hashed_password.encode('utf-8'))
 
 def add_user(username, email, phone, password):
-    user = Database(username, email, phone, password)
-    with open("Database.bin", "rb") as dat1:
-        dicts = pickle.load(dat1)
-    with open("Database.bin", "wb") as dat:
-        dicts.append(user.return_dic())
-        pickle.dump(dicts, dat)
 
-def emails():
-    emails_list = []
-    dat = open("Database.bin", "rb")
-    dicts = pickle.load(dat)
-    dat.close()
-    for i in dicts:
-        emails_list.append(i["email"])
-    # for i in emails_list:
-        # create_user_directory(i)
-    return emails_list
+    db = SessionLocal()
+    try:
 
-def passwords():
-    passwords_list = []
-    dat = open("Database.bin", "rb")
-    dicts = pickle.load(dat)
-    dat.close()
-    for i in dicts:
-        passwords_list.append(i["password"])
-    return passwords_list
+        if db.query(User).filter(User.email == email).first():
+            return False
+            
+        hashed_pw = hash_password(password)
+        new_user = User(
+            username=username, 
+            email=email, 
+            phone=phone, 
+            password_hash=hashed_pw
+        )
+        db.add(new_user)
+        db.commit()
+        return True
+    finally:
+        db.close()
 
-def user_names():
-    usernames_list = []
+def check_email_password(email, password):
 
-    dat = open("Database.bin", "rb")
-    dicts = pickle.load(dat)
-    dat.close()
-    for i in dicts:
-        usernames_list.append(i["username"])
-    return usernames_list
+    db = SessionLocal()
+    try:
+        user = db.query(User).filter(User.email == email).first()
+        if user and check_password(password, user.password_hash):
+            return True
+        return False
+    finally:
+        db.close()
 
 def get_user_name(email):
-    email_index = emails().index(email)
-    username  = user_names()[email_index]
-    return username
 
-def check_email_password(email,password):
-    email_index = emails().index(email)
-    if password == passwords()[email_index]:
-        return True
-    
-def create_user_directory(email):
-    newpath = f"users/{email}" 
-    if not os.path.exists(newpath):
-        os.makedirs(newpath)
-        
-def add_year(path, year):
-    if  not os.path.exists(f"{path}/{year}"):
-        year_path = f"{path}/{year}"
-        os.mkdir(year_path)
-        
-def change_income(path, month, day, income):
-    if not os.path.isfile(f"{path}/{month}-income.bin"):
-        data = []
-        for i in range(1,32):
-            data.append(i)
-        with open(f"{path}/{month}-income.bin","wb") as f:
-            data[int(day)-1] = int(income)
-            pickle.dump(data, f)
-    else:
-        with open(f"{path}/{month}-income.bin","rb") as f:
-            data = pickle.load(f)
-        with open(f"{path}/{month}-income.bin","wb") as f:
-            data[int(day)-1] = int(income)
-            pickle.dump(data, f)
-
-def change_expenses(path, month, day, expenses):
-    if not os.path.isfile(f"{path}/{month}-expenses.bin"):
-        data = []
-        for i in range(1,32):
-            data.append(i)
-        with open(f"{path}/{month}-expenses.bin","wb") as f:
-            data[int(day)-1] = int(expenses)
-            pickle.dump(data, f)
-    else:
-        with open(f"{path}/{month}-expenses.bin","rb") as f:
-            data = pickle.load(f)
-        with open(f"{path}/{month}-expenses.bin","wb") as f:
-            data[int(day)-1] = int(expenses)
-            pickle.dump(data, f)
+    db = SessionLocal()
+    try:
+        user = db.query(User).filter(User.email == email).first()
+        return user.username if user else None
+    finally:
+        db.close()
