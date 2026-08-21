@@ -47,7 +47,7 @@ packages shown above.
 Install the Python dependencies:
 
 ```bash
-python3 -m pip install PyQt5 PyQtGraph SQLAlchemy psycopg2-binary bcrypt python-dotenv requests
+python3 -m pip install PyQt5 PyQtGraph SQLAlchemy psycopg2-binary bcrypt python-dotenv requests QDarkStyle
 ```
 
 ## Configuration
