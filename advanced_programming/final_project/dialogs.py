@@ -39,29 +39,24 @@ class Log_in(QtWidgets.QDialog):
         self.lay.addWidget(self.Sign_up_button)
         self.setLayout(self.lay)
         self.Log_in_button.clicked.connect(self.sign_in_data_check)
+
     def sign_in_data_check(self):
         self.t = False
         self.user_email_text = self.user_email.text()
-        if not self.user_email_text in db.emails():
-            self.email_error_message()
-        elif not db.check_email_password(self.user_email_text, self.user_pass.text()):
-            self.password_error_message()
-        elif self.user_email_text in db.emails() and db.check_email_password(self.user_email_text, self.user_pass.text()): 
+        
+        if db.check_email_password(self.user_email_text, self.user_pass.text()): 
             self.t = True
-    def email_error_message(self):
+        else:
+            self.login_error_message()
+
+    def login_error_message(self):
         error_box = QtWidgets.QMessageBox()
-        error_box.setWindowTitle("Invalid Email")
-        error_box.setText("There is no user with this email. please enter a valid email.")
+        error_box.setWindowTitle("Login Failed")
+        error_box.setText("Invalid email or password. Please try again.")
         error_box.setIcon(QtWidgets.QMessageBox.Icon.Warning)
         error_box.setStandardButtons(QtWidgets.QMessageBox.Ok)
         error_box.exec()
-    def password_error_message(self):
-        error_box = QtWidgets.QMessageBox()
-        error_box.setWindowTitle("Wrong Password")
-        error_box.setText("The entered passwrod is wrong, Please enter a correct password.")
-        error_box.setIcon(QtWidgets.QMessageBox.Icon.Warning)
-        error_box.setStandardButtons(QtWidgets.QMessageBox.Ok)
-        error_box.exec()
+
 class sign_up(QtWidgets.QDialog):
     def __init__(self):
         super().__init__()
@@ -101,6 +96,7 @@ class sign_up(QtWidgets.QDialog):
         self.intvalid = QtGui.QIntValidator()
         self.phone.setValidator(self.intvalid)
         self.Creat_button.clicked.connect(self.sign_up_data_check)
+        
     def sign_up_data_check(self):
         if not self.user_name.text():
             self.user_name_error_message()
@@ -117,13 +113,34 @@ class sign_up(QtWidgets.QDialog):
             db.create_user_directory(self.email.text())
             sign_up.close()
             return True
-    def email_error_message(self):
-        error_box = QtWidgets.QMessageBox()
-        error_box.setWindowTitle("Invalid Email")
-        error_box.setText("The entered email is invalid! Please enter a valid email.")
-        error_box.setIcon(QtWidgets.QMessageBox.Icon.Warning)
-        error_box.setStandardButtons(QtWidgets.QMessageBox.Ok)
-        error_box.exec()
+        
+    def sign_up_data_check(self):
+        if not self.user_name.text():
+            self.user_name_error_message()
+        elif not self.phone.text():
+            self.phone_error_message()
+        elif not re.search(".*@gmail.com$", self.email.text()):
+            self.email_error_message()
+        elif self.password1.text() != self.password2.text():
+            self.password_error_message()
+        else:
+
+            success = db.add_user(
+                self.user_name.text(), 
+                self.email.text(), 
+                self.phone.text(), 
+                self.password2.text()
+            )
+            
+            if success:
+                self.label5.setText("Congratulation! You signed up!")
+
+                time.sleep(3)
+                self.close()
+                return True
+            else:
+                self.email_exists_error_message()
+
     def password_error_message(self):
         error_box = QtWidgets.QMessageBox()
         error_box.setWindowTitle("Invalid Password")
@@ -131,6 +148,7 @@ class sign_up(QtWidgets.QDialog):
         error_box.setIcon(QtWidgets.QMessageBox.Icon.Warning)
         error_box.setStandardButtons(QtWidgets.QMessageBox.Ok)
         error_box.exec()
+
     def user_name_error_message(self):
         error_box = QtWidgets.QMessageBox()
         error_box.setWindowTitle("No Username")
@@ -138,14 +156,19 @@ class sign_up(QtWidgets.QDialog):
         error_box.setIcon(QtWidgets.QMessageBox.Icon.Warning)
         error_box.setStandardButtons(QtWidgets.QMessageBox.Ok)
         error_box.exec()
+
     def phone_error_message(self):
         error_box = QtWidgets.QMessageBox()
         error_box.setWindowTitle("No Phone Number")
         error_box.setText("You didn't enter a Phone number, Please enter a phone number.")
         error_box.setIcon(QtWidgets.QMessageBox.Icon.Warning)
         error_box.setStandardButtons(QtWidgets.QMessageBox.Ok)
-        error_box.exec()  
-# if __name__ == "__main__":
-    # app = QtWidgets.QApplication(sys.argv)
-    # window = Log_in()
-    # sys.exit(app.exec_())
+        error_box.exec() 
+
+    def email_exists_error_message(self):
+        error_box = QtWidgets.QMessageBox()
+        error_box.setWindowTitle("Email Exists")
+        error_box.setText("An account with this email already exists.")
+        error_box.setIcon(QtWidgets.QMessageBox.Icon.Warning)
+        error_box.setStandardButtons(QtWidgets.QMessageBox.Ok)
+        error_box.exec()
