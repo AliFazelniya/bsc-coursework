@@ -23,5 +23,4 @@ def get_currency_data(currency_key):
             return ["N/A", "N/A"]
             
     except requests.RequestException:
-        # مدیریت خطاهای شبکه (مثل قطعی اینترنت)
         return ["Error", "Error"]
