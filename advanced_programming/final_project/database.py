@@ -1,5 +1,6 @@
 import bcrypt
 from models import SessionLocal, User, Transaction
+from datetime import date
 
 def hash_password(password: str) -> str:
  
@@ -48,5 +49,41 @@ def get_user_name(email):
     try:
         user = db.query(User).filter(User.email == email).first()
         return user.username if user else None
+    finally:
+        db.close()
+
+def save_transaction(email, record_date, income, expense):
+ 
+    db = SessionLocal()
+    try:
+        user = db.query(User).filter(User.email == email).first()
+        if not user:
+            return False
+            
+
+        transaction = db.query(Transaction).filter(
+            Transaction.user_id == user.id,
+            Transaction.record_date == record_date
+        ).first()
+
+        income_val = float(income) if income else 0.0
+        expense_val = float(expense) if expense else 0.0
+
+        if transaction:
+    
+            if income: transaction.income = income_val
+            if expense: transaction.expense = expense_val
+        else:
+
+            new_tx = Transaction(
+                user_id=user.id,
+                record_date=record_date,
+                income=income_val,
+                expense=expense_val
+            )
+            db.add(new_tx)
+        
+        db.commit()
+        return True
     finally:
         db.close()

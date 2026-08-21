@@ -5,6 +5,7 @@ import dialogs
 import plots
 import api
 import database as db
+
 class Main(QtWidgets.QMainWindow):
     def __init__(self):
         super().__init__()
@@ -77,33 +78,42 @@ class Main(QtWidgets.QMainWindow):
                 table.setItem(i+1,j,QtWidgets.QTableWidgetItem(item))
         table.setEditTriggers(QtWidgets.QAbstractItemView.EditTrigger.NoEditTriggers)
         return table
+
+    
     def show_time(self):
         current_time = QtCore.QTime.currentTime()
         show_time = current_time.toString("hh:mm")
         self.lcd.display(show_time)
+
+
     def connect_log_in(self):
         Swindow.show()
         Swindow.Sign_up_button.clicked.connect(Lwindow.show)
         if Swindow.t == True:
-            user_email = Swindow.user_email.text()
-            self.path = f"/home/ali/University/Project/users/{Swindow.user_email.text()}"
-            self.plotwindow = plots.income_plot(Swindow.user_email.text())
-            self.ex_plotwindow = plots.expenses_plot(Swindow.user_email.text())
+            self.user_email = Swindow.user_email.text()
+            
+            self.plotwindow = plots.income_plot(self.user_email)
+            self.ex_plotwindow = plots.expenses_plot(self.user_email)
+            
             self.plot_button.clicked.connect(self.plotwindow.show)
             self.plot_button1.clicked.connect(self.ex_plotwindow.show)
-            self.user_label.setText(db.get_user_name(Swindow.user_email.text()))
+            self.user_label.setText(db.get_user_name(self.user_email))
+
+
     def show_dialog(self):
-        month = self.calender.selectedDate().toString('MMM')
-        year = self.calender.selectedDate().toString('yyyy')
-        day = self.calender.selectedDate().toString('dd')
-        win.exec_()
-        try:
-            db.add_year(self.path,year)
-            if win.enter_button():
-                db.change_income(f"{self.path}/{year}", month, day, win.income.text())
-                db.change_expenses(f"{self.path}/{year}", month, day, win.expenses.text())
-        except:
-            pass
+        selected_qdate = self.calender.selectedDate()
+        record_date = selected_qdate.toPyDate()
+        
+        if win.exec_() == QtWidgets.QDialog.Accepted:
+            income_text = win.income.text()
+            expenses_text = win.expenses.text()
+            
+            if hasattr(self, 'user_email'):
+                db.save_transaction(self.user_email, record_date, income_text, expenses_text)
+            
+            win.income.clear()
+            win.expenses.clear()
+            
     def create_menu_bar(self):
         self.menu_bar = QtWidgets.QMenuBar()
         self.user_label = QtWidgets.QLabel("")
@@ -112,30 +122,35 @@ class Main(QtWidgets.QMainWindow):
         self.openWin2Action.triggered.connect(self.connect_log_in)
         self.menu_bar.addAction(self.user_label.text())
         return self.menu_bar
+    
 class input_dialog(QtWidgets.QDialog):
     def __init__(self):
         super().__init__()
         self.setWindowTitle("Enter Values")
         self.setWindowIcon(QtGui.QIcon("profit.png"))
         self.setFixedSize(310,300)
-        label = QtWidgets.QLabel(self)
-        label.setText("Please enter income and expenses of the \nday in rial.")
-        lay = QtWidgets.QVBoxLayout()
+        
+        label = QtWidgets.QLabel("Please enter income and expenses of the \nday in rial.", self)
+        
+        self.lay = QtWidgets.QVBoxLayout()
         self.income = QtWidgets.QLineEdit()
         self.income.setPlaceholderText("Enter Income: ")
         self.expenses = QtWidgets.QLineEdit()
         self.expenses.setPlaceholderText("Enter Expenses: ")
-        self.enter_buttun = QtWidgets.QPushButton()
-        self.enter_buttun.setText("Enter")
-        self.enter_buttun.clicked.connect(self.enter_button)
+        
+        self.enter_button = QtWidgets.QPushButton("Enter")
+        self.enter_button.clicked.connect(self.accept)
+        
         self.intvalid = QtGui.QIntValidator()
         self.income.setValidator(self.intvalid)
         self.expenses.setValidator(self.intvalid)
-        lay.addWidget(label)
-        lay.addWidget(self.income)
-        lay.addWidget(self.expenses)
-        lay.addWidget(self.enter_buttun)
-        self.setLayout(lay)  
+        
+        self.lay.addWidget(label)
+        self.lay.addWidget(self.income)
+        self.lay.addWidget(self.expenses)
+        self.lay.addWidget(self.enter_button)
+        self.setLayout(self.lay)
+
     def enter_button(self):  
         global income
         global expenses      
@@ -144,6 +159,7 @@ class input_dialog(QtWidgets.QDialog):
         if income and expenses:
             win.close()
         return True
+    
 app = QtWidgets.QApplication(sys.argv)
 win = input_dialog()
 window = Main()
