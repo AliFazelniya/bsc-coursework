@@ -61,14 +61,16 @@ class Main(QtWidgets.QMainWindow):
         table.setColumnCount(2)
         table.setItem(0,0,QtWidgets.QTableWidgetItem("Currency"))
         table.setItem(0,1,QtWidgets.QTableWidgetItem("Price (Per Toman)"))
+        
         currency = [
-            ["Dollar 💲", api.usd()[0]], 
-            ["Euro 🇪🇺",api.euro()[0]],
-            ["Pound 💷",api.pond()[0]],
-            ["ether ",api.ether()[0]],
-            ["Bitcoin ₿",api.bitcoin()[0]],
-            ["Coin 🪙", api.coin()[0]]
+            ["Dollar 💲", api.get_currency_data("usd_sell")[0]], 
+            ["Euro 🇪🇺", api.get_currency_data("eur_hav")[0]],
+            ["Pound 💷", api.get_currency_data("gbp_hav")[0]],
+            ["Ether ", api.get_currency_data("eth")[0]],
+            ["Bitcoin ₿", api.get_currency_data("btc")[0]],
+            ["Coin 🪙", api.get_currency_data("bahar")[0]]
         ]
+
         for i in range(2):
             table.setColumnWidth(i,298)
         for j in range(7):
@@ -113,7 +115,7 @@ class Main(QtWidgets.QMainWindow):
             
             win.income.clear()
             win.expenses.clear()
-            
+
     def create_menu_bar(self):
         self.menu_bar = QtWidgets.QMenuBar()
         self.user_label = QtWidgets.QLabel("")
