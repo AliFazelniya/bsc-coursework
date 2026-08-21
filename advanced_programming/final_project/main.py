@@ -61,12 +61,12 @@ class Main(QtWidgets.QMainWindow):
         table.setItem(0,0,QtWidgets.QTableWidgetItem("Currency"))
         table.setItem(0,1,QtWidgets.QTableWidgetItem("Price (Per Toman)"))
         currency = [
-            ["Dollar 💲", API.usd()[0]], 
-            ["Euro 🇪🇺",API.euro()[0]],
-            ["Pound 💷",API.pond()[0]],
-            ["ether ",API.ether()[0]],
-            ["Bitcoin ₿",API.bitcoin()[0]],
-            ["Coin 🪙", API.coin()[0]]
+            ["Dollar 💲", api.usd()[0]], 
+            ["Euro 🇪🇺",api.euro()[0]],
+            ["Pound 💷",api.pond()[0]],
+            ["ether ",api.ether()[0]],
+            ["Bitcoin ₿",api.bitcoin()[0]],
+            ["Coin 🪙", api.coin()[0]]
         ]
         for i in range(2):
             table.setColumnWidth(i,298)
@@ -87,8 +87,8 @@ class Main(QtWidgets.QMainWindow):
         if Swindow.t == True:
             user_email = Swindow.user_email.text()
             self.path = f"/home/ali/University/Project/users/{Swindow.user_email.text()}"
-            self.plotwindow = Plots.income_plot(Swindow.user_email.text())
-            self.ex_plotwindow = Plots.expenses_plot(Swindow.user_email.text())
+            self.plotwindow = plots.income_plot(Swindow.user_email.text())
+            self.ex_plotwindow = plots.expenses_plot(Swindow.user_email.text())
             self.plot_button.clicked.connect(self.plotwindow.show)
             self.plot_button1.clicked.connect(self.ex_plotwindow.show)
             self.user_label.setText(db.get_user_name(Swindow.user_email.text()))
@@ -148,7 +148,7 @@ app = QtWidgets.QApplication(sys.argv)
 win = input_dialog()
 window = Main()
 window.show()   
-Lwindow = Dialogs.sign_up()
-Swindow = Dialogs.Log_in()
+Lwindow = dialogs.sign_up()
+Swindow = dialogs.Log_in()
 Swindow.Log_in_button.clicked.connect(Swindow.close)
 sys.exit(app.exec_())
