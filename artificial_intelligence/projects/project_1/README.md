@@ -1,25 +1,53 @@
-# Artificial Intelligence Project 1
+# Neicharan's Dooz
 
-This project is a Python implementation that demonstrates an AI-style problem-solving approach using a search-based or logic-based method. The code in this folder is a small educational project focused on applying algorithmic thinking to a practical AI problem.
+A Pygame implementation of the scored tic-tac-toe variant **Neicharan's Dooz**.
+The human plays `X`; a depth-limited minimax agent with alpha-beta pruning plays
+`O`. Runs of three or more consecutive marks score points in rows, columns, and
+both diagonal directions.
 
-## Project Overview
+## Project layout
 
-The purpose of this assignment is to show how a simple computational solution can be structured in Python and used to solve a defined task in a clear and modular way.
-
-## What the Project Contains
-
-- Python source code implementing the core logic
-- A lightweight project structure suitable for academic demonstration
-- A simple entry point that can be executed directly
-
-## Requirements to Run
-
-Make sure Python is installed on your system.
-
-```bash
-python main.py
+```text
+.
+├── src/
+│   └── neicharans_dooz/
+│       ├── app.py                # Application flow
+│       ├── ai.py                 # Minimax computer opponent
+│       ├── domain.py             # Board and game types
+│       ├── gui.py                # Pygame input and rendering
+│       └── scoring.py            # Scoring rules
+├── tests/                        # Automated unit tests
+├── main.py                       # Backward-compatible launcher
+└── pyproject.toml                # Dependencies and tool configuration
 ```
 
-## Notes
+This `src` layout separates application code from tests, documentation, and
+runtime data. It scales cleanly as new game modes, views, or AI strategies are
+added.
 
-This project is intended as an educational example of how AI-related tasks can be implemented in a straightforward Python program and organized in a neat repository structure.
+## Installation and use
+
+Use Python 3.10 or newer. Install the project in editable mode:
+
+```bash
+python3 -m pip install -e .
+```
+
+Start the game with either command:
+
+```bash
+python3 main.py
+neicharans-dooz
+```
+
+## Quality checks
+
+The project uses PEP 8-compatible formatting, complete docstrings, and strict
+type checking configuration. Run the checks with:
+
+```bash
+python3 -m unittest discover -s tests
+ruff check .
+black --check .
+mypy src
+```
