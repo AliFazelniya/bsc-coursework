@@ -8,14 +8,14 @@ The application provides a simple but functional personal finance dashboard. Use
 
 - create an account and log in securely,
 - add daily income and expense values from a calendar-based dialog,
-- save entries per month and year using serialized local files,
+- save entries securely in PostgreSQL through SQLAlchemy,
 - view monthly income and expense plots,
 - monitor selected currency exchange rates through an API.
 
 ## Main Features
 
 - User authentication flow with sign-up and login dialogs
-- Persistent storage of user data using Python pickle files
+- PostgreSQL persistence with scoped SQLAlchemy sessions
 - Daily financial entry management through a calendar interface
 - Monthly income and expense visualization with PyQtGraph
 - Exchange-rate monitoring from the Navasan API
@@ -23,12 +23,11 @@ The application provides a simple but functional personal finance dashboard. Use
 
 ## Project Structure
 
-- main.py: application entry point and main window UI
-- dialogs.py: login/signup dialogs and validation logic
-- database.py: user data persistence and monthly income/expense storage
-- api.py: external API integration for currency prices
-- plots.py: plotting widgets for income and expense trends
-- users/: user-specific storage directory
+- main.py: application entry point
+- core/: environment configuration and shared application settings
+- database/: SQLAlchemy models, session lifecycle, and repositories
+- services/: external integrations such as Navasan currency rates
+- ui/: Qt windows, dialogs, plots, and background workers
 
 ## Technologies Used
 
@@ -43,7 +42,7 @@ The application provides a simple but functional personal finance dashboard. Use
 Install the required packages:
 
 ```bash
-pip install PyQt5 PyQtGraph requests
+pip install PyQt5 PyQtGraph SQLAlchemy psycopg2-binary bcrypt python-dotenv requests QDarkStyle
 ```
 
 Run the application:
@@ -57,9 +56,9 @@ python main.py
 1. The app starts with a login/sign-up window.
 2. After authentication, the user can select a date from the calendar.
 3. A dialog prompts for income and expenses for that day.
-4. The values are stored in month-based files under each user directory.
+4. Values are stored in PostgreSQL, one record per user and day.
 5. The user can open monthly plots to visualize recorded financial activity.
-6. Currency values are fetched from the public API and displayed in the main window.
+6. Currency values are fetched in a Qt worker thread and displayed without freezing the UI.
 
 ## Notes
 
