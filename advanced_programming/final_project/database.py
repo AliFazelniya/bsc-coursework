@@ -1,7 +1,7 @@
 import bcrypt
 from models import SessionLocal, User, Transaction
-from datetime import date
-
+from sqlalchemy import extract
+import datetime
 def hash_password(password: str) -> str:
  
     salt = bcrypt.gensalt()
@@ -85,5 +85,30 @@ def save_transaction(email, record_date, income, expense):
         
         db.commit()
         return True
+    finally:
+        db.close()
+
+def get_monthly_data(email, year, month_index):
+    db = SessionLocal()
+    try:
+        user = db.query(User).filter(User.email == email).first()
+        incomes = [0.0] * 31
+        expenses = [0.0] * 31
+        
+        if not user:
+            return incomes, expenses
+            
+        transactions = db.query(Transaction).filter(
+            Transaction.user_id == user.id,
+            extract('year', Transaction.record_date) == year,
+            extract('month', Transaction.record_date) == month_index
+        ).all()
+        
+        for tx in transactions:
+            day_index = tx.record_date.day - 1
+            incomes[day_index] = tx.income
+            expenses[day_index] = tx.expense
+            
+        return incomes, expenses
     finally:
         db.close()
