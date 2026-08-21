@@ -1,10 +1,10 @@
 import typing
 from PyQt5 import QtWidgets, QtCore, QtGui
 import sys
-import Dialogs
-import Plots
-import API
-import DateBase as db
+import dialogs
+import plots
+import api
+import database as db
 class Main(QtWidgets.QMainWindow):
     def __init__(self):
         super().__init__()
