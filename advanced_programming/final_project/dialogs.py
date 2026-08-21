@@ -2,7 +2,7 @@ import typing
 from PyQt5 import QtWidgets, QtCore, QtGui
 import sys
 from PyQt5.QtWidgets import QWidget
-import DateBase as db
+import database as db
 import re
 import time
 # import Main
