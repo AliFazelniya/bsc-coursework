@@ -5,6 +5,7 @@ import dialogs
 import plots
 import api
 import database as db
+import qdarkstyle
 
 class Main(QtWidgets.QMainWindow):
     def __init__(self):
@@ -61,7 +62,7 @@ class Main(QtWidgets.QMainWindow):
         table.setColumnCount(2)
         table.setItem(0,0,QtWidgets.QTableWidgetItem("Currency"))
         table.setItem(0,1,QtWidgets.QTableWidgetItem("Price (Per Toman)"))
-        
+
         currency = [
             ["Dollar 💲", api.get_currency_data("usd_sell")[0]], 
             ["Euro 🇪🇺", api.get_currency_data("eur_hav")[0]],
@@ -163,6 +164,7 @@ class input_dialog(QtWidgets.QDialog):
         return True
     
 app = QtWidgets.QApplication(sys.argv)
+app.setStyleSheet(qdarkstyle.load_stylesheet(qt_api='pyqt5'))
 win = input_dialog()
 window = Main()
 window.show()   

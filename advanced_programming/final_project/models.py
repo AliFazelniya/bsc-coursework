@@ -2,6 +2,7 @@ from sqlalchemy import create_engine, Column, Integer, String, Float, Date, Fore
 from sqlalchemy.orm import declarative_base, relationship, sessionmaker
 from datetime import date
 import os 
+from dotenv import load_dotenv
 
 Base = declarative_base()
 
@@ -27,9 +28,15 @@ class Transaction(Base):
 
     user = relationship("User", back_populates="transactions")
 
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+env_path = os.path.join(BASE_DIR, ".env")
+
+load_dotenv(dotenv_path = env_path)
+
 DATABASE_URL = os.getenv("DATABASE_URL")
+
 if not DATABASE_URL:
-    raise ValueError("DATABASE_URL is not set in the .env file!")
+    raise ValueError(f"DATABASE_URL is not set! Python tried to look here: {env_path}")
 
 engine = create_engine(DATABASE_URL)
 SessionLocal = sessionmaker(bind=engine)
