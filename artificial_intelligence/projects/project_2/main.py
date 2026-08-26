@@ -190,8 +190,14 @@ class CSPSolver:
 if __name__ == "__main__":
     print("--- Starting CSP Puzzle Solver ---")
     
+    # پیدا کردن مسیر دقیق پوشه‌ای که فایل main.py در آن قرار دارد
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    
+    # ساخت مسیر مطلق برای فایل‌های ورودی و خروجی
+    input_filename = os.path.join(script_dir, "puzzle.txt")
+    output_filename = os.path.join(script_dir, "solution.txt")
+    
     # 1. Read input data
-    input_filename = "puzzle.txt"
     try:
         n, row_targets, col_targets, grid = read_puzzle(input_filename)
         print(f"Loaded puzzle of size {n}x{n} from '{input_filename}'.")
@@ -210,7 +216,7 @@ if __name__ == "__main__":
     # 3. Handle results
     if solution:
         print(f"Puzzle solved successfully in {end_time - start_time:.4f} seconds.")
-        # Write to solution.txt
-        write_solution(solution, "solution.txt")
+        # Write to solution.txt using the absolute path
+        write_solution(solution, output_filename)
     else:
         print("No solution exists for the given puzzle constraints.")
