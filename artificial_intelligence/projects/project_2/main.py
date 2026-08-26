@@ -1,222 +1,244 @@
 import os
 import time
+import tkinter as tk
+from tkinter import filedialog, messagebox
 
 # ==========================================
-# File I/O Operations
+# 1. File I/O Operations (Updated for Non-Square)
 # ==========================================
 
-def read_puzzle(file_path="puzzle.txt"):
-    """
-    Reads the puzzle information from a text file.
-    
-    Args:
-        file_path (str): The path to the input puzzle file.
-        
-    Returns:
-        tuple: (n, row_targets, col_targets, grid)
-    """
+def read_puzzle(file_path):
     if not os.path.exists(file_path):
-        raise FileNotFoundError(f"File '{file_path}' not found. Please ensure the file is in the correct directory.")
+        raise FileNotFoundError(f"File '{file_path}' not found.")
 
     with open(file_path, 'r', encoding='utf-8') as file:
-        lines = file.readlines()
+        lines = [line.strip() for line in file.readlines() if line.strip()]
 
-    # Remove trailing whitespaces and empty lines
-    lines = [line.strip() for line in lines if line.strip()]
+    # Handle square (N) or non-square (Rows,Cols) grids
+    dimensions = lines[0].split(',')
+    if len(dimensions) == 2:
+        rows, cols = int(dimensions[0]), int(dimensions[1])
+    else:
+        rows = cols = int(dimensions[0])
 
-    # Extract the first line: grid size (N)
-    n = int(lines[0])
-
-    # Extract the second line: row targets
     row_targets = [int(x) for x in lines[1].split(',')]
-
-    # Extract the third line: column targets
     col_targets = [int(x) for x in lines[2].split(',')]
 
-    # Extract the numbers grid
     grid = []
-    for i in range(3, 3 + n):
+    for i in range(3, 3 + rows):
         row = [int(x) for x in lines[i].split(',')]
         grid.append(row)
 
-    # Validation checks to ensure the file format is consistent
-    assert len(row_targets) == n, "Number of row targets does not match grid size N."
-    assert len(col_targets) == n, "Number of column targets does not match grid size N."
-    assert len(grid) == n, "Number of grid rows does not match grid size N."
+    assert len(row_targets) == rows, "Row targets count mismatch."
+    assert len(col_targets) == cols, "Column targets count mismatch."
+    assert len(grid) == rows and all(len(r) == cols for r in grid), "Grid dimensions mismatch."
 
-    return n, row_targets, col_targets, grid
+    return rows, cols, row_targets, col_targets, grid
 
 
 def write_solution(grid, file_path="solution.txt"):
-    """
-    Writes the solved grid to an output file.
-    
-    Args:
-        grid (list of lists): The solved N x N matrix.
-        file_path (str): The path to the output text file.
-    """
     with open(file_path, 'w', encoding='utf-8') as file:
         for row in grid:
-            # Convert numbers to strings and join them with commas
-            row_str = ",".join(map(str, row))
-            file.write(row_str + "\n")
-            
-    print(f"✅ Solution successfully saved to '{file_path}'.")
+            file.write(",".join(map(str, row)) + "\n")
 
 # ==========================================
-# CSP Solver Implementation
+# 2. CSP Solver (Updated for Uniqueness & Step-by-Step)
 # ==========================================
 
 class CSPSolver:
-    """
-    A Constraint Satisfaction Problem (CSP) solver for the numerical puzzle.
-    Uses backtracking with domain reduction and consistency checks.
-    """
-    def __init__(self, n, row_targets, col_targets, initial_grid):
-        self.n = n
+    def __init__(self, rows, cols, row_targets, col_targets, initial_grid, unique_constraint=False, step_callback=None):
+        self.rows = rows
+        self.cols = cols
         self.row_targets = row_targets
         self.col_targets = col_targets
         self.initial_grid = initial_grid
+        self.unique_constraint = unique_constraint
+        self.step_callback = step_callback
         
-        # The grid that will store our solution (0s or original values)
-        self.current_grid = [[0 for _ in range(n)] for _ in range(n)]
+        self.current_grid = [[0 for _ in range(cols)] for _ in range(rows)]
+        self.row_sums = [0] * rows
+        self.col_sums = [0] * cols
         
-        # --- Optimization States ---
-        # Track the current sums of rows and columns during backtracking
-        self.row_sums = [0] * n
-        self.col_sums = [0] * n
-        
-        # Track the maximum possible sum remaining for each row and column.
-        # Initially, it is the sum of all elements in that row/column.
         self.rem_row_sums = [sum(row) for row in initial_grid]
-        self.rem_col_sums = [sum(initial_grid[i][j] for i in range(n)) for j in range(n)]
+        self.rem_col_sums = [sum(initial_grid[i][j] for i in range(rows)) for j in range(cols)]
 
     def solve(self):
-        """
-        Initiates the backtracking process starting from the top-left cell (0, 0).
-        
-        Returns:
-            list of lists: The solved grid if a solution exists, else None.
-        """
         if self._backtrack(0, 0):
             return self.current_grid
         return None
 
     def _backtrack(self, row, col):
-        """
-        Recursive backtracking function that explores possibilities cell by cell.
-        
-        Args:
-            row (int): Current row index.
-            col (int): Current column index.
-            
-        Returns:
-            bool: True if a valid configuration is found, False otherwise.
-        """
-        # Base Case: If we have moved past the last row, the grid is fully processed.
-        if row == self.n:
+        # Update GUI if callback is provided
+        if self.step_callback:
+            self.step_callback(self.current_grid, row, col)
+
+        if row == self.rows:
             return self._is_solved()
             
-        # Calculate the coordinates of the next cell
-        next_row = row if col < self.n - 1 else row + 1
-        next_col = col + 1 if col < self.n - 1 else 0
+        next_row = row if col < self.cols - 1 else row + 1
+        next_col = col + 1 if col < self.cols - 1 else 0
         
-        # The original value of the current cell
         val = self.initial_grid[row][col]
-        
-        # Domain Reduction Step 1: 
-        # We are at this cell, so its value is no longer "remaining" in our future choices.
         self.rem_row_sums[row] -= val
         self.rem_col_sums[col] -= val
         
-        # ---------------------------------------------------------
-        # Branch 1: Try keeping the original value (Assignment: val)
-        # ---------------------------------------------------------
-        # Consistency Check (Overflow): Adding this value must not exceed the target.
+        # --- Branch 1: Keep Value ---
         can_keep = (self.row_sums[row] + val <= self.row_targets[row]) and \
                    (self.col_sums[col] + val <= self.col_targets[col])
                    
+        # Check Uniqueness Constraint (Extra Challenge)
+        if can_keep and self.unique_constraint:
+            in_row = val in self.current_grid[row]
+            in_col = any(self.current_grid[i][col] == val for i in range(self.rows))
+            if in_row or in_col:
+                can_keep = False
+
         if can_keep:
-            # Apply the choice
             self.current_grid[row][col] = val
             self.row_sums[row] += val
             self.col_sums[col] += val
             
-            # Move to the next cell recursively
             if self._backtrack(next_row, next_col):
                 return True
                 
-            # Undo the choice (Backtrack)
             self.row_sums[row] -= val
             self.col_sums[col] -= val
             self.current_grid[row][col] = 0
 
-        # ---------------------------------------------------------
-        # Branch 2: Try removing the value (Assignment: 0)
-        # ---------------------------------------------------------
-        # Consistency Check (Underflow): Even if we drop this value, can we still 
-        # reach the target using the remaining available numbers in this row/col?
+        # --- Branch 2: Remove Value (Set to 0) ---
         can_remove = (self.row_sums[row] + self.rem_row_sums[row] >= self.row_targets[row]) and \
                      (self.col_sums[col] + self.rem_col_sums[col] >= self.col_targets[col])
                      
         if can_remove:
-            # Note: We don't need to update current_grid or sums because the value is 0
             if self._backtrack(next_row, next_col):
                 return True
 
-        # Backtrack Step: Restore the remaining sums before returning to the previous cell
         self.rem_row_sums[row] += val
         self.rem_col_sums[col] += val
         
+        # Update GUI to show backtracking
+        if self.step_callback:
+            self.step_callback(self.current_grid, row, col, backtracking=True)
+            
         return False
 
     def _is_solved(self):
-        """
-        Final verification to ensure all row and column targets are met exactly.
-        
-        Returns:
-            bool: True if all targets are perfectly matched, False otherwise.
-        """
-        for i in range(self.n):
-            if self.row_sums[i] != self.row_targets[i] or self.col_sums[i] != self.col_targets[i]:
-                return False
+        for i in range(self.rows):
+            if self.row_sums[i] != self.row_targets[i]: return False
+        for j in range(self.cols):
+            if self.col_sums[j] != self.col_targets[j]: return False
         return True
 
 
 # ==========================================
-# Main Execution Block
+# 3. Graphical User Interface (GUI)
 # ==========================================
 
-if __name__ == "__main__":
-    print("--- Starting CSP Puzzle Solver ---")
-    
-    # پیدا کردن مسیر دقیق پوشه‌ای که فایل main.py در آن قرار دارد
-    script_dir = os.path.dirname(os.path.abspath(__file__))
-    
-    # ساخت مسیر مطلق برای فایل‌های ورودی و خروجی
-    input_filename = os.path.join(script_dir, "puzzle.txt")
-    output_filename = os.path.join(script_dir, "solution.txt")
-    
-    # 1. Read input data
-    try:
-        n, row_targets, col_targets, grid = read_puzzle(input_filename)
-        print(f"Loaded puzzle of size {n}x{n} from '{input_filename}'.")
-    except Exception as e:
-        print(f"Error loading file: {e}")
-        exit(1)
+class PuzzleGUI:
+    def __init__(self, root):
+        self.root = root
+        self.root.title("AI CSP Puzzle Solver")
+        self.root.configure(bg="#2E3440")
+        
+        self.grid_cells = []
+        self.rows = 0
+        self.cols = 0
+        self.puzzle_data = None
+        
+        # Controls Frame
+        ctrl_frame = tk.Frame(root, bg="#3B4252", pady=10)
+        ctrl_frame.pack(fill=tk.X)
+        
+        self.btn_load = tk.Button(ctrl_frame, text="Load Puzzle", command=self.load_file, bg="#81A1C1", fg="white", font=("Arial", 10, "bold"))
+        self.btn_load.pack(side=tk.LEFT, padx=10)
+        
+        self.btn_solve = tk.Button(ctrl_frame, text="Solve (Step-by-Step)", command=self.start_solving, state=tk.DISABLED, bg="#A3BE8C", fg="white", font=("Arial", 10, "bold"))
+        self.btn_solve.pack(side=tk.LEFT, padx=10)
+        
+        self.unique_var = tk.BooleanVar()
+        self.chk_unique = tk.Checkbutton(ctrl_frame, text="Unique Numbers Constraint", variable=self.unique_var, bg="#3B4252", fg="white", selectcolor="#2E3440")
+        self.chk_unique.pack(side=tk.LEFT, padx=10)
 
-    # 2. Initialize Solver and measure execution time
-    start_time = time.time()
-    solver = CSPSolver(n, row_targets, col_targets, grid)
-    
-    print("Solving... (Applying Backtracking with Consistency Checks)")
-    solution = solver.solve()
-    end_time = time.time()
-    
-    # 3. Handle results
-    if solution:
-        print(f"Puzzle solved successfully in {end_time - start_time:.4f} seconds.")
-        # Write to solution.txt using the absolute path
-        write_solution(solution, output_filename)
-    else:
-        print("No solution exists for the given puzzle constraints.")
+        # Grid Frame
+        self.grid_frame = tk.Frame(root, bg="#2E3440", padx=20, pady=20)
+        self.grid_frame.pack()
+
+    def load_file(self):
+        script_dir = os.path.dirname(os.path.abspath(__file__))
+        filepath = filedialog.askopenfilename(initialdir=script_dir, title="Select Puzzle File", filetypes=(("Text files", "*.txt"), ("All files", "*.*")))
+        if not filepath: return
+        
+        try:
+            self.rows, self.cols, row_t, col_t, grid = read_puzzle(filepath)
+            self.puzzle_data = (self.rows, self.cols, row_t, col_t, grid)
+            self.draw_grid(grid)
+            self.btn_solve.config(state=tk.NORMAL)
+        except Exception as e:
+            messagebox.showerror("Error", f"Failed to load file:\n{e}")
+
+    def draw_grid(self, grid):
+        for widget in self.grid_frame.winfo_children():
+            widget.destroy()
+            
+        self.grid_cells = [[None for _ in range(self.cols)] for _ in range(self.rows)]
+        
+        for r in range(self.rows):
+            for c in range(self.cols):
+                val = grid[r][c]
+                lbl = tk.Label(self.grid_frame, text=str(val), width=4, height=2, font=("Helvetica", 14, "bold"), bg="#D8DEE9", fg="#2E3440", relief="raised")
+                lbl.grid(row=r, column=c, padx=2, pady=2)
+                self.grid_cells[r][c] = lbl
+
+    def update_cell(self, grid, current_r, current_c, backtracking=False):
+        for r in range(self.rows):
+            for c in range(self.cols):
+                val = grid[r][c]
+                lbl = self.grid_cells[r][c]
+                
+                if val == 0:
+                    lbl.config(text="", bg="#4C566A") # Zero/Removed
+                else:
+                    lbl.config(text=str(val), bg="#E5E9F0", fg="#2E3440") # Kept value
+                    
+                # Highlight the current cell being processed
+                if r == current_r and c == current_c:
+                    lbl.config(bg="#BF616A" if backtracking else "#EBCB8B", fg="white")
+                    
+        self.root.update()
+        time.sleep(0.02) # SPEED OF ANIMATION: adjust this value to make it faster/slower
+
+    def start_solving(self):
+        self.btn_solve.config(state=tk.DISABLED)
+        self.btn_load.config(state=tk.DISABLED)
+        
+        rows, cols, row_t, col_t, init_grid = self.puzzle_data
+        solver = CSPSolver(rows, cols, row_t, col_t, init_grid, 
+                           unique_constraint=self.unique_var.get(), 
+                           step_callback=self.update_cell)
+        
+        start_time = time.time()
+        solution = solver.solve()
+        end_time = time.time()
+        
+        if solution:
+            # Final green highlight for success
+            self.update_cell(solution, -1, -1)
+            for r in range(self.rows):
+                for c in range(self.cols):
+                    if solution[r][c] != 0:
+                        self.grid_cells[r][c].config(bg="#A3BE8C", fg="#2E3440")
+                        
+            # Save output
+            script_dir = os.path.dirname(os.path.abspath(__file__))
+            write_solution(solution, os.path.join(script_dir, "solution.txt"))
+            messagebox.showinfo("Success", f"Solved in {end_time - start_time:.3f} seconds!\nSaved to solution.txt")
+        else:
+            messagebox.showwarning("Failed", "No solution exists for these constraints.")
+            
+        self.btn_solve.config(state=tk.NORMAL)
+        self.btn_load.config(state=tk.NORMAL)
+
+if __name__ == "__main__":
+    root = tk.Tk()
+    app = PuzzleGUI(root)
+    root.mainloop()
