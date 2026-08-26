@@ -492,8 +492,8 @@ INSERT INTO Player VALUES (115, 'Kristy', 'Reynolds', 32, 'Jamaica', 'RW',180028
 INSERT INTO Player VALUES (116, 'Meagan', 'Ellis', 22, 'Syrian Arab Republic', 'CM',18900201, 60, 66, NULL, NULL,NULL, NULL, NULL, '2068-10-02',6,'images\players\Player  (116)');
 INSERT INTO Player VALUES (117, 'Sara', 'Hubbard', 31, 'Barbados', 'RB',16420909, 79, 80, NULL, NULL,NULL, NULL, NULL, '2067-05-11',6,'images\players\Player  (117)');
 INSERT INTO Player VALUES (118, 'Rebecca', 'Cervantes', 26, 'Chile', 'CDM',16652365, 41, 77, NULL, NULL,NULL, NULL, NULL, '2066-08-04',6,'images\players\Player  (118)');
-INSERT INTO Player VALUES (119. 'Tara'. 'Abbott'. 23, 'Brazil', 'CDM',18269363, 16, 90, NULL, NULL,NULL, NULL,(NULL),'2066-10-09',6,'images\players\Player  (119)');
-INSERT INTO Player VALUES (120, 'Chase'. 'West'. 29, 'Pakistan', 'ST',18883884, 66, 69,(NULL),(NULL),(NULL),(NULL),(NULL),'2067-09-15' ,6 ,'images\players\Player  (120)');
+INSERT INTO Player VALUES (119, 'Tara', 'Abbott', 23, 'Brazil', 'CDM',18269363, 16, 90, NULL, NULL,NULL, NULL,(NULL),'2066-10-09',6,'images\players\Player  (119)');
+INSERT INTO Player VALUES (120, 'Chase', 'West', 29, 'Pakistan', 'ST',18883884, 66, 69,(NULL),(NULL),(NULL),(NULL),(NULL),'2067-09-15' ,6 ,'images\players\Player  (120)');
 
 -- Tractor Galactico CF
 INSERT INTO Player VALUES(121, 'Evan', 'Nguyen', 27, 'Bolivia', 'GK',17545194, 1, 79, NULL, NULL,NULL, NULL, NULL, '2063-11-22',7,'images\players\Player  (121)');

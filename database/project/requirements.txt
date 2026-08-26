@@ -1,0 +1,5 @@
+sqlalchemy
+pandas
+PyQt5
+qdarkstyle
+pyodbc
