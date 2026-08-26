@@ -37,7 +37,7 @@ def classify(data, k):
             if len(points_in_cluster) > 0:
                 new_centroids[i] = np.mean(points_in_cluster, axis=0)
             else:
-                
+
                 new_centroids[i] = centroids[i]
                 
         centroids = new_centroids
@@ -62,5 +62,4 @@ if __name__ == "__main__":
     k_clusters = 3
     result = classify(X, k_clusters)
     
-    print("ماتریس تعلق خوشه‌ها:")
     print(result)
