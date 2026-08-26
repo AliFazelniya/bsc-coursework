@@ -1,33 +1,48 @@
+-- ==============================================================
+-- 1. Database Creation
+-- ==============================================================
+
+CREATE DATABASE Soccer_LeagueDB;
+GO
 USE Soccer_LeagueDB;
 GO
 
---Entity Tables
-CREATE TABLE Sponsor_Company
-	(company_id smallint NOT NULL,
+-- ==============================================================
+-- 2. Tables Creation (Consolidated Columns)
+-- ==============================================================
+
+CREATE TABLE Sponsor_Company (
+	company_id smallint NOT NULL,
 	company_name varchar(50) NOT NULL,
 	company_field varchar(50) NOT NULL,
 	company_website varchar(70) NOT NULL,
 	company_worth BIGINT NOT NULL,
-	PRIMARY KEY(company_id))
+	PRIMARY KEY(company_id)
+);
 
-CREATE TABLE Staduim
-	(staduim_id smallint NOT NULL,
-	staduim_name varchar(50) NOT NULL,
+CREATE TABLE Stadium (
+	stadium_id smallint NOT NULL,
+	stadium_name varchar(50) NOT NULL,
 	telephone_number varchar(15) NOT NULL,
-	staduim_address varchar(100) NOT NULL,
+	stadium_address varchar(100) NOT NULL,
 	capacity INT NOT NULL,
-	PRIMARY KEY(staduim_id))
+	team_id smallint,
+	PRIMARY KEY(stadium_id)
+);
 
-CREATE TABLE Coach
-	(coach_id SMALLINT NOT NULL,
+CREATE TABLE Coach (
+	coach_id SMALLINT NOT NULL,
 	first_name varchar(50) NOT NULL,
 	last_name varchar(50) NOT NULL,
 	obligation varchar(50) NOT NULL,
 	phone_number INT NOT NULL,
-	PRIMARY KEY(coach_id))
+	team_id smallint,
+	coach_photo_url varchar(150),
+	PRIMARY KEY(coach_id)
+);
 
-CREATE TABLE Player
-	(player_id SMALLINT NOT NULL,
+CREATE TABLE Player (
+	player_id SMALLINT NOT NULL,
 	first_name varchar(50) NOT NULL,
 	last_name varchar(50) NOT NULL,
 	age TINYINT NOT NULL,
@@ -37,15 +52,18 @@ CREATE TABLE Player
 	shirt_number TINYINT NOT NULL,
 	OVR TINYINT NOT NULL,
 	goals_number TINYINT,
-	asists_numbers TINYINT,
+	assists_numbers TINYINT,
 	total_yellow_cards_number TINYINT,
 	total_red_cards_number TINYINT,
 	Own_goal_number TINYINT,
 	contract_deadline date,
-	PRIMARY KEY(player_id))
+	team_id smallint,
+	player_photo_url varchar(150),
+	PRIMARY KEY(player_id)
+);
 
-CREATE Table Team
-	(team_id SMALLINT NOT NULL,
+CREATE TABLE Team (
+	team_id SMALLINT NOT NULL,
 	team_logo_url varchar(150),
 	team_name varchar(50) NOT NULL,
 	MP SMALLINT,
@@ -62,25 +80,27 @@ CREATE Table Team
 	office_address varchar(100) NOT NULL,
 	telephone_number varchar(16) NOT NULL,
 	year_of_establishment smallint NOT NULL,
-	PRIMARY KEY(team_id))
+	PRIMARY KEY(team_id)
+);
 
-CREATE TABLE referee
-	(referee_id SMALLINT NOT NULL,
+CREATE TABLE referee (
+	referee_id SMALLINT NOT NULL,
 	first_name varchar(50) NOT NULL,
 	last_name varchar(50) NOT NULL,
-	total_matchs_number SMALLINT,
+	total_Matches_number SMALLINT,
 	total_yellow_cards_number SMALLINT,
 	total_red_cards_number SMALLINT,
-	PRIMARY KEY(referee_id))
+	PRIMARY KEY(referee_id)
+);
 
-CREATE TABLE Matchs
-	(match_id SMALLINT NOT NULL,
+CREATE TABLE Matches ( 
+	match_id SMALLINT NOT NULL,
 	match_date date,
-	match_time varchar(5),
+	match_time TIME,
 	home_team_id SMALLINT, 
 	away_team_id SMALLINT,
 	home_team_name varchar(50),
-	away_team_name  varchar(50),
+	away_team_name varchar(50),
 	home_team_goals_number SMALLINT NOT NULL,
 	away_team_goals_number SMALLINT NOT NULL,
 	home_team_ball_possession SMALLINT NOT NULL,
@@ -91,12 +111,12 @@ CREATE TABLE Matchs
 	away_team_shots_on_target SMALLINT NOT NULL,
 	home_team_pass_accuracy SMALLINT NOT NULL,
 	away_team_pass_accuracy SMALLINT NOT NULL,
-	home_team_cornert_kicks SMALLINT NOT NULL,
-	away_team_cornert_kicks SMALLINT NOT NULL,
+	home_team_corner_kicks SMALLINT NOT NULL,
+	away_team_corner_kicks SMALLINT NOT NULL,
 	home_team_free_kicks SMALLINT NOT NULL,
 	away_team_free_kicks SMALLINT NOT NULL,
-	home_team_panalty_kicks SMALLINT NOT NULL,
-	away_team_panalty_kicks SMALLINT NOT NULL,
+	home_team_penalty_kicks SMALLINT NOT NULL, 
+	away_team_penalty_kicks SMALLINT NOT NULL, 
 	home_team_fouls SMALLINT NOT NULL,
 	away_team_fouls SMALLINT NOT NULL,
 	home_team_yellow_cards_number SMALLINT NOT NULL,
@@ -105,170 +125,95 @@ CREATE TABLE Matchs
 	away_team_red_cards_number SMALLINT NOT NULL,
 	home_team_offsides_number SMALLINT NOT NULL,
 	away_team_offsides_number SMALLINT NOT NULL,
-	PRIMARY KEY(match_id))
+	stadium_id smallint,
+	PRIMARY KEY(match_id)
+);
 
---Weak Entity Tables
 CREATE TABLE Injury (
 	player_id smallint,
 	injury_id smallint,
-	start_date varchar(11),
-	end_date varchar(11),
+	start_date DATE, 
+	end_date DATE,   
 	injury_type varchar(50),
-	PRIMARY KEY(player_id, injury_id),
-	FOREIGN KEY (player_id) REFERENCES Player(player_id)
-		ON UPDATE CASCADE
-		ON DELETE CASCADE);
+	PRIMARY KEY(player_id, injury_id)
+);
 
 CREATE TABLE suspension (
 	player_id smallint,
 	suspension_id smallint,
-	start_date varchar(11),
-	end_date varchar(11),
-	Suspension_reson varchar(60),
-	PRIMARY KEY(player_id, suspension_id),
-	FOREIGN KEY (player_id) REFERENCES Player(player_id)
-		ON UPDATE CASCADE
-		ON DELETE CASCADE);
+	start_date DATE,
+	end_date DATE, 
+	suspension_reason varchar(60),
+	PRIMARY KEY(player_id, suspension_id)
+);
 
---Goal Keeper IS-A  Entity Tables
-CREATE TABLE Goal_Keeper(
+CREATE TABLE Goal_Keeper (
 	player_id smallint,
 	clean_sheets_number TINYINT,
-	PRIMARY KEY(player_id),
-	FOREIGN KEY (player_id) REFERENCES Player(player_id)
-		ON UPDATE CASCADE
-		ON DELETE CASCADE);
+	PRIMARY KEY(player_id)
+);
 
---attribute Tables
-CREATE TABLE Coaching_degree
-	(coach_id smallint,
+CREATE TABLE Coaching_degree (
+	coach_id smallint,
 	coaching_degree varchar(50),
-	PRIMARY KEY(coach_id, coaching_degree),
-	FOREIGN KEY (coach_id) REFERENCES Coach(coach_id)
-		ON UPDATE CASCADE
-		ON DELETE CASCADE);
+	PRIMARY KEY(coach_id, coaching_degree)
+);
 
-CREATE TABLE head_coach
-	(head_coach_id smallint,
+CREATE TABLE head_coach (
+	head_coach_id smallint,
 	first_name varchar(50),
 	last_name varchar(50),
 	Phone_number varchar(16),
 	team_id smallint,
-	PRIMARY KEY(head_coach_id),
-	FOREIGN KEY (team_id) REFERENCES Team(team_id)
-		ON UPDATE CASCADE
-		ON DELETE CASCADE);
+	head_coach_photo_url varchar(150),
+	PRIMARY KEY(head_coach_id)
+);
 
-CREATE TABLE Head_Coaching_Degree
-	(head_coach_id smallint,
+CREATE TABLE Head_Coaching_Degree (
+	head_coach_id smallint,
 	head_coaching_degree varchar(50),
-	PRIMARY KEY(head_coach_id, head_coaching_degree),
-	FOREIGN KEY (head_coach_id) REFERENCES head_coach(head_coach_id)
-		ON UPDATE CASCADE
-		ON DELETE CASCADE);
-
---Realtion Tables
-ALTER TABLE Coach
-ADD team_id smallint
-FOREIGN KEY (team_id)
-REFERENCES Team(team_id)
-on update cascade
-on delete cascade;
-
-ALTER TABLE Matchs
-ADD staduim_id smallint
-FOREIGN KEY (staduim_id)
-REFERENCES Staduim(staduim_id)
-on update cascade
-on delete cascade;
-
-ALTER TABLE Player
-ADD team_id smallint
-FOREIGN KEY (team_id)
-REFERENCES Team(team_id)
-on update cascade
-on delete cascade;
-
-ALTER TABLE Staduim
-ADD team_id smallint
-FOREIGN KEY (team_id)
-REFERENCES Team(team_id)
-ON UPDATE  NO ACTION
-ON DELETE NO ACTION;
+	PRIMARY KEY(head_coach_id, head_coaching_degree)
+);
 
 CREATE TABLE sponsor_of (
 	company_id SMALLINT,
 	team_id SMALLINT,
 	Total_sent_money BIGINT,
-	PRIMARY KEY(company_id, team_id),
-	FOREIGN KEY (company_id) REFERENCES Sponsor_Company(company_id)
-		ON UPDATE CASCADE
-		ON DELETE CASCADE,
-	FOREIGN KEY (team_id) REFERENCES Team(team_id)
-		ON UPDATE CASCADE
-		ON DELETE CASCADE);
+	PRIMARY KEY(company_id, team_id)
+);
 
 CREATE TABLE Referee_Per_Match (
 	match_id SMALLINT,
 	referee_id SMALLINT,
-	role varchar(7)
-	PRIMARY KEY(match_id, referee_id),
-	FOREIGN KEY (match_id) REFERENCES Matchs(match_id)
-		ON UPDATE CASCADE
-		ON DELETE CASCADE,
-	FOREIGN KEY (referee_id) REFERENCES referee(referee_id)
-		ON UPDATE CASCADE
-		ON DELETE CASCADE);
+	role varchar(7),
+	PRIMARY KEY(match_id, referee_id)
+);
 
 CREATE TABLE Teamplays (
 	match_id SMALLINT,
 	team_id SMALLINT,
 	is_home_team BIT,
-	PRIMARY KEY(match_id, team_id),
-	FOREIGN KEY (match_id) REFERENCES Matchs(match_id)
-		ON UPDATE CASCADE
-		ON DELETE CASCADE,
-	FOREIGN KEY (team_id) REFERENCES Team(team_id)
-		ON UPDATE CASCADE
-		ON DELETE CASCADE);
+	PRIMARY KEY(match_id, team_id)
+);
 
 CREATE TABLE Assisted_Goal_in_Match (
 	match_id SMALLINT,
 	team_id SMALLINT,
 	player_id SMALLINT,
-	time smallint,
-	PRIMARY KEY(match_id, team_id, player_id, time),
-	FOREIGN KEY (match_id) REFERENCES Matchs(match_id)
-		ON UPDATE  NO ACTION
-		ON DELETE  NO ACTION,
-	FOREIGN KEY (team_id) REFERENCES Team(team_id)
-		ON UPDATE  NO ACTION
-		ON DELETE NO ACTION,
-	FOREIGN KEY (player_id) REFERENCES Player(player_id)
-		ON UPDATE  NO ACTION
-		ON DELETE NO ACTION);
+	goal_minute smallint,
+	PRIMARY KEY(match_id, team_id, player_id, goal_minute)
+);
 
 CREATE TABLE Scored_Goal_in_Match (
 	match_id SMALLINT,
 	team_id SMALLINT,
 	player_id SMALLINT,
-	time smallint,
+	goal_minute smallint,
 	player_assisted_id SMALLINT,
 	goal_type varchar(40),
 	own_goal BIT,
-	PRIMARY KEY(match_id, team_id, player_id, time, player_assisted_id),
-	FOREIGN KEY (match_id) REFERENCES Matchs(match_id)
-		ON UPDATE  NO ACTION
-		ON DELETE  NO ACTION,
-	FOREIGN KEY (team_id) REFERENCES Team(team_id)
-		ON UPDATE  NO ACTION
-		ON DELETE NO ACTION,
-	FOREIGN KEY (player_id) REFERENCES Player(player_id)
-		ON UPDATE  NO ACTION
-		ON DELETE NO ACTION,
-	FOREIGN KEY (player_assisted_id) REFERENCES Player(player_id)
-		ON UPDATE  NO ACTION
-		ON DELETE NO ACTION);
+	PRIMARY KEY(match_id, team_id, player_id, goal_minute, player_assisted_id)
+);
 
 CREATE TABLE Player_Match_Participation (
 	match_id SMALLINT,
@@ -279,75 +224,96 @@ CREATE TABLE Player_Match_Participation (
 	is_captian BIT,
 	minute_in smallint,
 	minute_out smallint,
-	player_metrica_score smallint,
-	PRIMARY KEY(match_id, team_id, player_id),
-	FOREIGN KEY (match_id) REFERENCES Matchs(match_id)
-		ON UPDATE  NO ACTION
-		ON DELETE  NO ACTION,
-	FOREIGN KEY (team_id) REFERENCES Team(team_id)
-		ON UPDATE  NO ACTION
-		ON DELETE NO ACTION,
-	FOREIGN KEY (player_id) REFERENCES Player(player_id)
-		ON UPDATE  NO ACTION
-		ON DELETE NO ACTION);
+	player_metrica_score decimal(4,2),
+	PRIMARY KEY(match_id, team_id, player_id)
+);
 
 CREATE TABLE Substitution (
 	match_id SMALLINT,
 	team_id SMALLINT,
 	player_in_id SMALLINT,
 	player_out_id SMALLINT,
-	minute SMALLINT,
-	PRIMARY KEY(match_id, team_id, player_in_id, player_out_id),
-	FOREIGN KEY (match_id) REFERENCES Matchs(match_id)
-		ON UPDATE  NO ACTION
-		ON DELETE  NO ACTION,
-	FOREIGN KEY (team_id) REFERENCES Team(team_id)
-		ON UPDATE  NO ACTION
-		ON DELETE NO ACTION,
-	FOREIGN KEY (player_in_id) REFERENCES Player(player_id)
-		ON UPDATE  NO ACTION
-		ON DELETE NO ACTION,
-	FOREIGN KEY (player_out_id) REFERENCES Player(player_id)
-		ON UPDATE  NO ACTION
-		ON DELETE NO ACTION);
+	sub_minute SMALLINT, -- Changed from 'minute' (reserved keyword in some systems)
+	PRIMARY KEY(match_id, team_id, player_in_id, player_out_id)
+);
 
 CREATE TABLE Card_Received_in_Match (
 	match_id SMALLINT,
 	team_id SMALLINT,
 	player_id SMALLINT,
-	minute SMALLINT,
-	card_type  varchar(7),
-	PRIMARY KEY(match_id, team_id, player_id),
-	FOREIGN KEY (match_id) REFERENCES Matchs(match_id)
-		ON UPDATE  NO ACTION
-		ON DELETE  NO ACTION,
-	FOREIGN KEY (team_id) REFERENCES Team(team_id)
-		ON UPDATE  NO ACTION
-		ON DELETE NO ACTION,
-	FOREIGN KEY (player_id) REFERENCES Player(player_id)
-		ON UPDATE  NO ACTION
-		ON DELETE NO ACTION);
+	card_type varchar(7),
+	PRIMARY KEY(match_id, team_id, player_id)
+);
 
---INSERT DATA IN TABLES
+-- ==============================================================
+-- 3. Foreign Keys (Relationships)
+-- ==============================================================
 
-select * from Staduim
-insert into Staduim values(1, 'Estadio de Cobre', '0034-611111111', 'Av. Mineria 32, Sevilla', 41000 , 1);
-insert into Staduim values(2, 'San Norte Arena', '0034-622222222', 'Calle de la Liga 9, Bilbao', 38500, 2);
-insert into Staduim values(3, 'Sol Park', '0034-633333333', 'Ronda del Sol 120, Valencia', 36000, 3);
-insert into Staduim values(4, 'Costa Nova Stadium', '0034-644444444', 'Carrer Marina 55, Barcelona', 45000, 4);
-insert into Staduim values(5, 'Estadio Castellano', '0034-655555555', 'Plaza Mayor 2, Madrid', 51000, 5);
-insert into Staduim values(6, 'Estadi Nacional Andorra', '00376-888888', 'Carrer dels Esports 3, Andorra', 28000, 6);
-insert into Staduim values(7, 'Altabriz Oshakhlari Stadium', '0034-799999999', 'Av. Libertad 17, Altabriz', 100000, 7);
+ALTER TABLE Stadium ADD FOREIGN KEY (team_id) REFERENCES Team(team_id) ON UPDATE NO ACTION ON DELETE NO ACTION;
+ALTER TABLE Coach ADD FOREIGN KEY (team_id) REFERENCES Team(team_id) ON UPDATE CASCADE ON DELETE CASCADE;
+ALTER TABLE Player ADD FOREIGN KEY (team_id) REFERENCES Team(team_id) ON UPDATE CASCADE ON DELETE CASCADE;
+ALTER TABLE Matches ADD FOREIGN KEY (stadium_id) REFERENCES Stadium(stadium_id) ON UPDATE CASCADE ON DELETE CASCADE;
+ALTER TABLE Injury ADD FOREIGN KEY (player_id) REFERENCES Player(player_id) ON UPDATE CASCADE ON DELETE CASCADE;
+ALTER TABLE suspension ADD FOREIGN KEY (player_id) REFERENCES Player(player_id) ON UPDATE CASCADE ON DELETE CASCADE;
+ALTER TABLE Goal_Keeper ADD FOREIGN KEY (player_id) REFERENCES Player(player_id) ON UPDATE CASCADE ON DELETE CASCADE;
+ALTER TABLE Coaching_degree ADD FOREIGN KEY (coach_id) REFERENCES Coach(coach_id) ON UPDATE CASCADE ON DELETE CASCADE;
+ALTER TABLE head_coach ADD FOREIGN KEY (team_id) REFERENCES Team(team_id) ON UPDATE CASCADE ON DELETE CASCADE;
+ALTER TABLE Head_Coaching_Degree ADD FOREIGN KEY (head_coach_id) REFERENCES head_coach(head_coach_id) ON UPDATE CASCADE ON DELETE CASCADE;
+ALTER TABLE sponsor_of ADD FOREIGN KEY (company_id) REFERENCES Sponsor_Company(company_id) ON UPDATE CASCADE ON DELETE CASCADE;
+ALTER TABLE sponsor_of ADD FOREIGN KEY (team_id) REFERENCES Team(team_id) ON UPDATE CASCADE ON DELETE CASCADE;
+ALTER TABLE Referee_Per_Match ADD FOREIGN KEY (match_id) REFERENCES Matches(match_id) ON UPDATE CASCADE ON DELETE CASCADE;
+ALTER TABLE Referee_Per_Match ADD FOREIGN KEY (referee_id) REFERENCES referee(referee_id) ON UPDATE CASCADE ON DELETE CASCADE;
+ALTER TABLE Teamplays ADD FOREIGN KEY (match_id) REFERENCES Matches(match_id) ON UPDATE CASCADE ON DELETE CASCADE;
+ALTER TABLE Teamplays ADD FOREIGN KEY (team_id) REFERENCES Team(team_id) ON UPDATE CASCADE ON DELETE CASCADE;
+
+ALTER TABLE Assisted_Goal_in_Match ADD FOREIGN KEY (match_id) REFERENCES Matches(match_id) ON UPDATE NO ACTION ON DELETE NO ACTION;
+ALTER TABLE Assisted_Goal_in_Match ADD FOREIGN KEY (team_id) REFERENCES Team(team_id) ON UPDATE NO ACTION ON DELETE NO ACTION;
+ALTER TABLE Assisted_Goal_in_Match ADD FOREIGN KEY (player_id) REFERENCES Player(player_id) ON UPDATE NO ACTION ON DELETE NO ACTION;
+
+ALTER TABLE Scored_Goal_in_Match ADD FOREIGN KEY (match_id) REFERENCES Matches(match_id) ON UPDATE NO ACTION ON DELETE NO ACTION;
+ALTER TABLE Scored_Goal_in_Match ADD FOREIGN KEY (team_id) REFERENCES Team(team_id) ON UPDATE NO ACTION ON DELETE NO ACTION;
+ALTER TABLE Scored_Goal_in_Match ADD FOREIGN KEY (player_id) REFERENCES Player(player_id) ON UPDATE NO ACTION ON DELETE NO ACTION;
+ALTER TABLE Scored_Goal_in_Match ADD FOREIGN KEY (player_assisted_id) REFERENCES Player(player_id) ON UPDATE NO ACTION ON DELETE NO ACTION;
+
+ALTER TABLE Player_Match_Participation ADD FOREIGN KEY (match_id) REFERENCES Matches(match_id) ON UPDATE NO ACTION ON DELETE NO ACTION;
+ALTER TABLE Player_Match_Participation ADD FOREIGN KEY (team_id) REFERENCES Team(team_id) ON UPDATE NO ACTION ON DELETE NO ACTION;
+ALTER TABLE Player_Match_Participation ADD FOREIGN KEY (player_id) REFERENCES Player(player_id) ON UPDATE NO ACTION ON DELETE NO ACTION;
+
+ALTER TABLE Substitution ADD FOREIGN KEY (match_id) REFERENCES Matches(match_id) ON UPDATE NO ACTION ON DELETE NO ACTION;
+ALTER TABLE Substitution ADD FOREIGN KEY (team_id) REFERENCES Team(team_id) ON UPDATE NO ACTION ON DELETE NO ACTION;
+ALTER TABLE Substitution ADD FOREIGN KEY (player_in_id) REFERENCES Player(player_id) ON UPDATE NO ACTION ON DELETE NO ACTION;
+ALTER TABLE Substitution ADD FOREIGN KEY (player_out_id) REFERENCES Player(player_id) ON UPDATE NO ACTION ON DELETE NO ACTION;
+
+ALTER TABLE Card_Received_in_Match ADD FOREIGN KEY (match_id) REFERENCES Matches(match_id) ON UPDATE NO ACTION ON DELETE NO ACTION;
+ALTER TABLE Card_Received_in_Match ADD FOREIGN KEY (team_id) REFERENCES Team(team_id) ON UPDATE NO ACTION ON DELETE NO ACTION;
+ALTER TABLE Card_Received_in_Match ADD FOREIGN KEY (player_id) REFERENCES Player(player_id) ON UPDATE NO ACTION ON DELETE NO ACTION;
+
+-- ==============================================================
+-- 4. Data Insertion
+-- ==============================================================
+
+-- 4.1 Teams
 
 select * from Team
 insert into Team values(1, 'D:\University\Bachelor\Term 6\Database\Project\images\Real Cobre.png', 'Real Cobre', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Carlos Soria', 'Av. Andalucia 123, Sevilla', '0034-612345678', 1971);
-insert into Team values(2, 'D:\University\Bachelor\Term 6\Database\Project\images\Atlético Norte.png', 'Atlético Norte', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Luis Mendieta', 'Calle San Mamés 45, Bilbao', '0034-655432100', 1965);
+insert into Team values(2, 'D:\University\Bachelor\Term 6\Database\Project\images\Atlï¿½tico Norte.png', 'Atlï¿½tico Norte', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Luis Mendieta', 'Calle San Mamï¿½s 45, Bilbao', '0034-655432100', 1965);
 insert into Team values(3, 'D:\University\Bachelor\Term 6\Database\Project\images\Deportivo Sol.png', 'Deportivo Sol', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Ramon Torres', 'Ronda del Sol 89, Valencia', '0034-698765432', 1983);
-insert into Team values(4, 'D:\University\Bachelor\Term 6\Database\Project\images\FC Mar Azul.png', 'FC Mar Azul', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Jordi Navarro', 'Passeig de Gràcia 10, Barcelona', '0034-601234567', 2005);
+insert into Team values(4, 'D:\University\Bachelor\Term 6\Database\Project\images\FC Mar Azul.png', 'FC Mar Azul', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Jordi Navarro', 'Passeig de Grï¿½cia 10, Barcelona', '0034-601234567', 2005);
 insert into Team values(5, 'D:\University\Bachelor\Term 6\Database\Project\images\CD Castellanos.png', 'CD Castellanos', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Ismael Rojas', 'Calle Mayor 77, Madrid', '0034-678901234', 1958);
-insert into Team values(6, 'D:\University\Bachelor\Term 6\Database\Project\images\Union Andorra.png', 'Union Andorra', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Ángel Escudero', 'Carrer la Sardana 12, Andorra la Vella', '00376-742300', 2014);
+insert into Team values(6, 'D:\University\Bachelor\Term 6\Database\Project\images\Union Andorra.png', 'Union Andorra', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ï¿½ngel Escudero', 'Carrer la Sardana 12, Andorra la Vella', '00376-742300', 2014);
 insert into Team values(7, 'D:\University\Bachelor\Term 6\Database\Project\images\Tractor Galactico CF.png', 'Tractor Galactico CF', NULL, NULL, NULL, NULL, NULL,NULL, NULL, NULL, NULL, NULL,'Prof. Pep Jose Samadi', 'Calle Roja 13, Altabriz', '0034-777777777', 1969);
 
+-- 4.2 Stadiums
+select * from Stadium
+insert into Stadium values(1, 'Estadio de Cobre', '0034-611111111', 'Av. Mineria 32, Sevilla', 41000 , 1);
+insert into Stadium values(2, 'San Norte Arena', '0034-622222222', 'Calle de la Liga 9, Bilbao', 38500, 2);
+insert into Stadium values(3, 'Sol Park', '0034-633333333', 'Ronda del Sol 120, Valencia', 36000, 3);
+insert into Stadium values(4, 'Costa Nova Stadium', '0034-644444444', 'Carrer Marina 55, Barcelona', 45000, 4);
+insert into Stadium values(5, 'Estadio Castellano', '0034-655555555', 'Plaza Mayor 2, Madrid', 51000, 5);
+insert into Stadium values(6, 'Estadi Nacional Andorra', '00376-888888', 'Carrer dels Esports 3, Andorra', 28000, 6);
+insert into Stadium values(7, 'Altabriz Oshakhlari Stadium', '0034-799999999', 'Av. Libertad 17, Altabriz', 100000, 7);
+
+-- 4.3 Sponsors
 select * from Sponsor_Company
 INSERT INTO Sponsor_Company VALUES(1, 'Galactix Energy', 'Energy', 'https://galactix.com', 80000000000);
 INSERT INTO Sponsor_Company VALUES(2, 'NovaBank', 'Banking', 'https://novabank.es', 30000000000);
@@ -364,6 +330,72 @@ INSERT INTO Sponsor_Company VALUES(12, 'Aguavera Bottling', 'Beverages', 'https:
 INSERT INTO Sponsor_Company VALUES(13, 'EcoBuild Espana', 'Sustainable Construction', 'https://ecobuild.es', 36000000000);
 INSERT INTO Sponsor_Company VALUES(14, 'Medinova Pharma', 'Pharmaceuticals', 'https://medinova.es', 41000000000);
 INSERT INTO Sponsor_Company VALUES(15, 'OrbitCom Media', 'Media / Streaming', 'https://orbitcom.media', 47500000000);
+
+-- 4.4 Matches
+select * from Matches
+insert into Matches values(1, '2060-09-01', '19:30', 1, 2, 'Real Cobre', 'Atltico Norte',4, 3,58, 42,17, 19,13, 4,85, 78,5, 9,10, 10,1, 1,8, 13,4, 2,1, 1,2, 3,1);
+insert into Matches values(2, '2060-09-04', '17:00', 2, 1, 'Atltico Norte', 'Real Cobre',2, 2,53, 47,14, 15,2, 15,86, 74,10, 1,8, 14,1, 0,13, 19,2, 3,0, 0,5, 4,2);
+insert into Matches values(3, '2060-09-07', '21:00', 1, 3, 'Real Cobre', 'Deportivo Sol',3, 1,60, 40,18, 12,5, 6,88, 79,4, 7,11, 10,0, 1,14, 12,1, 1,0, 0,3, 2,3);
+insert into Matches values(7, '2060-09-19', '17:00', 1, 5, 'Real Cobre', 'CD Castellanos',3, 4,44, 56,11, 14,11, 12,78, 83,3, 2,5, 7,0, 0,8, 16,2, 2,0, 0,4, 4,1);
+insert into Matches values(8, '2060-09-22', '17:00', 5, 1, 'CD Castellanos', 'Real Cobre',0, 3,52, 48,10, 12,4, 5,91, 75,5, 9,11, 5,0, 1,12, 10,3, 3,0, 0,3, 5,5);
+insert into Matches values(9, '2060-09-25', '19:30', 1, 6, 'Real Cobre', 'Union Andorra',4, 1,60, 40,6, 11,1, 2,77, 80,8, 7,12, 12,0, 1,16, 18,0, 0,1, 0,3, 1,1);
+insert into Matches values(10, '2060-09-28', '17:00', 6, 1, 'Union Andorra', 'Real Cobre',1, 3,44, 56,18, 18,4, 17,84, 73,0, 0,14, 13,0, 0,11, 8,1, 1,1, 0,4, 5,6);
+insert into Matches values(11, '2060-10-01', '19:30', 2, 3, 'Atlï¿½tico Norte', 'Deportivo Sol',2, 4,50, 50,13, 9,4, 2,84, 86,10, 5,12, 9,0, 1,19, 8,1, 2,0, 0,4, 1,2);
+insert into Matches values(12, '2060-10-04', '21:00', 3, 2, 'Deportivo Sol', 'Atlï¿½tico Norte',3, 0,44, 56,18, 17,10, 2,77, 75,0, 0,6, 12,0, 1,16, 8,4, 1,0, 0,2, 4,3);
+insert into Matches values(13, '2060-10-07', '19:30', 2, 4, 'Atlï¿½tico Norte', 'FC Mar Azul',0, 0,57, 43,6, 19,4, 6,91, 72,6, 9,7, 10,1, 1,18, 8,0, 0,0, 0,1, 2,2);
+insert into Matches values(14, '2060-10-10', '19:30', 4, 2, 'FC Mar Azul', 'Atlï¿½tico Norte',4, 1,52, 48,16, 6,1, 0,93, 71,4, 6,12, 6,1, 0,14, 9,4, 2,0, 0,5, 2,4);
+insert into Matches values(15, '2060-10-13', '17:00', 2, 5, 'Atlï¿½tico Norte', 'CD Castellanos',2, 0,46, 54,14, 10,3, 5,94, 76,2, 2,8, 5,1, 1,20, 15,0, 0,0, 0,0, 2,2);
+insert into Matches values(16, '2060-10-16', '17:00', 5, 2, 'CD Castellanos', 'Atlï¿½tico Norte',3, 3,52, 48,13, 12,1, 12,84, 82,2, 6,12, 15,0, 0,15, 9,2, 3,0, 1,2, 0,5);
+insert into Matches values(17, '2060-10-19', '19:30', 2, 6, 'Atlï¿½tico Norte', 'Union Andorra',2, 2,41, 59,9, 16,4, 8,84, 82,5, 0,11, 10,1, 1,13, 12,1, 1,1, 0,3, 1,2);
+insert into Matches values(18, '2060-10-22', '17:00', 6, 2, 'Union Andorra', 'Atlï¿½tico Norte',3, 1,46, 54,13, 15,12, 13,76, 81,9, 2,11, 13,1, 1,17, 19,3, 1,1, 0,5, 0,6);
+insert into Matches values(19, '2060-10-25', '21:00', 3, 4, 'Deportivo Sol', 'FC Mar Azul',0, 4,51, 49,7, 17,4, 2,79, 84,7, 6,10, 9,1, 1,19, 13,0, 0,1, 0,4, 0,3);
+insert into Matches values(20, '2060-10-28', '19:30', 4, 3, 'FC Mar Azul', 'Deportivo Sol',4, 4,53, 47,20, 20,11, 10,95, 78,7, 1,6, 13,0, 1,18, 12,1, 0,0, 0,2, 5,4);
+insert into Matches values(21, '2060-10-31', '17:00', 3, 5, 'Deportivo Sol', 'CD Castellanos',3, 2,46, 54,12, 19,0, 2,95, 75,6, 1,8, 14,0, 0,15, 10,2, 4,1, 0,4, 4,3);
+insert into Matches values(22, '2060-11-03', '21:00', 5, 3, 'CD Castellanos', 'Deportivo Sol',0, 1,55, 45,14, 5,7, 1,81, 72,5, 3,15, 7,1, 1,15, 9,2, 1,0, 0,1, 5,5);
+insert into Matches values(23, '2060-11-06', '19:30', 3, 6, 'Deportivo Sol', 'Union Andorra',0, 1,52, 48,11, 9,8, 1,83, 82,1, 8,13, 7,1, 1,9, 8,1, 4,1, 0,0, 5,3);
+insert into Matches values(24, '2060-11-09', '17:00', 6, 3, 'Union Andorra', 'Deportivo Sol',4, 3,41, 59,10, 18,9, 2,76, 80,10, 0,12, 9,1, 1,18, 19,2, 3,1, 1,1, 1,6);
+insert into Matches values(25, '2060-11-12', '19:30', 4, 5, 'FC Mar Azul', 'CD Castellanos',0, 1,60, 40,17, 8,13, 0,94, 85,10, 3,13, 11,1, 1,16, 15,2, 3,0, 1,0, 4,4);
+insert into Matches values(26, '2060-11-15', '19:30', 5, 4, 'CD Castellanos', 'FC Mar Azul',3, 2,57, 43,6, 9,3, 1,93, 86,10, 9,14, 9,1, 1,11, 12,4, 0,0, 0,0, 2,5);
+insert into Matches values(27, '2060-11-18', '17:00', 4, 6, 'FC Mar Azul', 'Union Andorra',0, 3,56, 44,17, 10,16, 1,83, 76,4, 8,15, 14,0, 0,17, 20,1, 1,0, 1,5, 1,4);
+insert into Matches values(28, '2060-11-21', '17:00', 6, 4, 'Union Andorra', 'FC Mar Azul',3, 0,51, 49,20, 6,6, 1,86, 88,1, 10,11, 10,0, 1,18, 15,2, 2,0, 0,5, 3,6);
+insert into Matches values(29, '2060-11-24', '21:00', 5, 6, 'CD Castellanos', 'Union Andorra',4, 4,41, 59,10, 12,8, 10,75, 87,3, 6,11, 9,1, 0,8, 9,2, 4,1, 1,5, 1,5);
+insert into Matches values(30, '2060-11-27', '21:00', 6, 5, 'Union Andorra', 'CD Castellanos',4, 2,57, 43,9, 10,8, 1,93, 70,10, 3,11, 13,0, 1,14, 16,3, 4,1, 0,5, 0,6);
+INSERT INTO Matches VALUES (31, '2060-10-01', '20:00', 7, 1, 'Tractor Galactico', 'Real Cobre', 3, 0, 61, 39, 15, 6, 9, 2, 88, 76, 6, 2, 10, 10, 0, 0, 12, 14, 1, 2, 0, 0, 1, 2,7);
+INSERT INTO Matches VALUES (32, '2060-10-04', '20:00', 1, 7, 'Real Cobre', 'Tractor Galactico', 0, 4, 40, 60, 6, 15, 2, 8, 76, 88, 2, 6, 10, 10, 0, 0, 14, 12, 2, 1, 0, 0, 2, 1,1);
+INSERT INTO Matches VALUES (33, '2060-10-07', '20:00', 7, 2, 'Tractor Galactico', 'Atlï¿½tico Norte', 4, 2, 62, 38, 17, 7, 10, 3, 89, 74, 7, 2, 11, 10, 0, 0, 11, 13, 1, 2, 0, 0, 1, 1,7);
+INSERT INTO Matches VALUES (34, '2060-10-10', '20:00', 2, 7, 'Atlï¿½tico Norte', 'Tractor Galactico', 0, 4, 38, 62, 7, 17, 3, 10, 74, 89, 2, 7, 10, 11, 0, 0, 13, 11, 2, 1, 0, 0, 1, 1,2);
+INSERT INTO Matches VALUES (35, '2060-10-13', '20:00', 7, 3, 'Tractor Galactico', 'Deportivo Sol', 3, 0, 59, 41, 14, 8, 8, 3, 86, 78, 5, 2, 10, 10, 0, 0, 13, 12, 2, 1, 0, 0, 2, 1,7);
+INSERT INTO Matches VALUES (36, '2060-10-16', '20:00', 3, 7, 'Deportivo Sol', 'Tractor Galactico', 0, 5, 41, 59, 8, 14, 3, 8, 78, 86, 2, 5, 10, 10, 0, 0, 12, 13, 1, 2, 0, 0, 1, 2,3);
+INSERT INTO Matches VALUES (37, '2060-10-19', '20:00', 7, 4, 'Tractor Galactico', 'FC Mar Azul', 5, 0, 65, 35, 18, 6, 11, 2, 91, 72, 8, 1, 10, 10, 0, 0, 11, 14, 1, 2, 0, 0, 2, 1,7);
+INSERT INTO Matches VALUES (38, '2060-10-22', '20:00', 4, 7, 'FC Mar Azul', 'Tractor Galactico', 2, 5, 35, 65, 6, 18, 2, 11, 72, 91, 1, 8, 10, 10, 0, 0, 14, 11, 2, 1, 0, 0, 1, 2,4);
+INSERT INTO Matches VALUES (39, '2060-10-25', '20:00', 7, 5, 'Tractor Galactico', 'CD Castellanos', 3, 1, 60, 40, 16, 7, 10, 2, 87, 77, 5, 2, 10, 10, 0, 0, 13, 13, 1, 2, 0, 0, 1, 2,7);
+INSERT INTO Matches VALUES (40, '2060-10-28', '20:00', 5, 7, 'CD Castellanos', 'Tractor Galactico', 2, 3, 40, 60, 7, 16, 2, 10, 77, 87, 2, 5, 10, 10, 0, 0, 13, 13, 2, 1, 0, 0, 2, 1,5);
+INSERT INTO Matches VALUES (41, '2060-10-31', '20:00', 7, 6, 'Tractor Galactico', 'Union Andorra', 4, 0, 63, 37, 17, 9, 9, 4, 90, 75, 6, 2, 10, 10, 0, 0, 12, 14, 1, 2, 0, 0, 1, 2,7);
+INSERT INTO Matches VALUES (42, '2060-11-03', '20:00', 6, 7, 'Union Andorra', 'Tractor Galactico', 2, 6, 37, 63, 9, 17, 4, 9, 75, 90, 2, 6, 10, 10, 0, 0, 14, 12, 2, 1, 0, 0, 2, 1,6);
+
+-- 4.5 Players
+select * from Player
+
+INSERT INTO Player VALUES (1, 'Randy', 'Clarke', 21, 'Burkina Faso', 'CAM',11599036, 86, 87, NULL, NULL,NULL, NULL, NULL, '2067-12-18',1);
+INSERT INTO Player VALUES (2, 'Randy', 'Davis', 35, 'Norway', 'RW',12734456, 40, 89, NULL, NULL,NULL, NULL, NULL, '2067-04-03',1);
+INSERT INTO Player VALUES (3, 'Linda', 'Mcgrath', 27, 'Faroe Islands', 'CB',16202964, 15, 68, NULL, NULL,NULL, NULL, NULL, '2066-06-10',1);
+INSERT INTO Player VALUES (4, 'Christopher', 'Franklin', 19, 'Japan', 'CB',12191975, 90, 64, NULL, NULL,NULL, NULL, NULL, '2067-10-13',1);
+INSERT INTO Player VALUES (5, 'Linda', 'Kennedy', 33, 'Burundi', 'RW',12083836, 61, 85, NULL, NULL,NULL, NULL, NULL, '2066-11-22',1);
+INSERT INTO Player VALUES (6, 'John', 'Sullivan', 18, 'Trinidad and Tobago', 'ST',4829996, 90, 71, NULL, NULL,NULL, NULL, NULL, '2067-11-01',1);
+INSERT INTO Player VALUES (7, 'Bonnie', 'Lang', 34, 'Sweden', 'CB',9617441, 29, 70, NULL, NULL,NULL, NULL, NULL, '2067-10-05',1);
+INSERT INTO Player VALUES (8, 'Peter', 'Williamson', 34, 'Zimbabwe', 'GK',4777216, 32, 60, NULL, NULL,NULL, NULL, NULL, '2067-08-09',1);
+INSERT INTO Player VALUES (9, 'Joseph', 'Pham', 32, 'Monaco', 'CDM',13929460, 65, 90, NULL, NULL,NULL, NULL, NULL, '2066-07-13',1);
+INSERT INTO Player VALUES (10, 'Caleb', 'Sanchez', 18, 'Monaco', 'RW',7201048, 63, 90, NULL, NULL,NULL, NULL, NULL, '2067-10-23',1);
+INSERT INTO Player VALUES (11, 'Kristen', 'Stevenson', 32, 'El Salvador', 'RW',8352410, 10, 80, NULL, NULL,NULL, NULL, NULL, '2067-06-20',1);
+INSERT INTO Player VALUES (12, 'Jason', 'Christensen', 26, 'Cayman Islands', 'RW',3914967, 38, 84, NULL, NULL,NULL, NULL, NULL, '2068-01-23',1);
+INSERT INTO Player VALUES (13, 'Robert', 'Mueller', 28, 'United Arab Emirates', 'ST',14161282, 2, 81, NULL, NULL,NULL, NULL, NULL, '2067-02-26',1);
+INSERT INTO Player VALUES (14, 'Kelsey', 'Harris', 22, 'French Southern Territories', 'RW',10257729, 25, 64,NULL, NULL,NULL, NULL, NULL, '2066-10-07',1);
+INSERT INTO Player VALUES (15, 'Peggy', 'Bradley', 24, 'Madagascar', 'CDM',9190377, 16, 86, NULL, NULL,NULL, NULL, NULL, '2067-03-25',1);
+INSERT INTO Player VALUES (16, 'Stephanie', 'Cohen', 32, 'Oman', 'GK',3084002, 23, 64, NULL, NULL,NULL, NULL, NULL, '2066-08-14',1);
+INSERT INTO Player VALUES (17, 'Brenda', 'Wagner', 25, 'Togo', 'ST',8735709, 11, 78, NULL, NULL,NULL, NULL, NULL, '2068-02-27',1);
+INSERT INTO Player VALUES (18, 'Brandi', 'Vega', 34, 'Tonga', 'RW',17601079, 64, 80, NULL, NULL,NULL, NULL, NULL, '2067-11-30',1);
+INSERT INTO Player VALUES (19, 'Kayla', 'Wolfe', 28, 'Cameroon', 'CDM',630934, 38, 63, NULL, NULL,NULL, NULL, NULL, '2068-02-27',1);
+INSERT INTO Player VALUES (20, 'Jacob', 'Dunlap', 21, 'Bangladesh', 'ST',3894303, 21, 82, NULL, NULL,NULL, NULL, NULL, '2068-03-05',1);
 
 Select * from sponsor_of
 INSERT INTO sponsor_of VALUES(1,2,2000000);
@@ -409,79 +441,7 @@ INSERT INTO sponsor_of VALUES(2,1,9000000);
 INSERT INTO sponsor_of VALUES(3,4,6000000);
 INSERT INTO sponsor_of VALUES(12,1,5000000);
 
-select * from Matchs
-insert into Matchs values(1, '2060-09-01', '19:30', 1, 2, 'Real Cobre', 'Atlético Norte',4, 3,58, 42,17, 19,13, 4,85, 78,5, 9,10, 10,1, 1,8, 13,4, 2,1, 1,2, 3,1);
-insert into Matchs values(2, '2060-09-04', '17:00', 2, 1, 'Atlético Norte', 'Real Cobre',2, 2,53, 47,14, 15,2, 15,86, 74,10, 1,8, 14,1, 0,13, 19,2, 3,0, 0,5, 4,2);
-insert into Matchs values(3, '2060-09-07', '21:00', 1, 3, 'Real Cobre', 'Deportivo Sol',3, 1,42, 58,13, 19,6, 15,81, 74,4, 7,12, 11,1, 0,10, 16,3, 0,0, 0,1, 0,1);
-insert into Matchs values(4, '2060-09-10', '19:30', 3, 1, 'Deportivo Sol', 'Real Cobre',4, 0,40, 60,14, 18,9, 0,89, 85,0, 6,9, 14,1, 0,18, 16,0, 1,1, 0,4, 4,3);
-insert into Matchs values(5, '2060-09-13', '19:30', 1, 4, 'Real Cobre', 'FC Mar Azul',4, 1,40, 60,20, 8,20, 3,95, 74,10, 0,12, 10,0, 0,14, 11,1, 2,1, 0,0, 4,1);
-insert into Matchs values(6, '2060-09-16', '19:30', 4, 1, 'FC Mar Azul', 'Real Cobre',1, 3,40, 60,8, 7,3, 5,92, 76,6, 9,13, 7,1, 0,12, 20,2, 2,1, 0,1, 0,4);
-insert into Matchs values(7, '2060-09-19', '17:00', 1, 5, 'Real Cobre', 'CD Castellanos',3, 4,44, 56,11, 14,11, 12,78, 83,3, 2,5, 7,0, 0,8, 16,2, 2,0, 0,4, 4,1);
-insert into Matchs values(8, '2060-09-22', '17:00', 5, 1, 'CD Castellanos', 'Real Cobre',0, 3,52, 48,10, 12,4, 5,91, 75,5, 9,11, 5,0, 1,12, 10,3, 3,0, 0,3, 5,5);
-insert into Matchs values(9, '2060-09-25', '19:30', 1, 6, 'Real Cobre', 'Union Andorra',4, 1,60, 40,6, 11,1, 2,77, 80,8, 7,12, 12,0, 1,16, 18,0, 0,1, 0,3, 1,1);
-insert into Matchs values(10, '2060-09-28', '17:00', 6, 1, 'Union Andorra', 'Real Cobre',1, 3,44, 56,18, 18,4, 17,84, 73,0, 0,14, 13,0, 0,11, 8,1, 1,1, 0,4, 5,6);
-insert into Matchs values(11, '2060-10-01', '19:30', 2, 3, 'Atlético Norte', 'Deportivo Sol',2, 4,50, 50,13, 9,4, 2,84, 86,10, 5,12, 9,0, 1,19, 8,1, 2,0, 0,4, 1,2);
-insert into Matchs values(12, '2060-10-04', '21:00', 3, 2, 'Deportivo Sol', 'Atlético Norte',3, 0,44, 56,18, 17,10, 2,77, 75,0, 0,6, 12,0, 1,16, 8,4, 1,0, 0,2, 4,3);
-insert into Matchs values(13, '2060-10-07', '19:30', 2, 4, 'Atlético Norte', 'FC Mar Azul',0, 0,57, 43,6, 19,4, 6,91, 72,6, 9,7, 10,1, 1,18, 8,0, 0,0, 0,1, 2,2);
-insert into Matchs values(14, '2060-10-10', '19:30', 4, 2, 'FC Mar Azul', 'Atlético Norte',4, 1,52, 48,16, 6,1, 0,93, 71,4, 6,12, 6,1, 0,14, 9,4, 2,0, 0,5, 2,4);
-insert into Matchs values(15, '2060-10-13', '17:00', 2, 5, 'Atlético Norte', 'CD Castellanos',2, 0,46, 54,14, 10,3, 5,94, 76,2, 2,8, 5,1, 1,20, 15,0, 0,0, 0,0, 2,2);
-insert into Matchs values(16, '2060-10-16', '17:00', 5, 2, 'CD Castellanos', 'Atlético Norte',3, 3,52, 48,13, 12,1, 12,84, 82,2, 6,12, 15,0, 0,15, 9,2, 3,0, 1,2, 0,5);
-insert into Matchs values(17, '2060-10-19', '19:30', 2, 6, 'Atlético Norte', 'Union Andorra',2, 2,41, 59,9, 16,4, 8,84, 82,5, 0,11, 10,1, 1,13, 12,1, 1,1, 0,3, 1,2);
-insert into Matchs values(18, '2060-10-22', '17:00', 6, 2, 'Union Andorra', 'Atlético Norte',3, 1,46, 54,13, 15,12, 13,76, 81,9, 2,11, 13,1, 1,17, 19,3, 1,1, 0,5, 0,6);
-insert into Matchs values(19, '2060-10-25', '21:00', 3, 4, 'Deportivo Sol', 'FC Mar Azul',0, 4,51, 49,7, 17,4, 2,79, 84,7, 6,10, 9,1, 1,19, 13,0, 0,1, 0,4, 0,3);
-insert into Matchs values(20, '2060-10-28', '19:30', 4, 3, 'FC Mar Azul', 'Deportivo Sol',4, 4,53, 47,20, 20,11, 10,95, 78,7, 1,6, 13,0, 1,18, 12,1, 0,0, 0,2, 5,4);
-insert into Matchs values(21, '2060-10-31', '17:00', 3, 5, 'Deportivo Sol', 'CD Castellanos',3, 2,46, 54,12, 19,0, 2,95, 75,6, 1,8, 14,0, 0,15, 10,2, 4,1, 0,4, 4,3);
-insert into Matchs values(22, '2060-11-03', '21:00', 5, 3, 'CD Castellanos', 'Deportivo Sol',0, 1,55, 45,14, 5,7, 1,81, 72,5, 3,15, 7,1, 1,15, 9,2, 1,0, 0,1, 5,5);
-insert into Matchs values(23, '2060-11-06', '19:30', 3, 6, 'Deportivo Sol', 'Union Andorra',0, 1,52, 48,11, 9,8, 1,83, 82,1, 8,13, 7,1, 1,9, 8,1, 4,1, 0,0, 5,3);
-insert into Matchs values(24, '2060-11-09', '17:00', 6, 3, 'Union Andorra', 'Deportivo Sol',4, 3,41, 59,10, 18,9, 2,76, 80,10, 0,12, 9,1, 1,18, 19,2, 3,1, 1,1, 1,6);
-insert into Matchs values(25, '2060-11-12', '19:30', 4, 5, 'FC Mar Azul', 'CD Castellanos',0, 1,60, 40,17, 8,13, 0,94, 85,10, 3,13, 11,1, 1,16, 15,2, 3,0, 1,0, 4,4);
-insert into Matchs values(26, '2060-11-15', '19:30', 5, 4, 'CD Castellanos', 'FC Mar Azul',3, 2,57, 43,6, 9,3, 1,93, 86,10, 9,14, 9,1, 1,11, 12,4, 0,0, 0,0, 2,5);
-insert into Matchs values(27, '2060-11-18', '17:00', 4, 6, 'FC Mar Azul', 'Union Andorra',0, 3,56, 44,17, 10,16, 1,83, 76,4, 8,15, 14,0, 0,17, 20,1, 1,0, 1,5, 1,4);
-insert into Matchs values(28, '2060-11-21', '17:00', 6, 4, 'Union Andorra', 'FC Mar Azul',3, 0,51, 49,20, 6,6, 1,86, 88,1, 10,11, 10,0, 1,18, 15,2, 2,0, 0,5, 3,6);
-insert into Matchs values(29, '2060-11-24', '21:00', 5, 6, 'CD Castellanos', 'Union Andorra',4, 4,41, 59,10, 12,8, 10,75, 87,3, 6,11, 9,1, 0,8, 9,2, 4,1, 1,5, 1,5);
-insert into Matchs values(30, '2060-11-27', '21:00', 6, 5, 'Union Andorra', 'CD Castellanos',4, 2,57, 43,9, 10,8, 1,93, 70,10, 3,11, 13,0, 1,14, 16,3, 4,1, 0,5, 0,6);
-INSERT INTO Matchs VALUES (31, '2060-10-01', '20:00', 7, 1, 'Tractor Galactico', 'Real Cobre', 3, 0, 61, 39, 15, 6, 9, 2, 88, 76, 6, 2, 10, 10, 0, 0, 12, 14, 1, 2, 0, 0, 1, 2,7);
-INSERT INTO Matchs VALUES (32, '2060-10-04', '20:00', 1, 7, 'Real Cobre', 'Tractor Galactico', 0, 4, 40, 60, 6, 15, 2, 8, 76, 88, 2, 6, 10, 10, 0, 0, 14, 12, 2, 1, 0, 0, 2, 1,1);
-INSERT INTO Matchs VALUES (33, '2060-10-07', '20:00', 7, 2, 'Tractor Galactico', 'Atlético Norte', 4, 2, 62, 38, 17, 7, 10, 3, 89, 74, 7, 2, 11, 10, 0, 0, 11, 13, 1, 2, 0, 0, 1, 1,7);
-INSERT INTO Matchs VALUES (34, '2060-10-10', '20:00', 2, 7, 'Atlético Norte', 'Tractor Galactico', 0, 4, 38, 62, 7, 17, 3, 10, 74, 89, 2, 7, 10, 11, 0, 0, 13, 11, 2, 1, 0, 0, 1, 1,2);
-INSERT INTO Matchs VALUES (35, '2060-10-13', '20:00', 7, 3, 'Tractor Galactico', 'Deportivo Sol', 3, 0, 59, 41, 14, 8, 8, 3, 86, 78, 5, 2, 10, 10, 0, 0, 13, 12, 2, 1, 0, 0, 2, 1,7);
-INSERT INTO Matchs VALUES (36, '2060-10-16', '20:00', 3, 7, 'Deportivo Sol', 'Tractor Galactico', 0, 5, 41, 59, 8, 14, 3, 8, 78, 86, 2, 5, 10, 10, 0, 0, 12, 13, 1, 2, 0, 0, 1, 2,3);
-INSERT INTO Matchs VALUES (37, '2060-10-19', '20:00', 7, 4, 'Tractor Galactico', 'FC Mar Azul', 5, 0, 65, 35, 18, 6, 11, 2, 91, 72, 8, 1, 10, 10, 0, 0, 11, 14, 1, 2, 0, 0, 2, 1,7);
-INSERT INTO Matchs VALUES (38, '2060-10-22', '20:00', 4, 7, 'FC Mar Azul', 'Tractor Galactico', 2, 5, 35, 65, 6, 18, 2, 11, 72, 91, 1, 8, 10, 10, 0, 0, 14, 11, 2, 1, 0, 0, 1, 2,4);
-INSERT INTO Matchs VALUES (39, '2060-10-25', '20:00', 7, 5, 'Tractor Galactico', 'CD Castellanos', 3, 1, 60, 40, 16, 7, 10, 2, 87, 77, 5, 2, 10, 10, 0, 0, 13, 13, 1, 2, 0, 0, 1, 2,7);
-INSERT INTO Matchs VALUES (40, '2060-10-28', '20:00', 5, 7, 'CD Castellanos', 'Tractor Galactico', 2, 3, 40, 60, 7, 16, 2, 10, 77, 87, 2, 5, 10, 10, 0, 0, 13, 13, 2, 1, 0, 0, 2, 1,5);
-INSERT INTO Matchs VALUES (41, '2060-10-31', '20:00', 7, 6, 'Tractor Galactico', 'Union Andorra', 4, 0, 63, 37, 17, 9, 9, 4, 90, 75, 6, 2, 10, 10, 0, 0, 12, 14, 1, 2, 0, 0, 1, 2,7);
-INSERT INTO Matchs VALUES (42, '2060-11-03', '20:00', 6, 7, 'Union Andorra', 'Tractor Galactico', 2, 6, 37, 63, 9, 17, 4, 9, 75, 90, 2, 6, 10, 10, 0, 0, 14, 12, 2, 1, 0, 0, 2, 1,6);
-
-
-ALTER TABLE Player
-ADD player_photo_url varchar(150); 
-
-select * from Player
-
--- Real Cobre
-INSERT INTO Player VALUES (1, 'Randy', 'Clarke', 21, 'Burkina Faso', 'CAM',11599036, 86, 87, NULL, NULL,NULL, NULL, NULL, '2067-12-18',1);
-INSERT INTO Player VALUES (2, 'Randy', 'Davis', 35, 'Norway', 'RW',12734456, 40, 89, NULL, NULL,NULL, NULL, NULL, '2067-04-03',1);
-INSERT INTO Player VALUES (3, 'Linda', 'Mcgrath', 27, 'Faroe Islands', 'CB',16202964, 15, 68, NULL, NULL,NULL, NULL, NULL, '2066-06-10',1);
-INSERT INTO Player VALUES (4, 'Christopher', 'Franklin', 19, 'Japan', 'CB',12191975, 90, 64, NULL, NULL,NULL, NULL, NULL, '2067-10-13',1);
-INSERT INTO Player VALUES (5, 'Linda', 'Kennedy', 33, 'Burundi', 'RW',12083836, 61, 85, NULL, NULL,NULL, NULL, NULL, '2066-11-22',1);
-INSERT INTO Player VALUES (6, 'John', 'Sullivan', 18, 'Trinidad and Tobago', 'ST',4829996, 90, 71, NULL, NULL,NULL, NULL, NULL, '2067-11-01',1);
-INSERT INTO Player VALUES (7, 'Bonnie', 'Lang', 34, 'Sweden', 'CB',9617441, 29, 70, NULL, NULL,NULL, NULL, NULL, '2067-10-05',1);
-INSERT INTO Player VALUES (8, 'Peter', 'Williamson', 34, 'Zimbabwe', 'GK',4777216, 32, 60, NULL, NULL,NULL, NULL, NULL, '2067-08-09',1);
-INSERT INTO Player VALUES (9, 'Joseph', 'Pham', 32, 'Monaco', 'CDM',13929460, 65, 90, NULL, NULL,NULL, NULL, NULL, '2066-07-13',1);
-INSERT INTO Player VALUES (10, 'Caleb', 'Sanchez', 18, 'Monaco', 'RW',7201048, 63, 90, NULL, NULL,NULL, NULL, NULL, '2067-10-23',1);
-INSERT INTO Player VALUES (11, 'Kristen', 'Stevenson', 32, 'El Salvador', 'RW',8352410, 10, 80, NULL, NULL,NULL, NULL, NULL, '2067-06-20',1);
-INSERT INTO Player VALUES (12, 'Jason', 'Christensen', 26, 'Cayman Islands', 'RW',3914967, 38, 84, NULL, NULL,NULL, NULL, NULL, '2068-01-23',1);
-INSERT INTO Player VALUES (13, 'Robert', 'Mueller', 28, 'United Arab Emirates', 'ST',14161282, 2, 81, NULL, NULL,NULL, NULL, NULL, '2067-02-26',1);
-INSERT INTO Player VALUES (14, 'Kelsey', 'Harris', 22, 'French Southern Territories', 'RW',10257729, 25, 64,NULL, NULL,NULL, NULL, NULL, '2066-10-07',1);
-INSERT INTO Player VALUES (15, 'Peggy', 'Bradley', 24, 'Madagascar', 'CDM',9190377, 16, 86, NULL, NULL,NULL, NULL, NULL, '2067-03-25',1);
-INSERT INTO Player VALUES (16, 'Stephanie', 'Cohen', 32, 'Oman', 'GK',3084002, 23, 64, NULL, NULL,NULL, NULL, NULL, '2066-08-14',1);
-INSERT INTO Player VALUES (17, 'Brenda', 'Wagner', 25, 'Togo', 'ST',8735709, 11, 78, NULL, NULL,NULL, NULL, NULL, '2068-02-27',1);
-INSERT INTO Player VALUES (18, 'Brandi', 'Vega', 34, 'Tonga', 'RW',17601079, 64, 80, NULL, NULL,NULL, NULL, NULL, '2067-11-30',1);
-INSERT INTO Player VALUES (19, 'Kayla', 'Wolfe', 28, 'Cameroon', 'CDM',630934, 38, 63, NULL, NULL,NULL, NULL, NULL, '2068-02-27',1);
-INSERT INTO Player VALUES (20, 'Jacob', 'Dunlap', 21, 'Bangladesh', 'ST',3894303, 21, 82, NULL, NULL,NULL, NULL, NULL, '2068-03-05',1);
-
--- Atlético Norte
+-- Atlï¿½tico Norte
 INSERT INTO Player VALUES (21, 'Jennifer', 'Stewart', 33, 'Korea', 'RW',13605894, 6, 90, NULL, NULL,NULL, NULL, NULL, '2067-10-07',2);
 INSERT INTO Player VALUES (22, 'Mary', 'Holden', 30, 'Cocos (Keeling) Islands', 'CM',2223659, 82, 80, NULL, NULL,NULL, NULL, NULL, '2067-11-05',2);
 INSERT INTO Player VALUES (23, 'Heidi', 'Powell', 24, 'British Indian Ocean Territory', 'CM',10361330, 6, 65, NULL, NULL,NULL, NULL, NULL, '2066-08-27',2);
@@ -635,7 +595,7 @@ INSERT INTO Coach VALUES(2, 'Miguel', 'Ruiz', 'Assistant Coach', 634567890,1);
 INSERT INTO Coach VALUES(3, 'Sergio', 'Lopez', 'Fitness Coach', 645678901,1);
 INSERT INTO Coach VALUES(4, 'Javier', 'Santos', 'Tactical Analyst', 689012345,1);
 INSERT INTO Coach VALUES(5, 'Luis', 'Gomez', 'Physiotherapist', 623456789,1);
-INSERT INTO Coach VALUES(6, 'Andrés', 'Moreno', 'Nutritionist', 698765432,1);
+INSERT INTO Coach VALUES(6, 'Andrï¿½s', 'Moreno', 'Nutritionist', 698765432,1);
 INSERT INTO Coach VALUES(7, 'Raul', 'Hernandez', 'Defensive Coach', 654321098,1);
 INSERT INTO Coach VALUES(8, 'Melinda', 'Jones', 'Team Doctor', 664424445, 1);
 INSERT INTO Coach VALUES(9, 'Melissa', 'Warren', 'Masseur', 605802622, 1);
@@ -644,7 +604,7 @@ INSERT INTO Coach VALUES(11, 'Tracy', 'Fletcher', 'Video Analyst', 603656429, 1)
 INSERT INTO Coach VALUES(12, 'Gina', 'Davis', 'Technical Director', 685369660, 1);
 INSERT INTO Coach VALUES(13, 'Leslie', 'Clayton', 'Attacking Coach', 611526172, 1);
 
--- Atlético Norte
+-- Atlï¿½tico Norte
 INSERT INTO Coach VALUES (14, 'Crystal', 'Khan', 'Assistant Coach', 676699732, 2);
 INSERT INTO Coach VALUES (15, 'John', 'Gay', 'Fitness Coach', 619549133, 2);
 INSERT INTO Coach VALUES (16, 'Rebecca', 'Jones', 'Goalkeeping Coach', 606635527, 2);

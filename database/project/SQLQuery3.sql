@@ -7,10 +7,10 @@ FROM (
     SELECT team_id, SUM(goals_scored) AS total_goals
     FROM (
         SELECT home_team_id AS team_id, home_team_goals_number AS goals_scored
-        FROM Matchs 
+        FROM Matches 
         UNION ALL
         SELECT away_team_id, away_team_goals_number
-        FROM Matchs
+        FROM Matches
     ) AS all_goals
     GROUP BY team_id
 ) AS stats
@@ -22,10 +22,10 @@ FROM (
     SELECT team_id, SUM(yellows) AS total_yellows
     FROM (
         SELECT home_team_id AS team_id, home_team_yellow_cards_number AS yellows
-        FROM Matchs
+        FROM Matches
         UNION ALL
         SELECT away_team_id, away_team_yellow_cards_number
-        FROM Matchs
+        FROM Matches
     ) AS yellow_data
     GROUP BY team_id
 ) AS stats
@@ -37,10 +37,10 @@ FROM (
     SELECT team_id, SUM(reds) AS total_reds
     FROM (
         SELECT home_team_id AS team_id, home_team_red_cards_number AS reds
-        FROM Matchs
+        FROM Matches
         UNION ALL
         SELECT away_team_id, away_team_red_cards_number
-        FROM Matchs
+        FROM Matches
     ) AS red_data
     GROUP BY team_id
 ) AS stats
@@ -52,10 +52,10 @@ FROM (
     SELECT team_id, SUM(goals_against) AS total_goals_against
     FROM (
         SELECT home_team_id AS team_id, away_team_goals_number AS goals_against
-        FROM Matchs
+        FROM Matches
         UNION ALL
         SELECT away_team_id, home_team_goals_number
-        FROM Matchs
+        FROM Matches
     ) AS all_goals_against
     GROUP BY team_id
 ) AS stats
@@ -67,11 +67,11 @@ FROM (
     SELECT team_id, COUNT(*) AS total_wins
     FROM (
         SELECT home_team_id AS team_id
-        FROM Matchs
+        FROM Matches
         WHERE home_team_goals_number > away_team_goals_number
         UNION ALL
         SELECT away_team_id
-        FROM Matchs
+        FROM Matches
         WHERE away_team_goals_number > home_team_goals_number
     ) AS all_wins
     GROUP BY team_id
@@ -84,11 +84,11 @@ FROM (
     SELECT team_id, COUNT(*) AS total_losses
     FROM (
         SELECT home_team_id AS team_id
-        FROM Matchs
+        FROM Matches
         WHERE home_team_goals_number < away_team_goals_number
         UNION ALL
         SELECT away_team_id
-        FROM Matchs
+        FROM Matches
         WHERE away_team_goals_number < home_team_goals_number
     ) AS all_losses
     GROUP BY team_id
@@ -101,11 +101,11 @@ FROM (
     SELECT team_id, COUNT(*) AS total_draws
     FROM (
         SELECT home_team_id AS team_id
-        FROM Matchs
+        FROM Matches
         WHERE home_team_goals_number = away_team_goals_number
         UNION ALL
         SELECT away_team_id
-        FROM Matchs
+        FROM Matches
         WHERE away_team_goals_number = home_team_goals_number
     ) AS all_draws
     GROUP BY team_id
@@ -118,10 +118,10 @@ FROM (
     SELECT team_id, COUNT(*) AS total_matches
     FROM (
         SELECT home_team_id AS team_id
-        FROM Matchs
+        FROM Matches
         UNION ALL
         SELECT away_team_id
-        FROM Matchs
+        FROM Matches
     ) AS all_matches
     GROUP BY team_id
 ) AS stats
@@ -172,7 +172,7 @@ FROM (
     SELECT rpm.referee_id, 
            SUM(m.home_team_yellow_cards_number + m.away_team_yellow_cards_number) AS total_yellows
     FROM Referee_Per_Match rpm
-    JOIN Matchs m ON rpm.match_id = m.match_id
+    JOIN Matches m ON rpm.match_id = m.match_id
     WHERE rpm.role = 'main'
     GROUP BY rpm.referee_id
 ) AS yellow_stats
@@ -184,14 +184,14 @@ FROM (
     SELECT rpm.referee_id, 
            SUM(m.home_team_red_cards_number + m.away_team_red_cards_number) AS total_reds
     FROM Referee_Per_Match rpm
-    JOIN Matchs m ON rpm.match_id = m.match_id
+    JOIN Matches m ON rpm.match_id = m.match_id
     WHERE rpm.role = 'main'
     GROUP BY rpm.referee_id
 ) AS red_stats
 WHERE referee.referee_id = red_stats.referee_id;
 
 UPDATE referee
-SET total_matchs_number = match_stats.match_count
+SET total_Matches_number = match_stats.match_count
 FROM (
     SELECT referee_id, COUNT(*) AS match_count
     FROM Referee_Per_Match
@@ -211,7 +211,7 @@ SET GD = GF - GA;
 UPDATE Team
 SET points = Wins*3 + Draws;
 
-UPDATE Matchs
+UPDATE Matches
 SET away_team_ball_possession = 100 - home_team_ball_possession;
 
 UPDATE Player_Match_Participation
