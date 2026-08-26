@@ -397,50 +397,6 @@ INSERT INTO Player VALUES (18, 'Brandi', 'Vega', 34, 'Tonga', 'RW',17601079, 64,
 INSERT INTO Player VALUES (19, 'Kayla', 'Wolfe', 28, 'Cameroon', 'CDM',630934, 38, 63, NULL, NULL,NULL, NULL, NULL, '2068-02-27',1);
 INSERT INTO Player VALUES (20, 'Jacob', 'Dunlap', 21, 'Bangladesh', 'ST',3894303, 21, 82, NULL, NULL,NULL, NULL, NULL, '2068-03-05',1);
 
-Select * from sponsor_of
-INSERT INTO sponsor_of VALUES(1,2,2000000);
-INSERT INTO sponsor_of VALUES(1,3,6000000);
-INSERT INTO sponsor_of VALUES(2,4,5000000);
-INSERT INTO sponsor_of VALUES(2,7,9000000);
-INSERT INTO sponsor_of VALUES(3,6,8500000);
-INSERT INTO sponsor_of VALUES(3,5,6800000);
-INSERT INTO sponsor_of VALUES(4,4,7000000);
-INSERT INTO sponsor_of VALUES(4,6,6500000);
-INSERT INTO sponsor_of VALUES(5,1,5000000);
-INSERT INTO sponsor_of VALUES(5,3,2000000);
-INSERT INTO sponsor_of VALUES(6,7,5000000);
-INSERT INTO sponsor_of VALUES(6,5,4000000);
-INSERT INTO sponsor_of VALUES(7,3,6000000);
-INSERT INTO sponsor_of VALUES(7,2,7000000);
-INSERT INTO sponsor_of VALUES(8,6,8530000);
-INSERT INTO sponsor_of VALUES(8,7,24000000);
-INSERT INTO sponsor_of VALUES(9,4,5000000);
-INSERT INTO sponsor_of VALUES(9,6,6000000);
-INSERT INTO sponsor_of VALUES(10,7,7000000);
-INSERT INTO sponsor_of VALUES(10,3,10000000);
-INSERT INTO sponsor_of VALUES(11,7,200000000);
-INSERT INTO sponsor_of VALUES(11,6,30000000);
-INSERT INTO sponsor_of VALUES(12,4,8000000);
-INSERT INTO sponsor_of VALUES(12,5,9000000);
-INSERT INTO sponsor_of VALUES(13,2,5000000);
-INSERT INTO sponsor_of VALUES(13,1,4000000);
-INSERT INTO sponsor_of VALUES(14,1,3000000);
-INSERT INTO sponsor_of VALUES(14,3,20000000);
-INSERT INTO sponsor_of VALUES(15,4,50000000);
-INSERT INTO sponsor_of VALUES(15,6,6000000);
-INSERT INTO sponsor_of VALUES(2,6,700000);
-INSERT INTO sponsor_of VALUES(3,1,6000000);
-INSERT INTO sponsor_of VALUES(5,6,6500000);
-INSERT INTO sponsor_of VALUES(8,2,7000000);
-INSERT INTO sponsor_of VALUES(10,4,8000000);
-INSERT INTO sponsor_of VALUES(11,1,8000000);
-INSERT INTO sponsor_of VALUES(12,3,2000000);
-INSERT INTO sponsor_of VALUES(13,4,7000000);
-INSERT INTO sponsor_of VALUES(14,6,6000000);
-INSERT INTO sponsor_of VALUES(2,1,9000000);
-INSERT INTO sponsor_of VALUES(3,4,6000000);
-INSERT INTO sponsor_of VALUES(12,1,5000000);
-
 -- Atl�tico Norte
 INSERT INTO Player VALUES (21, 'Jennifer', 'Stewart', 33, 'Korea', 'RW',13605894, 6, 90, NULL, NULL,NULL, NULL, NULL, '2067-10-07',2);
 INSERT INTO Player VALUES (22, 'Mary', 'Holden', 30, 'Cocos (Keeling) Islands', 'CM',2223659, 82, 80, NULL, NULL,NULL, NULL, NULL, '2067-11-05',2);
@@ -585,9 +541,7 @@ INSERT INTO Goal_Keeper VALUES(110,3);
 INSERT INTO Goal_Keeper VALUES(121,5);
 INSERT INTO Goal_Keeper VALUES(137,2);
 
-ALTER TABLE Coach
-ADD coach_photo_url varchar(150); 
-
+-- 4.6 Coaches
 select * from Coach
 -- Real Cobre
 INSERT INTO Coach VALUES(1, 'Carlos', 'Navarro', 'Goalkeeping Coach', 612345678,1);
@@ -843,9 +797,7 @@ INSERT INTO Coaching_degree VALUES(90, 'UEFA Technical Director Diploma');
 INSERT INTO Coaching_degree VALUES(90, 'FIFA Technical Leadership Diploma');
 INSERT INTO Coaching_degree VALUES (91, 'UEFA A License');
 
-ALTER TABLE head_coach
-ADD head_coach_photo_url varchar(150); 
-
+-- 4.6 Head Coaches
 Select * from head_coach
 INSERT INTO head_coach VALUES(1,'Luis', 'Gomez', '623456789', 1);
 INSERT INTO head_coach VALUES(2,'Andres', 'Moreno', '698765432', 2);
@@ -873,6 +825,8 @@ INSERT INTO Head_Coaching_Degree VALUES(6,'UEFA B License');
 INSERT INTO Head_Coaching_Degree VALUES(7,'UEFA Pro License');
 INSERT INTO Head_Coaching_Degree VALUES(7,'UEFA A License');
 INSERT INTO Head_Coaching_Degree VALUES(7,'UEFA B License');
+
+-- 4.7 Referees
 
 select * from referee
 INSERT INTO referee VALUES(1, 'Alicia', 'Nguyen', NULL,NULL, NULL);
@@ -1108,6 +1062,52 @@ INSERT INTO Referee_Per_Match VALUES(42,20,'asist');
 INSERT INTO Referee_Per_Match VALUES(42,19,'asist');
 INSERT INTO Referee_Per_Match VALUES(42,8,'asist');
 
+-- 4.8 Sponsors
+Select * from sponsor_of
+INSERT INTO sponsor_of VALUES(1,2,2000000);
+INSERT INTO sponsor_of VALUES(1,3,6000000);
+INSERT INTO sponsor_of VALUES(2,4,5000000);
+INSERT INTO sponsor_of VALUES(2,7,9000000);
+INSERT INTO sponsor_of VALUES(3,6,8500000);
+INSERT INTO sponsor_of VALUES(3,5,6800000);
+INSERT INTO sponsor_of VALUES(4,4,7000000);
+INSERT INTO sponsor_of VALUES(4,6,6500000);
+INSERT INTO sponsor_of VALUES(5,1,5000000);
+INSERT INTO sponsor_of VALUES(5,3,2000000);
+INSERT INTO sponsor_of VALUES(6,7,5000000);
+INSERT INTO sponsor_of VALUES(6,5,4000000);
+INSERT INTO sponsor_of VALUES(7,3,6000000);
+INSERT INTO sponsor_of VALUES(7,2,7000000);
+INSERT INTO sponsor_of VALUES(8,6,8530000);
+INSERT INTO sponsor_of VALUES(8,7,24000000);
+INSERT INTO sponsor_of VALUES(9,4,5000000);
+INSERT INTO sponsor_of VALUES(9,6,6000000);
+INSERT INTO sponsor_of VALUES(10,7,7000000);
+INSERT INTO sponsor_of VALUES(10,3,10000000);
+INSERT INTO sponsor_of VALUES(11,7,200000000);
+INSERT INTO sponsor_of VALUES(11,6,30000000);
+INSERT INTO sponsor_of VALUES(12,4,8000000);
+INSERT INTO sponsor_of VALUES(12,5,9000000);
+INSERT INTO sponsor_of VALUES(13,2,5000000);
+INSERT INTO sponsor_of VALUES(13,1,4000000);
+INSERT INTO sponsor_of VALUES(14,1,3000000);
+INSERT INTO sponsor_of VALUES(14,3,20000000);
+INSERT INTO sponsor_of VALUES(15,4,50000000);
+INSERT INTO sponsor_of VALUES(15,6,6000000);
+INSERT INTO sponsor_of VALUES(2,6,700000);
+INSERT INTO sponsor_of VALUES(3,1,6000000);
+INSERT INTO sponsor_of VALUES(5,6,6500000);
+INSERT INTO sponsor_of VALUES(8,2,7000000);
+INSERT INTO sponsor_of VALUES(10,4,8000000);
+INSERT INTO sponsor_of VALUES(11,1,8000000);
+INSERT INTO sponsor_of VALUES(12,3,2000000);
+INSERT INTO sponsor_of VALUES(13,4,7000000);
+INSERT INTO sponsor_of VALUES(14,6,6000000);
+INSERT INTO sponsor_of VALUES(2,1,9000000);
+INSERT INTO sponsor_of VALUES(3,4,6000000);
+INSERT INTO sponsor_of VALUES(12,1,5000000);
+
+-- 4.9 Match Events
 Select * from Teamplays
 INSERT INTO Teamplays VALUES(1,1,1);
 INSERT INTO Teamplays VALUES(1,2,0);
@@ -1424,7 +1424,6 @@ INSERT INTO Scored_Goal_in_Match VALUES(42,7, 125, 52, 131,' Outside Box Shot', 
 INSERT INTO Scored_Goal_in_Match VALUES(42,7, 133, 68, 139,' Outside Box Shot', 0);
 INSERT INTO Scored_Goal_in_Match VALUES(42,7, 140, 73, 123,'Inside Box Shot', 0);
 INSERT INTO Scored_Goal_in_Match VALUES(42,7, 121, 89, 139,'Goal from Corner', 0);
-
 
 Select * from Assisted_Goal_in_Match
 -- Match 1
@@ -2870,12 +2869,260 @@ INSERT INTO suspension VALUES(114, 19, '2060-11-24','2060-10-31', 'Direct Red Ca
 INSERT INTO suspension VALUES(104, 20, '2060-11-27','2060-11-03', 'Direct Red Card');
 
 
--- Select * from Substitution
--- INSERT INTO Substitution VALUES(31,7,6,3,64);
--- INSERT INTO Substitution VALUES(31,7,19,8,78);
--- INSERT INTO Substitution VALUES(31,1,27,30,50);
+-- ==============================================================
+-- 5. Data Calculations (Updates)
+-- ==============================================================
 
--- select * from Injury
--- INSERT INTO Injury VALUES(19, 1,'2060-10-07','2060-10-25','ACL Injury (Anterior Cruciate)');
--- INSERT INTO Injury VALUES(18, 2, '2060-10-22','2060-12-30', 'Muscle Cramp');
--- INSERT INTO Injury VALUES(24, 3, '2060-09-04','2060-12-04', 'Quadriceps Tear');
+UPDATE Team
+SET GF = stats.total_goals
+FROM (
+    SELECT team_id, SUM(goals_scored) AS total_goals
+    FROM (
+        SELECT home_team_id AS team_id, home_team_goals_number AS goals_scored FROM Matches 
+        UNION ALL
+        SELECT away_team_id, away_team_goals_number FROM Matches
+    ) AS all_goals
+    GROUP BY team_id
+) AS stats
+WHERE Team.team_id = stats.team_id;
+
+UPDATE Team
+SET yellow_card_numbers = stats.total_yellows
+FROM (
+    SELECT team_id, SUM(yellows) AS total_yellows
+    FROM (
+        SELECT home_team_id AS team_id, home_team_yellow_cards_number AS yellows FROM Matches
+        UNION ALL
+        SELECT away_team_id, away_team_yellow_cards_number FROM Matches
+    ) AS yellow_data
+    GROUP BY team_id
+) AS stats
+WHERE Team.team_id = stats.team_id;
+
+UPDATE Team
+SET red_card_numbers = stats.total_reds
+FROM (
+    SELECT team_id, SUM(reds) AS total_reds
+    FROM (
+        SELECT home_team_id AS team_id, home_team_red_cards_number AS reds FROM Matches
+        UNION ALL
+        SELECT away_team_id, away_team_red_cards_number FROM Matches
+    ) AS red_data
+    GROUP BY team_id
+) AS stats
+WHERE Team.team_id = stats.team_id;
+
+UPDATE Team
+SET GA = stats.total_goals_against
+FROM (
+    SELECT team_id, SUM(goals_against) AS total_goals_against
+    FROM (
+        SELECT home_team_id AS team_id, away_team_goals_number AS goals_against FROM Matches
+        UNION ALL
+        SELECT away_team_id, home_team_goals_number FROM Matches
+    ) AS all_goals_against
+    GROUP BY team_id
+) AS stats
+WHERE Team.team_id = stats.team_id;
+
+UPDATE Team
+SET Wins = stats.total_wins
+FROM (
+    SELECT team_id, COUNT(*) AS total_wins
+    FROM (
+        SELECT home_team_id AS team_id FROM Matches WHERE home_team_goals_number > away_team_goals_number
+        UNION ALL
+        SELECT away_team_id FROM Matches WHERE away_team_goals_number > home_team_goals_number
+    ) AS all_wins
+    GROUP BY team_id
+) AS stats
+WHERE Team.team_id = stats.team_id;
+
+UPDATE Team
+SET Losts = stats.total_losses
+FROM (
+    SELECT team_id, COUNT(*) AS total_losses
+    FROM (
+        SELECT home_team_id AS team_id FROM Matches WHERE home_team_goals_number < away_team_goals_number
+        UNION ALL
+        SELECT away_team_id FROM Matches WHERE away_team_goals_number < home_team_goals_number
+    ) AS all_losses
+    GROUP BY team_id
+) AS stats
+WHERE Team.team_id = stats.team_id;
+
+UPDATE Team
+SET Draws = stats.total_draws
+FROM (
+    SELECT team_id, COUNT(*) AS total_draws
+    FROM (
+        SELECT home_team_id AS team_id FROM Matches WHERE home_team_goals_number = away_team_goals_number
+        UNION ALL
+        SELECT away_team_id FROM Matches WHERE away_team_goals_number = home_team_goals_number
+    ) AS all_draws
+    GROUP BY team_id
+) AS stats
+WHERE Team.team_id = stats.team_id;
+
+UPDATE Team
+SET MP = stats.total_matches
+FROM (
+    SELECT team_id, COUNT(*) AS total_matches
+    FROM (
+        SELECT home_team_id AS team_id FROM Matches
+        UNION ALL
+        SELECT away_team_id FROM Matches
+    ) AS all_matches
+    GROUP BY team_id
+) AS stats
+WHERE Team.team_id = stats.team_id;
+
+UPDATE Player
+SET goals_number = (
+    SELECT COUNT(*) FROM Scored_Goal_in_Match s WHERE s.player_id = Player.player_id AND s.own_goal = 0
+);
+
+UPDATE Player
+SET assists_numbers = (
+    SELECT COUNT(*) FROM Assisted_Goal_in_Match a WHERE a.player_id = Player.player_id
+);
+
+UPDATE Player
+SET total_yellow_cards_number = (
+    SELECT COUNT(*) FROM Card_Received_in_Match c WHERE c.player_id = Player.player_id AND c.card_type = 'yellow'
+);
+
+UPDATE Player
+SET total_red_cards_number = (
+    SELECT COUNT(*) FROM Card_Received_in_Match c WHERE c.player_id = Player.player_id AND c.card_type = 'red'
+);
+
+UPDATE Player
+SET Own_goal_number = (
+    SELECT COUNT(*) FROM Scored_Goal_in_Match s WHERE s.player_id = Player.player_id AND s.own_goal = 1
+);
+
+UPDATE referee
+SET total_yellow_cards_number = yellow_stats.total_yellows
+FROM (
+    SELECT rpm.referee_id, SUM(m.home_team_yellow_cards_number + m.away_team_yellow_cards_number) AS total_yellows
+    FROM Referee_Per_Match rpm
+    JOIN Matches m ON rpm.match_id = m.match_id
+    WHERE rpm.role = 'main'
+    GROUP BY rpm.referee_id
+) AS yellow_stats
+WHERE referee.referee_id = yellow_stats.referee_id;
+
+UPDATE referee
+SET total_red_cards_number = red_stats.total_reds
+FROM (
+    SELECT rpm.referee_id, SUM(m.home_team_red_cards_number + m.away_team_red_cards_number) AS total_reds
+    FROM Referee_Per_Match rpm
+    JOIN Matches m ON rpm.match_id = m.match_id
+    WHERE rpm.role = 'main'
+    GROUP BY rpm.referee_id
+) AS red_stats
+WHERE referee.referee_id = red_stats.referee_id;
+
+UPDATE referee
+SET total_matchs_number = match_stats.match_count
+FROM (
+    SELECT referee_id, COUNT(*) AS match_count FROM Referee_Per_Match GROUP BY referee_id
+) AS match_stats
+WHERE referee.referee_id = match_stats.referee_id;
+
+UPDATE Team SET Draws = 0 WHERE team_id = 7 AND Draws IS NULL;
+UPDATE Team SET Losts = 0 WHERE team_id = 7 AND Losts IS NULL;
+UPDATE Team SET GD = GF - GA;
+UPDATE Team SET points = Wins * 3 + Draws;
+UPDATE Matches SET away_team_ball_possession = 100 - home_team_ball_possession;
+
+UPDATE Player_Match_Participation
+SET position = p.position
+FROM Player_Match_Participation AS pmp
+JOIN Player AS p ON pmp.player_id = p.player_id;
+
+UPDATE Player_Match_Participation SET minute_in = 0;
+
+-- ==============================================================
+-- 6. Ready Queries
+-- ==============================================================
+
+-- Best Strikers
+select TOP 10 player_id, first_name, last_name, goals_number
+from Player order by goals_number desc;
+
+-- Best Assists
+select TOP 10 player_id, first_name, last_name, assists_numbers
+from Player order by assists_numbers desc;
+
+-- Best Attack lines
+select Top 5 team_id, team_name, GF
+from Team order by GF desc;
+
+-- Best Defence lines
+select Top 5 team_id, team_name, GA
+from Team order by GA asc;
+
+-- Best Goal Keepers
+select TOP 3 p.first_name, p.last_name, gk.clean_sheets_number
+from Goal_Keeper as gk
+join Player as p on gk.player_id = p.player_id
+order by gk.clean_sheets_number desc;
+
+-- The most expensive players
+select TOP 10 player_id, first_name, last_name, market_value
+from Player order by market_value desc;
+
+-- The best players (According to G/A)
+select TOP 10 player_id, first_name, last_name, (goals_number + assists_numbers) as [G/A]
+from Player order by [G/A] desc;
+
+-- Number of games played by players (Desc)
+select p.player_id, p.first_name, p.last_name , count(p.player_id) as game_played
+from Player as p
+join Player_Match_Participation as pmp on pmp.player_id = p.player_id
+group by p.player_id,p.first_name, p.last_name
+order by game_played desc;
+
+-- Players with the most red cards
+select p.player_id, p.first_name, p.last_name , count(p.player_id) as red_card_numbers
+from Player as p
+join Card_Received_in_Match as crm on crm.player_id = p.player_id
+where crm.card_type = 'red'
+group by p.player_id,p.first_name, p.last_name
+order by red_card_numbers desc;
+
+-- Players with the most yellow cards
+select p.player_id, p.first_name, p.last_name , count(p.player_id) as yellow_card_numbers
+from Player as p
+join Card_Received_in_Match as crm on crm.player_id = p.player_id
+where crm.card_type = 'yellow'
+group by p.player_id,p.first_name, p.last_name
+order by yellow_card_numbers desc;
+
+-- Team With the most wins
+select team_id , team_name, Wins
+from Team order by Wins desc;
+
+-- Team With the most draws
+select team_id , team_name, Draws
+from Team order by Draws desc;
+
+-- Team With the most Losts
+select team_id , team_name, Losts
+from Team order by Losts desc;
+
+-- The best players (According to avg of player's metrica score)
+select p.player_id, p.first_name, p.last_name , avg(pmp.player_metrica_score) as metrica_score_avg
+from Player as p
+join Player_Match_Participation as pmp on pmp.player_id = p.player_id
+group by p.player_id,p.first_name, p.last_name
+order by metrica_score_avg desc;
+
+-- Players with the most minutes game played
+select p.player_id, p.first_name, p.last_name , (sum(pmp.minute_out) - sum(pmp.minute_in)) as minute_played
+from Player as p
+join Player_Match_Participation as pmp on pmp.player_id = p.player_id
+group by p.player_id,p.first_name, p.last_name
+order by minute_played desc;
