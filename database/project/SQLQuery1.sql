@@ -295,13 +295,13 @@ ALTER TABLE Card_Received_in_Match ADD FOREIGN KEY (player_id) REFERENCES Player
 -- 4.1 Teams
 
 select * from Team
-insert into Team values(1, 'D:\University\Bachelor\Term 6\Database\Project\images\Real Cobre.png', 'Real Cobre', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Carlos Soria', 'Av. Andalucia 123, Sevilla', '0034-612345678', 1971);
-insert into Team values(2, 'D:\University\Bachelor\Term 6\Database\Project\images\Atl�tico Norte.png', 'Atl�tico Norte', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Luis Mendieta', 'Calle San Mam�s 45, Bilbao', '0034-655432100', 1965);
-insert into Team values(3, 'D:\University\Bachelor\Term 6\Database\Project\images\Deportivo Sol.png', 'Deportivo Sol', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Ramon Torres', 'Ronda del Sol 89, Valencia', '0034-698765432', 1983);
-insert into Team values(4, 'D:\University\Bachelor\Term 6\Database\Project\images\FC Mar Azul.png', 'FC Mar Azul', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Jordi Navarro', 'Passeig de Gr�cia 10, Barcelona', '0034-601234567', 2005);
-insert into Team values(5, 'D:\University\Bachelor\Term 6\Database\Project\images\CD Castellanos.png', 'CD Castellanos', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Ismael Rojas', 'Calle Mayor 77, Madrid', '0034-678901234', 1958);
-insert into Team values(6, 'D:\University\Bachelor\Term 6\Database\Project\images\Union Andorra.png', 'Union Andorra', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '�ngel Escudero', 'Carrer la Sardana 12, Andorra la Vella', '00376-742300', 2014);
-insert into Team values(7, 'D:\University\Bachelor\Term 6\Database\Project\images\Tractor Galactico CF.png', 'Tractor Galactico CF', NULL, NULL, NULL, NULL, NULL,NULL, NULL, NULL, NULL, NULL,'Prof. Pep Jose Samadi', 'Calle Roja 13, Altabriz', '0034-777777777', 1969);
+insert into Team values(1, 'images\teams\real_cobre.png', 'Real Cobre', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Carlos Soria', 'Av. Andalucia 123, Sevilla', '0034-612345678', 1971);
+insert into Team values(2, 'images\teams\atlético_norte.png', 'Atltico Norte', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Luis Mendieta', 'Calle San Mams 45, Bilbao', '0034-655432100', 1965);
+insert into Team values(3, 'images\teams\deportivo_sol.png', 'Deportivo Sol', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Ramon Torres', 'Ronda del Sol 89, Valencia', '0034-698765432', 1983);
+insert into Team values(4, 'images\teams\fc_mar_azul.png', 'FC Mar Azul', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Jordi Navarro', 'Passeig de Grcia 10, Barcelona', '0034-601234567', 2005);
+insert into Team values(5, 'images\teams\cd_castellanos.png', 'CD Castellanos', NULL, NULL, NULL, NULL, NULL,	NULL,	NULL,	NULL,	NULL	,NULL	,'Ismael Rojas',	'Calle Mayor 77, Madrid',	'0034-678901234',	1958);
+insert into Team values(6, 'images\teams\union_andorra.png', 'Union Andorra',	NULL	,NULL	,NULL	,NULL	,NULL	,NULL	,NULL	,NULL	,NULL	,NULL	,'ngel Escudero',	'Carrer la Sardana 12, Andorra la Vella',	'00376-742300',	2014);
+insert into Team values(7, 'images\teams\tractor_galactico_cf.png', 'Tractor Galactico CF', NULL, NULL, NULL, NULL, NULL,NULL, NULL, NULL, NULL, NULL,'Prof. Pep Jose Samadi', 'Calle Roja 13, Altabriz', '0034-777777777', 1969);
 
 -- 4.2 Stadiums
 select * from Stadium
@@ -799,13 +799,13 @@ INSERT INTO Coaching_degree VALUES (91, 'UEFA A License');
 
 -- 4.6 Head Coaches
 Select * from head_coach
-INSERT INTO head_coach VALUES(1,'Luis', 'Gomez', '623456789', 1);
-INSERT INTO head_coach VALUES(2,'Andres', 'Moreno', '698765432', 2);
-INSERT INTO head_coach VALUES(3, 'Danielle', 'Ford', '653979852', 3);
-INSERT INTO head_coach VALUES(4, 'Kelly', 'Patterson', '678873098', 4);
-INSERT INTO head_coach VALUES(5, 'Donna', 'Williamson','685410706', 5);
-INSERT INTO head_coach VALUES(6, 'Jessica', 'King', '627290299', 6);
-INSERT INTO head_coach VALUES(7,'Raul', 'Hernandez', '654321098', 7);
+INSERT INTO head_coach VALUES(1,'Luis', 'Gomez', '623456789', 1, 'images\head_coaches\1');
+INSERT INTO head_coach VALUES(2,'Andres', 'Moreno', '698765432', 2, 'images\head_coaches\2');
+INSERT INTO head_coach VALUES(3, 'Danielle', 'Ford', '653979852', 3, 'images\head_coaches\3');
+INSERT INTO head_coach VALUES(4, 'Kelly', 'Patterson', '678873098', 4, 'images\head_coaches\4');
+INSERT INTO head_coach VALUES(5, 'Donna', 'Williamson','685410706', 5, 'images\head_coaches\5');
+INSERT INTO head_coach VALUES(6, 'Jessica', 'King', '627290299', 6, 'images\head_coaches\6');
+INSERT INTO head_coach VALUES(7,'Raul', 'Hernandez', '654321098', 7, 'images\head_coaches\7');
 
 Select * from Head_Coaching_Degree
 INSERT INTO Head_Coaching_Degree VALUES(1,'UEFA A License');
