@@ -4,7 +4,7 @@ from pathlib import Path
 import sys
 import src
 
-from src.app import main  # noqa: E402
+from src.app import main
 
 
 if __name__ == "__main__":
