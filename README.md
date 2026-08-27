@@ -25,7 +25,6 @@ The repository contains coursework for the following subjects:
 - Differential Equations
 - Digital Logic
 - Discrete Mathematics
-- Fundamentals of Computer and Programming
 - Fundamentals of Logic
 - Fundamentals of Mathematical Sciences
 - Fundamentals of Operating Systems
