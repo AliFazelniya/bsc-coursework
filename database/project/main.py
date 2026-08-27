@@ -6,17 +6,28 @@ from PyQt5.QtWidgets import (QApplication, QMainWindow, QTableWidget, QTableWidg
 from PyQt5 import QtGui, QtWidgets
 from PyQt5.QtCore import Qt, QSize
 import sys
-
+import os
+from urllib.parse import quote_plus
 # ==========================================
 # 1. Database Configuration
 # ==========================================
-server_name = '127.0.0.1'
-username = 'sa'     
-password = 'StrongPassword123!'
-database = 'Soccer_LeagueDB'
-driver = 'ODBC Driver 17 for SQL Server'
-connection_string = f"mssql+pyodbc://{username}:{password}@{server_name}:1433/{database}?driver={driver.replace(' ', '+')}"
-engine = create_engine(connection_string)
+server = "127.0.0.1"
+username = "sa"
+password = os.environ["DB_PASSWORD"]
+database = "Soccer_LeagueDB"
+
+connection_string = (
+    "DRIVER={ODBC Driver 18 for SQL Server};"
+    f"SERVER={server},1433;"
+    f"DATABASE={database};"
+    f"UID={username};"
+    f"PWD={password};"
+    "TrustServerCertificate=yes;"
+)
+
+engine = create_engine(
+    f"mssql+pyodbc:///?odbc_connect={quote_plus(connection_string)}"
+)
 
 # ==========================================
 # 2. Queries Configuration Dictionary
