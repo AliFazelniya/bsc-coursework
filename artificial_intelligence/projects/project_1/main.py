@@ -1,4 +1,4 @@
-"""Backward-compatible launcher for Neicharan's Dooz."""
+# Backward-compatible launcher
 
 from pathlib import Path
 import sys
