@@ -1,4 +1,4 @@
-# Neicharan's Dooz
+# Neicharan's TIC-TAC-TOE
 
 An advanced, generalized implementation of Tic-Tac-Toe (Dooz) with dynamic board sizes and a highly optimized Minimax AI opponent. Developed as a final project for Artificial Intelligence, this game features a modern Pygame GUI and advanced game-tree search algorithms.
 
