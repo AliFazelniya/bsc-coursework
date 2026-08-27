@@ -11,7 +11,7 @@ A desktop soccer league dashboard built with **Python, PyQt5, Pandas, SQLAlchemy
 - Head coaches
 - Assistant coaches
 - Team, player, and coach images
-- 🎨 Custom PyQt5 interface with QSS styling
+- Custom PyQt5 interface with QSS styling
 
 ## Project Structure
 
