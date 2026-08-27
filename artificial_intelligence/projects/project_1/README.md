@@ -10,12 +10,11 @@ both diagonal directions.
 ```text
 .
 ├── src/
-│   └── neicharans_dooz/
-│       ├── app.py                # Application flow
-│       ├── ai.py                 # Minimax computer opponent
-│       ├── domain.py             # Board and game types
-│       ├── gui.py                # Pygame input and rendering
-│       └── scoring.py            # Scoring rules
+│    ├── app.py                # Application flow
+│    ├── ai.py                 # Minimax computer opponent
+│    ├── domain.py             # Board and game types
+│    ├── gui.py                # Pygame input and rendering
+│    └── scoring.py            # Scoring rules
 ├── tests/                        # Automated unit tests
 ├── main.py                       # Backward-compatible launcher
 └── pyproject.toml                # Dependencies and tool configuration
