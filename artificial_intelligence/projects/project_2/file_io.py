@@ -32,4 +32,4 @@ def read_puzzle(file_path):
 def write_solution(grid, file_path="solution.txt"):
     with open(file_path, 'w', encoding='utf-8') as file:
         for row in grid:
-            file.write(",".join(map(str, row)) + "\n")
+            file.write(",".join(map(str, row)) + "/n")

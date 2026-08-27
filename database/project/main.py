@@ -150,7 +150,21 @@ class DataTablePage(QWidget):
             for col in range(df.shape[1]):
                 if col == 0:
                     label = QLabel()
-                    pixmap = QtGui.QPixmap(df.iat[row, col]).scaled(icon_size, icon_size, Qt.KeepAspectRatio, Qt.SmoothTransformation)
+                    image_path = str(df.iat[row, col])
+                    if not os.path.splitext(image_path)[1]:
+                        for ext in [".png", ".jpg", ".jpeg", ".webp"]:
+                            candidate = image_path + ext
+                            if os.path.exists(candidate):
+                                image_path = candidate
+                                break
+
+                    pixmap = QtGui.QPixmap(image_path)
+                    pixmap = pixmap.scaled(
+                        icon_size,
+                        icon_size,
+                        Qt.KeepAspectRatio,
+                        Qt.SmoothTransformation
+                    )
                     label.setPixmap(pixmap)
                     label.setAlignment(Qt.AlignCenter)
                     self.table_widget.setCellWidget(row, col, label)
@@ -193,12 +207,12 @@ class MainLeagueApp(QMainWindow):
 
         # Buttons List mapping to the QUERIES keys
         buttons = [
-            ("🏆 League Standings", "standings"),
-            ("👟 Best Strikers", "strikers"),
-            ("🎯 Best Assists", "assists"),
-            ("🏃 All Players Table", "players"),
-            ("👔 Head Coaches", "head_coaches"),
-            ("📋 Assistant Coaches", "coaches")
+            ("♜ League Standings", "standings"),
+            ("⚽ Best Strikers", "strikers"),
+            ("◆ Best Assists", "assists"),
+            ("● All Players Table", "players"),
+            ("★ Head Coaches", "head_coaches"),
+            ("◇ Assistant Coaches", "coaches")
         ]
 
         for btn_text, key in buttons:
@@ -225,7 +239,7 @@ class MainLeagueApp(QMainWindow):
         try:
             df = pd.read_sql(config["query"], engine)
         except Exception as e:
-            QMessageBox.critical(self, "Database Error", f"Failed to fetch data:\n{str(e)}")
+            QMessageBox.critical(self, "Database Error", f"Failed to fetch data:/n{str(e)}")
             return
 
         # 2. Create the Table Page dynamically

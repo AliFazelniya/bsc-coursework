@@ -28,7 +28,7 @@ for k = 1:Runs
 
 end
 
-fprintf('Average accidents = %.2f\n',mean(Acc));
-fprintf('Std = %.2f\n',std(Acc));
-fprintf('Minimum = %d\n',min(Acc));
-fprintf('Maximum = %d\n',max(Acc));
+fprintf('Average accidents = %.2f/n',mean(Acc));
+fprintf('Std = %.2f/n',std(Acc));
+fprintf('Minimum = %d/n',min(Acc));
+fprintf('Maximum = %d/n',max(Acc));

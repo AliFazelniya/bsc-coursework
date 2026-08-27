@@ -6,7 +6,7 @@ import pandas as pd
 def user_choice_one(bisection_method_answers, newton_method_answers, secant_method_answers_based_on_a_b, secant_method_answers_based_on_bisection_method_answers, secant_method_answers_based_on_newton_method_answers, simpleـiteration_answers, aitkenـmethod_answers_based_on_bisection_method_answers, aitkenـmethod_answers_based_on_newton_method_answers, aitkenـmethod_answers_based_on_secant_method_answers_based_on_a_b, aitkenـmethod_answers_based_on_secant_method_answers_based_on_bisection_method_answers, aitkenـmethod_answers_based_on_secant_method_answers_based_on_newton_method_answers, aitkenـmethod_answers_based_on_simpleـiteration_answers, root):
         print("Welcome to the analyze part 1. In this part all step 1 details of the function you entered will be shown.")
         print("now here is the details of the function you entered in step 1:")
-        print("\n")
+        print("/n")
         print("Final answers of methods:")
         print(f"Bisection Method finall answer: {bisection_method_answers[-2]}")
         print(f"Newton Method finall answer: {newton_method_answers[-2]}")

@@ -45,7 +45,7 @@ class PuzzleGUI:
             self.draw_grid(grid)
             self.btn_solve.config(state=tk.NORMAL)
         except Exception as e:
-            messagebox.showerror("Error", f"Failed to load file:\n{e}")
+            messagebox.showerror("Error", f"Failed to load file:/n{e}")
 
     def draw_grid(self, grid):
         for widget in self.grid_frame.winfo_children():
@@ -99,7 +99,7 @@ class PuzzleGUI:
                         
             script_dir = os.path.dirname(os.path.abspath(__file__))
             write_solution(solution, os.path.join(script_dir, "solution.txt"))
-            messagebox.showinfo("Success", f"Solved in {end_time - start_time:.3f} seconds!\nSaved to solution.txt")
+            messagebox.showinfo("Success", f"Solved in {end_time - start_time:.3f} seconds!/nSaved to solution.txt")
         else:
             messagebox.showwarning("Failed", "No solution exists for these constraints.")
             

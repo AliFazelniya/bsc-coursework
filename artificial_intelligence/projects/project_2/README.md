@@ -2,7 +2,7 @@
 
 Project Overview
 
-> This project implements an advanced **Constraint Satisfaction Problem (CSP)** solver built purely in Python. The goal is to process an $N \times M$ grid of numbers and systematically eliminate specific cells (replacing them with `0`) so that the remaining numbers in each row and column sum exactly to a predefined set of targets.
+> This project implements an advanced **Constraint Satisfaction Problem (CSP)** solver built purely in Python. The goal is to process an $N /times M$ grid of numbers and systematically eliminate specific cells (replacing them with `0`) so that the remaining numbers in each row and column sum exactly to a predefined set of targets.
 
 ## Modular Architecture
 
@@ -39,7 +39,7 @@ Extra Challenges Implemented
    A responsive Dark-Themed GUI built with tkinter allows users to select puzzles dynamically without hardcoding file paths.
 
 2. Non-Square Grid Support
-   The solver dynamically adapts to $R \times C$ matrices (e.g., $3 \times 5$). Just provide Rows,Cols on the first line of the .txt file instead of a single integer $N$.
+   The solver dynamically adapts to $R /times C$ matrices (e.g., $3 /times 5$). Just provide Rows,Cols on the first line of the .txt file instead of a single integer $N$.
 
 3. Step-by-Step Animation
    The backtracking process is visually animated in real-time.

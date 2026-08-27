@@ -18,9 +18,9 @@ ry <- runif(N_mc, 0, max_y)
 points_under_curve <- sum(ry <= f(rx))
 area_mc <- (points_under_curve / N_mc) * box_area
 
-cat("--- Exercise 1 Results ---\n")
-cat("Trapezoidal Area:", area_trapezoidal, "\n")
-cat("Monte Carlo Area:", area_mc, "\n\n")
+cat("--- Exercise 1 Results ---/n")
+cat("Trapezoidal Area:", area_trapezoidal, "/n")
+cat("Monte Carlo Area:", area_mc, "/n/n")
 
 
 calc_intersection_area <- function(x1, y1, r1, x2, y2, r2, N_mc = 1000000) {
@@ -46,5 +46,5 @@ calc_intersection_area <- function(x1, y1, r1, x2, y2, r2, N_mc = 1000000) {
 set.seed(42)
 area_intersection <- calc_intersection_area(x1=0, y1=0, r1=5, x2=6, y2=0, r2=3)
 
-cat("--- Exercise 2 Result ---\n")
-cat("Estimated Intersection Area (Sample Data):", area_intersection, "\n")
+cat("--- Exercise 2 Result ---/n")
+cat("Estimated Intersection Area (Sample Data):", area_intersection, "/n")

@@ -35,7 +35,7 @@ class CSPSolver:
         self.rem_col_sums[col] -= val
         
         # --- Branch 1: Keep Value ---
-        can_keep = (self.row_sums[row] + val <= self.row_targets[row]) and \
+        can_keep = (self.row_sums[row] + val <= self.row_targets[row]) and /
                    (self.col_sums[col] + val <= self.col_targets[col])
                    
         # Check Uniqueness Constraint
@@ -58,7 +58,7 @@ class CSPSolver:
             self.current_grid[row][col] = 0
 
         # --- Branch 2: Remove Value ---
-        can_remove = (self.row_sums[row] + self.rem_row_sums[row] >= self.row_targets[row]) and \
+        can_remove = (self.row_sums[row] + self.rem_row_sums[row] >= self.row_targets[row]) and /
                      (self.col_sums[col] + self.rem_col_sums[col] >= self.col_targets[col])
                      
         if can_remove:

@@ -156,18 +156,18 @@ title('Queue Simulation Results');
 %% Statistics
 %% ==========================
 
-fprintf('\n----------- Simulation Results -----------\n');
+fprintf('/n----------- Simulation Results -----------/n');
 
-fprintf('Total Customers           : %d\n',N);
+fprintf('Total Customers           : %d/n',N);
 
-fprintf('Served Customers          : %d\n',iSer);
+fprintf('Served Customers          : %d/n',iSer);
 
-fprintf('Dropped Customers         : %d\n',sum(DfQu));
+fprintf('Dropped Customers         : %d/n',sum(DfQu));
 
-fprintf('Average Service Time      : %.4f\n',mean(TServ(1:iSer)));
+fprintf('Average Service Time      : %.4f/n',mean(TServ(1:iSer)));
 
-fprintf('Average Total Time        : %.4f\n',mean(Totaltime(1:iSer)));
+fprintf('Average Total Time        : %.4f/n',mean(Totaltime(1:iSer)));
 
-fprintf('Maximum Queue Length      : %d\n',max(LoQu));
+fprintf('Maximum Queue Length      : %d/n',max(LoQu));
 
-fprintf('------------------------------------------\n');
+fprintf('------------------------------------------/n');

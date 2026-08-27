@@ -53,8 +53,8 @@ while (!reached_destination) {
 total_moves <- A + B
 ratio <- ifelse(total_moves > 0, A / total_moves, 0)
 
-cat("Destination 'D' reached!\n")
-cat("Variable A (Successful moves):", A, "\n")
-cat("Variable B (Failed moves):", B, "\n")
-cat("Total attempts:", total_moves, "\n")
-cat(sprintf("Ratio A / (A + B): %.4f\n", ratio))
+cat("Destination 'D' reached!/n")
+cat("Variable A (Successful moves):", A, "/n")
+cat("Variable B (Failed moves):", B, "/n")
+cat("Total attempts:", total_moves, "/n")
+cat(sprintf("Ratio A / (A + B): %.4f/n", ratio))

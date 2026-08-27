@@ -13,9 +13,9 @@ set.seed(Sys.time())
 seeds <- sample(1000:9999, 3)
 vals <- generate_mid_product(seeds[1], seeds[2], seeds[3], 1000)
 
-cat("Seeds:", seeds, "\n")
-cat("Unique values generated:", length(unique(vals)), "out of 1000\n")
-cat("Mean:", mean(vals), "\n")
+cat("Seeds:", seeds, "/n")
+cat("Unique values generated:", length(unique(vals)), "out of 1000/n")
+cat("Mean:", mean(vals), "/n")
 
 
 args <- commandArgs(trailingOnly = FALSE)

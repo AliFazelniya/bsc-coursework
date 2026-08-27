@@ -296,13 +296,13 @@ ALTER TABLE Card_Received_in_Match ADD FOREIGN KEY (player_id) REFERENCES Player
 -- 4.1 Teams
 
 select * from Team
-insert into Team values(1, 'images\teams\real_cobre.png', 'Real Cobre', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Carlos Soria', 'Av. Andalucia 123, Sevilla', '0034-612345678', 1971);
-insert into Team values(2, 'images\teams\atlético_norte.png', 'Atltico Norte', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Luis Mendieta', 'Calle San Mams 45, Bilbao', '0034-655432100', 1965);
-insert into Team values(3, 'images\teams\deportivo_sol.png', 'Deportivo Sol', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Ramon Torres', 'Ronda del Sol 89, Valencia', '0034-698765432', 1983);
-insert into Team values(4, 'images\teams\fc_mar_azul.png', 'FC Mar Azul', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Jordi Navarro', 'Passeig de Grcia 10, Barcelona', '0034-601234567', 2005);
-insert into Team values(5, 'images\teams\cd_castellanos.png', 'CD Castellanos', NULL, NULL, NULL, NULL, NULL,	NULL,	NULL,	NULL,	NULL	,NULL	,'Ismael Rojas',	'Calle Mayor 77, Madrid',	'0034-678901234',	1958);
-insert into Team values(6, 'images\teams\union_andorra.png', 'Union Andorra',	NULL	,NULL	,NULL	,NULL	,NULL	,NULL	,NULL	,NULL	,NULL	,NULL	,'ngel Escudero',	'Carrer la Sardana 12, Andorra la Vella',	'00376-742300',	2014);
-insert into Team values(7, 'images\teams\tractor_galactico_cf.png', 'Tractor Galactico CF', NULL, NULL, NULL, NULL, NULL,NULL, NULL, NULL, NULL, NULL,'Prof. Pep Jose Samadi', 'Calle Roja 13, Altabriz', '0034-777777777', 1969);
+insert into Team values(1, 'images/teams/real_cobre', 'Real Cobre', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Carlos Soria', 'Av. Andalucia 123, Sevilla', '0034-612345678', 1971);
+insert into Team values(2, 'images/teams/atlético_norte', 'Atltico Norte', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Luis Mendieta', 'Calle San Mams 45, Bilbao', '0034-655432100', 1965);
+insert into Team values(3, 'images/teams/deportivo_sol', 'Deportivo Sol', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Ramon Torres', 'Ronda del Sol 89, Valencia', '0034-698765432', 1983);
+insert into Team values(4, 'images/teams/fc_mar_azul', 'FC Mar Azul', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Jordi Navarro', 'Passeig de Grcia 10, Barcelona', '0034-601234567', 2005);
+insert into Team values(5, 'images/teams/cd_castellanos', 'CD Castellanos', NULL, NULL, NULL, NULL, NULL,	NULL,	NULL,	NULL,	NULL	,NULL	,'Ismael Rojas',	'Calle Mayor 77, Madrid',	'0034-678901234',	1958);
+insert into Team values(6, 'images/teams/union_andorra', 'Union Andorra',	NULL	,NULL	,NULL	,NULL	,NULL	,NULL	,NULL	,NULL	,NULL	,NULL	,'ngel Escudero',	'Carrer la Sardana 12, Andorra la Vella',	'00376-742300',	2014);
+insert into Team values(7, 'images/teams/tractor_galactico_cf', 'Tractor Galactico CF', NULL, NULL, NULL, NULL, NULL,NULL, NULL, NULL, NULL, NULL,'Prof. Pep Jose Samadi', 'Calle Roja 13, Altabriz', '0034-777777777', 1969);
 
 -- 4.2 Stadiums
 select * from Stadium
@@ -316,21 +316,21 @@ insert into Stadium values(7, 'Altabriz Oshakhlari Stadium', '0034-799999999', '
 
 -- 4.3 Sponsors
 select * from Sponsor_Company
-INSERT INTO Sponsor_Company VALUES(1, 'Galactix Energy', 'Energy', 'https://galactix.com', 80000000000);
-INSERT INTO Sponsor_Company VALUES(2, 'NovaBank', 'Banking', 'https://novabank.es', 30000000000);
-INSERT INTO Sponsor_Company VALUES(3, 'Zafiro Motors', 'Automotive', 'https://zafiromotors.es', 60000000000);
-INSERT INTO Sponsor_Company VALUES(4, 'IBERCloud', 'Cloud Technology', 'https://ibercloud.tech', 50000000000);
-INSERT INTO Sponsor_Company VALUES(5, 'Solarion', 'Solar Energy', 'https://solariosolar.com', 45000000000);
-INSERT INTO Sponsor_Company VALUES(6, 'Fusion Telecom', 'Telecommunications', 'https://fusiontel.es', 55000000000);
-INSERT INTO Sponsor_Company VALUES(7, 'Azul Seguros', 'Insurance', 'https://azulseguros.es', 28000000000);
-INSERT INTO Sponsor_Company VALUES(8, 'Delicio Foods', 'Food Industry', 'https://deliciofoods.com', 23000000000);
-INSERT INTO Sponsor_Company VALUES(9, 'Tactica Sportswear', 'Sportswear', 'https://tacticasport.es', 18000000000);
-INSERT INTO Sponsor_Company VALUES(10, 'Pulsar Tech', 'Electronics / Artificial Intelligence', 'https://pulsartechnology.ai', 700000000);
-INSERT INTO Sponsor_Company VALUES(11, 'Velovia Airlines', 'Airline', 'https://velovia.es', 65000000000);
-INSERT INTO Sponsor_Company VALUES(12, 'Aguavera Bottling', 'Beverages', 'https://aguavera.es', 19000000000);
-INSERT INTO Sponsor_Company VALUES(13, 'EcoBuild Espana', 'Sustainable Construction', 'https://ecobuild.es', 36000000000);
-INSERT INTO Sponsor_Company VALUES(14, 'Medinova Pharma', 'Pharmaceuticals', 'https://medinova.es', 41000000000);
-INSERT INTO Sponsor_Company VALUES(15, 'OrbitCom Media', 'Media / Streaming', 'https://orbitcom.media', 47500000000);
+INSERT INTO Sponsor_Company VALUES(1, 'Galactix Energy', 'Energy', 'galactix.com', 80000000000);
+INSERT INTO Sponsor_Company VALUES(2, 'NovaBank', 'Banking', 'novabank.es', 30000000000);
+INSERT INTO Sponsor_Company VALUES(3, 'Zafiro Motors', 'Automotive', 'zafiromotors.es', 60000000000);
+INSERT INTO Sponsor_Company VALUES(4, 'IBERCloud', 'Cloud Technology', 'ibercloud.tech', 50000000000);
+INSERT INTO Sponsor_Company VALUES(5, 'Solarion', 'Solar Energy', 'solariosolar.com', 45000000000);
+INSERT INTO Sponsor_Company VALUES(6, 'Fusion Telecom', 'Telecommunications', 'fusiontel.es', 55000000000);
+INSERT INTO Sponsor_Company VALUES(7, 'Azul Seguros', 'Insurance', 'azulseguros.es', 28000000000);
+INSERT INTO Sponsor_Company VALUES(8, 'Delicio Foods', 'Food Industry', 'deliciofoods.com', 23000000000);
+INSERT INTO Sponsor_Company VALUES(9, 'Tactica Sportswear', 'Sportswear', 'tacticasport.es', 18000000000);
+INSERT INTO Sponsor_Company VALUES(10, 'Pulsar Tech', 'Electronics / Artificial Intelligence', 'pulsartechnology.ai', 700000000);
+INSERT INTO Sponsor_Company VALUES(11, 'Velovia Airlines', 'Airline', 'velovia.es', 65000000000);
+INSERT INTO Sponsor_Company VALUES(12, 'Aguavera Bottling', 'Beverages', 'aguavera.es', 19000000000);
+INSERT INTO Sponsor_Company VALUES(13, 'EcoBuild Espana', 'Sustainable Construction', 'ecobuild.es', 36000000000);
+INSERT INTO Sponsor_Company VALUES(14, 'Medinova Pharma', 'Pharmaceuticals', 'medinova.es', 41000000000);
+INSERT INTO Sponsor_Company VALUES(15, 'OrbitCom Media', 'Media / Streaming', 'orbitcom.media', 47500000000);
 
 -- 4.4 Matches
 select * from Matches
@@ -377,143 +377,143 @@ INSERT INTO Matches VALUES (42, '2060-11-03', '20:00', 6, 7, 'Union Andorra', 'T
 -- 4.5 Players
 select * from Player
 
-INSERT INTO Player VALUES (1, 'Randy', 'Clarke', 21, 'Burkina Faso', 'CAM',11599036, 86, 87, NULL, NULL,NULL, NULL, NULL, '2067-12-18',1, 'images\players\Player  (1)');
-INSERT INTO Player VALUES (2, 'Randy', 'Davis', 35, 'Norway', 'RW',12734456, 40, 89, NULL, NULL,NULL, NULL, NULL, '2067-04-03',1, 'images\players\Player  (2)');
-INSERT INTO Player VALUES (3, 'Linda', 'Mcgrath', 27, 'Faroe Islands', 'CB',16202964, 15, 68, NULL, NULL,NULL, NULL, NULL, '2066-06-10',1, 'images\players\Player  (3)');
-INSERT INTO Player VALUES (4, 'Christopher', 'Franklin', 19, 'Japan', 'CB',12191975, 90, 64, NULL, NULL,NULL, NULL, NULL, '2067-10-13',1, 'images\players\Player  (4)');
-INSERT INTO Player VALUES (5, 'Linda', 'Kennedy', 33, 'Burundi', 'RW',12083836, 61, 85, NULL, NULL,NULL, NULL, NULL, '2066-11-22',1, 'images\players\Player  (5)');
-INSERT INTO Player VALUES (6, 'John', 'Sullivan', 18, 'Trinidad and Tobago', 'ST',4829996, 90, 71, NULL, NULL,NULL, NULL, NULL, '2067-11-01',1, 'images\players\Player  (6)');
-INSERT INTO Player VALUES (7, 'Bonnie', 'Lang', 34, 'Sweden', 'CB',9617441, 29, 70, NULL, NULL,NULL, NULL, NULL, '2067-10-05',1, 'images\players\Player  (7)');
-INSERT INTO Player VALUES (8, 'Peter', 'Williamson', 34, 'Zimbabwe', 'GK',4777216, 32, 60, NULL, NULL,NULL, NULL, NULL, '2067-08-09',1, 'images\players\Player  (8)');
-INSERT INTO Player VALUES (9, 'Joseph', 'Pham', 32, 'Monaco', 'CDM',13929460, 65, 90, NULL, NULL,NULL, NULL, NULL, '2066-07-13',1, 'images\players\Player  (9)');
-INSERT INTO Player VALUES (10, 'Caleb', 'Sanchez', 18, 'Monaco', 'RW',7201048, 63, 90, NULL, NULL,NULL, NULL, NULL, '2067-10-23',1, 'images\players\Player  (10)');
-INSERT INTO Player VALUES (11, 'Kristen', 'Stevenson', 32, 'El Salvador', 'RW',8352410, 10, 80, NULL, NULL,NULL, NULL, NULL, '2067-06-20',1, 'images\players\Player  (11)');
-INSERT INTO Player VALUES (12, 'Jason', 'Christensen', 26, 'Cayman Islands', 'RW',3914967, 38, 84, NULL, NULL,NULL, NULL, NULL, '2068-01-23',1, 'images\players\Player  (12)');
-INSERT INTO Player VALUES (17, 'Brenda', 'Wagner', 25, 'Togo', 'ST',8735709, 11, 78, NULL, NULL,NULL, NULL, NULL, '2068-02-27',1, 'images\players\Player  (17)');
-INSERT INTO Player VALUES (18, 'Brandi', 'Vega', 34, 'Tonga', 'RW',17601079, 64, 80, NULL, NULL,NULL, NULL, NULL, '2067-11-30',1, 'images\players\Player  (18)');
-INSERT INTO Player VALUES (19, 'Kayla', 'Wolfe', 28, 'Cameroon', 'CDM',630934, 38, 63, NULL, NULL,NULL, NULL, NULL, '2068-02-27',1, 'images\players\Player  (19)');
-INSERT INTO Player VALUES (20, 'Jacob', 'Dunlap', 21, 'Bangladesh', 'ST',3894303, 21, 82, NULL, NULL,NULL, NULL, NULL, '2068-03-05',1, 'images\players\Player  (20)');
+INSERT INTO Player VALUES (1, 'Randy', 'Clarke', 21, 'Burkina Faso', 'CAM',11599036, 86, 87, NULL, NULL,NULL, NULL, NULL, '2067-12-18',1, 'images/players/Player  (1)');
+INSERT INTO Player VALUES (2, 'Randy', 'Davis', 35, 'Norway', 'RW',12734456, 40, 89, NULL, NULL,NULL, NULL, NULL, '2067-04-03',1, 'images/players/Player  (2)');
+INSERT INTO Player VALUES (3, 'Linda', 'Mcgrath', 27, 'Faroe Islands', 'CB',16202964, 15, 68, NULL, NULL,NULL, NULL, NULL, '2066-06-10',1, 'images/players/Player  (3)');
+INSERT INTO Player VALUES (4, 'Christopher', 'Franklin', 19, 'Japan', 'CB',12191975, 90, 64, NULL, NULL,NULL, NULL, NULL, '2067-10-13',1, 'images/players/Player  (4)');
+INSERT INTO Player VALUES (5, 'Linda', 'Kennedy', 33, 'Burundi', 'RW',12083836, 61, 85, NULL, NULL,NULL, NULL, NULL, '2066-11-22',1, 'images/players/Player  (5)');
+INSERT INTO Player VALUES (6, 'John', 'Sullivan', 18, 'Trinidad and Tobago', 'ST',4829996, 90, 71, NULL, NULL,NULL, NULL, NULL, '2067-11-01',1, 'images/players/Player  (6)');
+INSERT INTO Player VALUES (7, 'Bonnie', 'Lang', 34, 'Sweden', 'CB',9617441, 29, 70, NULL, NULL,NULL, NULL, NULL, '2067-10-05',1, 'images/players/Player  (7)');
+INSERT INTO Player VALUES (8, 'Peter', 'Williamson', 34, 'Zimbabwe', 'GK',4777216, 32, 60, NULL, NULL,NULL, NULL, NULL, '2067-08-09',1, 'images/players/Player  (8)');
+INSERT INTO Player VALUES (9, 'Joseph', 'Pham', 32, 'Monaco', 'CDM',13929460, 65, 90, NULL, NULL,NULL, NULL, NULL, '2066-07-13',1, 'images/players/Player  (9)');
+INSERT INTO Player VALUES (10, 'Caleb', 'Sanchez', 18, 'Monaco', 'RW',7201048, 63, 90, NULL, NULL,NULL, NULL, NULL, '2067-10-23',1, 'images/players/Player  (10)');
+INSERT INTO Player VALUES (11, 'Kristen', 'Stevenson', 32, 'El Salvador', 'RW',8352410, 10, 80, NULL, NULL,NULL, NULL, NULL, '2067-06-20',1, 'images/players/Player  (11)');
+INSERT INTO Player VALUES (12, 'Jason', 'Christensen', 26, 'Cayman Islands', 'RW',3914967, 38, 84, NULL, NULL,NULL, NULL, NULL, '2068-01-23',1, 'images/players/Player  (12)');
+INSERT INTO Player VALUES (17, 'Brenda', 'Wagner', 25, 'Togo', 'ST',8735709, 11, 78, NULL, NULL,NULL, NULL, NULL, '2068-02-27',1, 'images/players/Player  (17)');
+INSERT INTO Player VALUES (18, 'Brandi', 'Vega', 34, 'Tonga', 'RW',17601079, 64, 80, NULL, NULL,NULL, NULL, NULL, '2067-11-30',1, 'images/players/Player  (18)');
+INSERT INTO Player VALUES (19, 'Kayla', 'Wolfe', 28, 'Cameroon', 'CDM',630934, 38, 63, NULL, NULL,NULL, NULL, NULL, '2068-02-27',1, 'images/players/Player  (19)');
+INSERT INTO Player VALUES (20, 'Jacob', 'Dunlap', 21, 'Bangladesh', 'ST',3894303, 21, 82, NULL, NULL,NULL, NULL, NULL, '2068-03-05',1, 'images/players/Player  (20)');
 
 -- Atltico Norte
-INSERT INTO Player VALUES (21, 'Jennifer', 'Stewart', 33, 'Korea', 'RW',13605894, 6, 90, NULL, NULL,NULL, NULL, NULL, '2067-10-07',2, 'images\players\Player  (21)');
-INSERT INTO Player VALUES (22, 'Mary', 'Holden', 30, 'Cocos (Keeling) Islands', 'CM',2223659, 82, 80, NULL, NULL,NULL, NULL, NULL, '2067-11-05',2, 'images\players\Player  (22)');
-INSERT INTO Player VALUES (23, 'Heidi', 'Powell', 24, 'British Indian Ocean Territory', 'CM',10361330, 6, 65, NULL, NULL,NULL, NULL, NULL, '2066-08-27',2, 'images\players\Player  (23)');
-INSERT INTO Player VALUES (24, 'Marie', 'Everett', 20, 'Tokelau', 'CM',8766807, 86, 60, NULL, NULL,NULL, NULL, NULL, '2067-02-08',2, 'images\players\Player  (24)');
-INSERT INTO Player VALUES (25, 'Calvin', 'Contreras', 30, 'Guam', 'LB',8656632, 37, 86, NULL, NULL,NULL, NULL, NULL, '2067-10-20',2, 'images\players\Player  (25)');
-INSERT INTO Player VALUES (26, 'Jenna', 'Bennett', 34, 'Belgium', 'CM',13489538, 48, 86, NULL, NULL,NULL, NULL, NULL, '2068-02-25',2, 'images\players\Player  (26)');
-INSERT INTO Player VALUES (31, 'Timothy', 'Dixon', 22, 'Singapore', 'CM',13616382, 67, 87, NULL, NULL,NULL, NULL, NULL, '2066-09-25',2, 'images\players\Player  (31)');
-INSERT INTO Player VALUES (32, 'John', 'Neal', 30, 'Peru', 'CAM',9716281, 49, 70, NULL, NULL,NULL, NULL, NULL, '2067-10-31',2, 'images\players\Player  (32)');
-INSERT INTO Player VALUES (33, 'Julie', 'Lopez', 26, 'Netherlands Antilles', 'LB',7284742, 91, 65, NULL, NULL,NULL, NULL, NULL, '2066-10-17',2, 'images\players\Player  (33)');
-INSERT INTO Player VALUES (34, 'James', 'Crawford', 20, 'Reunion', 'CM',12179803, 9, 90, NULL, NULL,NULL, NULL, NULL, '2067-06-02',2, 'images\players\Player  (34)');
-INSERT INTO Player VALUES (35, 'Tammy', 'Taylor', 27, 'United States Minor Outlying Islands', 'GK',11968726, 75, 71, NULL, NULL,NULL, NULL, NULL, '2068-02-22',2, 'images\players\Player  (35)');
-INSERT INTO Player VALUES (36, 'Henry', 'Mueller', 27, 'Martinique', 'RW',15662869, 72, 87, NULL, NULL,NULL, NULL, NULL, '2066-09-28',2, 'images\players\Player  (36)');
-INSERT INTO Player VALUES (37, 'Ryan', 'Dunn', 18, 'Oman', 'LB',3336437, 14, 90, NULL, NULL,NULL, NULL, NULL, '2066-07-05',2, 'images\players\Player  (37)');
-INSERT INTO Player VALUES (38, 'Alexandra', 'Salas', 23, 'Algeria', 'LW',19332914, 54, 75, NULL, NULL,NULL, NULL, NULL, '2068-05-24',2, 'images\players\Player  (38)');
-INSERT INTO Player VALUES (39, 'Veronica', 'King', 19, 'Saudi Arabia', 'CB',12095975, 8, 68, NULL, NULL,NULL, NULL, NULL, '2067-10-22',2, 'images\players\Player  (39)');
-INSERT INTO Player VALUES (40, 'Rebecca', 'Dunn', 24, 'Yemen', 'CB',15898248, 71, 76, NULL, NULL,NULL, NULL, NULL, '2067-01-04',2, 'images\players\Player  (40)');
+INSERT INTO Player VALUES (21, 'Jennifer', 'Stewart', 33, 'Korea', 'RW',13605894, 6, 90, NULL, NULL,NULL, NULL, NULL, '2067-10-07',2, 'images/players/Player  (21)');
+INSERT INTO Player VALUES (22, 'Mary', 'Holden', 30, 'Cocos (Keeling) Islands', 'CM',2223659, 82, 80, NULL, NULL,NULL, NULL, NULL, '2067-11-05',2, 'images/players/Player  (22)');
+INSERT INTO Player VALUES (23, 'Heidi', 'Powell', 24, 'British Indian Ocean Territory', 'CM',10361330, 6, 65, NULL, NULL,NULL, NULL, NULL, '2066-08-27',2, 'images/players/Player  (23)');
+INSERT INTO Player VALUES (24, 'Marie', 'Everett', 20, 'Tokelau', 'CM',8766807, 86, 60, NULL, NULL,NULL, NULL, NULL, '2067-02-08',2, 'images/players/Player  (24)');
+INSERT INTO Player VALUES (25, 'Calvin', 'Contreras', 30, 'Guam', 'LB',8656632, 37, 86, NULL, NULL,NULL, NULL, NULL, '2067-10-20',2, 'images/players/Player  (25)');
+INSERT INTO Player VALUES (26, 'Jenna', 'Bennett', 34, 'Belgium', 'CM',13489538, 48, 86, NULL, NULL,NULL, NULL, NULL, '2068-02-25',2, 'images/players/Player  (26)');
+INSERT INTO Player VALUES (31, 'Timothy', 'Dixon', 22, 'Singapore', 'CM',13616382, 67, 87, NULL, NULL,NULL, NULL, NULL, '2066-09-25',2, 'images/players/Player  (31)');
+INSERT INTO Player VALUES (32, 'John', 'Neal', 30, 'Peru', 'CAM',9716281, 49, 70, NULL, NULL,NULL, NULL, NULL, '2067-10-31',2, 'images/players/Player  (32)');
+INSERT INTO Player VALUES (33, 'Julie', 'Lopez', 26, 'Netherlands Antilles', 'LB',7284742, 91, 65, NULL, NULL,NULL, NULL, NULL, '2066-10-17',2, 'images/players/Player  (33)');
+INSERT INTO Player VALUES (34, 'James', 'Crawford', 20, 'Reunion', 'CM',12179803, 9, 90, NULL, NULL,NULL, NULL, NULL, '2067-06-02',2, 'images/players/Player  (34)');
+INSERT INTO Player VALUES (35, 'Tammy', 'Taylor', 27, 'United States Minor Outlying Islands', 'GK',11968726, 75, 71, NULL, NULL,NULL, NULL, NULL, '2068-02-22',2, 'images/players/Player  (35)');
+INSERT INTO Player VALUES (36, 'Henry', 'Mueller', 27, 'Martinique', 'RW',15662869, 72, 87, NULL, NULL,NULL, NULL, NULL, '2066-09-28',2, 'images/players/Player  (36)');
+INSERT INTO Player VALUES (37, 'Ryan', 'Dunn', 18, 'Oman', 'LB',3336437, 14, 90, NULL, NULL,NULL, NULL, NULL, '2066-07-05',2, 'images/players/Player  (37)');
+INSERT INTO Player VALUES (38, 'Alexandra', 'Salas', 23, 'Algeria', 'LW',19332914, 54, 75, NULL, NULL,NULL, NULL, NULL, '2068-05-24',2, 'images/players/Player  (38)');
+INSERT INTO Player VALUES (39, 'Veronica', 'King', 19, 'Saudi Arabia', 'CB',12095975, 8, 68, NULL, NULL,NULL, NULL, NULL, '2067-10-22',2, 'images/players/Player  (39)');
+INSERT INTO Player VALUES (40, 'Rebecca', 'Dunn', 24, 'Yemen', 'CB',15898248, 71, 76, NULL, NULL,NULL, NULL, NULL, '2067-01-04',2, 'images/players/Player  (40)');
 
 -- Deportivo Sol
-INSERT INTO Player VALUES (41, 'William', 'Howard', 22, 'Netherlands Antilles', 'LB',3036544, 27, 83, NULL, NULL,NULL, NULL, NULL, '2067-03-22',3, 'images\players\Player  (41)');
-INSERT INTO Player VALUES (42, 'Ronald', 'Wood', 31, 'Afghanistan', 'CB',5885571, 39, 67, NULL, NULL,NULL, NULL, NULL, '2067-05-28',3, 'images\players\Player  (42)');
-INSERT INTO Player VALUES (43, 'Nicole', 'Hill', 23, 'Central African Republic', 'ST',10524738, 73, 81, NULL, NULL,NULL, NULL, NULL, '2067-05-29',3, 'images\players\Player  (43)');
-INSERT INTO Player VALUES (44, 'Michelle', 'Gilbert', 22, 'Svalbard & Jan Mayen Islands', 'RW',8024139, 93, 72, NULL, NULL,NULL, NULL, NULL, '2066-07-14',3, 'images\players\Player  (44)');
-INSERT INTO Player VALUES (45, 'James', 'Rodgers', 32, 'Bermuda', 'CB',2899155, 79, 90, NULL, NULL,NULL, NULL, NULL, '2067-01-02',3, 'images\players\Player  (45)');
-INSERT INTO Player VALUES (46, 'Daniel', 'Alexander', 35, 'Morocco', 'LW',18516500, 15, 77, NULL, NULL,NULL, NULL, NULL, '2067-05-03',3, 'images\players\Player  (46)');
-INSERT INTO Player VALUES (47, 'Isabel', 'Jones', 34, 'Japan', 'ST',673823, 67, 72, NULL, NULL,NULL, NULL, NULL, '2068-03-10',3, 'images\players\Player  (47)');
-INSERT INTO Player VALUES (48, 'Jason', 'Riley', 27, 'Ukraine', 'CM',10415438, 22, 82, NULL, NULL,NULL, NULL, NULL, '2068-02-27',3, 'images\players\Player  (48)');
-INSERT INTO Player VALUES (49, 'Jonathan', 'Rodriguez', 23, 'Montserrat', 'CDM',6355550, 28, 62, NULL, NULL,NULL, NULL, NULL, '2066-12-06',3, 'images\players\Player  (49)');
-INSERT INTO Player VALUES (50, 'Sarah', 'Jones', 20, 'Dominica', 'RB',4925044, 34, 84, NULL, NULL,NULL, NULL, NULL, '2068-05-08',3, 'images\players\Player  (50)');
-INSERT INTO Player VALUES (51, 'Tara', 'Green', 33, 'Chad', 'CB',10299869, 1, 73, NULL, NULL,NULL, NULL, NULL, '2066-08-20',3, 'images\players\Player  (51)');
-INSERT INTO Player VALUES (52, 'Heather', 'Jackson', 24, 'Tunisia', 'CDM',809520, 7, 63, NULL, NULL,NULL, NULL, NULL, '2067-12-14',3, 'images\players\Player  (52)');
-INSERT INTO Player VALUES (53, 'Logan', 'Garcia', 29, 'Palestinian Territory', 'ST',13495250, 55, 68, NULL, NULL,NULL, NULL, NULL, '2066-07-11',3, 'images\players\Player  (53)');
-INSERT INTO Player VALUES (54, 'Jessica', 'Sanchez', 19, 'Liechtenstein', 'CB',1728474, 69, 69, NULL, NULL,NULL, NULL, NULL, '2067-05-09',3, 'images\players\Player  (54)');
-INSERT INTO Player VALUES (55, 'James', 'Hall', 34, 'Greece', 'GK',8643357, 47, 82, NULL, NULL,NULL, NULL, NULL, '2067-12-12',3, 'images\players\Player  (55)');
-INSERT INTO Player VALUES (56, 'Kyle', 'Potts', 24, 'Cuba', 'ST',3764728, 84, 72, NULL, NULL,NULL, NULL, NULL, '2066-05-26',3, 'images\players\Player  (56)');
-INSERT INTO Player VALUES (57, 'Arthur', 'Martinez', 19, 'Gabon', 'CDM',6603216, 36, 63, NULL, NULL,NULL, NULL, NULL, '2066-06-24',3, 'images\players\Player  (57)');
-INSERT INTO Player VALUES (58, 'Brian', 'Beasley', 31, 'Hong Kong', 'CM',15985647, 35, 73, NULL, NULL,NULL, NULL, NULL, '2067-02-07',3, 'images\players\Player  (58)');
-INSERT INTO Player VALUES (59, 'Travis', 'Allen', 20, 'Mexico', 'RB',3231484, 85, 60, NULL, NULL,NULL, NULL, NULL, '2067-09-10',3, 'images\players\Player  (59)');
-INSERT INTO Player VALUES (60, 'Rodney', 'Vazquez', 24, 'Egypt', 'CB',7701336, 21, 71, NULL, NULL,NULL, NULL, NULL, '2067-11-12',3, 'images\players\Player  (60)');
+INSERT INTO Player VALUES (41, 'William', 'Howard', 22, 'Netherlands Antilles', 'LB',3036544, 27, 83, NULL, NULL,NULL, NULL, NULL, '2067-03-22',3, 'images/players/Player  (41)');
+INSERT INTO Player VALUES (42, 'Ronald', 'Wood', 31, 'Afghanistan', 'CB',5885571, 39, 67, NULL, NULL,NULL, NULL, NULL, '2067-05-28',3, 'images/players/Player  (42)');
+INSERT INTO Player VALUES (43, 'Nicole', 'Hill', 23, 'Central African Republic', 'ST',10524738, 73, 81, NULL, NULL,NULL, NULL, NULL, '2067-05-29',3, 'images/players/Player  (43)');
+INSERT INTO Player VALUES (44, 'Michelle', 'Gilbert', 22, 'Svalbard & Jan Mayen Islands', 'RW',8024139, 93, 72, NULL, NULL,NULL, NULL, NULL, '2066-07-14',3, 'images/players/Player  (44)');
+INSERT INTO Player VALUES (45, 'James', 'Rodgers', 32, 'Bermuda', 'CB',2899155, 79, 90, NULL, NULL,NULL, NULL, NULL, '2067-01-02',3, 'images/players/Player  (45)');
+INSERT INTO Player VALUES (46, 'Daniel', 'Alexander', 35, 'Morocco', 'LW',18516500, 15, 77, NULL, NULL,NULL, NULL, NULL, '2067-05-03',3, 'images/players/Player  (46)');
+INSERT INTO Player VALUES (47, 'Isabel', 'Jones', 34, 'Japan', 'ST',673823, 67, 72, NULL, NULL,NULL, NULL, NULL, '2068-03-10',3, 'images/players/Player  (47)');
+INSERT INTO Player VALUES (48, 'Jason', 'Riley', 27, 'Ukraine', 'CM',10415438, 22, 82, NULL, NULL,NULL, NULL, NULL, '2068-02-27',3, 'images/players/Player  (48)');
+INSERT INTO Player VALUES (49, 'Jonathan', 'Rodriguez', 23, 'Montserrat', 'CDM',6355550, 28, 62, NULL, NULL,NULL, NULL, NULL, '2066-12-06',3, 'images/players/Player  (49)');
+INSERT INTO Player VALUES (50, 'Sarah', 'Jones', 20, 'Dominica', 'RB',4925044, 34, 84, NULL, NULL,NULL, NULL, NULL, '2068-05-08',3, 'images/players/Player  (50)');
+INSERT INTO Player VALUES (51, 'Tara', 'Green', 33, 'Chad', 'CB',10299869, 1, 73, NULL, NULL,NULL, NULL, NULL, '2066-08-20',3, 'images/players/Player  (51)');
+INSERT INTO Player VALUES (52, 'Heather', 'Jackson', 24, 'Tunisia', 'CDM',809520, 7, 63, NULL, NULL,NULL, NULL, NULL, '2067-12-14',3, 'images/players/Player  (52)');
+INSERT INTO Player VALUES (53, 'Logan', 'Garcia', 29, 'Palestinian Territory', 'ST',13495250, 55, 68, NULL, NULL,NULL, NULL, NULL, '2066-07-11',3, 'images/players/Player  (53)');
+INSERT INTO Player VALUES (54, 'Jessica', 'Sanchez', 19, 'Liechtenstein', 'CB',1728474, 69, 69, NULL, NULL,NULL, NULL, NULL, '2067-05-09',3, 'images/players/Player  (54)');
+INSERT INTO Player VALUES (55, 'James', 'Hall', 34, 'Greece', 'GK',8643357, 47, 82, NULL, NULL,NULL, NULL, NULL, '2067-12-12',3, 'images/players/Player  (55)');
+INSERT INTO Player VALUES (56, 'Kyle', 'Potts', 24, 'Cuba', 'ST',3764728, 84, 72, NULL, NULL,NULL, NULL, NULL, '2066-05-26',3, 'images/players/Player  (56)');
+INSERT INTO Player VALUES (57, 'Arthur', 'Martinez', 19, 'Gabon', 'CDM',6603216, 36, 63, NULL, NULL,NULL, NULL, NULL, '2066-06-24',3, 'images/players/Player  (57)');
+INSERT INTO Player VALUES (58, 'Brian', 'Beasley', 31, 'Hong Kong', 'CM',15985647, 35, 73, NULL, NULL,NULL, NULL, NULL, '2067-02-07',3, 'images/players/Player  (58)');
+INSERT INTO Player VALUES (59, 'Travis', 'Allen', 20, 'Mexico', 'RB',3231484, 85, 60, NULL, NULL,NULL, NULL, NULL, '2067-09-10',3, 'images/players/Player  (59)');
+INSERT INTO Player VALUES (60, 'Rodney', 'Vazquez', 24, 'Egypt', 'CB',7701336, 21, 71, NULL, NULL,NULL, NULL, NULL, '2067-11-12',3, 'images/players/Player  (60)');
 
 -- FC Mar Azul
-INSERT INTO Player VALUES (61, 'Cheryl', 'Rivera', 20, 'Indonesia', 'LB',12845825, 62, 88, NULL, NULL,NULL, NULL, NULL, '2067-10-22',4, 'images\players\Player  (61)');
-INSERT INTO Player VALUES (62, 'Troy', 'Williams', 25, 'Dominican Republic', 'LW',17726625, 35, 65, NULL, NULL,NULL, NULL, NULL, '2067-02-17',4, 'images\players\Player  (62)');
-INSERT INTO Player VALUES (63, 'Jessica', 'Humphrey', 21, 'Ecuador', 'GK',10568825, 24, 84, NULL, NULL,NULL, NULL, NULL, '2067-05-17',4, 'images\players\Player  (63)');
-INSERT INTO Player VALUES (64, 'Roberta', 'Howard', 34, 'Antigua and Barbuda', 'RW',5964366, 76, 83, NULL, NULL,NULL, NULL, NULL, '2066-10-28',4, 'images\players\Player  (64)');
-INSERT INTO Player VALUES (65, 'Bradley', 'Smith', 34, 'Germany', 'RB',13187058, 22, 68, NULL, NULL,NULL, NULL, NULL, '2066-10-15',4, 'images\players\Player  (65)');
-INSERT INTO Player VALUES (66, 'Marcus', 'Jones', 19, 'Guadeloupe', 'ST',4246998, 35, 74, NULL, NULL,NULL, NULL, NULL, '2067-10-23',4, 'images\players\Player  (66)');
-INSERT INTO Player VALUES (67, 'Christopher', 'Howard', 22, 'Guinea-Bissau', 'LB',3395580, 32, 76, NULL, NULL,NULL, NULL, NULL, '2068-01-05',4, 'images\players\Player  (67)');
-INSERT INTO Player VALUES (68, 'Tammy', 'Rios', 24, 'Oman', 'LW',12723763, 49, 90, NULL, NULL,NULL, NULL, NULL, '2067-04-05',4, 'images\players\Player  (68)');
-INSERT INTO Player VALUES (69, 'Jaime', 'Palmer', 25, 'Czech Republic', 'RB',6737800, 77, 63, NULL, NULL,NULL, NULL, NULL, '2066-09-25',4, 'images\players\Player  (69)');
-INSERT INTO Player VALUES (70, 'Scott', 'Valentine', 18, 'Malawi', 'CM',5183665, 68, 80, NULL, NULL,NULL, NULL, NULL, '2068-02-28',4, 'images\players\Player  (70)');
-INSERT INTO Player VALUES (71, 'Ruben', 'Curtis', 31, 'Cape Verde', 'CAM',7830614, 37, 77, NULL, NULL,NULL, NULL, NULL, '2066-12-28',4,'images\players\Player  (71)');
-INSERT INTO Player VALUES (72,'Ray', 'Potter', 21, 'Luxembourg', 'LB', 11126350, 90, 72, NULL, NULL, NULL, NULL, NULL, '2067-06-17', 4, 'images\players\Player  (72)');
-INSERT INTO Player VALUES (77, 'Kathleen', 'Thompson', 34, 'Brazil', 'CAM',7958973, 86, 80, NULL, NULL,NULL, NULL, NULL, '2067-08-11',4, 'images\players\Player  (77)');
-INSERT INTO Player VALUES (78, 'Seth', 'Hensley', 19, 'Netherlands', 'LB',15016997, 86, 89, NULL, NULL,NULL, NULL, NULL, '2068-01-21',4, 'images\players\Player  (78)');
-INSERT INTO Player VALUES (79, 'Alexander', 'Reese', 31, 'Sao Tome and Principe', 'RB',11492594, 10, 60, NULL, NULL,NULL, NULL, NULL, '2068-04-06',4, 'images\players\Player  (79)');
-INSERT INTO Player VALUES (80, 'Katelyn', 'Patton', 31, 'Trinidad and Tobago', 'CAM',17561117, 9, 74, NULL, NULL,NULL, NULL, NULL, '2066-08-01',4, 'images\players\Player  (80)');
+INSERT INTO Player VALUES (61, 'Cheryl', 'Rivera', 20, 'Indonesia', 'LB',12845825, 62, 88, NULL, NULL,NULL, NULL, NULL, '2067-10-22',4, 'images/players/Player  (61)');
+INSERT INTO Player VALUES (62, 'Troy', 'Williams', 25, 'Dominican Republic', 'LW',17726625, 35, 65, NULL, NULL,NULL, NULL, NULL, '2067-02-17',4, 'images/players/Player  (62)');
+INSERT INTO Player VALUES (63, 'Jessica', 'Humphrey', 21, 'Ecuador', 'GK',10568825, 24, 84, NULL, NULL,NULL, NULL, NULL, '2067-05-17',4, 'images/players/Player  (63)');
+INSERT INTO Player VALUES (64, 'Roberta', 'Howard', 34, 'Antigua and Barbuda', 'RW',5964366, 76, 83, NULL, NULL,NULL, NULL, NULL, '2066-10-28',4, 'images/players/Player  (64)');
+INSERT INTO Player VALUES (65, 'Bradley', 'Smith', 34, 'Germany', 'RB',13187058, 22, 68, NULL, NULL,NULL, NULL, NULL, '2066-10-15',4, 'images/players/Player  (65)');
+INSERT INTO Player VALUES (66, 'Marcus', 'Jones', 19, 'Guadeloupe', 'ST',4246998, 35, 74, NULL, NULL,NULL, NULL, NULL, '2067-10-23',4, 'images/players/Player  (66)');
+INSERT INTO Player VALUES (67, 'Christopher', 'Howard', 22, 'Guinea-Bissau', 'LB',3395580, 32, 76, NULL, NULL,NULL, NULL, NULL, '2068-01-05',4, 'images/players/Player  (67)');
+INSERT INTO Player VALUES (68, 'Tammy', 'Rios', 24, 'Oman', 'LW',12723763, 49, 90, NULL, NULL,NULL, NULL, NULL, '2067-04-05',4, 'images/players/Player  (68)');
+INSERT INTO Player VALUES (69, 'Jaime', 'Palmer', 25, 'Czech Republic', 'RB',6737800, 77, 63, NULL, NULL,NULL, NULL, NULL, '2066-09-25',4, 'images/players/Player  (69)');
+INSERT INTO Player VALUES (70, 'Scott', 'Valentine', 18, 'Malawi', 'CM',5183665, 68, 80, NULL, NULL,NULL, NULL, NULL, '2068-02-28',4, 'images/players/Player  (70)');
+INSERT INTO Player VALUES (71, 'Ruben', 'Curtis', 31, 'Cape Verde', 'CAM',7830614, 37, 77, NULL, NULL,NULL, NULL, NULL, '2066-12-28',4,'images/players/Player  (71)');
+INSERT INTO Player VALUES (72,'Ray', 'Potter', 21, 'Luxembourg', 'LB', 11126350, 90, 72, NULL, NULL, NULL, NULL, NULL, '2067-06-17', 4, 'images/players/Player  (72)');
+INSERT INTO Player VALUES (77, 'Kathleen', 'Thompson', 34, 'Brazil', 'CAM',7958973, 86, 80, NULL, NULL,NULL, NULL, NULL, '2067-08-11',4, 'images/players/Player  (77)');
+INSERT INTO Player VALUES (78, 'Seth', 'Hensley', 19, 'Netherlands', 'LB',15016997, 86, 89, NULL, NULL,NULL, NULL, NULL, '2068-01-21',4, 'images/players/Player  (78)');
+INSERT INTO Player VALUES (79, 'Alexander', 'Reese', 31, 'Sao Tome and Principe', 'RB',11492594, 10, 60, NULL, NULL,NULL, NULL, NULL, '2068-04-06',4, 'images/players/Player  (79)');
+INSERT INTO Player VALUES (80, 'Katelyn', 'Patton', 31, 'Trinidad and Tobago', 'CAM',17561117, 9, 74, NULL, NULL,NULL, NULL, NULL, '2066-08-01',4, 'images/players/Player  (80)');
 
 -- CD Castellanos
-INSERT INTO Player VALUES (81, 'Ricky', 'Vaughn', 31, 'Sri Lanka', 'LW',13671619, 91, 70, NULL, NULL,NULL, NULL, NULL, '2067-11-15',5, 'images\players\Player  (81)');
-INSERT INTO Player VALUES (82, 'Wayne', 'Ford', 18, 'Austria', 'CB',17104568, 23, 72, NULL, NULL,NULL, NULL, NULL, '2068-05-14',5, 'images\players\Player  (82)');
-INSERT INTO Player VALUES (83, 'Karen', 'Brown', 20, 'Tokelau', 'RW',14847986, 66, 63, NULL, NULL,NULL, NULL, NULL, '2068-03-27',5, 'images\players\Player  (83)');
-INSERT INTO Player VALUES (84, 'Deborah', 'Lopez', 29, 'Vietnam', 'LW',7451322, 92, 64, NULL, NULL,NULL, NULL, NULL, '2067-10-30',5, 'images\players\Player  (84)');
-INSERT INTO Player VALUES (85, 'Kristin', 'Diaz', 21, 'Saudi Arabia', 'ST',7507212, 37, 67, NULL, NULL,NULL, NULL, NULL, '2067-12-05',5, 'images\players\Player  (85)');
-INSERT INTO Player VALUES (86, 'Douglas', 'Dyer', 31, 'Equatorial Guinea', 'LW',11059792, 85, 76, NULL, NULL,NULL, NULL, NULL, '2067-05-21',5, 'images\players\Player  (86)');
-INSERT INTO Player VALUES (87, 'Rebecca', 'Peters', 35, 'New Zealand', 'ST',10259892, 77, 79, NULL, NULL,NULL, NULL, NULL, '2066-09-28',5, 'images\players\Player  (87)');
-INSERT INTO Player VALUES (88, 'Robert', 'Fowler', 31, 'British Indian Ocean Territory', 'CM',962643, 38, 80, NULL, NULL,NULL, NULL, NULL, '2068-03-27',5, 'images\players\Player  (88)');
-INSERT INTO Player VALUES (89, 'Joshua', 'Lloyd', 31, 'Palestinian Territory', 'RB',14468835, 40, 67, NULL, NULL,NULL, NULL, NULL, '2067-12-11',5, 'images\players\Player  (89)');
-INSERT INTO Player VALUES (90, 'Dana', 'Kim', 35, 'South Georgia and the South Sandwich Islands', 'CM',2872483, 29, 89,NULL, NULL,NULL, NULL, NULL, '2067-05-25',5, 'images\players\Player  (90)');
-INSERT INTO Player VALUES (91, 'Charles', 'Mcdowell', 31, 'Lebanon', 'RW',6385227, 17, 73, NULL, NULL,NULL, NULL, NULL, '2066-06-24',5, 'images\players\Player  (91)');
-INSERT INTO Player VALUES (92, 'Christopher', 'Schultz', 27, 'Palau', 'CDM',18457079, 20, 82, NULL, NULL,NULL, NULL, NULL, '2066-08-30', 5, 'images\players\Player  (92)');
-INSERT INTO Player VALUES (93,'Joseph','Young',34,'Saint Helena','CDM',11483614,99,87,NULL,NULL,NULL,NULL,NULL,'2067-11-15',5,'images\players\Player  (93)');
-INSERT INTO Player VALUES (94,'Christian','Allen',30,'Tunisia','CB',7796417,30,63,NULL,NULL,NULL,NULL,NULL,'2067-03-16',5,'images\players\Player  (94)');
-INSERT INTO Player VALUES (95,'Melissa','Dunlap',34,'Guyana','LW',16199238,35,68,NULL,NULL,NULL,NULL,NULL,'2068-01-07',5,'images\players\Player  (95)');
-INSERT INTO Player VALUES (96,'Brandy','Miller',20,'United States Virgin Islands','RW',10897659,22,76,NULL,NULL,NULL,NULL,NULL,'2067-11-20',5,'images\players\Player  (96)');
-INSERT INTO Player VALUES (97,'Wayne','Schmidt',21,'Yemen','LW',15513278,75,62,NULL,NULL,NULL,NULL,NULL,'2067-05-12',5,'images\players\Player  (97)');
-INSERT INTO Player VALUES (98, 'Amy', 'Sanford', 26, 'Lebanon', 'CM',16714423, 54, 82, NULL, NULL,NULL, NULL, NULL, '2068-05-05',5,'images\players\Player  (98)');
-INSERT INTO Player VALUES (99, 'Cassandra', 'Thompson', 25, 'Algeria', 'CB',9706872, 79, 89, NULL, NULL,NULL, NULL, NULL, '2067-09-11',5,'images\players\Player  (99)');
-INSERT INTO Player VALUES (100, 'Stephen', 'Johnson', 21, 'Burkina Faso', 'GK',9264555, 67, 82, NULL, NULL,NULL, NULL, NULL, '2067-05-03',5,'images\players\Player  (100)');
+INSERT INTO Player VALUES (81, 'Ricky', 'Vaughn', 31, 'Sri Lanka', 'LW',13671619, 91, 70, NULL, NULL,NULL, NULL, NULL, '2067-11-15',5, 'images/players/Player  (81)');
+INSERT INTO Player VALUES (82, 'Wayne', 'Ford', 18, 'Austria', 'CB',17104568, 23, 72, NULL, NULL,NULL, NULL, NULL, '2068-05-14',5, 'images/players/Player  (82)');
+INSERT INTO Player VALUES (83, 'Karen', 'Brown', 20, 'Tokelau', 'RW',14847986, 66, 63, NULL, NULL,NULL, NULL, NULL, '2068-03-27',5, 'images/players/Player  (83)');
+INSERT INTO Player VALUES (84, 'Deborah', 'Lopez', 29, 'Vietnam', 'LW',7451322, 92, 64, NULL, NULL,NULL, NULL, NULL, '2067-10-30',5, 'images/players/Player  (84)');
+INSERT INTO Player VALUES (85, 'Kristin', 'Diaz', 21, 'Saudi Arabia', 'ST',7507212, 37, 67, NULL, NULL,NULL, NULL, NULL, '2067-12-05',5, 'images/players/Player  (85)');
+INSERT INTO Player VALUES (86, 'Douglas', 'Dyer', 31, 'Equatorial Guinea', 'LW',11059792, 85, 76, NULL, NULL,NULL, NULL, NULL, '2067-05-21',5, 'images/players/Player  (86)');
+INSERT INTO Player VALUES (87, 'Rebecca', 'Peters', 35, 'New Zealand', 'ST',10259892, 77, 79, NULL, NULL,NULL, NULL, NULL, '2066-09-28',5, 'images/players/Player  (87)');
+INSERT INTO Player VALUES (88, 'Robert', 'Fowler', 31, 'British Indian Ocean Territory', 'CM',962643, 38, 80, NULL, NULL,NULL, NULL, NULL, '2068-03-27',5, 'images/players/Player  (88)');
+INSERT INTO Player VALUES (89, 'Joshua', 'Lloyd', 31, 'Palestinian Territory', 'RB',14468835, 40, 67, NULL, NULL,NULL, NULL, NULL, '2067-12-11',5, 'images/players/Player  (89)');
+INSERT INTO Player VALUES (90, 'Dana', 'Kim', 35, 'South Georgia and the South Sandwich Islands', 'CM',2872483, 29, 89,NULL, NULL,NULL, NULL, NULL, '2067-05-25',5, 'images/players/Player  (90)');
+INSERT INTO Player VALUES (91, 'Charles', 'Mcdowell', 31, 'Lebanon', 'RW',6385227, 17, 73, NULL, NULL,NULL, NULL, NULL, '2066-06-24',5, 'images/players/Player  (91)');
+INSERT INTO Player VALUES (92, 'Christopher', 'Schultz', 27, 'Palau', 'CDM',18457079, 20, 82, NULL, NULL,NULL, NULL, NULL, '2066-08-30', 5, 'images/players/Player  (92)');
+INSERT INTO Player VALUES (93,'Joseph','Young',34,'Saint Helena','CDM',11483614,99,87,NULL,NULL,NULL,NULL,NULL,'2067-11-15',5,'images/players/Player  (93)');
+INSERT INTO Player VALUES (94,'Christian','Allen',30,'Tunisia','CB',7796417,30,63,NULL,NULL,NULL,NULL,NULL,'2067-03-16',5,'images/players/Player  (94)');
+INSERT INTO Player VALUES (95,'Melissa','Dunlap',34,'Guyana','LW',16199238,35,68,NULL,NULL,NULL,NULL,NULL,'2068-01-07',5,'images/players/Player  (95)');
+INSERT INTO Player VALUES (96,'Brandy','Miller',20,'United States Virgin Islands','RW',10897659,22,76,NULL,NULL,NULL,NULL,NULL,'2067-11-20',5,'images/players/Player  (96)');
+INSERT INTO Player VALUES (97,'Wayne','Schmidt',21,'Yemen','LW',15513278,75,62,NULL,NULL,NULL,NULL,NULL,'2067-05-12',5,'images/players/Player  (97)');
+INSERT INTO Player VALUES (98, 'Amy', 'Sanford', 26, 'Lebanon', 'CM',16714423, 54, 82, NULL, NULL,NULL, NULL, NULL, '2068-05-05',5,'images/players/Player  (98)');
+INSERT INTO Player VALUES (99, 'Cassandra', 'Thompson', 25, 'Algeria', 'CB',9706872, 79, 89, NULL, NULL,NULL, NULL, NULL, '2067-09-11',5,'images/players/Player  (99)');
+INSERT INTO Player VALUES (100, 'Stephen', 'Johnson', 21, 'Burkina Faso', 'GK',9264555, 67, 82, NULL, NULL,NULL, NULL, NULL, '2067-05-03',5,'images/players/Player  (100)');
 
 -- Union Andorra
-INSERT INTO Player VALUES (101, 'Robin', 'Lee', 31, 'Turkey', 'RB',11716144, 49, 82, NULL, NULL,NULL, NULL, NULL, '2066-09-18',6,'images\players\Player  (101)');
-INSERT INTO Player VALUES (102, 'Pam', 'Logan', 22, 'Venezuela', 'ST',13406912, 33, 82, NULL, NULL,NULL, NULL, NULL, '2066-08-03',6,'images\players\Player  (102)');
-INSERT INTO Player VALUES (103, 'Richard', 'Johnson', 26, 'Seychelles', 'ST',3994000, 72, 90, NULL, NULL,NULL, NULL, NULL, '2068-03-23',6,'images\players\Player  (103)');
-INSERT INTO Player VALUES (104, 'Nicholas', 'Edwards', 34, 'New Caledonia', 'RW',15283086, 53, 86, NULL, NULL,NULL, NULL, NULL, '2067-07-03',6,'images\players\Player  (104)');
-INSERT INTO Player VALUES (105, 'Ronnie', 'Short', 34, 'Peru', 'CM',18774712, 93, 86, NULL, NULL,NULL, NULL, NULL, '2066-05-25',6,'images\players\Player  (105)');
-INSERT INTO Player VALUES (106, 'Rebecca', 'Rios', 29, 'Panama', 'CM',14952645, 34, 84, NULL, NULL,NULL, NULL, NULL, '2067-12-19',6,'images\players\Player  (106)');
-INSERT INTO Player VALUES (107, 'Mark', 'Perez', 20, 'Dominica', 'CDM',11285613, 59, 88, NULL, NULL,NULL, NULL, NULL, '2067-03-17',6,'images\players\Player  (107)');
-INSERT INTO Player VALUES (108, 'Johnathan', 'Mendoza', 21, 'Puerto Rico', 'ST',19628681, 66, 62, NULL, NULL,NULL, NULL, NULL, '2067-12-19',6,'images\players\Player  (108)');
-INSERT INTO Player VALUES (109, 'Holly', 'Nguyen', 34, 'Korea', 'LB',786271, 54, 83, NULL, NULL,NULL, NULL, NULL, '2067-03-10',6,'images\players\Player  (109)');
-INSERT INTO Player VALUES (110, 'Robert', 'Johnson', 20, 'Gibraltar', 'GK',1264209, 7, 73, NULL, NULL,NULL, NULL, NULL, '2066-12-06',6,'images\players\Player  (110)');
-INSERT INTO Player VALUES (111, 'Charles', 'Foley', 30, 'Qatar', 'LW',16718878, 81, 75, NULL, NULL,NULL, NULL, NULL, '2068-01-10',6,'images\players\Player  (111)');
-INSERT INTO Player VALUES (112, 'Michael', 'Pineda', 18, 'Rwanda', 'CB',18476658, 27, 66, NULL, NULL,NULL, NULL, NULL, '2068-01-27',6,'images\players\Player  (112)');
-INSERT INTO Player VALUES (113, 'Jeffery', 'Gomez', 31, 'Antarctica (the territory South of 60 deg S)', 'RB',10181095, 83, 70, NULL, NULL,NULL, NULL, NULL, '2067-07-09',6,'images\players\Player  (113)');
-INSERT INTO Player VALUES (114, 'Robin', 'Richard', 23, 'Aruba', 'LB',3397991, 51, 85, NULL, NULL,NULL, NULL, NULL, '2068-01-25',6,'images\players\Player  (114)');
-INSERT INTO Player VALUES (115, 'Kristy', 'Reynolds', 32, 'Jamaica', 'RW',18002814, 20, 90, NULL, NULL,NULL, NULL, NULL, '2068-02-09',6,'images\players\Player  (115)');
-INSERT INTO Player VALUES (116, 'Meagan', 'Ellis', 22, 'Syrian Arab Republic', 'CM',18900201, 60, 66, NULL, NULL,NULL, NULL, NULL, '2068-10-02',6,'images\players\Player  (116)');
-INSERT INTO Player VALUES (117, 'Sara', 'Hubbard', 31, 'Barbados', 'RB',16420909, 79, 80, NULL, NULL,NULL, NULL, NULL, '2067-05-11',6,'images\players\Player  (117)');
-INSERT INTO Player VALUES (118, 'Rebecca', 'Cervantes', 26, 'Chile', 'CDM',16652365, 41, 77, NULL, NULL,NULL, NULL, NULL, '2066-08-04',6,'images\players\Player  (118)');
-INSERT INTO Player VALUES (119, 'Tara', 'Abbott', 23, 'Brazil', 'CDM',18269363, 16, 90, NULL, NULL,NULL, NULL,NULL,'2066-10-09',6,'images\players\Player  (119)');
-INSERT INTO Player VALUES (120, 'Chase', 'West', 29, 'Pakistan', 'ST',18883884, 66, 69,NULL,NULL,NULL,NULL,NULL,'2067-09-15' ,6 ,'images\players\Player  (120)');
+INSERT INTO Player VALUES (101, 'Robin', 'Lee', 31, 'Turkey', 'RB',11716144, 49, 82, NULL, NULL,NULL, NULL, NULL, '2066-09-18',6,'images/players/Player  (101)');
+INSERT INTO Player VALUES (102, 'Pam', 'Logan', 22, 'Venezuela', 'ST',13406912, 33, 82, NULL, NULL,NULL, NULL, NULL, '2066-08-03',6,'images/players/Player  (102)');
+INSERT INTO Player VALUES (103, 'Richard', 'Johnson', 26, 'Seychelles', 'ST',3994000, 72, 90, NULL, NULL,NULL, NULL, NULL, '2068-03-23',6,'images/players/Player  (103)');
+INSERT INTO Player VALUES (104, 'Nicholas', 'Edwards', 34, 'New Caledonia', 'RW',15283086, 53, 86, NULL, NULL,NULL, NULL, NULL, '2067-07-03',6,'images/players/Player  (104)');
+INSERT INTO Player VALUES (105, 'Ronnie', 'Short', 34, 'Peru', 'CM',18774712, 93, 86, NULL, NULL,NULL, NULL, NULL, '2066-05-25',6,'images/players/Player  (105)');
+INSERT INTO Player VALUES (106, 'Rebecca', 'Rios', 29, 'Panama', 'CM',14952645, 34, 84, NULL, NULL,NULL, NULL, NULL, '2067-12-19',6,'images/players/Player  (106)');
+INSERT INTO Player VALUES (107, 'Mark', 'Perez', 20, 'Dominica', 'CDM',11285613, 59, 88, NULL, NULL,NULL, NULL, NULL, '2067-03-17',6,'images/players/Player  (107)');
+INSERT INTO Player VALUES (108, 'Johnathan', 'Mendoza', 21, 'Puerto Rico', 'ST',19628681, 66, 62, NULL, NULL,NULL, NULL, NULL, '2067-12-19',6,'images/players/Player  (108)');
+INSERT INTO Player VALUES (109, 'Holly', 'Nguyen', 34, 'Korea', 'LB',786271, 54, 83, NULL, NULL,NULL, NULL, NULL, '2067-03-10',6,'images/players/Player  (109)');
+INSERT INTO Player VALUES (110, 'Robert', 'Johnson', 20, 'Gibraltar', 'GK',1264209, 7, 73, NULL, NULL,NULL, NULL, NULL, '2066-12-06',6,'images/players/Player  (110)');
+INSERT INTO Player VALUES (111, 'Charles', 'Foley', 30, 'Qatar', 'LW',16718878, 81, 75, NULL, NULL,NULL, NULL, NULL, '2068-01-10',6,'images/players/Player  (111)');
+INSERT INTO Player VALUES (112, 'Michael', 'Pineda', 18, 'Rwanda', 'CB',18476658, 27, 66, NULL, NULL,NULL, NULL, NULL, '2068-01-27',6,'images/players/Player  (112)');
+INSERT INTO Player VALUES (113, 'Jeffery', 'Gomez', 31, 'Antarctica (the territory South of 60 deg S)', 'RB',10181095, 83, 70, NULL, NULL,NULL, NULL, NULL, '2067-07-09',6,'images/players/Player  (113)');
+INSERT INTO Player VALUES (114, 'Robin', 'Richard', 23, 'Aruba', 'LB',3397991, 51, 85, NULL, NULL,NULL, NULL, NULL, '2068-01-25',6,'images/players/Player  (114)');
+INSERT INTO Player VALUES (115, 'Kristy', 'Reynolds', 32, 'Jamaica', 'RW',18002814, 20, 90, NULL, NULL,NULL, NULL, NULL, '2068-02-09',6,'images/players/Player  (115)');
+INSERT INTO Player VALUES (116, 'Meagan', 'Ellis', 22, 'Syrian Arab Republic', 'CM',18900201, 60, 66, NULL, NULL,NULL, NULL, NULL, '2068-10-02',6,'images/players/Player  (116)');
+INSERT INTO Player VALUES (117, 'Sara', 'Hubbard', 31, 'Barbados', 'RB',16420909, 79, 80, NULL, NULL,NULL, NULL, NULL, '2067-05-11',6,'images/players/Player  (117)');
+INSERT INTO Player VALUES (118, 'Rebecca', 'Cervantes', 26, 'Chile', 'CDM',16652365, 41, 77, NULL, NULL,NULL, NULL, NULL, '2066-08-04',6,'images/players/Player  (118)');
+INSERT INTO Player VALUES (119, 'Tara', 'Abbott', 23, 'Brazil', 'CDM',18269363, 16, 90, NULL, NULL,NULL, NULL,NULL,'2066-10-09',6,'images/players/Player  (119)');
+INSERT INTO Player VALUES (120, 'Chase', 'West', 29, 'Pakistan', 'ST',18883884, 66, 69,NULL,NULL,NULL,NULL,NULL,'2067-09-15' ,6 ,'images/players/Player  (120)');
 
 -- Tractor Galactico CF
-INSERT INTO Player VALUES(121, 'Evan', 'Nguyen', 27, 'Bolivia', 'GK',17545194, 1, 79, NULL, NULL,NULL, NULL, NULL, '2063-11-22',7,'images\players\Player  (121)');
-INSERT INTO Player VALUES(122, 'Melanie', 'Cline', 23, 'Greece', 'RW',13702093, 2, 73, NULL, NULL,NULL, NULL, NULL, '2062-03-09',7,'images\players\Player  (122)');
-INSERT INTO Player VALUES(123, 'Christopher', 'Morris', 33, 'Marshall Islands', 'LW',5183444, 3, 66, NULL, NULL,NULL, NULL, NULL, '2061-02-06',7,'images\players\Player  (123)');
-INSERT INTO Player VALUES(124, 'Christine', 'Porter', 23, 'Mayotte', 'LB',10861289, 4, 83, NULL, NULL,NULL, NULL, NULL, '2066-07-03',7,'images\players\Player  (124)');
-INSERT INTO Player VALUES(125, 'Jeff', 'Cisneros', 19, 'Lesotho', 'CDM',8793834, 5, 73, NULL, NULL,NULL, NULL, NULL, '2066-06-28',7,'images\players\Player  (125)');
-INSERT INTO Player VALUES(126, 'Erica', 'Harris', 34, 'Suriname', 'LB',3790100, 6, 86, NULL, NULL,NULL, NULL, NULL, '2066-07-14',7,'images\players\Player  (126)');
-INSERT INTO Player VALUES(127, 'Joyce', 'Hunter', 27, 'Montserrat', 'RW',9247460, 7, 89, NULL, NULL,NULL, NULL, NULL, '2067-01-27',7,'images\players\Player  (127)');
-INSERT INTO Player VALUES(128, 'Renee', 'Brown', 20, 'Sao Tome and Principe', 'LB',12905189, 8, 74, NULL, NULL,NULL, NULL, NULL, '2028-02-12',7,'images\players\Player  (128)');
-INSERT INTO Player VALUES(129, 'Nicole', 'Turner', 24, 'Colombia', 'RB',10316135, 9, 74, NULL, NULL,NULL, NULL, NULL, '2067-12-11',7,'images\players\Player  (129)');
-INSERT INTO Player VALUES(130, 'Anthony', 'Smith', 34, 'Bosnia and Herzegovina', 'CM',13026845, 10, 67,NULL, NULL,NULL, NULL, NULL, '2027-07-16',7,'images\players\Player  (130)');
-INSERT INTO Player VALUES(131, 'Tyler', 'Vasquez', 20, 'Cape Verde', 'CAM',10478550, 11, 85, NULL, NULL,NULL, NULL, NULL, '2067-05-04',7,'images\players\Player  (131)');
-INSERT INTO Player VALUES(132, 'Mariah', 'Davidson', 19, 'Djibouti', 'LW',10103784, 12, 74, NULL, NULL,NULL, NULL, NULL, '2067-12-03',7,'images\players\Player  (132)');
-INSERT INTO Player VALUES(133, 'Cheryl', 'Walker', 34, 'Tokelau', 'RW',16632148, 13, 80, NULL, NULL,NULL, NULL, NULL, '2067-05-14',7,'images\players\Player  (133)');
-INSERT INTO Player VALUES(137, 'Jackie', 'Pitts', 20, 'Somalia', 'GK',4111827, 17, 83, NULL, NULL,NULL, NULL, NULL, '2068-03-12',7,'images\players\Player  (137)');
-INSERT INTO Player VALUES(138, 'David', 'Goodwin', 33, 'Congo', 'RB',16741070, 18, 72, NULL, NULL,NULL, NULL, NULL, '2067-05-14',7,'images\players\Player  (138)');
-INSERT INTO Player VALUES(139, 'Tiffany', 'Wilson', 19, 'Denmark', 'CB',5896915, 19, 80, NULL, NULL,NULL, NULL, NULL, '2068-02-26',7,'images\players\Player  (139)');
-INSERT INTO Player VALUES (140, 'Angelica', 'Davis', 32, 'Tajikistan', 'CDM',2156896, 20, 76, NULL, NULL,NULL, NULL, NULL,  '2066-04-28',7,'images\players\Player  (140)');
+INSERT INTO Player VALUES(121, 'Evan', 'Nguyen', 27, 'Bolivia', 'GK',17545194, 1, 79, NULL, NULL,NULL, NULL, NULL, '2063-11-22',7,'images/players/Player  (121)');
+INSERT INTO Player VALUES(122, 'Melanie', 'Cline', 23, 'Greece', 'RW',13702093, 2, 73, NULL, NULL,NULL, NULL, NULL, '2062-03-09',7,'images/players/Player  (122)');
+INSERT INTO Player VALUES(123, 'Christopher', 'Morris', 33, 'Marshall Islands', 'LW',5183444, 3, 66, NULL, NULL,NULL, NULL, NULL, '2061-02-06',7,'images/players/Player  (123)');
+INSERT INTO Player VALUES(124, 'Christine', 'Porter', 23, 'Mayotte', 'LB',10861289, 4, 83, NULL, NULL,NULL, NULL, NULL, '2066-07-03',7,'images/players/Player  (124)');
+INSERT INTO Player VALUES(125, 'Jeff', 'Cisneros', 19, 'Lesotho', 'CDM',8793834, 5, 73, NULL, NULL,NULL, NULL, NULL, '2066-06-28',7,'images/players/Player  (125)');
+INSERT INTO Player VALUES(126, 'Erica', 'Harris', 34, 'Suriname', 'LB',3790100, 6, 86, NULL, NULL,NULL, NULL, NULL, '2066-07-14',7,'images/players/Player  (126)');
+INSERT INTO Player VALUES(127, 'Joyce', 'Hunter', 27, 'Montserrat', 'RW',9247460, 7, 89, NULL, NULL,NULL, NULL, NULL, '2067-01-27',7,'images/players/Player  (127)');
+INSERT INTO Player VALUES(128, 'Renee', 'Brown', 20, 'Sao Tome and Principe', 'LB',12905189, 8, 74, NULL, NULL,NULL, NULL, NULL, '2028-02-12',7,'images/players/Player  (128)');
+INSERT INTO Player VALUES(129, 'Nicole', 'Turner', 24, 'Colombia', 'RB',10316135, 9, 74, NULL, NULL,NULL, NULL, NULL, '2067-12-11',7,'images/players/Player  (129)');
+INSERT INTO Player VALUES(130, 'Anthony', 'Smith', 34, 'Bosnia and Herzegovina', 'CM',13026845, 10, 67,NULL, NULL,NULL, NULL, NULL, '2027-07-16',7,'images/players/Player  (130)');
+INSERT INTO Player VALUES(131, 'Tyler', 'Vasquez', 20, 'Cape Verde', 'CAM',10478550, 11, 85, NULL, NULL,NULL, NULL, NULL, '2067-05-04',7,'images/players/Player  (131)');
+INSERT INTO Player VALUES(132, 'Mariah', 'Davidson', 19, 'Djibouti', 'LW',10103784, 12, 74, NULL, NULL,NULL, NULL, NULL, '2067-12-03',7,'images/players/Player  (132)');
+INSERT INTO Player VALUES(133, 'Cheryl', 'Walker', 34, 'Tokelau', 'RW',16632148, 13, 80, NULL, NULL,NULL, NULL, NULL, '2067-05-14',7,'images/players/Player  (133)');
+INSERT INTO Player VALUES(137, 'Jackie', 'Pitts', 20, 'Somalia', 'GK',4111827, 17, 83, NULL, NULL,NULL, NULL, NULL, '2068-03-12',7,'images/players/Player  (137)');
+INSERT INTO Player VALUES(138, 'David', 'Goodwin', 33, 'Congo', 'RB',16741070, 18, 72, NULL, NULL,NULL, NULL, NULL, '2067-05-14',7,'images/players/Player  (138)');
+INSERT INTO Player VALUES(139, 'Tiffany', 'Wilson', 19, 'Denmark', 'CB',5896915, 19, 80, NULL, NULL,NULL, NULL, NULL, '2068-02-26',7,'images/players/Player  (139)');
+INSERT INTO Player VALUES (140, 'Angelica', 'Davis', 32, 'Tajikistan', 'CDM',2156896, 20, 76, NULL, NULL,NULL, NULL, NULL,  '2066-04-28',7,'images/players/Player  (140)');
 
 Select * from Goal_Keeper
 INSERT INTO Goal_Keeper VALUES(8,1);
@@ -530,109 +530,109 @@ INSERT INTO Goal_Keeper VALUES(137,2);
 -- 4.6 Coaches
 select * from Coach
 -- Real Cobre
-INSERT INTO Coach VALUES(1, 'Carlos', 'Navarro', 'Goalkeeping Coach', 612345678,1, 'images\coaches\1');
-INSERT INTO Coach VALUES(2, 'Miguel', 'Ruiz', 'Assistant Coach', 634567890,1, 'images\coaches\2');
-INSERT INTO Coach VALUES(3, 'Sergio', 'Lopez', 'Fitness Coach', 645678901,1, 'images\coaches\3');
-INSERT INTO Coach VALUES(4, 'Javier', 'Santos', 'Tactical Analyst', 689012345,1, 'images\coaches\4');
-INSERT INTO Coach VALUES(5, 'Luis', 'Gomez', 'Physiotherapist', 623456789,1, 'images\coaches\5');
-INSERT INTO Coach VALUES(6, 'Andrs', 'Moreno', 'Nutritionist', 698765432,1, 'images\coaches\6');
-INSERT INTO Coach VALUES(7, 'Raul', 'Hernandez', 'Defensive Coach', 654321098,1, 'images\coaches\7');
-INSERT INTO Coach VALUES(8, 'Melinda', 'Jones', 'Team Doctor', 664424445, 1, 'images\coaches\8');
-INSERT INTO Coach VALUES(9, 'Melissa', 'Warren', 'Masseur', 605802622, 1, 'images\coaches\9');
-INSERT INTO Coach VALUES(10, 'Robert', 'Sherman', 'Sports Psychologist', 639738237, 1, 'images\coaches\10');
-INSERT INTO Coach VALUES(11, 'Tracy', 'Fletcher', 'Video Analyst', 603656429, 1, 'images\coaches\11');
-INSERT INTO Coach VALUES(12, 'Gina', 'Davis', 'Technical Director', 685369660, 1, 'images\coaches\12');
-INSERT INTO Coach VALUES(13, 'Leslie', 'Clayton', 'Attacking Coach', 611526172, 1, 'images\coaches\13');
+INSERT INTO Coach VALUES(1, 'Carlos', 'Navarro', 'Goalkeeping Coach', 612345678,1, 'images/coaches/1');
+INSERT INTO Coach VALUES(2, 'Miguel', 'Ruiz', 'Assistant Coach', 634567890,1, 'images/coaches/2');
+INSERT INTO Coach VALUES(3, 'Sergio', 'Lopez', 'Fitness Coach', 645678901,1, 'images/coaches/3');
+INSERT INTO Coach VALUES(4, 'Javier', 'Santos', 'Tactical Analyst', 689012345,1, 'images/coaches/4');
+INSERT INTO Coach VALUES(5, 'Luis', 'Gomez', 'Physiotherapist', 623456789,1, 'images/coaches/5');
+INSERT INTO Coach VALUES(6, 'Andrs', 'Moreno', 'Nutritionist', 698765432,1, 'images/coaches/6');
+INSERT INTO Coach VALUES(7, 'Raul', 'Hernandez', 'Defensive Coach', 654321098,1, 'images/coaches/7');
+INSERT INTO Coach VALUES(8, 'Melinda', 'Jones', 'Team Doctor', 664424445, 1, 'images/coaches/8');
+INSERT INTO Coach VALUES(9, 'Melissa', 'Warren', 'Masseur', 605802622, 1, 'images/coaches/9');
+INSERT INTO Coach VALUES(10, 'Robert', 'Sherman', 'Sports Psychologist', 639738237, 1, 'images/coaches/10');
+INSERT INTO Coach VALUES(11, 'Tracy', 'Fletcher', 'Video Analyst', 603656429, 1, 'images/coaches/11');
+INSERT INTO Coach VALUES(12, 'Gina', 'Davis', 'Technical Director', 685369660, 1, 'images/coaches/12');
+INSERT INTO Coach VALUES(13, 'Leslie', 'Clayton', 'Attacking Coach', 611526172, 1, 'images/coaches/13');
 
 -- Atltico Norte
-INSERT INTO Coach VALUES (14, 'Crystal', 'Khan', 'Assistant Coach', 676699732, 2, 'images\coaches\14');
-INSERT INTO Coach VALUES (15, 'John', 'Gay', 'Fitness Coach', 619549133, 2, 'images\coaches\15');
-INSERT INTO Coach VALUES (16, 'Rebecca', 'Jones', 'Goalkeeping Coach', 606635527, 2, 'images\coaches\16');
-INSERT INTO Coach VALUES (17, 'Harold', 'Miranda', 'Tactical Analyst', 657656368, 2, 'images\coaches\17');
-INSERT INTO Coach VALUES (18, 'Matthew', 'Robertson', 'Physiotherapist', 657935228, 2, 'images\coaches\18');
-INSERT INTO Coach VALUES (19, 'Carolyn', 'Best', 'Nutritionist', 665576902, 2, 'images\coaches\19');
-INSERT INTO Coach VALUES (20, 'Isaac', 'Stewart', 'Defensive Coach', 644473101, 2, 'images\coaches\20');
-INSERT INTO Coach VALUES (21, 'Samantha', 'Greene', 'Attacking Coach', 644234204, 2, 'images\coaches\21');
-INSERT INTO Coach VALUES (22, 'Jessica', 'Wright', 'Video Analyst', 653170853, 2, 'images\coaches\22');
-INSERT INTO Coach VALUES (23, 'Dana', 'Tucker', 'Sports Psychologist', 684335929, 2, 'images\coaches\23');
-INSERT INTO Coach VALUES (24, 'Brian', 'Wong', 'Masseur', 638714380, 2, 'images\coaches\24');
-INSERT INTO Coach VALUES (25, 'Richard', 'Ramirez', 'Team Doctor', 697603003, 2, 'images\coaches\25');
-INSERT INTO Coach VALUES (26, 'Eric', 'Charles', 'Technical Director', 623597173, 2, 'images\coaches\26');
+INSERT INTO Coach VALUES (14, 'Crystal', 'Khan', 'Assistant Coach', 676699732, 2, 'images/coaches/14');
+INSERT INTO Coach VALUES (15, 'John', 'Gay', 'Fitness Coach', 619549133, 2, 'images/coaches/15');
+INSERT INTO Coach VALUES (16, 'Rebecca', 'Jones', 'Goalkeeping Coach', 606635527, 2, 'images/coaches/16');
+INSERT INTO Coach VALUES (17, 'Harold', 'Miranda', 'Tactical Analyst', 657656368, 2, 'images/coaches/17');
+INSERT INTO Coach VALUES (18, 'Matthew', 'Robertson', 'Physiotherapist', 657935228, 2, 'images/coaches/18');
+INSERT INTO Coach VALUES (19, 'Carolyn', 'Best', 'Nutritionist', 665576902, 2, 'images/coaches/19');
+INSERT INTO Coach VALUES (20, 'Isaac', 'Stewart', 'Defensive Coach', 644473101, 2, 'images/coaches/20');
+INSERT INTO Coach VALUES (21, 'Samantha', 'Greene', 'Attacking Coach', 644234204, 2, 'images/coaches/21');
+INSERT INTO Coach VALUES (22, 'Jessica', 'Wright', 'Video Analyst', 653170853, 2, 'images/coaches/22');
+INSERT INTO Coach VALUES (23, 'Dana', 'Tucker', 'Sports Psychologist', 684335929, 2, 'images/coaches/23');
+INSERT INTO Coach VALUES (24, 'Brian', 'Wong', 'Masseur', 638714380, 2, 'images/coaches/24');
+INSERT INTO Coach VALUES (25, 'Richard', 'Ramirez', 'Team Doctor', 697603003, 2, 'images/coaches/25');
+INSERT INTO Coach VALUES (26, 'Eric', 'Charles', 'Technical Director', 623597173, 2, 'images/coaches/26');
 
 -- Deportivo Sol
-INSERT INTO Coach VALUES (27, 'Erica', 'Davis', 'Assistant Coach', 614590137, 3, 'images\coaches\27');
-INSERT INTO Coach VALUES (28, 'Adam', 'George', 'Fitness Coach', 606056709, 3, 'images\coaches\28');
-INSERT INTO Coach VALUES (29, 'Roy', 'Hill', 'Goalkeeping Coach', 630741201, 3, 'images\coaches\29');
-INSERT INTO Coach VALUES (30, 'Erin', 'Duncan', 'Tactical Analyst', 631655369, 3, 'images\coaches\30');
-INSERT INTO Coach VALUES (31, 'Nicole', 'Patrick', 'Physiotherapist', 655980732, 3, 'images\coaches\31');
-INSERT INTO Coach VALUES (32, 'Jessica', 'Jones', 'Nutritionist', 651586170, 3, 'images\coaches\32');
-INSERT INTO Coach VALUES (33, 'Aaron', 'Vance', 'Defensive Coach', 678749945, 3, 'images\coaches\33');
-INSERT INTO Coach VALUES (34, 'Nathan', 'Carlson', 'Attacking Coach', 613333159, 3, 'images\coaches\34');
-INSERT INTO Coach VALUES (35, 'Alison', 'Martinez', 'Video Analyst', 671798851, 3, 'images\coaches\35');
-INSERT INTO Coach VALUES (36, 'Joseph', 'Cooper', 'Sports Psychologist', 637088049, 3, 'images\coaches\36');
-INSERT INTO Coach VALUES (37, 'Dennis', 'Bennett', 'Masseur', 621550334, 3, 'images\coaches\37');
-INSERT INTO Coach VALUES (38, 'Regina', 'Miller', 'Team Doctor', 687096225, 3, 'images\coaches\38');
-INSERT INTO Coach VALUES(39, 'Shelly', 'Jones', 'Technical Director', 657645091, 3, 'images\coaches\39');
+INSERT INTO Coach VALUES (27, 'Erica', 'Davis', 'Assistant Coach', 614590137, 3, 'images/coaches/27');
+INSERT INTO Coach VALUES (28, 'Adam', 'George', 'Fitness Coach', 606056709, 3, 'images/coaches/28');
+INSERT INTO Coach VALUES (29, 'Roy', 'Hill', 'Goalkeeping Coach', 630741201, 3, 'images/coaches/29');
+INSERT INTO Coach VALUES (30, 'Erin', 'Duncan', 'Tactical Analyst', 631655369, 3, 'images/coaches/30');
+INSERT INTO Coach VALUES (31, 'Nicole', 'Patrick', 'Physiotherapist', 655980732, 3, 'images/coaches/31');
+INSERT INTO Coach VALUES (32, 'Jessica', 'Jones', 'Nutritionist', 651586170, 3, 'images/coaches/32');
+INSERT INTO Coach VALUES (33, 'Aaron', 'Vance', 'Defensive Coach', 678749945, 3, 'images/coaches/33');
+INSERT INTO Coach VALUES (34, 'Nathan', 'Carlson', 'Attacking Coach', 613333159, 3, 'images/coaches/34');
+INSERT INTO Coach VALUES (35, 'Alison', 'Martinez', 'Video Analyst', 671798851, 3, 'images/coaches/35');
+INSERT INTO Coach VALUES (36, 'Joseph', 'Cooper', 'Sports Psychologist', 637088049, 3, 'images/coaches/36');
+INSERT INTO Coach VALUES (37, 'Dennis', 'Bennett', 'Masseur', 621550334, 3, 'images/coaches/37');
+INSERT INTO Coach VALUES (38, 'Regina', 'Miller', 'Team Doctor', 687096225, 3, 'images/coaches/38');
+INSERT INTO Coach VALUES(39, 'Shelly', 'Jones', 'Technical Director', 657645091, 3, 'images/coaches/39');
 
 -- FC Mar Azul
-INSERT INTO Coach VALUES (40, 'Catherine', 'Holland', 'Assistant Coach', 638985988, 4, 'images\coaches\40');
-INSERT INTO Coach VALUES (41, 'Tyler', 'Gonzalez', 'Fitness Coach', 690814748, 4, 'images\coaches\41');
-INSERT INTO Coach VALUES (42, 'Karen', 'Pacheco', 'Goalkeeping Coach', 621796184, 4, 'images\coaches\42');
-INSERT INTO Coach VALUES (43, 'Gordon', 'Fletcher', 'Tactical Analyst', 610661265, 4, 'images\coaches\43');
-INSERT INTO Coach VALUES (44, 'Katelyn', 'Wilson', 'Physiotherapist', 634739987, 4, 'images\coaches\44');
-INSERT INTO Coach VALUES (45, 'Matthew', 'Gibson', 'Nutritionist', 698073844, 4, 'images\coaches\45');
-INSERT INTO Coach VALUES (46, 'Michael', 'Mcconnell', 'Defensive Coach', 683442565, 4, 'images\coaches\46');
-INSERT INTO Coach VALUES (47, 'Teresa', 'Williams', 'Attacking Coach', 604194224, 4, 'images\coaches\47');
-INSERT INTO Coach VALUES (48, 'Jack', 'Thomas', 'Video Analyst', 642194475, 4, 'images\coaches\48');
-INSERT INTO Coach VALUES (49, 'Michael', 'Black', 'Sports Psychologist', 692735945, 4, 'images\coaches\49');
-INSERT INTO Coach VALUES (50, 'Eddie', 'Martinez', 'Masseur', 691489181, 4, 'images\coaches\50');
-INSERT INTO Coach VALUES (51, 'Jacqueline', 'Park', 'Team Doctor', 650773257, 4, 'images\coaches\51');
-INSERT INTO Coach VALUES (52, 'Kelsey', 'Roberts', 'Technical Director', 601981253, 4, 'images\coaches\52');
+INSERT INTO Coach VALUES (40, 'Catherine', 'Holland', 'Assistant Coach', 638985988, 4, 'images/coaches/40');
+INSERT INTO Coach VALUES (41, 'Tyler', 'Gonzalez', 'Fitness Coach', 690814748, 4, 'images/coaches/41');
+INSERT INTO Coach VALUES (42, 'Karen', 'Pacheco', 'Goalkeeping Coach', 621796184, 4, 'images/coaches/42');
+INSERT INTO Coach VALUES (43, 'Gordon', 'Fletcher', 'Tactical Analyst', 610661265, 4, 'images/coaches/43');
+INSERT INTO Coach VALUES (44, 'Katelyn', 'Wilson', 'Physiotherapist', 634739987, 4, 'images/coaches/44');
+INSERT INTO Coach VALUES (45, 'Matthew', 'Gibson', 'Nutritionist', 698073844, 4, 'images/coaches/45');
+INSERT INTO Coach VALUES (46, 'Michael', 'Mcconnell', 'Defensive Coach', 683442565, 4, 'images/coaches/46');
+INSERT INTO Coach VALUES (47, 'Teresa', 'Williams', 'Attacking Coach', 604194224, 4, 'images/coaches/47');
+INSERT INTO Coach VALUES (48, 'Jack', 'Thomas', 'Video Analyst', 642194475, 4, 'images/coaches/48');
+INSERT INTO Coach VALUES (49, 'Michael', 'Black', 'Sports Psychologist', 692735945, 4, 'images/coaches/49');
+INSERT INTO Coach VALUES (50, 'Eddie', 'Martinez', 'Masseur', 691489181, 4, 'images/coaches/50');
+INSERT INTO Coach VALUES (51, 'Jacqueline', 'Park', 'Team Doctor', 650773257, 4, 'images/coaches/51');
+INSERT INTO Coach VALUES (52, 'Kelsey', 'Roberts', 'Technical Director', 601981253, 4, 'images/coaches/52');
 
 -- CD Castellanos
-INSERT INTO Coach VALUES(53, 'Paul', 'Griffith', 'Assistant Coach', 665078563, 5, 'images\coaches\53');
-INSERT INTO Coach VALUES (54, 'Jesse', 'Martinez', 'Fitness Coach', 628606777, 5, 'images\coaches\54');
-INSERT INTO Coach VALUES (55, 'Linda', 'Hall', 'Goalkeeping Coach', 619683091, 5, 'images\coaches\55');
-INSERT INTO Coach VALUES(56, 'Nicole', 'Harris', 'Tactical Analyst', 644342737, 5, 'images\coaches\56');
-INSERT INTO Coach VALUES (57, 'Lisa', 'Pearson', 'Physiotherapist', 633674072, 5, 'images\coaches\57');
-INSERT INTO Coach VALUES (58, 'Stephen', 'Hill', 'Nutritionist', 688752297, 5, 'images\coaches\58');
-INSERT INTO Coach VALUES (59, 'Kim', 'Joseph', 'Defensive Coach', 619176000, 5, 'images\coaches\59');
-INSERT INTO Coach VALUES (60, 'Emily', 'Adams', 'Attacking Coach', 692950277, 5, 'images\coaches\60');
-INSERT INTO Coach VALUES (61, 'Samantha', 'Thompson', 'Video Analyst', 645365059, 5, 'images\coaches\61');
-INSERT INTO Coach VALUES (62, 'William', 'Murphy', 'Sports Psychologist', 627835088, 5, 'images\coaches\62');
-INSERT INTO Coach VALUES (63, 'Nicholas', 'Horton', 'Masseur', 651157558, 5, 'images\coaches\63');
-INSERT INTO Coach VALUES (64, 'April', 'Cross', 'Team Doctor', 622645272, 5, 'images\coaches\64');
-INSERT INTO Coach VALUES (65, 'Colleen', 'Fisher', 'Technical Director', 616965784, 5, 'images\coaches\65');
+INSERT INTO Coach VALUES(53, 'Paul', 'Griffith', 'Assistant Coach', 665078563, 5, 'images/coaches/53');
+INSERT INTO Coach VALUES (54, 'Jesse', 'Martinez', 'Fitness Coach', 628606777, 5, 'images/coaches/54');
+INSERT INTO Coach VALUES (55, 'Linda', 'Hall', 'Goalkeeping Coach', 619683091, 5, 'images/coaches/55');
+INSERT INTO Coach VALUES(56, 'Nicole', 'Harris', 'Tactical Analyst', 644342737, 5, 'images/coaches/56');
+INSERT INTO Coach VALUES (57, 'Lisa', 'Pearson', 'Physiotherapist', 633674072, 5, 'images/coaches/57');
+INSERT INTO Coach VALUES (58, 'Stephen', 'Hill', 'Nutritionist', 688752297, 5, 'images/coaches/58');
+INSERT INTO Coach VALUES (59, 'Kim', 'Joseph', 'Defensive Coach', 619176000, 5, 'images/coaches/59');
+INSERT INTO Coach VALUES (60, 'Emily', 'Adams', 'Attacking Coach', 692950277, 5, 'images/coaches/60');
+INSERT INTO Coach VALUES (61, 'Samantha', 'Thompson', 'Video Analyst', 645365059, 5, 'images/coaches/61');
+INSERT INTO Coach VALUES (62, 'William', 'Murphy', 'Sports Psychologist', 627835088, 5, 'images/coaches/62');
+INSERT INTO Coach VALUES (63, 'Nicholas', 'Horton', 'Masseur', 651157558, 5, 'images/coaches/63');
+INSERT INTO Coach VALUES (64, 'April', 'Cross', 'Team Doctor', 622645272, 5, 'images/coaches/64');
+INSERT INTO Coach VALUES (65, 'Colleen', 'Fisher', 'Technical Director', 616965784, 5, 'images/coaches/65');
 
 -- Union Andorra
-INSERT INTO Coach VALUES(66, 'Riley', 'Lara', 'Assistant Coach', 697349389, 6, 'images\coaches\66');
-INSERT INTO Coach VALUES(67, 'Thomas', 'Perry', 'Fitness Coach', 611184543, 6, 'images\coaches\67');
-INSERT INTO Coach VALUES(68, 'Jenny', 'Mills', 'Goalkeeping Coach', 672085197, 6, 'images\coaches\68');
-INSERT INTO Coach VALUES (69, 'Christopher', 'Patrick', 'Tactical Analyst', 699388141, 6, 'images\coaches\69');
-INSERT INTO Coach VALUES(70, 'Samuel', 'Jones', 'Physiotherapist', 601963991, 6, 'images\coaches\70');
-INSERT INTO Coach VALUES (71, 'Kevin', 'Tanner', 'Nutritionist', 609059372, 6, 'images\coaches\71');
-INSERT INTO Coach VALUES(72, 'Jeffrey', 'Bennett', 'Defensive Coach', 643460063, 6, 'images\coaches\72');
-INSERT INTO Coach VALUES (73, 'Elizabeth', 'Campbell', 'Attacking Coach', 695188387, 6, 'images\coaches\73');
-INSERT INTO Coach VALUES (74, 'Mark', 'Dawson', 'Video Analyst', 692957973, 6, 'images\coaches\74');
-INSERT INTO Coach VALUES (75, 'Rebecca', 'Buchanan', 'Sports Psychologist', 632571137, 6, 'images\coaches\75');
-INSERT INTO Coach VALUES (76, 'James', 'Cummings', 'Masseur', 681199835, 6, 'images\coaches\76');
-INSERT INTO Coach VALUES (77, 'Adam', 'Lopez', 'Team Doctor', 618098518, 6, 'images\coaches\77');
-INSERT INTO Coach VALUES (78, 'Benjamin', 'Miller', 'Technical Director', 607101916, 6, 'images\coaches\78');
+INSERT INTO Coach VALUES(66, 'Riley', 'Lara', 'Assistant Coach', 697349389, 6, 'images/coaches/66');
+INSERT INTO Coach VALUES(67, 'Thomas', 'Perry', 'Fitness Coach', 611184543, 6, 'images/coaches/67');
+INSERT INTO Coach VALUES(68, 'Jenny', 'Mills', 'Goalkeeping Coach', 672085197, 6, 'images/coaches/68');
+INSERT INTO Coach VALUES (69, 'Christopher', 'Patrick', 'Tactical Analyst', 699388141, 6, 'images/coaches/69');
+INSERT INTO Coach VALUES(70, 'Samuel', 'Jones', 'Physiotherapist', 601963991, 6, 'images/coaches/70');
+INSERT INTO Coach VALUES (71, 'Kevin', 'Tanner', 'Nutritionist', 609059372, 6, 'images/coaches/71');
+INSERT INTO Coach VALUES(72, 'Jeffrey', 'Bennett', 'Defensive Coach', 643460063, 6, 'images/coaches/72');
+INSERT INTO Coach VALUES (73, 'Elizabeth', 'Campbell', 'Attacking Coach', 695188387, 6, 'images/coaches/73');
+INSERT INTO Coach VALUES (74, 'Mark', 'Dawson', 'Video Analyst', 692957973, 6, 'images/coaches/74');
+INSERT INTO Coach VALUES (75, 'Rebecca', 'Buchanan', 'Sports Psychologist', 632571137, 6, 'images/coaches/75');
+INSERT INTO Coach VALUES (76, 'James', 'Cummings', 'Masseur', 681199835, 6, 'images/coaches/76');
+INSERT INTO Coach VALUES (77, 'Adam', 'Lopez', 'Team Doctor', 618098518, 6, 'images/coaches/77');
+INSERT INTO Coach VALUES (78, 'Benjamin', 'Miller', 'Technical Director', 607101916, 6, 'images/coaches/78');
 
 -- Tractor Galactico CF
-INSERT INTO Coach VALUES(79, 'Donna', 'Lamb', 'Assistant Coach', 623996264, 7, 'images\coaches\79');
-INSERT INTO Coach VALUES(80, 'Anna', 'Montgomery', 'Fitness Coach', 682446743, 7, 'images\coaches\80');
-INSERT INTO Coach VALUES(81, 'Jacob', 'Parker', 'Goalkeeping Coach', 654509651, 7, 'images\coaches\81');
-INSERT INTO Coach VALUES(82, 'Amber', 'Cole', 'Tactical Analyst', 652901218, 7, 'images\coaches\82');
-INSERT INTO Coach VALUES(83, 'Kelly', 'Collins', 'Physiotherapist', 695161668, 7, 'images\coaches\83');
-INSERT INTO Coach VALUES(84, 'Kevin', 'Butler', 'Nutritionist', 680374178, 7, 'images\coaches\84');
-INSERT INTO Coach VALUES(85, 'Joshua', 'Anderson', 'Defensive Coach', 695406030, 7, 'images\coaches\85');
-INSERT INTO Coach VALUES(86, 'Adrienne', 'Clark', 'Attacking Coach', 643976913, 7, 'images\coaches\86');
-INSERT INTO Coach VALUES(87, 'Sarah', 'Griffin', 'Video Analyst', 643086048, 7, 'images\coaches\87');
-INSERT INTO Coach VALUES(88, 'Judy', 'Grant', 'Sports Psychologist', 604380247, 7, 'images\coaches\88');
-INSERT INTO Coach VALUES(89, 'James', 'Anderson', 'Masseur', 647317569, 7, 'images\coaches\89');
-INSERT INTO Coach VALUES(90, 'Benjamin', 'Johnson', 'Team Doctor', 633348753, 7, 'images\coaches\90');
-INSERT INTO Coach VALUES(91, 'Michael', 'Robinson', 'Technical Director', 659914396, 7, 'images\coaches\91');
+INSERT INTO Coach VALUES(79, 'Donna', 'Lamb', 'Assistant Coach', 623996264, 7, 'images/coaches/79');
+INSERT INTO Coach VALUES(80, 'Anna', 'Montgomery', 'Fitness Coach', 682446743, 7, 'images/coaches/80');
+INSERT INTO Coach VALUES(81, 'Jacob', 'Parker', 'Goalkeeping Coach', 654509651, 7, 'images/coaches/81');
+INSERT INTO Coach VALUES(82, 'Amber', 'Cole', 'Tactical Analyst', 652901218, 7, 'images/coaches/82');
+INSERT INTO Coach VALUES(83, 'Kelly', 'Collins', 'Physiotherapist', 695161668, 7, 'images/coaches/83');
+INSERT INTO Coach VALUES(84, 'Kevin', 'Butler', 'Nutritionist', 680374178, 7, 'images/coaches/84');
+INSERT INTO Coach VALUES(85, 'Joshua', 'Anderson', 'Defensive Coach', 695406030, 7, 'images/coaches/85');
+INSERT INTO Coach VALUES(86, 'Adrienne', 'Clark', 'Attacking Coach', 643976913, 7, 'images/coaches/86');
+INSERT INTO Coach VALUES(87, 'Sarah', 'Griffin', 'Video Analyst', 643086048, 7, 'images/coaches/87');
+INSERT INTO Coach VALUES(88, 'Judy', 'Grant', 'Sports Psychologist', 604380247, 7, 'images/coaches/88');
+INSERT INTO Coach VALUES(89, 'James', 'Anderson', 'Masseur', 647317569, 7, 'images/coaches/89');
+INSERT INTO Coach VALUES(90, 'Benjamin', 'Johnson', 'Team Doctor', 633348753, 7, 'images/coaches/90');
+INSERT INTO Coach VALUES(91, 'Michael', 'Robinson', 'Technical Director', 659914396, 7, 'images/coaches/91');
 
 select * from Coaching_degree
 INSERT INTO Coaching_degree VALUES(1, 'UEFA Goalkeeping License');
@@ -785,13 +785,13 @@ INSERT INTO Coaching_degree VALUES (91, 'UEFA A License');
 
 -- 4.6 Head Coaches
 Select * from head_coach
-INSERT INTO head_coach VALUES(1,'Luis', 'Gomez', '623456789', 1, 'images\head_coaches\1.jpg');
-INSERT INTO head_coach VALUES(2,'Andres', 'Moreno', '698765432', 2, 'images\head_coaches\2.jpg');
-INSERT INTO head_coach VALUES(3, 'Danielle', 'Ford', '653979852', 3, 'images\head_coaches\3.jpg');
-INSERT INTO head_coach VALUES(4, 'Kelly', 'Patterson', '678873098', 4, 'images\head_coaches\4.jpg');
-INSERT INTO head_coach VALUES(5, 'Donna', 'Williamson','685410706', 5, 'images\head_coaches\5.jpg');
-INSERT INTO head_coach VALUES(6, 'Jessica', 'King', '627290299', 6, 'images\head_coaches\6.jpg');
-INSERT INTO head_coach VALUES(7,'Raul', 'Hernandez', '654321098', 7, 'images\head_coaches\7.jpg');
+INSERT INTO head_coach VALUES(1,'Luis', 'Gomez', '623456789', 1, 'images/head_coaches/1.jpg');
+INSERT INTO head_coach VALUES(2,'Andres', 'Moreno', '698765432', 2, 'images/head_coaches/2.jpg');
+INSERT INTO head_coach VALUES(3, 'Danielle', 'Ford', '653979852', 3, 'images/head_coaches/3.jpg');
+INSERT INTO head_coach VALUES(4, 'Kelly', 'Patterson', '678873098', 4, 'images/head_coaches/4.jpg');
+INSERT INTO head_coach VALUES(5, 'Donna', 'Williamson','685410706', 5, 'images/head_coaches/5.jpg');
+INSERT INTO head_coach VALUES(6, 'Jessica', 'King', '627290299', 6, 'images/head_coaches/6.jpg');
+INSERT INTO head_coach VALUES(7,'Raul', 'Hernandez', '654321098', 7, 'images/head_coaches/7.jpg');
 
 Select * from Head_Coaching_Degree
 INSERT INTO Head_Coaching_Degree VALUES(1,'UEFA A License');

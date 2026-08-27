@@ -21,7 +21,7 @@ A <- 0
 B <- 0
 
 reached_destination <- FALSE
-cat("Simulation Started (Biased Random Walk via Die Roll)...\n")
+cat("Simulation Started (Biased Random Walk via Die Roll).../n")
 
 while (!reached_destination) {
   die <- sample(1:6, 1)
@@ -61,9 +61,9 @@ while (!reached_destination) {
 total_moves <- A + B
 ratio <- ifelse(total_moves > 0, A / total_moves, 0)
 
-cat("\n--- Results ---\n")
-cat("Destination 'D' reached!\n")
-cat("Variable A (Successful moves):", A, "\n")
-cat("Variable B (Failed moves):", B, "\n")
-cat("Total attempts (A + B):", total_moves, "\n")
-cat(sprintf("Ratio A / (A + B): %.4f\n", ratio))
+cat("/n--- Results ---/n")
+cat("Destination 'D' reached!/n")
+cat("Variable A (Successful moves):", A, "/n")
+cat("Variable B (Failed moves):", B, "/n")
+cat("Total attempts (A + B):", total_moves, "/n")
+cat(sprintf("Ratio A / (A + B): %.4f/n", ratio))

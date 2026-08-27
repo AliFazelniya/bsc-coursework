@@ -21,7 +21,7 @@ Notebook[{
 
 Cell[CellGroupData[{
 Cell[BoxData[
- RowBox[{"\[IndentingNewLine]", 
+ RowBox[{"/[IndentingNewLine]", 
   RowBox[{
    RowBox[{"Plot", "[", 
     RowBox[{
@@ -32,7 +32,7 @@ Cell[BoxData[
       RowBox[{"x", ",", 
        FractionBox[
         RowBox[{"-", "1"}], "2"], ",", " ", 
-       FractionBox["1", "2"]}], "}"}]}], "]"}], "\[IndentingNewLine]", 
+       FractionBox["1", "2"]}], "}"}]}], "]"}], "/[IndentingNewLine]", 
    RowBox[{"Plot", "[", 
     RowBox[{
      RowBox[{"{", 
@@ -47,7 +47,7 @@ Cell[BoxData[
       RowBox[{"x", ",", 
        FractionBox[
         RowBox[{"-", "1"}], "2"], ",", " ", 
-       FractionBox["1", "2"]}], "}"}]}], "]"}], "\[IndentingNewLine]", 
+       FractionBox["1", "2"]}], "}"}]}], "]"}], "/[IndentingNewLine]", 
    RowBox[{"Plot", "[", 
     RowBox[{
      RowBox[{"{", 
@@ -68,7 +68,7 @@ Cell[BoxData[
        RowBox[{"Red", ",", " ", 
         RowBox[{"Directive", "[", 
          RowBox[{"Dashed", ",", " ", "Blue"}], "]"}], ",", " ", "Yellow"}], 
-       "}"}]}]}], "]"}], "\[IndentingNewLine]", 
+       "}"}]}]}], "]"}], "/[IndentingNewLine]", 
    RowBox[{"Plot", "[", 
     RowBox[{
      RowBox[{"{", 
@@ -90,8 +90,8 @@ Cell[BoxData[
         RowBox[{"Directive", "[", 
          RowBox[{"Dashed", ",", " ", "Blue"}], "]"}], ",", " ", "Yellow"}], 
        "}"}]}], ",", " ", 
-     RowBox[{"PlotLegends", "->", "\"\<Expressions\>\""}]}], "]"}], 
-   "\[IndentingNewLine]", 
+     RowBox[{"PlotLegends", "->", "/"/<Expressions/>/""}]}], "]"}], 
+   "/[IndentingNewLine]", 
    RowBox[{"Plot", "[", 
     RowBox[{
      RowBox[{"{", 
@@ -110,7 +110,7 @@ Cell[BoxData[
      RowBox[{"Axes", " ", "->", " ", 
       RowBox[{"{", 
        RowBox[{"True", ",", "False"}], "}"}]}]}], "]"}], 
-   "\[IndentingNewLine]", 
+   "/[IndentingNewLine]", 
    RowBox[{"Plot", "[", 
     RowBox[{
      RowBox[{"{", 
@@ -130,7 +130,7 @@ Cell[BoxData[
       RowBox[{"{", 
        RowBox[{"x", ",", 
         RowBox[{"F", "[", "x", "]"}]}], "}"}]}]}], "]"}], 
-   "\[IndentingNewLine]", 
+   "/[IndentingNewLine]", 
    RowBox[{"Plot", "[", 
     RowBox[{
      RowBox[{"{", 
@@ -148,7 +148,7 @@ Cell[BoxData[
        FractionBox["1", "2"]}], "}"}], ",", " ", 
      RowBox[{"AxesOrigin", "->", 
       RowBox[{"{", 
-       RowBox[{".5", ",", ".5"}], "}"}]}]}], "]"}], "\[IndentingNewLine]", 
+       RowBox[{".5", ",", ".5"}], "}"}]}]}], "]"}], "/[IndentingNewLine]", 
    RowBox[{"Plot", "[", 
     RowBox[{
      RowBox[{"{", 
@@ -164,7 +164,7 @@ Cell[BoxData[
        FractionBox[
         RowBox[{"-", "1"}], "2"], ",", " ", 
        FractionBox["1", "2"]}], "}"}], ",", " ", 
-     RowBox[{"PlotRange", "->", " ", "Full"}]}], "]"}], "\[IndentingNewLine]", 
+     RowBox[{"PlotRange", "->", " ", "Full"}]}], "]"}], "/[IndentingNewLine]", 
    RowBox[{"Plot", "[", 
     RowBox[{
      RowBox[{"{", 
@@ -180,7 +180,7 @@ Cell[BoxData[
        FractionBox[
         RowBox[{"-", "1"}], "2"], ",", " ", 
        FractionBox["1", "2"]}], "}"}], ",", " ", 
-     RowBox[{"PlotRange", "->", " ", "3"}]}], "]"}], "\[IndentingNewLine]", 
+     RowBox[{"PlotRange", "->", " ", "3"}]}], "]"}], "/[IndentingNewLine]", 
    RowBox[{"Plot", "[", 
     RowBox[{
      RowBox[{"{", 
@@ -202,7 +202,7 @@ Cell[BoxData[
         RowBox[{"{", 
          RowBox[{"x", ",", "y"}], "}"}], ",", " ", 
         RowBox[{"Hue", "[", "x", "]"}]}], "]"}]}]}], "]"}], 
-   "\[IndentingNewLine]", 
+   "/[IndentingNewLine]", 
    RowBox[{"Plot", "[", 
     RowBox[{
      RowBox[{"{", 
@@ -224,7 +224,7 @@ Cell[BoxData[
         RowBox[{"{", 
          RowBox[{"x", ",", "y"}], "}"}], ",", " ", 
         RowBox[{"Hue", "[", "y", "]"}]}], "]"}]}]}], "]"}], 
-   "\[IndentingNewLine]", 
+   "/[IndentingNewLine]", 
    RowBox[{"Plot3D", "[", 
     RowBox[{
      RowBox[{"Sin", "[", 
@@ -235,7 +235,7 @@ Cell[BoxData[
        RowBox[{"-", "3"}], ",", "3"}], "}"}], ",", 
      RowBox[{"{", 
       RowBox[{"y", ",", 
-       RowBox[{"-", "2"}], ",", "2"}], "}"}]}], "]"}], "\[IndentingNewLine]", 
+       RowBox[{"-", "2"}], ",", "2"}], "}"}]}], "]"}], "/[IndentingNewLine]", 
    RowBox[{"Plot3D", "[", 
     RowBox[{
      RowBox[{"Sin", "[", 
@@ -253,7 +253,7 @@ Cell[BoxData[
         RowBox[{"{", 
          RowBox[{"x", ",", "y", ",", "z"}], "}"}], ",", " ", 
         RowBox[{"Hue", "[", "z", "]"}]}], "]"}]}]}], "]"}], 
-   "\[IndentingNewLine]", 
+   "/[IndentingNewLine]", 
    RowBox[{"Plot3D", "[", 
     RowBox[{
      RowBox[{"Sin", "[", 
@@ -265,7 +265,7 @@ Cell[BoxData[
      RowBox[{"{", 
       RowBox[{"y", ",", 
        RowBox[{"-", "2"}], ",", "2"}], "}"}], ",", " ", 
-     RowBox[{"Mesh", "->", " ", "None"}]}], "]"}], "\[IndentingNewLine]", 
+     RowBox[{"Mesh", "->", " ", "None"}]}], "]"}], "/[IndentingNewLine]", 
    RowBox[{"Plot3D", "[", 
     RowBox[{
      RowBox[{"Sin", "[", 
@@ -278,9 +278,9 @@ Cell[BoxData[
       RowBox[{"y", ",", 
        RowBox[{"-", "2"}], ",", "2"}], "}"}], ",", " ", 
      RowBox[{"Mesh", "->", " ", "4"}], ",", " ", 
-     RowBox[{"MeshStyle", "->", " ", "Blue"}]}], "]"}], "\[IndentingNewLine]", 
-   RowBox[{"Clear", "[", "\"\<Global`*\>\"", "]"}], "\[IndentingNewLine]", 
-   RowBox[{"Remove", "[", "\"\<Global`*\>\"", "]"}], "\[IndentingNewLine]", 
+     RowBox[{"MeshStyle", "->", " ", "Blue"}]}], "]"}], "/[IndentingNewLine]", 
+   RowBox[{"Clear", "[", "/"/<Global`*/>/"", "]"}], "/[IndentingNewLine]", 
+   RowBox[{"Remove", "[", "/"/<Global`*/>/"", "]"}], "/[IndentingNewLine]", 
    RowBox[{"h", " ", "=", " ", 
     RowBox[{
      FractionBox["1", 
@@ -290,7 +290,7 @@ Cell[BoxData[
          FractionBox["1", "2"]}], ")"}], "2"]], " ", "/.", " ", 
      RowBox[{"s", " ", "->", " ", 
       RowBox[{"Exp", "[", 
-       RowBox[{"I", " ", "w"}], "]"}]}]}]}], "\[IndentingNewLine]", 
+       RowBox[{"I", " ", "w"}], "]"}]}]}]}], "/[IndentingNewLine]", 
    RowBox[{"ParametricPlot", "[", 
     RowBox[{
      RowBox[{"{", 
@@ -299,7 +299,7 @@ Cell[BoxData[
        RowBox[{"Im", "[", "h", "]"}]}], "}"}], ",", " ", 
      RowBox[{"{", 
       RowBox[{"w", ",", "0", ",", 
-       RowBox[{"2", "*", "Pi"}]}], "}"}]}], "]"}], "\[IndentingNewLine]", 
+       RowBox[{"2", "*", "Pi"}]}], "}"}]}], "]"}], "/[IndentingNewLine]", 
    RowBox[{"ParametricPlot3D", "[", 
     RowBox[{
      RowBox[{"{", 
@@ -309,7 +309,7 @@ Cell[BoxData[
        FractionBox["x", "10"]}], "}"}], ",", " ", 
      RowBox[{"{", 
       RowBox[{"x", ",", "0", ",", "20"}], "}"}]}], "]"}], 
-   "\[IndentingNewLine]", 
+   "/[IndentingNewLine]", 
    RowBox[{"Manipulate", "[", 
     RowBox[{
      RowBox[{"Plot", "[", 
@@ -330,7 +330,7 @@ Cell[BoxData[
      RowBox[{"{", 
       RowBox[{"c", ",", 
        RowBox[{"-", "10"}], ",", "10"}], "}"}]}], "]"}], 
-   "\[IndentingNewLine]", 
+   "/[IndentingNewLine]", 
    RowBox[{"Manipulate", "[", 
     RowBox[{
      RowBox[{"Factor", "[", 
@@ -338,7 +338,7 @@ Cell[BoxData[
        SuperscriptBox["n", "n"], "+", "1"}], "]"}], ",", " ", 
      RowBox[{"{", 
       RowBox[{"n", ",", " ", "10", ",", "100", ",", "13"}], "}"}]}], "]"}], 
-   "\[IndentingNewLine]", 
+   "/[IndentingNewLine]", 
    RowBox[{"ListPlot", "[", 
     RowBox[{"Table", "[", 
      RowBox[{
@@ -348,25 +348,25 @@ Cell[BoxData[
         RowBox[{"Sin", "[", 
          RowBox[{"2", " ", "x"}], "]"}]}], "}"}], ",", " ", 
       RowBox[{"{", 
-       RowBox[{"x", ",", "50"}], "}"}]}], "]"}], "]"}], "\[IndentingNewLine]", 
+       RowBox[{"x", ",", "50"}], "}"}]}], "]"}], "]"}], "/[IndentingNewLine]", 
    RowBox[{"SphericalPlot3D", "[", 
     RowBox[{
      RowBox[{"{", 
       RowBox[{"1", ",", "2", ",", "3"}], "}"}], ",", " ", 
      RowBox[{"{", 
-      RowBox[{"\[Theta]", ",", "0", ",", 
+      RowBox[{"/[Theta]", ",", "0", ",", 
        FractionBox["Pi", "2"]}], "}"}], ",", " ", 
      RowBox[{"{", 
-      RowBox[{"\[CapitalPhi]", ",", " ", "0", ",", " ", 
+      RowBox[{"/[CapitalPhi]", ",", " ", "0", ",", " ", 
        RowBox[{"3", "*", 
-        FractionBox["Pi", "2"]}]}], "}"}]}], "]"}], "\[IndentingNewLine]", 
+        FractionBox["Pi", "2"]}]}], "}"}]}], "]"}], "/[IndentingNewLine]", 
    RowBox[{"PolarPlot", "[", 
     RowBox[{
      RowBox[{"Sin", "[", 
       RowBox[{"3", "*", "t"}], "]"}], ",", " ", 
      RowBox[{"{", 
       RowBox[{"t", ",", "0", ",", "Pi"}], "}"}]}], "]"}], 
-   "\[IndentingNewLine]", 
+   "/[IndentingNewLine]", 
    RowBox[{"ContourPlot", "[", 
     RowBox[{
      RowBox[{
@@ -379,7 +379,7 @@ Cell[BoxData[
        RowBox[{"4", "*", "Pi"}]}], "}"}], ",", " ", 
      RowBox[{"{", 
       RowBox[{"y", ",", "0", ",", 
-       RowBox[{"4", "*", "Pi"}]}], "}"}]}], "]"}], "\[IndentingNewLine]", 
+       RowBox[{"4", "*", "Pi"}]}], "}"}]}], "]"}], "/[IndentingNewLine]", 
    RowBox[{"ContourPlot", "[", 
     RowBox[{
      RowBox[{"{", 
@@ -402,7 +402,7 @@ Cell[BoxData[
      RowBox[{"{", 
       RowBox[{"y", ",", 
        RowBox[{"-", "3"}], ",", "3"}], "}"}]}], "]"}], 
-   "\[IndentingNewLine]"}]}]], "Input",
+   "/[IndentingNewLine]"}]}]], "Input",
  CellChangeTimes->{{3.8898545576337814`*^9, 3.889854570536768*^9}, {
    3.8898546041277423`*^9, 3.8898546556863146`*^9}, {3.889854887049499*^9, 
    3.889854941410138*^9}, {3.889855023080863*^9, 3.8898550573200293`*^9}, {
@@ -422,7 +422,7 @@ Cell[BoxData[
    3.8900620592127123`*^9, 3.890062116130157*^9}, {3.890062172298307*^9, 
    3.8900623152293158`*^9}, 3.890062351664028*^9, 3.8900623956312466`*^9, {
    3.890062462247569*^9, 3.8900626011883535`*^9}, {3.8900627978332815`*^9, 
-   3.890062798000415*^9}},ExpressionUUID->"fdaa005d-0a66-4299-aec7-\
+   3.890062798000415*^9}},ExpressionUUID->"fdaa005d-0a66-4299-aec7-/
 6d9fdb5f24b6"],
 
 Cell[BoxData[
@@ -2512,10 +2512,10 @@ zvqkzpJEQTzWoxs/WGkF8WhvcAm0aBLE44LNUn/TPUE83LK7o5RtgnhUHDt9
                TagBox[#, HoldForm], ",", 
                TagBox[#2, HoldForm], ",", 
                TagBox[#3, HoldForm]}], "}"}], ",", 
-           RowBox[{"LegendMarkers", "\[Rule]", "None"}], ",", 
-           RowBox[{"LabelStyle", "\[Rule]", 
+           RowBox[{"LegendMarkers", "/[Rule]", "None"}], ",", 
+           RowBox[{"LabelStyle", "/[Rule]", 
              RowBox[{"{", "}"}]}], ",", 
-           RowBox[{"LegendLayout", "\[Rule]", "\"Column\""}]}], "]"}]& ), 
+           RowBox[{"LegendLayout", "/[Rule]", "/"Column/""}]}], "]"}]& ), 
       Editable -> True], TraditionalForm], TraditionalForm]},
   "Legended",
   DisplayFunction->(GridBox[{{
@@ -5824,7 +5824,7 @@ e/6Ze/5V/TP3/DP3/Kv6Z+75Z+75V/XP3PPP3POv6v/f3PO/AHsDuxs=
    3.8900618778448668`*^9, 3.8900620814401164`*^9, 3.890062117058286*^9, {
    3.8900623114081697`*^9, 3.890062315919015*^9}, 3.890062352451252*^9, 
    3.890062602420572*^9},
- CellLabel->"Out[4929]=",ImageCache->GraphicsData["CompressedBitmap", "\<\
+ CellLabel->"Out[4929]=",ImageCache->GraphicsData["CompressedBitmap", "/</
 eJzlfXe8E8UW/7k3uQ0ul7KhtyxID2Ch2XBFQSUC9oKKAQURFTsYC7GioPIU
 FRWVKAp2QdDYifoULFif+uzrs2BHn8+OML/vmTmz2VwXeb/2z+8Hn7lJdmfP
 fk+ZM/3MmImnTZ18wsTTjj1qYnKPUyaeNPXYo05NjjrxFFyKVRBVXEVEvycp
@@ -6229,8 +6229,8 @@ bqPQQxHUHwykzZUrjwexp20NFlpx+S7zcHBlTQC1XntcpVrhe2tYbld6JIJw
 IZBHVxDnE395TTXvvGHXVi8+qzbIBUFXid9qCsLGhT4WQfjh4JG2spWnnj0Q
 5MHlNF7mCKpgo+IIYnqLI/toeiIg+qjlS89osTOJ23LMkGrCtOK2lOXTFbhb
 Q6siwD1uruU40JDOSo0LZKZApX9RJJ4w16KK1PMR2df8f3BL35ELus18tWSq
-+B+1G33T\
-\>", "ImageResolution" -> \
++B+1G33T/
+/>", "ImageResolution" -> /
 96.],ExpressionUUID->"5e919210-be63-443f-ae13-b1b75dee2fae"],
 
 Cell[BoxData[
@@ -7012,7 +7012,7 @@ GQ==
    3.8900618778448668`*^9, 3.8900620814401164`*^9, 3.890062117058286*^9, {
    3.8900623114081697`*^9, 3.890062315919015*^9}, 3.890062352451252*^9, 
    3.8900626024838986`*^9},
- CellLabel->"Out[4930]=",ImageCache->GraphicsData["CompressedBitmap", "\<\
+ CellLabel->"Out[4930]=",ImageCache->GraphicsData["CompressedBitmap", "/</
 eJzlfXecFMX279md2dlddpc0Q04zkmEIKkFUoEUBZQhGDCAOIhgBURDHwJgA
 I3rNkVERxAAiyOgFZdSroF4DekUxwBgQvaioSE71vqfqVM/M2nDv7/Pe++c9
 +NROd9U5p74nVHV1dXXXkNGTLxg7fvTkC8eMDg+8bPSlF1w45vLwgImXIctX
@@ -7401,8 +7401,8 @@ MBLfPTZBXhO5ilS49qgFQXWV0tsC8nLWxnB1BPld6GUP6Utda3PPxneQDZHq
 QYW6LKugh+OurAbqrQQFTzbVxXE9YGjxdw/BaVfTFhDOi4CDwsZdW6X0WWUu
 FaHKEpSWKf6MQFBT1V3uIfiVnAll0ovxlIOF26m/oCMoAWLc8ujkE4oa9Jor
 dFlOL8Ufp+GXUBUVQS4xpNJ8WdzStSzYswilpSs8wL1q8lBNsZBStQYZT1Pu
-n5eI10xeOJRHJ0De9SBf9f9BkS6RDD1mvleIiv4X/XWZVA==\
-\>", "ImageResolution" -> \
+n5eI10xeOJRHJ0De9SBf9f9BkS6RDD1mvleIiv4X/XWZVA==/
+/>", "ImageResolution" -> /
 96.],ExpressionUUID->"20952ee7-b7c2-43be-8bc3-98c358701a68"],
 
 Cell[BoxData[
@@ -18825,8 +18825,8 @@ Cell[BoxData[
     RowBox[{
      RowBox[{"-", 
       FractionBox["1", "2"]}], "+", 
-     SuperscriptBox["\[ExponentialE]", 
-      RowBox[{"\[ImaginaryI]", " ", "w"}]]}], ")"}], "2"]]], "Output",
+     SuperscriptBox["/[ExponentialE]", 
+      RowBox[{"/[ImaginaryI]", " ", "w"}]]}], ")"}], "2"]]], "Output",
  CellChangeTimes->{
   3.8898552379537096`*^9, 3.889855278714668*^9, {3.8898553627264214`*^9, 
    3.889855378333426*^9}, {3.8898554857658844`*^9, 3.889855535874928*^9}, {
@@ -19790,10 +19790,10 @@ YuZrjDMMg/8BYG6wJw==
 Cell[BoxData[
  TagBox[
   StyleBox[
-   DynamicModuleBox[{$CellContext`a$$ = -10, $CellContext`b$$ = -10, \
+   DynamicModuleBox[{$CellContext`a$$ = -10, $CellContext`b$$ = -10, /
 $CellContext`c$$ = -10, Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
     Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
-    1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{
+    1, Typeset`name$$ = "/"untitled/"", Typeset`specs$$ = {{
       Hold[$CellContext`a$$], -10, 10}, {
       Hold[$CellContext`b$$], -10, 10}, {
       Hold[$CellContext`c$$], -10, 10}}, Typeset`size$$ = {
@@ -19801,14 +19801,14 @@ $CellContext`c$$ = -10, Typeset`show$$ = True, Typeset`bookmarkList$$ = {},
     Typeset`initDone$$, Typeset`skipInitDone$$ = True}, 
     DynamicBox[Manipulate`ManipulateBoxes[
      1, StandardForm, 
-      "Variables" :> {$CellContext`a$$ = -10, $CellContext`b$$ = -10, \
+      "Variables" :> {$CellContext`a$$ = -10, $CellContext`b$$ = -10, /
 $CellContext`c$$ = -10}, "ControllerVariables" :> {}, 
       "OtherVariables" :> {
        Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
         Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
         Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
          Typeset`skipInitDone$$}, "Body" :> 
-      Plot[$CellContext`a$$ $CellContext`x^2 + $CellContext`b$$ \
+      Plot[$CellContext`a$$ $CellContext`x^2 + $CellContext`b$$ /
 $CellContext`x + $CellContext`c$$, {$CellContext`x, -10, 10}], 
       "Specifications" :> {{$CellContext`a$$, -10, 
          10}, {$CellContext`b$$, -10, 10}, {$CellContext`c$$, -10, 10}}, 
@@ -19851,7 +19851,7 @@ Cell[BoxData[
    DynamicModuleBox[{$CellContext`n$$ = 10, Typeset`show$$ = True, 
     Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
     Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
-    "\"untitled\"", Typeset`specs$$ = {{
+    "/"untitled/"", Typeset`specs$$ = {{
       Hold[$CellContext`n$$], 10, 100, 13}}, Typeset`size$$ = {
     85.05478799343109, {0., 9.}}, Typeset`update$$ = 0, Typeset`initDone$$, 
     Typeset`skipInitDone$$ = True}, 
@@ -26213,7 +26213,7 @@ z/o2sKFRNrKxTWzqf2Rhe/0=
            RowBox[{"Cos", "[", 
              TagBox["x", HoldForm], "]"}], "+", 
            RowBox[{"Cos", "[", 
-             TagBox["y", HoldForm], "]"}]}], "\[Equal]", 
+             TagBox["y", HoldForm], "]"}]}], "/[Equal]", 
          FractionBox["1", "2"]}]],
       Annotation[#, Cos[
           HoldForm[$CellContext`x]] + Cos[
@@ -26507,7 +26507,7 @@ p44H1POQBhppopkWWnnEY9pop4MndNLFU57xH6PpRfc=
              RowBox[{"Sin", "[", 
                TagBox["x", HoldForm], "]"}], " ", 
              RowBox[{"Sin", "[", 
-               TagBox["y", HoldForm], "]"}]}], "]"}], "\[Equal]", "0.5`"}]],
+               TagBox["y", HoldForm], "]"}]}], "]"}], "/[Equal]", "0.5`"}]],
       Annotation[#, Abs[Sin[
            HoldForm[$CellContext`x]] Sin[
            HoldForm[$CellContext`y]]] == 0.5, "Tooltip"]& ], 
@@ -26566,7 +26566,7 @@ bfaeLbZ63wc+9JGPfeJT22z3mc/tsNMuu31hjy995Wvf2Gufb+33ne/94Ec/
              RowBox[{"Cos", "[", 
                TagBox["x", HoldForm], "]"}], " ", 
              RowBox[{"Cos", "[", 
-               TagBox["y", HoldForm], "]"}]}], "]"}], "\[Equal]", "0.5`"}]],
+               TagBox["y", HoldForm], "]"}]}], "]"}], "/[Equal]", "0.5`"}]],
       Annotation[#, Abs[Cos[
            HoldForm[$CellContext`x]] Cos[
            HoldForm[$CellContext`y]]] == 0.5, "Tooltip"]& ]}], {}},

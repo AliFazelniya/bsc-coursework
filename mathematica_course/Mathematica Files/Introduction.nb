@@ -21,14 +21,14 @@ Notebook[{
 
 Cell[CellGroupData[{
 Cell[BoxData[{
- RowBox[{"Remove", "[", "\"\<Global`*\>\"", "]"}], "\[IndentingNewLine]", 
- RowBox[{"Clear", "[", "\"\<Global`*\>\"", "]"}], "\[IndentingNewLine]", 
- RowBox[{"a", " ", "=", " ", "5"}], "\[IndentingNewLine]", 
- RowBox[{"b", " ", "=", " ", "8"}], "\[IndentingNewLine]", 
- RowBox[{"a", " ", "+", " ", "b"}], "\[IndentingNewLine]", 
- RowBox[{"a", " ", "-", " ", "b"}], "\[IndentingNewLine]", 
- RowBox[{"a", " ", "*", " ", "b"}], "\[IndentingNewLine]", 
- RowBox[{"a", " ", "/", " ", "b"}], "\[IndentingNewLine]", 
+ RowBox[{"Remove", "[", "/"/<Global`*/>/"", "]"}], "/[IndentingNewLine]", 
+ RowBox[{"Clear", "[", "/"/<Global`*/>/"", "]"}], "/[IndentingNewLine]", 
+ RowBox[{"a", " ", "=", " ", "5"}], "/[IndentingNewLine]", 
+ RowBox[{"b", " ", "=", " ", "8"}], "/[IndentingNewLine]", 
+ RowBox[{"a", " ", "+", " ", "b"}], "/[IndentingNewLine]", 
+ RowBox[{"a", " ", "-", " ", "b"}], "/[IndentingNewLine]", 
+ RowBox[{"a", " ", "*", " ", "b"}], "/[IndentingNewLine]", 
+ RowBox[{"a", " ", "/", " ", "b"}], "/[IndentingNewLine]", 
  FractionBox["a", "b"]}], "Input",
  CellChangeTimes->{{3.889686414838272*^9, 3.889686527791136*^9}},
  CellLabel->
@@ -76,44 +76,44 @@ Cell[BoxData[
 Cell[CellGroupData[{
 
 Cell[BoxData[
- RowBox[{"\[IndentingNewLine]", 
+ RowBox[{"/[IndentingNewLine]", 
   RowBox[{
    RowBox[{"t", " ", "=", " ", 
-    RowBox[{"t", " ", "+", "1"}]}], "\[IndentingNewLine]", 
+    RowBox[{"t", " ", "+", "1"}]}], "/[IndentingNewLine]", 
    RowBox[{"F", " ", "=", " ", 
     RowBox[{
-     SuperscriptBox["x", "2"], " ", "+", " ", "1"}]}], "\[IndentingNewLine]", 
+     SuperscriptBox["x", "2"], " ", "+", " ", "1"}]}], "/[IndentingNewLine]", 
    RowBox[{"x", " ", "=", " ", 
-    RowBox[{"y", "+", "1"}]}], "\[IndentingNewLine]", "f", 
-   "\[IndentingNewLine]", 
+    RowBox[{"y", "+", "1"}]}], "/[IndentingNewLine]", "f", 
+   "/[IndentingNewLine]", 
    RowBox[{"g", " ", "=", " ", 
     RowBox[{
-     SuperscriptBox["z", "2"], "+", "z", "+", "1"}]}], "\[IndentingNewLine]", 
+     SuperscriptBox["z", "2"], "+", "z", "+", "1"}]}], "/[IndentingNewLine]", 
    RowBox[{"g", " ", "/.", 
     RowBox[{"z", " ", "->", " ", 
      RowBox[{"(", 
-      RowBox[{"v", "+", "1"}], ")"}]}]}], "\[IndentingNewLine]", 
+      RowBox[{"v", "+", "1"}], ")"}]}]}], "/[IndentingNewLine]", 
    RowBox[{"N", "[", 
-    FractionBox["8", "7"], "]"}], "\[IndentingNewLine]", 
+    FractionBox["8", "7"], "]"}], "/[IndentingNewLine]", 
    RowBox[{"N", "[", 
     RowBox[{
-     FractionBox["8", "7"], ",", "10"}], "]"}], "\[IndentingNewLine]", 
+     FractionBox["8", "7"], ",", "10"}], "]"}], "/[IndentingNewLine]", 
    RowBox[{
     FractionBox["1", "3"], "//", "N"}]}]}]], "Input",
  CellChangeTimes->{{3.8896865401043887`*^9, 
-  3.889686719345795*^9}},ExpressionUUID->"d11277eb-7835-40ef-9692-\
+  3.889686719345795*^9}},ExpressionUUID->"d11277eb-7835-40ef-9692-/
 2aea3253f86b"],
 
 Cell[BoxData[
  TemplateBox[{
   "$RecursionLimit", "reclim2", 
-   "\"Recursion depth of \\!\\(\\*RowBox[{\\\"1024\\\"}]\\) exceeded during \
-evaluation of \\!\\(\\*RowBox[{\\\"1\\\", \\\"+\\\", \\\"t\\\"}]\\).\"", 2, 
+   "/"Recursion depth of //!//(//*RowBox[{///"1024///"}]//) exceeded during /
+evaluation of //!//(//*RowBox[{///"1///", ///"+///", ///"t///"}]//)./"", 2, 
    2206, 7, 17383003091221495044, "Local"},
   "MessageTemplate"]], "Message", "MSG",
  CellChangeTimes->{3.8896866522358756`*^9},
  CellLabel->
-  "During evaluation of \
+  "During evaluation of /
 In[2206]:=",ExpressionUUID->"90ebca62-690e-407a-bf6c-5dca28451c4b"],
 
 Cell[BoxData[

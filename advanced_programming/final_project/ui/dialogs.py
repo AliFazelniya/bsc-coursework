@@ -10,7 +10,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 from database import add_user, authenticate_user, save_transaction
 
 
-EMAIL_PATTERN = re.compile(r"^[^@\s]+@[^@\s]+\.[^@\s]+$")
+EMAIL_PATTERN = re.compile(r"^[^@/s]+@[^@/s]+/.[^@/s]+$")
 
 
 def _show_error(parent: QtWidgets.QWidget, title: str, message: str) -> None:
@@ -66,7 +66,7 @@ class SignupDialog(QtWidgets.QDialog):
         self.phone_input = QtWidgets.QLineEdit()
         self.phone_input.setValidator(
             QtGui.QRegularExpressionValidator(
-                QtCore.QRegularExpression(r"\+?[0-9]{7,20}")
+                QtCore.QRegularExpression(r"/+?[0-9]{7,20}")
             )
         )
         self.password_input = QtWidgets.QLineEdit()

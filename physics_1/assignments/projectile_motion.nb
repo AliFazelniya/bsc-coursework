@@ -21,12 +21,12 @@ Notebook[{
 
 Cell[CellGroupData[{
 Cell[BoxData[{
- RowBox[{"Clear", "[", "\"\<Global`*\>\"", "]"}], "\[IndentingNewLine]", 
- RowBox[{"Remove", "[", "\"\<Global`*\>\"", "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Clear", "[", "/"/<Global`*/>/"", "]"}], "/[IndentingNewLine]", 
+ RowBox[{"Remove", "[", "/"/<Global`*/>/"", "]"}], "/[IndentingNewLine]", 
  RowBox[{
-  RowBox[{"V", " ", "=", " ", "1"}], ";"}], "\[IndentingNewLine]", 
+  RowBox[{"V", " ", "=", " ", "1"}], ";"}], "/[IndentingNewLine]", 
  RowBox[{
-  RowBox[{"g", " ", "=", " ", "10"}], ";"}], "\[IndentingNewLine]", 
+  RowBox[{"g", " ", "=", " ", "10"}], ";"}], "/[IndentingNewLine]", 
  RowBox[{
   RowBox[{"Manipulate", "[", 
    RowBox[{
@@ -42,10 +42,10 @@ Cell[BoxData[{
           SuperscriptBox["V", "2"], "*", 
           SuperscriptBox[
            RowBox[{"(", 
-            RowBox[{"Cos", "[", "\[Theta]", "]"}], ")"}], "2"]}]]}], " ", "+",
+            RowBox[{"Cos", "[", "/[Theta]", "]"}], ")"}], "2"]}]]}], " ", "+",
         " ", 
        RowBox[{
-        RowBox[{"Tan", "[", "\[Theta]", "]"}], "*", " ", "x"}]}], " ", ",", 
+        RowBox[{"Tan", "[", "/[Theta]", "]"}], "*", " ", "x"}]}], " ", ",", 
       " ", 
       RowBox[{"{", 
        RowBox[{"x", " ", ",", " ", "0", " ", ",", " ", "10"}], "}"}], ",", 
@@ -54,9 +54,9 @@ Cell[BoxData[{
        RowBox[{"{", 
         RowBox[{"x", " ", ",", " ", "y"}], "}"}]}]}], "]"}], ",", " ", 
     RowBox[{"{", 
-     RowBox[{"\[Theta]", " ", ",", " ", 
-      FractionBox["\[Pi]", "6"], " ", ",", " ", "\[Pi]"}], "}"}]}], "  ", 
-   "]"}], "\[IndentingNewLine]"}], "\[IndentingNewLine]"}], "Input",
+     RowBox[{"/[Theta]", " ", ",", " ", 
+      FractionBox["/[Pi]", "6"], " ", ",", " ", "/[Pi]"}], "}"}]}], "  ", 
+   "]"}], "/[IndentingNewLine]"}], "/[IndentingNewLine]"}], "Input",
  CellChangeTimes->{{3.875600569759615*^9, 3.8756009718988857`*^9}, {
    3.8756010422475805`*^9, 3.875601112150838*^9}, {3.875601178413248*^9, 
    3.8756012690477667`*^9}, 3.875601369883073*^9, {3.8756014399073925`*^9, 
@@ -66,16 +66,16 @@ Cell[BoxData[{
 Cell[BoxData[
  TagBox[
   StyleBox[
-   DynamicModuleBox[{$CellContext`\[Theta]$$ = 0.5235987755982988, 
+   DynamicModuleBox[{$CellContext`/[Theta]$$ = 0.5235987755982988, 
     Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
     Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
-    1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{
-      Hold[$CellContext`\[Theta]$$], Rational[1, 6] Pi, Pi}}, 
+    1, Typeset`name$$ = "/"untitled/"", Typeset`specs$$ = {{
+      Hold[$CellContext`/[Theta]$$], Rational[1, 6] Pi, Pi}}, 
     Typeset`size$$ = {360., {108., 112.17235769049282`}}, Typeset`update$$ = 
     0, Typeset`initDone$$, Typeset`skipInitDone$$ = True}, 
     DynamicBox[Manipulate`ManipulateBoxes[
      1, StandardForm, 
-      "Variables" :> {$CellContext`\[Theta]$$ = Rational[1, 6] Pi}, 
+      "Variables" :> {$CellContext`/[Theta]$$ = Rational[1, 6] Pi}, 
       "ControllerVariables" :> {}, 
       "OtherVariables" :> {
        Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
@@ -83,10 +83,10 @@ Cell[BoxData[
         Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
          Typeset`skipInitDone$$}, "Body" :> 
       Plot[((-1)/2) $CellContext`g ($CellContext`x^2/($CellContext`V^2 
-          Cos[$CellContext`\[Theta]$$]^2)) + 
-        Tan[$CellContext`\[Theta]$$] $CellContext`x, {$CellContext`x, 0, 10}, 
+          Cos[$CellContext`/[Theta]$$]^2)) + 
+        Tan[$CellContext`/[Theta]$$] $CellContext`x, {$CellContext`x, 0, 10}, 
         AxesLabel -> {$CellContext`x, $CellContext`y}], 
-      "Specifications" :> {{$CellContext`\[Theta]$$, Rational[1, 6] Pi, Pi}}, 
+      "Specifications" :> {{$CellContext`/[Theta]$$, Rational[1, 6] Pi, Pi}}, 
       "Options" :> {}, "DefaultOptions" :> {}],
      ImageSizeCache->{410., {152.13403309800196`, 157.86596690199804`}},
      SingleEvaluation->True],
@@ -103,9 +103,9 @@ Cell[BoxData[
  CellLabel->"Out[5]=",ExpressionUUID->"bfb62b87-2b1b-4939-9a11-99f5342f67bf"]
 }, Open  ]],
 
-Cell[BoxData["\[IndentingNewLine]"], "Input",
+Cell[BoxData["/[IndentingNewLine]"], "Input",
  CellChangeTimes->{
-  3.8756011989496098`*^9},ExpressionUUID->"36acc818-1855-42a9-9d92-\
+  3.8756011989496098`*^9},ExpressionUUID->"36acc818-1855-42a9-9d92-/
 0b7127c1a47b"]
 },
 WindowSize->{1012.5, 501.75},

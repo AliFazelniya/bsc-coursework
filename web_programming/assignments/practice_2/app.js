@@ -1,28 +1,28 @@
 // همه‌چیز داخل یک IIFE برای تمیز بودن فضای گلوبال
 (function () {
-  'use strict';
+  "use strict";
 
   const ITEMS_PER_PAGE = 6;
   const DISCOUNT_PROBABILITY = 0.02; // ۲٪ احتمال تخفیف
 
   let products = [];
-  let currentPage = loadFromLocalStorage('lastPage', 1) || 1;
-  let cart = loadFromLocalStorage('cartItems', []);
+  let currentPage = loadFromLocalStorage("lastPage", 1) || 1;
+  let cart = loadFromLocalStorage("cartItems", []);
 
   // --- گرفتن المنت‌ها از DOM ---
-  const productsContainer = document.getElementById('products-container');
-  const btnPrev = document.getElementById('btn-prev');
-  const btnNext = document.getElementById('btn-next');
-  const pageInfo = document.getElementById('page-info');
+  const productsContainer = document.getElementById("products-container");
+  const btnPrev = document.getElementById("btn-prev");
+  const btnNext = document.getElementById("btn-next");
+  const pageInfo = document.getElementById("page-info");
 
-  const cartList = document.getElementById('cart-list');
-  const cartSummary = document.getElementById('cart-summary');
+  const cartList = document.getElementById("cart-list");
+  const cartSummary = document.getElementById("cart-summary");
 
-  const discountBanner = document.getElementById('discount-banner');
+  const discountBanner = document.getElementById("discount-banner");
 
-  const statAdd = document.getElementById('stat-add');
-  const statDetails = document.getElementById('stat-details');
-  const statPageClicks = document.getElementById('stat-pageClicks');
+  const statAdd = document.getElementById("stat-add");
+  const statDetails = document.getElementById("stat-details");
+  const statPageClicks = document.getElementById("stat-pageClicks");
 
   // --- localStorage helpers ---
 
@@ -52,12 +52,12 @@
 
   // خواندن از کوکی
   function getCookie(name) {
-    const decoded = decodeURIComponent(document.cookie || '');
-    const parts = decoded.split(';');
+    const decoded = decodeURIComponent(document.cookie || "");
+    const parts = decoded.split(";");
     for (let p of parts) {
       p = p.trim();
       if (!p) continue;
-      const [key, val] = p.split('=');
+      const [key, val] = p.split("=");
       if (key === name) return val;
     }
     return null;
@@ -77,28 +77,28 @@
         }
         return count;
       },
-      get: () => count // arrow function
+      get: () => count, // arrow function
     };
   }
 
   // ـــ این دوتا در localStorage ذخیره می‌شن ـــــ
   const addClicksCounter = createClickCounter(
-    loadFromLocalStorage('clicks_addToCart', 0),
+    loadFromLocalStorage("clicks_addToCart", 0),
     saveToLocalStorage,
-    'clicks_addToCart'
+    "clicks_addToCart",
   );
 
   const detailsClicksCounter = createClickCounter(
-    loadFromLocalStorage('clicks_viewDetails', 0),
+    loadFromLocalStorage("clicks_viewDetails", 0),
     saveToLocalStorage,
-    'clicks_viewDetails'
+    "clicks_viewDetails",
   );
 
   // ـــ این یکی در کوکی ذخیره می‌شه (pageNavClicks) ـــــ
   const pageClicksCounter = createClickCounter(
-    Number(getCookie('pageNavClicks') || '0'),
+    Number(getCookie("pageNavClicks") || "0"),
     setCookie,
-    'pageNavClicks'
+    "pageNavClicks",
   );
 
   // --- توابع مربوط به محصولات و صفحه‌بندی ---
@@ -118,19 +118,19 @@
     if (page > totalPages) page = totalPages;
 
     currentPage = page;
-    saveToLocalStorage('lastPage', currentPage);
+    saveToLocalStorage("lastPage", currentPage);
 
-    productsContainer.innerHTML = '';
+    productsContainer.innerHTML = "";
 
     const pageProducts = getPageProducts(currentPage);
 
     pageProducts.forEach((product) => {
-      const card = document.createElement('div');
-      card.className = 'product-card';
+      const card = document.createElement("div");
+      card.className = "product-card";
       card.innerHTML = `
         <img src="${product.image}" alt="${product.title}">
         <div class="product-title">${product.title}</div>
-        <div class="product-price">${product.price.toLocaleString('fa-IR')} تومان</div>
+        <div class="product-price">${product.price.toLocaleString("fa-IR")} تومان</div>
         <div class="product-actions">
           <button class="btn-add" data-id="${product.id}">افزودن به سبد</button>
           <button class="btn-details" data-id="${product.id}">جزئیات</button>
@@ -147,16 +147,16 @@
   }
 
   function attachProductButtonsEvents() {
-    const addButtons = document.querySelectorAll('.btn-add');
-    const detailButtons = document.querySelectorAll('.btn-details');
+    const addButtons = document.querySelectorAll(".btn-add");
+    const detailButtons = document.querySelectorAll(".btn-details");
 
     // callback ها
     addButtons.forEach((btn) => {
-      btn.addEventListener('click', onAddToCartClick);
+      btn.addEventListener("click", onAddToCartClick);
     });
 
     detailButtons.forEach((btn) => {
-      btn.addEventListener('click', onDetailsClick);
+      btn.addEventListener("click", onDetailsClick);
     });
   }
 
@@ -166,8 +166,7 @@
     return cart.findIndex((item) => item.id === productId);
   }
 
-  const getCartTotalCount = () =>
-    cart.reduce((sum, item) => sum + item.qty, 0);
+  const getCartTotalCount = () => cart.reduce((sum, item) => sum + item.qty, 0);
 
   const getCartTotalPrice = () =>
     cart.reduce((sum, item) => {
@@ -176,7 +175,7 @@
     }, 0);
 
   function renderCartList() {
-    cartList.innerHTML = '';
+    cartList.innerHTML = "";
     if (!cart.length) {
       cartList.innerHTML = '<li class="muted">سبد خرید خالی است.</li>';
       return;
@@ -184,7 +183,7 @@
 
     cart.forEach((item) => {
       const product = products.find((p) => p.id === item.id);
-      const li = document.createElement('li');
+      const li = document.createElement("li");
       li.textContent = `${product.title} - تعداد: ${item.qty}`;
       cartList.appendChild(li);
     });
@@ -193,18 +192,17 @@
   function updateCartSummary() {
     const totalCount = getCartTotalCount();
     const totalPrice = getCartTotalPrice();
-    cartSummary.textContent =
-      `سبد خرید: ${totalCount} کالا (جمع تقریبی: ${totalPrice.toLocaleString('fa-IR')} تومان)`;
+    cartSummary.textContent = `سبد خرید: ${totalCount} کالا (جمع تقریبی: ${totalPrice.toLocaleString("fa-IR")} تومان)`;
   }
 
   function persistCart() {
-    saveToLocalStorage('cartItems', cart);
+    saveToLocalStorage("cartItems", cart);
   }
 
   // --- هندلر رویدادها ---
 
   function onAddToCartClick(event) {
-    const id = Number(event.target.getAttribute('data-id'));
+    const id = Number(event.target.getAttribute("data-id"));
     const index = findCartItemIndex(id);
     if (index === -1) {
       cart.push({ id, qty: 1 });
@@ -222,17 +220,14 @@
   }
 
   function onDetailsClick(event) {
-    const id = Number(event.target.getAttribute('data-id'));
+    const id = Number(event.target.getAttribute("data-id"));
     const product = products.find((p) => p.id === id);
 
     // کلیک روی جزئیات → در localStorage
     detailsClicksCounter.increment();
     updateClickStatsUI(); // همان لحظه UI آپدیت می‌شود
 
-    alert(
-      `جزئیات محصول:\n\n` +
-      `${product.description}\n` 
-    );
+    alert(`جزئیات محصول:/n/n` + `${product.description}/n`);
   }
 
   function onPrevClick() {
@@ -270,34 +265,33 @@
     const r = Math.random();
     if (r < DISCOUNT_PROBABILITY) {
       const percent = Math.floor(Math.random() * 30) + 1; // ۱ تا ۳۰
-      discountBanner.style.display = 'block';
-      discountBanner.textContent =
-        `تبریک! شما یک کد تخفیف تصادفی ${percent}٪ دریافت کردید.`;
+      discountBanner.style.display = "block";
+      discountBanner.textContent = `تبریک! شما یک کد تخفیف تصادفی ${percent}٪ دریافت کردید.`;
     } else {
-      discountBanner.style.display = 'none';
+      discountBanner.style.display = "none";
     }
   }
 
   // --- بارگذاری محصولات از JSON (callback) ---
 
   function loadProducts(callback) {
-    fetch('products.json')
+    fetch("products.json")
       .then((res) => res.json())
       .then((data) => {
         products = data;
         callback(); // callback function
       })
       .catch((err) => {
-        console.error('خطا در لود products.json', err);
+        console.error("خطا در لود products.json", err);
         // fallback اگر JSON لود نشد - اینجا propertyها را با بقیه هماهنگ می‌کنیم
         products = [
           {
             id: 1,
-            title: 'محصول پشتیبان',
+            title: "محصول پشتیبان",
             price: 1000,
-            image: 'https://via.placeholder.com/200x150?text=Fallback',
-            description: 'محصول پیش‌فرض در صورت مشکل در JSON'
-          }
+            image: "https://via.placeholder.com/200x150?text=Fallback",
+            description: "محصول پیش‌فرض در صورت مشکل در JSON",
+          },
         ];
         callback();
       });
@@ -307,8 +301,8 @@
 
   function init() {
     // رویدادهای صفحه‌بندی
-    btnPrev.addEventListener('click', onPrevClick);
-    btnNext.addEventListener('click', onNextClick);
+    btnPrev.addEventListener("click", onPrevClick);
+    btnNext.addEventListener("click", onNextClick);
 
     updateClickStatsUI();
     maybeShowRandomDiscount();
@@ -326,5 +320,4 @@
 
   // اجرا
   init();
-
 })();
