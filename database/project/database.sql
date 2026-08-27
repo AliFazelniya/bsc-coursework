@@ -785,13 +785,13 @@ INSERT INTO Coaching_degree VALUES (91, 'UEFA A License');
 
 -- 4.6 Head Coaches
 Select * from head_coach
-INSERT INTO head_coach VALUES(1,'Luis', 'Gomez', '623456789', 1, 'images\head_coaches\1');
-INSERT INTO head_coach VALUES(2,'Andres', 'Moreno', '698765432', 2, 'images\head_coaches\2');
-INSERT INTO head_coach VALUES(3, 'Danielle', 'Ford', '653979852', 3, 'images\head_coaches\3');
-INSERT INTO head_coach VALUES(4, 'Kelly', 'Patterson', '678873098', 4, 'images\head_coaches\4');
-INSERT INTO head_coach VALUES(5, 'Donna', 'Williamson','685410706', 5, 'images\head_coaches\5');
-INSERT INTO head_coach VALUES(6, 'Jessica', 'King', '627290299', 6, 'images\head_coaches\6');
-INSERT INTO head_coach VALUES(7,'Raul', 'Hernandez', '654321098', 7, 'images\head_coaches\7');
+INSERT INTO head_coach VALUES(1,'Luis', 'Gomez', '623456789', 1, 'images\head_coaches\1.jpg');
+INSERT INTO head_coach VALUES(2,'Andres', 'Moreno', '698765432', 2, 'images\head_coaches\2.jpg');
+INSERT INTO head_coach VALUES(3, 'Danielle', 'Ford', '653979852', 3, 'images\head_coaches\3.jpg');
+INSERT INTO head_coach VALUES(4, 'Kelly', 'Patterson', '678873098', 4, 'images\head_coaches\4.jpg');
+INSERT INTO head_coach VALUES(5, 'Donna', 'Williamson','685410706', 5, 'images\head_coaches\5.jpg');
+INSERT INTO head_coach VALUES(6, 'Jessica', 'King', '627290299', 6, 'images\head_coaches\6.jpg');
+INSERT INTO head_coach VALUES(7,'Raul', 'Hernandez', '654321098', 7, 'images\head_coaches\7.jpg');
 
 Select * from Head_Coaching_Degree
 INSERT INTO Head_Coaching_Degree VALUES(1,'UEFA A License');
