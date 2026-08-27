@@ -233,7 +233,7 @@ CREATE TABLE Substitution (
 	team_id SMALLINT,
 	player_in_id SMALLINT,
 	player_out_id SMALLINT,
-	sub_minute SMALLINT, -- Changed from 'minute' (reserved keyword in some systems)
+	sub_minute SMALLINT,
 	PRIMARY KEY(match_id, team_id, player_in_id, player_out_id)
 );
 
@@ -241,6 +241,7 @@ CREATE TABLE Card_Received_in_Match (
 	match_id SMALLINT,
 	team_id SMALLINT,
 	player_id SMALLINT,
+	card_minute SMALLINT,
 	card_type varchar(7),
 	PRIMARY KEY(match_id, team_id, player_id)
 );
@@ -464,11 +465,11 @@ INSERT INTO Player VALUES (89, 'Joshua', 'Lloyd', 31, 'Palestinian Territory', '
 INSERT INTO Player VALUES (90, 'Dana', 'Kim', 35, 'South Georgia and the South Sandwich Islands', 'CM',2872483, 29, 89,NULL, NULL,NULL, NULL, NULL, '2067-05-25',5, 'images\players\Player  (90)');
 INSERT INTO Player VALUES (91, 'Charles', 'Mcdowell', 31, 'Lebanon', 'RW',6385227, 17, 73, NULL, NULL,NULL, NULL, NULL, '2066-06-24',5, 'images\players\Player  (91)');
 INSERT INTO Player VALUES (92, 'Christopher', 'Schultz', 27, 'Palau', 'CDM',18457079, 20, 82, NULL, NULL,NULL, NULL, NULL, '2066-08-30', 5, 'images\players\Player  (92)');
-INSERT INTO Player VALUES (93,'Joseph','Young',34,'Saint Helena','CDM',11483614,99,87,NULL,NULL,NULL,NULL,'2067-11-15',5,'images\players\Player  (93)');
-INSERT INTO Player VALUES (94,'Christian','Allen',30,'Tunisia','CB',7796417,30,63,NULL,NULL,NULL,NULL,'2067-03-16',5,'images\players\Player  (94)');
-INSERT INTO Player VALUES (95,'Melissa','Dunlap',34,'Guyana','LW',16199238,35,68,NULL,NULL,NULL,NULL,'2068-01-07',5,'images\players\Player  (95)');
-INSERT INTO Player VALUES (96,'Brandy','Miller',20,'United States Virgin Islands','RW',10897659,22,76,NULL,NULL,NULL,NULL,'2067-11-20',5,'images\players\Player  (96)');
-INSERT INTO Player VALUES (97,'Wayne','Schmidt',21,'Yemen','LW',15513278,75,62,NULL,NULL,NULL,NULL,'2067-05-12',5,'images\players\Player  (97)');
+INSERT INTO Player VALUES (93,'Joseph','Young',34,'Saint Helena','CDM',11483614,99,87,NULL,NULL,NULL,NULL,NULL,'2067-11-15',5,'images\players\Player  (93)');
+INSERT INTO Player VALUES (94,'Christian','Allen',30,'Tunisia','CB',7796417,30,63,NULL,NULL,NULL,NULL,NULL,'2067-03-16',5,'images\players\Player  (94)');
+INSERT INTO Player VALUES (95,'Melissa','Dunlap',34,'Guyana','LW',16199238,35,68,NULL,NULL,NULL,NULL,NULL,'2068-01-07',5,'images\players\Player  (95)');
+INSERT INTO Player VALUES (96,'Brandy','Miller',20,'United States Virgin Islands','RW',10897659,22,76,NULL,NULL,NULL,NULL,NULL,'2067-11-20',5,'images\players\Player  (96)');
+INSERT INTO Player VALUES (97,'Wayne','Schmidt',21,'Yemen','LW',15513278,75,62,NULL,NULL,NULL,NULL,NULL,'2067-05-12',5,'images\players\Player  (97)');
 INSERT INTO Player VALUES (98, 'Amy', 'Sanford', 26, 'Lebanon', 'CM',16714423, 54, 82, NULL, NULL,NULL, NULL, NULL, '2068-05-05',5,'images\players\Player  (98)');
 INSERT INTO Player VALUES (99, 'Cassandra', 'Thompson', 25, 'Algeria', 'CB',9706872, 79, 89, NULL, NULL,NULL, NULL, NULL, '2067-09-11',5,'images\players\Player  (99)');
 INSERT INTO Player VALUES (100, 'Stephen', 'Johnson', 21, 'Burkina Faso', 'GK',9264555, 67, 82, NULL, NULL,NULL, NULL, NULL, '2067-05-03',5,'images\players\Player  (100)');
@@ -492,8 +493,8 @@ INSERT INTO Player VALUES (115, 'Kristy', 'Reynolds', 32, 'Jamaica', 'RW',180028
 INSERT INTO Player VALUES (116, 'Meagan', 'Ellis', 22, 'Syrian Arab Republic', 'CM',18900201, 60, 66, NULL, NULL,NULL, NULL, NULL, '2068-10-02',6,'images\players\Player  (116)');
 INSERT INTO Player VALUES (117, 'Sara', 'Hubbard', 31, 'Barbados', 'RB',16420909, 79, 80, NULL, NULL,NULL, NULL, NULL, '2067-05-11',6,'images\players\Player  (117)');
 INSERT INTO Player VALUES (118, 'Rebecca', 'Cervantes', 26, 'Chile', 'CDM',16652365, 41, 77, NULL, NULL,NULL, NULL, NULL, '2066-08-04',6,'images\players\Player  (118)');
-INSERT INTO Player VALUES (119, 'Tara', 'Abbott', 23, 'Brazil', 'CDM',18269363, 16, 90, NULL, NULL,NULL, NULL,(NULL),'2066-10-09',6,'images\players\Player  (119)');
-INSERT INTO Player VALUES (120, 'Chase', 'West', 29, 'Pakistan', 'ST',18883884, 66, 69,(NULL),(NULL),(NULL),(NULL),(NULL),'2067-09-15' ,6 ,'images\players\Player  (120)');
+INSERT INTO Player VALUES (119, 'Tara', 'Abbott', 23, 'Brazil', 'CDM',18269363, 16, 90, NULL, NULL,NULL, NULL,NULL,'2066-10-09',6,'images\players\Player  (119)');
+INSERT INTO Player VALUES (120, 'Chase', 'West', 29, 'Pakistan', 'ST',18883884, 66, 69,NULL,NULL,NULL,NULL,NULL,'2067-09-15' ,6 ,'images\players\Player  (120)');
 
 -- Tractor Galactico CF
 INSERT INTO Player VALUES(121, 'Evan', 'Nguyen', 27, 'Bolivia', 'GK',17545194, 1, 79, NULL, NULL,NULL, NULL, NULL, '2063-11-22',7,'images\players\Player  (121)');
@@ -3010,7 +3011,7 @@ FROM (
 WHERE referee.referee_id = red_stats.referee_id;
 
 UPDATE referee
-SET total_matchs_number = match_stats.match_count
+SET total_Matches_number = match_stats.match_count
 FROM (
     SELECT referee_id, COUNT(*) AS match_count FROM Referee_Per_Match GROUP BY referee_id
 ) AS match_stats

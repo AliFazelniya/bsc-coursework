@@ -8,6 +8,8 @@ from PyQt5.QtCore import Qt, QSize
 import sys
 import os
 from urllib.parse import quote_plus
+from dotenv import load_dotenv
+load_dotenv()
 # ==========================================
 # 1. Database Configuration
 # ==========================================
@@ -167,7 +169,7 @@ class MainLeagueApp(QMainWindow):
     def __init__(self):
         super().__init__()
         self.setWindowTitle("Soccer League Dashboard")
-        self.setWindowIcon(QtGui.QIcon("League logo.png"))
+        self.setWindowIcon(QtGui.QIcon("images/logos/league_logo.png"))
         self.setFixedSize(1470, 1000)
 
         # QStackedWidget acts like a multi-page book
